@@ -1,0 +1,93 @@
+/* ==========================================================================
+   P7 — SISTEMA TIPOGRÁFICO OPCIÓN 1 (BESPOKE LUXURY BARBERSHOP)
+   Fuentes Oficiales: Fontshare (Boska, General Sans, Satoshi) + OpenFont/Google Fonts (Rye, Cormorant Garamond)
+   ========================================================================== */
+
+@import url('https://api.fontshare.com/v2/css?f[]=boska@400,401,500,501,600,700,701&f[]=general-sans@400,500,600,700&f[]=satoshi@400,500,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Rye&display=swap');
+
+:root {
+  /* Familias Tipográficas Principales */
+  --font-display: 'Boska', 'Cormorant Garamond', Georgia, serif;
+  --font-sans: 'General Sans', 'Satoshi', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-sans-alt: 'Satoshi', 'General Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-western: 'Rye', 'Boska', Georgia, serif;
+  --font-serif-fallback: 'Cormorant Garamond', Georgia, serif;
+
+  /* Paleta Cromática P7 (Esmeralda & Oro) */
+  --color-emerald-950: #071F17;
+  --color-emerald-900: #0B2E22;
+  --color-emerald-800: #0F3D2E;
+  --color-emerald-700: #16523E;
+  --color-gold-300: #F1D592;
+  --color-gold-400: #DFBE78;
+  --color-gold-500: #C9A45C;
+  --color-gold-600: #A8843E;
+  --color-cream-100: #F8F1E4;
+  --color-cream-200: #EDE2CE;
+  --color-cream-muted: rgba(248, 241, 228, 0.72);
+}
+
+/* Clases Utilitarias de Familias */
+.font-display {
+  font-family: var(--font-display);
+  font-feature-settings: "liga" 1, "dlig" 1, "swsh" 1;
+}
+
+.font-sans {
+  font-family: var(--font-sans);
+  font-feature-settings: "ss01" 1, "cv01" 1;
+}
+
+.font-satoshi {
+  font-family: var(--font-sans-alt);
+  font-variant-numeric: tabular-nums;
+}
+
+.font-western {
+  font-family: var(--font-western);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+/* Jerarquía Editorial Preconfigurada */
+.heading-hero {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 0.96;
+  letter-spacing: -0.02em;
+}
+
+.heading-editorial {
+  font-family: var(--font-display);
+  font-weight: 600;
+  line-height: 1.05;
+  letter-spacing: -0.015em;
+}
+
+.badge-vintage {
+  font-family: var(--font-western);
+  font-weight: 400;
+  font-size: 0.75rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+}
+
+.price-tabular {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.02em;
+}
+
+/* Efecto Metálico Dorado para Titulares y Sellos */
+.text-gold-gradient {
+  background: linear-gradient(135deg, #F8F1E4 0%, #F1D592 30%, #C9A45C 68%, #9C7834 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.border-gold-subtle {
+  border-color: rgba(201, 164, 92, 0.28);
+}
