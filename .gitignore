@@ -27,6 +27,9 @@ out/
 Thumbs.db
 .gemini/
 .system_generated/
+.taste-skill/
+assets/video/raw/
+secciones/
 *.tmp
 *.local.json
 mcp_config.json

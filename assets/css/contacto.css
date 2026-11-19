@@ -1,0 +1,634 @@
+/* ==========================================================================
+   SECCIÓN 05: CONTACTO (INFO + RESERVA) + ¿DÓNDE ESTAMOS? (MAPA) + FAQS (21st.dev BlurredStagger)
+   P7 Barber Master Studio · Mobile-First (320px -> 640px -> 900px -> 1280px)
+   ========================================================================== */
+
+:root {
+  --p7-emerald-950: #071f17;
+  --p7-emerald-900: #0b2e22;
+  --p7-emerald-800: #0f3d2e;
+  --p7-ink-900: #0b2e22;
+  --p7-ink-muted: rgba(11, 46, 34, 0.72);
+  --p7-ink-soft: rgba(11, 46, 34, 0.5);
+  --p7-cream-100: #f8f1e4;
+  --p7-cream-200: #f3e9d7;
+  --p7-gold-300: #f1d592;
+  --p7-gold-500: #c9a45c;
+  --p7-gold-text: #7a5b20;
+  --p7-hairline: rgba(11, 46, 34, 0.14);
+  --faq-accent: #e5c378;
+}
+
+/* --------------------------------------------------------------------------
+   1. SECCIÓN 4 — CONTACTO (#contacto · Crema cálido #F8F1E4)
+   -------------------------------------------------------------------------- */
+#contacto.contacto-v2,
+.contacto-v2 {
+  position: relative;
+  z-index: 1;
+  background-color: var(--p7-cream-100);
+  color: var(--p7-ink-900);
+  padding-block: clamp(56px, 8vw, 112px);
+  padding-inline: clamp(16px, 4vw, 40px);
+  overflow-x: clip;
+}
+
+.contacto-shell {
+  width: 100%;
+  max-width: 1200px;
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(28px, 4vw, 44px);
+}
+
+.contacto-block-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(28px, 4vw, 40px);
+}
+
+.contacto-head {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.contacto-h2 {
+  margin: 0;
+  font-family: var(--font-display, 'Boska', serif);
+  font-size: clamp(2.5rem, 5.5vw, 4rem);
+  font-weight: 400;
+  line-height: 0.98;
+  letter-spacing: -0.025em;
+  color: var(--p7-ink-900);
+}
+
+.contacto-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(20px, 3vw, 28px);
+  align-items: stretch;
+}
+
+@media (min-width: 900px) {
+  .contacto-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Bloque 1: Información del local (superficie piedra cálida gemela al panel verde) */
+.contacto-info-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: clamp(24px, 3.5vw, 32px);
+  padding: clamp(28px, 4.5vw, 48px);
+  border-radius: 22px;
+  background-color: #efe6d5;
+  color: var(--p7-ink-900);
+}
+
+.info-card-top {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.info-kicker {
+  font-family: var(--font-sans, 'General Sans', sans-serif);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--p7-gold-text);
+}
+
+.info-title {
+  margin: 0;
+  font-family: var(--font-display, 'Boska', serif);
+  font-size: clamp(1.75rem, 3.2vw, 2.35rem);
+  font-weight: 400;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  color: var(--p7-ink-900);
+}
+
+/* Lista limpia en 1 columna con iconos finos (General Sans 400 · cero cortes de texto) */
+.local-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.local-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.local-icon {
+  flex-shrink: 0;
+  width: 22px;
+  height: 24px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--p7-gold-text);
+  margin-top: 1px;
+}
+
+.local-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+  font-family: var(--font-sans, 'General Sans', sans-serif);
+}
+
+.local-primary {
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--p7-ink-900);
+  text-decoration: none;
+  transition: color 200ms ease;
+}
+
+a.local-primary:hover {
+  color: var(--p7-gold-text);
+}
+
+.local-secondary {
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.45;
+  color: var(--p7-ink-soft);
+}
+
+.info-hours-foot {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-top: 20px;
+  border-top: 1px solid var(--p7-hairline);
+}
+
+.info-hours-label {
+  font-family: var(--font-sans, 'General Sans', sans-serif);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--p7-ink-soft);
+}
+
+.local-hours {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  font-family: var(--font-sans, 'General Sans', sans-serif);
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  color: var(--p7-ink-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.local-hours strong {
+  font-weight: 500;
+  color: var(--p7-ink-900);
+  margin-right: 6px;
+}
+
+/* Bloque 2: Reserva Premium (Panel Esmeralda Profundo, contraste de lujo sobre Crema) */
+.reserva-panel {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: clamp(28px, 4vw, 40px);
+  padding: clamp(28px, 5vw, 52px);
+  border-radius: 22px;
+  background-color: var(--p7-emerald-900);
+  color: var(--p7-cream-100);
+  box-shadow:
+    0 24px 64px rgba(11, 46, 34, 0.18),
+    inset 0 1px 0 rgba(248, 241, 228, 0.1);
+}
+
+.reserva-top {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.reserva-kicker {
+  font-family: var(--font-sans, 'General Sans', sans-serif);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--p7-gold-300);
+}
+
+.reserva-title {
+  margin: 0;
+  font-family: var(--font-display, 'Boska', serif);
+  font-size: clamp(2rem, 4.2vw, 3rem);
+  font-weight: 400;
+  line-height: 1.04;
+  letter-spacing: -0.02em;
+  color: var(--p7-cream-100);
+}
+
+.reserva-desc {
+  margin: 0;
+  font-family: var(--font-sans, 'General Sans', sans-serif);
+  font-size: 0.9375rem;
+  line-height: 1.65;
+  color: rgba(248, 241, 228, 0.74);
+  max-width: 38ch;
+}
+
+.reserva-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+}
+
+.reserva-btn-booksy {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  min-height: 56px;
+  padding: 0 28px;
+  border-radius: 9999px;
+  font-family: var(--font-sans, 'General Sans', sans-serif);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  text-decoration: none;
+  color: var(--p7-emerald-950);
+  background: linear-gradient(135deg, #9a7838, #f1d592 45%, #c9a45c 70%, #9a7838);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.28);
+  transition:
+    transform 260ms cubic-bezier(0.16, 1, 0.3, 1),
+    filter 220ms ease;
+}
+
+.reserva-btn-booksy:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.06);
+}
+
+.reserva-btn-booksy:active {
+  transform: scale(0.98);
+}
+
+.reserva-actions .liquid-glass-btn {
+  width: 100%;
+  min-height: 56px;
+}
+
+.reserva-proof {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px 16px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(248, 241, 228, 0.12);
+  font-family: var(--font-sans, 'General Sans', sans-serif);
+  font-size: 0.875rem;
+  color: rgba(248, 241, 228, 0.72);
+}
+
+.reserva-proof-score {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--p7-cream-100);
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+}
+
+.reserva-proof-star {
+  color: var(--p7-gold-300);
+}
+
+/* --------------------------------------------------------------------------
+   2. BANDA INFERIOR CARBÓN EDITORIAL (#111112): ¿DÓNDE ESTAMOS? + FAQ (21st.dev)
+   -------------------------------------------------------------------------- */
+#donde-estamos.ubicacion-faq-band,
+.ubicacion-faq-band {
+  background-color: #111112;
+  color: #f5f3ee;
+  padding-block: clamp(56px, 8vw, 104px);
+  padding-inline: clamp(16px, 4vw, 40px);
+}
+
+.ubicacion-faq-shell {
+  width: 100%;
+  max-width: 1120px;
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(56px, 7vw, 88px);
+}
+
+/* Mini sección Mapa: centrado, con interrogación y mapa blanco limpio */
+.mapa-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  text-align: center;
+}
+
+.mapa-title {
+  margin: 0;
+  font-family: var(--font-display, 'Boska', serif);
+  font-size: clamp(2rem, 4.2vw, 3rem);
+  font-weight: 400;
+  line-height: 1.06;
+  letter-spacing: -0.02em;
+  color: #f5f3ee;
+}
+
+.mapa-frame-wrap {
+  position: relative;
+  width: 100%;
+  max-width: 820px;
+  height: clamp(240px, 32vw, 330px);
+  border-radius: 18px;
+  overflow: hidden;
+  background-color: #f5f3ee;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.5);
+}
+
+.mapa-iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  filter: saturate(75%) contrast(1.03);
+  transition: filter 280ms ease;
+}
+
+.mapa-frame-wrap:hover .mapa-iframe {
+  filter: saturate(100%) contrast(1.01);
+}
+
+.mapa-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-sans, 'General Sans', sans-serif);
+  font-size: 0.9375rem;
+  font-weight: 400;
+  color: var(--p7-gold-300);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(241, 213, 146, 0.35);
+  padding-bottom: 3px;
+  transition: opacity 200ms ease, border-color 200ms ease;
+}
+
+.mapa-link:hover {
+  opacity: 0.82;
+  border-bottom-color: var(--p7-gold-300);
+}
+
+/* --------------------------------------------------------------------------
+   3. PREGUNTAS FRECUENTES (Adaptación 21st.dev · textRevealFAQs BlurredStagger)
+   -------------------------------------------------------------------------- */
+.faq-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(36px, 5vw, 64px);
+  align-items: start;
+  padding-top: clamp(40px, 6vw, 64px);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+@media (min-width: 860px) {
+  .faq-grid {
+    grid-template-columns: minmax(260px, 2fr) minmax(360px, 3fr);
+    gap: clamp(48px, 6vw, 80px);
+  }
+}
+
+.faq-intro-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.faq-heading {
+  margin: 0;
+  font-family: var(--font-display, 'Boska', serif);
+  font-size: clamp(2.1rem, 4.2vw, 3rem);
+  font-weight: 400;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  color: #f5f3ee;
+}
+
+.faq-description {
+  margin: 14px 0 0;
+  font-family: var(--font-sans, 'General Sans', sans-serif);
+  font-size: clamp(0.9375rem, 1.25vw, 1.0625rem);
+  line-height: 1.6;
+  color: rgba(245, 243, 238, 0.65);
+  max-width: 36ch;
+}
+
+.faq-accordion {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.faq-item {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  transition: border-color 250ms ease;
+}
+
+.faq-item:first-child {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.faq-trigger {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding-block: clamp(18px, 2.4vw, 24px);
+  padding-inline: 0;
+  background: transparent;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  color: #f5f3ee;
+  font-family: var(--font-sans, 'General Sans', sans-serif);
+  font-size: clamp(1.0625rem, 1.4vw, 1.2rem);
+  font-weight: 500;
+  line-height: 1.4;
+  outline: none;
+  transition: color 220ms ease;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.faq-trigger:hover {
+  color: var(--faq-accent);
+}
+
+.faq-trigger:focus-visible {
+  outline: 2px solid var(--faq-accent);
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
+.faq-chevron {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  color: rgba(245, 243, 238, 0.45);
+  transition: transform 320ms cubic-bezier(0.16, 1, 0.3, 1), color 220ms ease;
+}
+
+.faq-trigger:hover .faq-chevron {
+  color: var(--faq-accent);
+}
+
+.faq-item[data-state="open"] .faq-chevron {
+  transform: rotate(180deg);
+  color: var(--faq-accent);
+}
+
+.faq-panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  transition: grid-template-rows 320ms cubic-bezier(0.16, 1, 0.3, 1), opacity 240ms ease;
+  will-change: grid-template-rows, opacity;
+}
+
+.faq-item[data-state="open"] .faq-panel {
+  grid-template-rows: 1fr;
+  opacity: 1;
+}
+
+.faq-panel-inner {
+  overflow: hidden;
+}
+
+.faq-answer {
+  margin: 0;
+  padding-bottom: clamp(20px, 2.5vw, 26px);
+  font-family: var(--font-sans, 'General Sans', sans-serif);
+  font-size: clamp(0.9375rem, 1.15vw, 1.0625rem);
+  line-height: 1.7;
+  color: rgba(245, 243, 238, 0.68);
+  max-width: 65ch;
+  word-break: break-word;
+}
+
+/* Acción extra de WhatsApp dentro de la 6ª pregunta */
+.faq-extra-action {
+  margin-top: -6px;
+  padding-bottom: clamp(20px, 2.5vw, 26px);
+}
+
+.faq-chat-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 10px 18px;
+  border-radius: 9999px;
+  background: rgba(229, 195, 120, 0.1);
+  border: 1px solid rgba(229, 195, 120, 0.35);
+  color: var(--faq-accent);
+  font-family: var(--font-sans, 'General Sans', sans-serif);
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 220ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.faq-chat-btn:hover {
+  background: var(--faq-accent);
+  color: #111112;
+  border-color: var(--faq-accent);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(229, 195, 120, 0.25);
+}
+
+.faq-chat-btn:focus-visible {
+  outline: 2px solid var(--faq-accent);
+  outline-offset: 3px;
+}
+
+/* Animación BlurredStagger por caracteres */
+.blurred-stagger {
+  display: inline;
+}
+
+.blurred-word {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.blurred-space {
+  display: inline;
+}
+
+.blurred-char {
+  display: inline-block;
+  opacity: 0;
+  filter: blur(8px);
+  transform: translateY(2px);
+  transition: none;
+}
+
+.faq-item[data-state="open"] .blurred-char {
+  animation: blurLetterIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: calc(var(--char-i, 0) * 11ms);
+}
+
+@keyframes blurLetterIn {
+  0% {
+    opacity: 0;
+    filter: blur(8px);
+    transform: translateY(2px);
+  }
+  100% {
+    opacity: 1;
+    filter: blur(0px);
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reserva-btn-booksy,
+  .mapa-iframe,
+  .faq-chevron,
+  .faq-panel {
+    transition: none !important;
+  }
+
+  .blurred-char {
+    opacity: 1 !important;
+    filter: none !important;
+    transform: none !important;
+    animation: none !important;
+  }
+}

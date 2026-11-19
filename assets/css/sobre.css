@@ -1,0 +1,650 @@
+/* ==========================================================================
+   SECCIÓN "SOBRE NOSOTROS" + GALERÍA 1 (AUTO-SLIDER) + PÁGINA "NUESTRO EQUIPO"
+   Arquitectura: Mobile-First (base 320px+ -> min-width: 640px / 720px / 1024px)
+   Paleta: Crema #F8F1E4 / Esmeralda #0B2E22 / Oro #C9A45C
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. SECCIÓN SOBRE NOSOTROS (Mobile-first)
+   -------------------------------------------------------------------------- */
+.sobre-v2 {
+  background-color: var(--cream-100);
+  color: var(--emerald-900);
+  padding-block: clamp(48px, 6.5vw, 96px);
+  overflow-x: clip;
+}
+
+.sobre-v2-shell {
+  max-width: 1120px;
+  margin-inline: auto;
+}
+
+.sobre-v2-intro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 640px;
+  margin-inline: auto;
+  margin-bottom: clamp(24px, 3.5vw, 44px);
+  gap: 16px;
+}
+
+.sobre-v2-h2 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(2.15rem, 4vw, 3.5rem);
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+  color: var(--emerald-900);
+}
+
+.sobre-v2-lead {
+  margin: 0;
+  max-width: 56ch;
+  font-family: var(--font-sans);
+  font-size: clamp(1rem, 1.2vw, 1.125rem);
+  line-height: 1.6;
+  text-wrap: pretty;
+  color: var(--emerald-900);
+}
+
+.sobre-v2-actions {
+  display: flex;
+  justify-content: center;
+  margin-top: clamp(24px, 3.5vw, 40px);
+}
+
+/* --------------------------------------------------------------------------
+   2. BOTÓN LIQUID GLASS (Estilo Apple, variantes clara y oscura)
+   -------------------------------------------------------------------------- */
+.liquid-glass-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 52px;
+  padding: 0 32px;
+  border: 0;
+  border-radius: 9999px;
+  background-color: transparent;
+  color: var(--emerald-900);
+  font-family: var(--font-sans);
+  font-size: 0.9375rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+  cursor: pointer;
+  isolation: isolate;
+  touch-action: manipulation;
+  transition:
+    transform 300ms var(--ease-editorial),
+    color 250ms var(--ease-editorial);
+}
+
+.liquid-glass-btn:hover {
+  transform: scale(1.05);
+  color: var(--emerald-950);
+}
+
+.liquid-glass-btn:active {
+  transform: scale(0.98);
+}
+
+.liquid-glass-btn:focus-visible {
+  outline: 2px solid var(--emerald-900);
+  outline-offset: 4px;
+}
+
+.liquid-glass-surface {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.28);
+  box-shadow:
+    0 0 6px rgba(11, 46, 34, 0.04),
+    0 2px 6px rgba(11, 46, 34, 0.09),
+    inset 3px 3px 0.5px -3px rgba(11, 46, 34, 0.85),
+    inset -3px -3px 0.5px -3px rgba(11, 46, 34, 0.8),
+    inset 1px 1px 1px -0.5px rgba(11, 46, 34, 0.55),
+    inset -1px -1px 1px -0.5px rgba(11, 46, 34, 0.55),
+    inset 0 0 6px 6px rgba(11, 46, 34, 0.09),
+    inset 0 0 2px 2px rgba(11, 46, 34, 0.05),
+    0 0 12px rgba(255, 255, 255, 0.4);
+  transition:
+    background-color 300ms var(--ease-editorial),
+    box-shadow 300ms var(--ease-editorial);
+}
+
+.liquid-glass-btn:hover .liquid-glass-surface {
+  background: rgba(255, 255, 255, 0.42);
+  box-shadow:
+    0 4px 14px rgba(11, 46, 34, 0.1),
+    0 2px 6px rgba(11, 46, 34, 0.08),
+    inset 3px 3px 0.5px -3px rgba(11, 46, 34, 0.9),
+    inset -3px -3px 0.5px -3px rgba(11, 46, 34, 0.85),
+    inset 1px 1px 1px -0.5px rgba(11, 46, 34, 0.6),
+    inset -1px -1px 1px -0.5px rgba(11, 46, 34, 0.6),
+    inset 0 0 8px 6px rgba(11, 46, 34, 0.1),
+    inset 0 0 2px 2px rgba(11, 46, 34, 0.05),
+    0 0 16px rgba(255, 255, 255, 0.55);
+}
+
+.liquid-glass-btn--dark {
+  color: var(--cream-100);
+}
+
+.liquid-glass-btn--dark:hover {
+  color: var(--gold-300);
+}
+
+.liquid-glass-btn--dark:focus-visible {
+  outline-color: var(--gold-500);
+}
+
+.liquid-glass-btn--dark .liquid-glass-surface {
+  background: rgba(255, 255, 255, 0.07);
+  box-shadow:
+    0 0 8px rgba(0, 0, 0, 0.08),
+    0 2px 6px rgba(0, 0, 0, 0.18),
+    inset 3px 3px 0.5px -3.5px rgba(255, 255, 255, 0.16),
+    inset -3px -3px 0.5px -3.5px rgba(255, 255, 255, 0.85),
+    inset 1px 1px 1px -0.5px rgba(255, 255, 255, 0.6),
+    inset -1px -1px 1px -0.5px rgba(255, 255, 255, 0.6),
+    inset 0 0 6px 6px rgba(255, 255, 255, 0.12),
+    inset 0 0 2px 2px rgba(255, 255, 255, 0.06),
+    0 0 12px rgba(0, 0, 0, 0.2);
+}
+
+.liquid-glass-btn--dark:hover .liquid-glass-surface {
+  background: rgba(255, 255, 255, 0.13);
+}
+
+/* Tamaño compacto para cabecera móvil -> crece en >= 480px */
+.liquid-glass-btn--sm {
+  min-height: 44px;
+  padding: 0 14px;
+  font-size: 0.8125rem;
+}
+
+.liquid-glass-blur {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: 9999px;
+  overflow: hidden;
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: url("#container-glass") blur(6px);
+}
+
+.liquid-glass-label {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  pointer-events: none;
+}
+
+.liquid-glass-svg {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.sobre-v2-cta-arrow {
+  transition: transform 220ms var(--ease-editorial);
+}
+
+.liquid-glass-btn:hover .sobre-v2-cta-arrow {
+  transform: translate(3px, -2px);
+}
+
+/* --------------------------------------------------------------------------
+   3. GALERÍA 1 — AUTO-SLIDER INFINITO (Mobile-first)
+   -------------------------------------------------------------------------- */
+@keyframes galeria-auto-scroll {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.galeria-marquee {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  padding-block: 12px;
+  mask-image: linear-gradient(
+    90deg,
+    transparent 0%,
+    #000 7%,
+    #000 93%,
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    90deg,
+    transparent 0%,
+    #000 7%,
+    #000 93%,
+    transparent 100%
+  );
+}
+
+.galeria-marquee-track {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+  animation: galeria-auto-scroll 32s linear infinite;
+}
+
+.galeria-marquee:hover .galeria-marquee-track,
+.galeria-marquee:focus-within .galeria-marquee-track {
+  animation-play-state: paused;
+}
+
+.galeria-marquee-group {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding-right: 14px;
+  flex-shrink: 0;
+}
+
+.galeria-card {
+  flex-shrink: 0;
+  width: 192px;
+  height: 192px;
+  margin: 0;
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: var(--cream-200);
+  transition:
+    transform 320ms var(--ease-editorial),
+    filter 320ms var(--ease-editorial);
+}
+
+.galeria-card:hover {
+  transform: scale(1.04);
+  filter: brightness(1.05);
+}
+
+.galeria-card picture,
+.galeria-card-img {
+  width: 100%;
+  height: 100%;
+}
+
+.galeria-card-img {
+  object-fit: cover;
+  object-position: center;
+}
+
+/* --------------------------------------------------------------------------
+   4. PÁGINA "NUESTRO EQUIPO" (Mobile-first: base 1 columna -> >= 720px 2 cols)
+   -------------------------------------------------------------------------- */
+.equipo-page {
+  min-height: 100svh;
+  background-color: var(--cream-100);
+  color: var(--emerald-900);
+  overflow-x: clip;
+}
+
+.equipo-topbar {
+  background-color: var(--emerald-900);
+  color: var(--cream-100);
+  padding-block: 14px;
+}
+
+.equipo-topbar-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.equipo-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+  font-family: var(--font-display);
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: var(--cream-100);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.equipo-brand-logo {
+  width: 30px;
+  height: 30px;
+  flex-shrink: 0;
+  object-fit: contain;
+}
+
+.equipo-brand-full {
+  display: none;
+}
+
+.equipo-main {
+  padding-block: clamp(32px, 4.5vw, 56px) clamp(56px, 8vw, 104px);
+}
+
+.equipo-shell {
+  max-width: 760px;
+  margin-inline: auto;
+}
+
+.equipo-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 560px;
+  margin-inline: auto;
+  margin-bottom: clamp(32px, 5vw, 52px);
+  gap: 10px;
+}
+
+.equipo-h1 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(2.1rem, 3.8vw, 3.25rem);
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+  color: var(--emerald-900);
+}
+
+.equipo-intro {
+  margin: 0;
+  font-size: clamp(0.95rem, 1.15vw, 1.0625rem);
+  line-height: 1.55;
+  text-wrap: pretty;
+  color: var(--emerald-ink-muted);
+}
+
+/* Base móvil: 1 columna centrada y simétrica */
+.equipo-cards-stack {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(40px, 6vw, 68px);
+}
+
+.barbero-cartulina {
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: center;
+  gap: 18px;
+}
+
+.barbero-photo-wrap {
+  width: 100%;
+  perspective: 900px;
+}
+
+.barbero-photo-card {
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  border-radius: 12px;
+  background-color: var(--emerald-900);
+  transform-style: preserve-3d;
+  transition:
+    transform 420ms var(--ease-editorial),
+    filter 420ms var(--ease-editorial);
+}
+
+.barbero-photo-wrap:hover .barbero-photo-card {
+  transform: rotateY(-6deg) rotateX(2deg) scale(1.03);
+  filter: brightness(1.04);
+}
+
+.barbero-photo-card picture,
+.barbero-photo {
+  width: 100%;
+  height: 100%;
+}
+
+.barbero-photo {
+  object-fit: cover;
+  object-position: center top;
+  will-change: transform;
+}
+
+.barbero-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.barbero-role {
+  margin: 0;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #6e521c;
+}
+
+.barbero-name {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(1.75rem, 2.8vw, 2.35rem);
+  line-height: 1.06;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+  color: var(--emerald-900);
+}
+
+.barbero-bio {
+  margin: 4px 0 0;
+  max-width: 42ch;
+  font-size: 1rem;
+  line-height: 1.6;
+  text-wrap: pretty;
+  color: var(--emerald-900);
+}
+
+/* Entrada inmediata de la 1.ª ficha + movimiento vivo y despliegue 3D al scroll */
+@media (prefers-reduced-motion: no-preference) {
+  @keyframes equipo-first-enter {
+    from {
+      opacity: 0;
+      transform: translateY(16px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .barbero-cartulina--first {
+    animation: equipo-first-enter 550ms var(--ease-editorial) both;
+  }
+
+  @supports ((animation-timeline: view()) and (animation-range: entry)) {
+    @keyframes cartulina-3d-reveal {
+      from {
+        opacity: 0;
+        transform: perspective(900px) rotateY(16deg) translateY(34px) scale(0.94);
+      }
+      to {
+        opacity: 1;
+        transform: perspective(900px) rotateY(0deg) translateY(0) scale(1);
+      }
+    }
+
+    @keyframes foto-parallax-scroll {
+      from {
+        transform: scale(1.12) translateY(-14px);
+      }
+      to {
+        transform: scale(1.12) translateY(14px);
+      }
+    }
+
+    .barbero-cartulina--scroll {
+      animation: cartulina-3d-reveal auto linear backwards;
+      animation-timeline: view(block);
+      animation-range: entry 5% cover 38%;
+    }
+
+    .barbero-photo {
+      animation: foto-parallax-scroll auto linear both;
+      animation-timeline: view(block);
+      animation-range: entry 0% exit 100%;
+    }
+  }
+}
+
+/* Respaldo JS con IntersectionObserver cuando no existe scroll-driven animations */
+.barbero-cartulina.is-io-hidden {
+  opacity: 0;
+  transform: perspective(900px) rotateY(14deg) translateY(32px) scale(0.95);
+  transition:
+    opacity 650ms var(--ease-editorial),
+    transform 650ms var(--ease-editorial);
+}
+
+.barbero-cartulina.is-io-hidden.is-io-visible {
+  opacity: 1;
+  transform: perspective(900px) rotateY(0deg) translateY(0) scale(1);
+}
+
+.equipo-footer-bar {
+  margin-top: clamp(48px, 6.5vw, 80px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 18px;
+}
+
+.equipo-footer-text {
+  margin: 0;
+  font-size: 0.9375rem;
+  color: var(--emerald-ink-muted);
+}
+
+/* --------------------------------------------------------------------------
+   5. ESCALA PROGRESIVA MOBILE-FIRST (min-width)
+   -------------------------------------------------------------------------- */
+@media (min-width: 480px) {
+  .equipo-topbar {
+    padding-block: 18px;
+  }
+
+  .equipo-brand {
+    gap: 10px;
+    font-size: clamp(1rem, 2.2vw, 1.25rem);
+  }
+
+  .equipo-brand-logo {
+    width: 34px;
+    height: 34px;
+  }
+
+  .equipo-brand-full {
+    display: inline;
+  }
+
+  .liquid-glass-btn {
+    min-height: 54px;
+    padding: 0 36px;
+  }
+
+  .liquid-glass-btn--sm {
+    min-height: 44px;
+    padding: 0 22px;
+    font-size: 0.875rem;
+  }
+}
+
+@media (min-width: 640px) {
+  .galeria-marquee {
+    padding-block: 14px;
+    mask-image: linear-gradient(
+      90deg,
+      transparent 0%,
+      #000 10%,
+      #000 90%,
+      transparent 100%
+    );
+    -webkit-mask-image: linear-gradient(
+      90deg,
+      transparent 0%,
+      #000 10%,
+      #000 90%,
+      transparent 100%
+    );
+  }
+
+  .galeria-marquee-track {
+    animation-duration: 38s;
+  }
+
+  .galeria-marquee-group {
+    gap: 20px;
+    padding-right: 20px;
+  }
+
+  .galeria-card {
+    width: 240px;
+    height: 240px;
+  }
+}
+
+@media (min-width: 720px) {
+  .barbero-cartulina {
+    grid-template-columns: clamp(220px, 28vw, 290px) minmax(0, 1fr);
+    gap: clamp(24px, 4vw, 44px);
+  }
+}
+
+@media (min-width: 1024px) {
+  .galeria-marquee-group {
+    gap: 24px;
+    padding-right: 24px;
+  }
+
+  .galeria-card {
+    width: 288px;
+    height: 288px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .galeria-marquee {
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    mask-image: none;
+    -webkit-mask-image: none;
+  }
+
+  .galeria-marquee-track {
+    animation: none;
+  }
+
+  .galeria-marquee-group[aria-hidden='true'] {
+    display: none;
+  }
+
+  .sobre-v2-cta-arrow,
+  .liquid-glass-btn,
+  .liquid-glass-surface,
+  .barbero-photo-card,
+  .galeria-card {
+    transition: none;
+  }
+}

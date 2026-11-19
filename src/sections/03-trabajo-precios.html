@@ -1,0 +1,462 @@
+<!-- ==========================================================================
+     SECCIÓN 03 — NUESTRO TRABAJO (GALERÍA 2 EXPANDIBLE + PILARES + CARTA DE SERVICIOS)
+     Integrado desde laboratorio web/seccion de nuestro trabjajo/
+     ========================================================================== -->
+<section
+  id="nuestro-trabajo"
+  class="trabajo-v2"
+  aria-labelledby="titulo-nuestro-trabajo"
+>
+  <div class="trabajo-v2-shell">
+
+    <!-- 1. Intro Editorial -->
+    <header class="trabajo-v2-intro">
+      <h2 id="titulo-nuestro-trabajo" class="trabajo-v2-h2">Nuestro trabajo</h2>
+      <p class="trabajo-v2-lead">
+        Degradados limpios, barbas perfiladas con calma y técnica de precisión en cada detalle.
+        En P7 Barber Master Studio cada cita reserva una hora completa dedicada exclusivamente a tu estilo,
+        respaldada por años de oficio, formación continua y escenarios del sector.
+      </p>
+    </header>
+
+    <!-- 2. Galería 2: Expandable Gallery (6 piezas reales · 5 WebP + 1 minivideoclip en bucle) -->
+    <div class="exp-gallery-stage">
+      <span class="exp-side-label exp-side-label--left" aria-hidden="true">
+        Toca la imagen para expandir
+      </span>
+
+      <div
+        class="exp-gallery"
+        id="exp-gallery"
+        data-gallery-slug="galeria-2"
+        role="region"
+        aria-label="Galería 2: muestra de cortes y trabajos reales de P7 Barber Master Studio"
+      >
+        <!-- 1. Minivideoclip en bucle: Sesión con Lyano -->
+        <button
+          type="button"
+          class="exp-panel is-active"
+          data-index="0"
+          data-type="video"
+          data-title="Sesión con Lyano"
+          data-full-src="./assets/media/galeria-2/sesion-lyano.mp4"
+          data-poster="./assets/media/galeria-2/sesion-lyano-poster.webp"
+          aria-label="Sesión con Lyano (vídeo) — pulsar para expandir o ampliar"
+          aria-expanded="true"
+        >
+          <video
+            class="exp-video"
+            autoplay
+            muted
+            loop
+            playsinline
+            preload="metadata"
+            poster="./assets/media/galeria-2/sesion-lyano-poster.webp"
+          >
+            <source src="./assets/media/galeria-2/sesion-lyano.mp4" type="video/mp4" />
+          </video>
+          <span class="exp-scrim" aria-hidden="true"></span>
+          <span class="exp-overlay">
+            <span class="exp-title">Sesión con Lyano</span>
+          </span>
+          <span class="exp-expand-hint" aria-hidden="true">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="15 3 21 3 21 9"></polyline>
+              <polyline points="9 21 3 21 3 15"></polyline>
+              <line x1="21" y1="3" x2="14" y2="10"></line>
+              <line x1="3" y1="21" x2="10" y2="14"></line>
+            </svg>
+          </span>
+        </button>
+
+        <!-- 2. Lyano · P7 -->
+        <button
+          type="button"
+          class="exp-panel"
+          data-index="1"
+          data-type="image"
+          data-title="Lyano · P7"
+          data-full-src="./assets/media/galeria-2/lyano-p7.webp"
+          aria-label="Lyano · P7 — pulsar para expandir o ampliar"
+          aria-expanded="false"
+        >
+          <img src="./assets/media/galeria-2/lyano-p7.webp" alt="Sesión con Lyano en P7 Barber Master Studio" class="exp-img" loading="lazy" decoding="async" />
+          <span class="exp-scrim" aria-hidden="true"></span>
+          <span class="exp-overlay">
+            <span class="exp-title">Lyano · P7</span>
+          </span>
+          <span class="exp-expand-hint" aria-hidden="true">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="15 3 21 3 21 9"></polyline>
+              <polyline points="9 21 3 21 3 15"></polyline>
+              <line x1="21" y1="3" x2="14" y2="10"></line>
+              <line x1="3" y1="21" x2="10" y2="14"></line>
+            </svg>
+          </span>
+        </button>
+
+        <!-- 3. Sesión con Lunay -->
+        <button
+          type="button"
+          class="exp-panel"
+          data-index="2"
+          data-type="image"
+          data-title="Sesión con Lunay"
+          data-full-src="./assets/media/galeria-2/sesion-lunay.webp"
+          aria-label="Sesión con Lunay — pulsar para expandir o ampliar"
+          aria-expanded="false"
+        >
+          <img src="./assets/media/galeria-2/sesion-lunay.webp" alt="Sesión con Lunay en P7 Barber Master Studio" class="exp-img" loading="lazy" decoding="async" />
+          <span class="exp-scrim" aria-hidden="true"></span>
+          <span class="exp-overlay">
+            <span class="exp-title">Sesión con Lunay</span>
+          </span>
+          <span class="exp-expand-hint" aria-hidden="true">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="15 3 21 3 21 9"></polyline>
+              <polyline points="9 21 3 21 3 15"></polyline>
+              <line x1="21" y1="3" x2="14" y2="10"></line>
+              <line x1="3" y1="21" x2="10" y2="14"></line>
+            </svg>
+          </span>
+        </button>
+
+        <!-- 4. Arte Freestyle -->
+        <button
+          type="button"
+          class="exp-panel"
+          data-index="3"
+          data-type="image"
+          data-title="Arte Freestyle"
+          data-full-src="./assets/media/galeria-2/arte-freestyle.webp"
+          aria-label="Arte Freestyle — pulsar para expandir o ampliar"
+          aria-expanded="false"
+        >
+          <img src="./assets/media/galeria-2/arte-freestyle.webp" alt="Diseño Arte Freestyle en P7 Barber Master Studio" class="exp-img" loading="lazy" decoding="async" />
+          <span class="exp-scrim" aria-hidden="true"></span>
+          <span class="exp-overlay">
+            <span class="exp-title">Arte Freestyle</span>
+          </span>
+          <span class="exp-expand-hint" aria-hidden="true">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="15 3 21 3 21 9"></polyline>
+              <polyline points="9 21 3 21 3 15"></polyline>
+              <line x1="21" y1="3" x2="14" y2="10"></line>
+              <line x1="3" y1="21" x2="10" y2="14"></line>
+            </svg>
+          </span>
+        </button>
+
+        <!-- 5. Freestyle a color -->
+        <button
+          type="button"
+          class="exp-panel"
+          data-index="4"
+          data-type="image"
+          data-title="Freestyle a color"
+          data-full-src="./assets/media/galeria-2/freestyle-color.webp"
+          aria-label="Freestyle a color — pulsar para expandir o ampliar"
+          aria-expanded="false"
+        >
+          <img src="./assets/media/galeria-2/freestyle-color.webp" alt="Diseño Freestyle a color en P7 Barber Master Studio" class="exp-img" loading="lazy" decoding="async" />
+          <span class="exp-scrim" aria-hidden="true"></span>
+          <span class="exp-overlay">
+            <span class="exp-title">Freestyle a color</span>
+          </span>
+          <span class="exp-expand-hint" aria-hidden="true">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="15 3 21 3 21 9"></polyline>
+              <polyline points="9 21 3 21 3 15"></polyline>
+              <line x1="21" y1="3" x2="14" y2="10"></line>
+              <line x1="3" y1="21" x2="10" y2="14"></line>
+            </svg>
+          </span>
+        </button>
+
+        <!-- 6. Firma P7 -->
+        <button
+          type="button"
+          class="exp-panel"
+          data-index="5"
+          data-type="image"
+          data-title="Firma P7"
+          data-full-src="./assets/media/galeria-2/firma-p7.webp"
+          aria-label="Firma P7 — pulsar para expandir o ampliar"
+          aria-expanded="false"
+        >
+          <img src="./assets/media/galeria-2/firma-p7.webp" alt="Diseño Firma P7 en P7 Barber Master Studio" class="exp-img" loading="lazy" decoding="async" />
+          <span class="exp-scrim" aria-hidden="true"></span>
+          <span class="exp-overlay">
+            <span class="exp-title">Firma P7</span>
+          </span>
+          <span class="exp-expand-hint" aria-hidden="true">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="15 3 21 3 21 9"></polyline>
+              <polyline points="9 21 3 21 3 15"></polyline>
+              <line x1="21" y1="3" x2="14" y2="10"></line>
+              <line x1="3" y1="21" x2="10" y2="14"></line>
+            </svg>
+          </span>
+        </button>
+      </div>
+
+      <span class="exp-side-label exp-side-label--right" aria-hidden="true">
+        Toca la imagen para expandir
+      </span>
+    </div>
+
+    <p class="exp-mobile-tip">Toca una imagen para desplegarla · toca de nuevo para ampliar</p>
+
+    <!-- Botón hacia Galería 3 (nueva ventana a pantalla completa con Staircase Carousel infinito) -->
+    <div class="exp-more-wrap">
+      <a
+        href="./galeria.html"
+        target="_blank"
+        rel="noopener"
+        class="liquid-glass-btn liquid-glass-btn--dark liquid-glass-btn--sm"
+      >
+        <span class="liquid-glass-surface" aria-hidden="true"></span>
+        <span class="liquid-glass-blur" aria-hidden="true"></span>
+        <span class="liquid-glass-label">
+          <span>Ver más fotos</span>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="7" y1="17" x2="17" y2="7"></line>
+            <polyline points="7 7 17 7 17 17"></polyline>
+          </svg>
+        </span>
+      </a>
+    </div>
+
+    <!-- 2.5 Showcase Editorial: Cómo se trabaja en P7 (Medallón 3D Giratorio + Columna Editorial) -->
+    <div class="trabajo-showcase" aria-label="Cómo se trabaja en P7 Barber Master Studio">
+      <!-- Columna Visual: Escudo Oficial P7 que Gira sobre su Eje Vertical en 360° -->
+      <div class="showcase-visual" aria-hidden="true">
+        <div class="showcase-emblem-wrap">
+          <div class="coin-3d-pedestal">
+            <div class="coin-3d-mesh">
+              <div class="coin-edge" aria-hidden="true"></div>
+              <div class="coin-face coin-front">
+                <img
+                  src="./assets/img/opt/logo-p7-512w.webp"
+                  alt="Escudo oficial P7 Barber Master Studio"
+                  class="coin-img"
+                  width="210"
+                  height="210"
+                  decoding="async"
+                />
+              </div>
+              <div class="coin-face coin-back">
+                <img
+                  src="./assets/img/opt/logo-p7-512w.webp"
+                  alt="Escudo oficial P7 Barber Master Studio"
+                  class="coin-img"
+                  width="210"
+                  height="210"
+                  decoding="async"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="showcase-visual-caption">
+          <span class="caption-lead">P7 BARBER MASTER STUDIO</span>
+        </div>
+      </div>
+
+      <!-- Columna Editorial: Textos Reales y Humanos -->
+      <div class="showcase-content">
+        <header class="showcase-header">
+          <span class="showcase-kicker">La experiencia en cabina</span>
+          <h3 class="showcase-title">Cómo se trabaja en P7</h3>
+          <p class="showcase-subtitle">
+            Cortes bien hechos, calma y una atención cuidada de principio a fin.
+          </p>
+        </header>
+
+        <div class="showcase-list">
+          <article class="showcase-item">
+            <div class="item-tag">UNA HORA COMPLETA</div>
+            <h4 class="item-title">Sesiones sin prisas</h4>
+            <p class="item-text">
+              En P7 no se corta con prisas ni con la vista puesta en el siguiente cliente. Cada cita tiene sesenta minutos reservados solo para ti, con el tiempo necesario para hablar de tu estilo y dejar el corte perfecto.
+            </p>
+          </article>
+
+          <article class="showcase-item">
+            <div class="item-tag">OFICIO Y ESCENARIOS</div>
+            <h4 class="item-title">ManuCuts: técnica y formación</h4>
+            <p class="item-text">
+              Manu compagina el día a día en el estudio con masterclasses y eventos del sector. Esa misma exigencia técnica de los escenarios es la que te llevas cada vez que te sientas en el sillón.
+            </p>
+          </article>
+
+          <article class="showcase-item">
+            <div class="item-tag">EL TOQUE DE LA CASA</div>
+            <h4 class="item-title">Higiene, ambiente y colonia</h4>
+            <p class="item-text">
+              Herramientas desinfectadas, local impecable y un ambiente cuidado al milímetro. Al retirar la capa, cerramos cada sesión con unas gotas de colonia clásica en las manos del cliente para salir impecable a la calle.
+            </p>
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. Botón Liquid Glass Oscuro + Carta de Servicios Full-Bleed Desplegable -->
+    <div id="lista-precios" class="trabajo-v2-cta-wrap">
+      <button
+        type="button"
+        id="precios-toggle-btn"
+        class="liquid-glass-btn liquid-glass-btn--dark"
+        aria-expanded="false"
+        aria-controls="precios-drawer"
+      >
+        <span class="liquid-glass-surface" aria-hidden="true"></span>
+        <span class="liquid-glass-blur" aria-hidden="true"></span>
+        <span class="liquid-glass-label">
+          <span id="precios-toggle-label">Lista de precios</span>
+          <svg
+            class="liquid-glass-chevron"
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </span>
+      </button>
+
+      <!-- Carta de Servicios Oficial (Cuerpo Completo Full-Bleed + Auto-cierre al bajar) -->
+      <div
+        id="precios-drawer"
+        class="precios-drawer"
+        aria-hidden="true"
+        role="region"
+        aria-labelledby="carta-servicios-titulo"
+      >
+        <div class="precios-drawer-inner">
+          <div class="precios-poster">
+            <div class="precios-poster-rail" aria-hidden="true">
+              <span class="precios-poster-word">SERVICIOS</span>
+            </div>
+
+            <div class="precios-poster-body">
+              <header class="precios-poster-head">
+                <span class="precios-poster-brand">P7 BARBER</span>
+              </header>
+
+              <div class="precios-group">
+                <h3 id="carta-servicios-titulo" class="precios-group-title">Carta oficial</h3>
+                <ul class="precios-list">
+                  <li class="precios-item">
+                    <div class="precios-item-main">
+                      <span class="precios-item-name">Corte de pelo</span>
+                      <span class="precios-item-price">25,00 €</span>
+                    </div>
+                    <p class="precios-item-sub">1 hora · Precisión adaptada a tu morfología y estilo.</p>
+                  </li>
+                  <li class="precios-item">
+                    <div class="precios-item-main">
+                      <span class="precios-item-name">Corte + barba</span>
+                      <span class="precios-item-price">30,00 €</span>
+                    </div>
+                    <p class="precios-item-sub">1 hora · Estilismo capilar integral y perfilado de barba.</p>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="precios-group">
+                <h4 class="precios-group-title">Experiencia en cabina</h4>
+                <ul class="precios-list precios-list--compact">
+                  <li class="precios-item">
+                    <div class="precios-item-main">
+                      <span class="precios-item-name">Sesión individual</span>
+                      <span class="precios-item-meta">60 min</span>
+                    </div>
+                  </li>
+                  <li class="precios-item">
+                    <div class="precios-item-main">
+                      <span class="precios-item-name">Diagnóstico y acabado</span>
+                      <span class="precios-item-meta">Incluido</span>
+                    </div>
+                  </li>
+                  <li class="precios-item">
+                    <div class="precios-item-main">
+                      <span class="precios-item-name">Cita previa</span>
+                      <span class="precios-item-meta">Booksy · Online</span>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+
+              <footer class="precios-poster-foot">
+                <p class="precios-address">
+                  Calle Miguel Ángel Riera, 2 · 07004 Palma
+                </p>
+                <div class="precios-foot-actions">
+                  <a href="#contacto" class="precios-online-btn">
+                    Online
+                  </a>
+                  <a
+                    href="https://booksy.com/es-es/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="precios-booksy-btn"
+                  >
+                    Booksy
+                  </a>
+                </div>
+              </footer>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Lightbox Modal Flotante Sin Caja para Galería 2 (Foto + Vídeo en bucle limpio) -->
+<dialog id="trabajo-dialog" class="trabajo-dialog" aria-labelledby="trabajo-dialog-title">
+  <div class="trabajo-dialog-stage" id="trabajo-dialog-stage">
+    <button type="button" id="trabajo-dialog-close" class="trabajo-dialog-close" aria-label="Cerrar vista ampliada">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+    </button>
+
+    <button type="button" id="trabajo-dialog-prev" class="trabajo-dialog-nav trabajo-dialog-nav--prev" aria-label="Fotografía anterior">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <polyline points="15 18 9 12 15 6"></polyline>
+      </svg>
+    </button>
+
+    <div class="trabajo-dialog-media" id="trabajo-dialog-media">
+      <img id="trabajo-dialog-img" class="trabajo-dialog-img" src="" alt="" />
+    </div>
+
+    <button type="button" id="trabajo-dialog-next" class="trabajo-dialog-nav trabajo-dialog-nav--next" aria-label="Fotografía siguiente">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <polyline points="9 18 15 12 9 6"></polyline>
+      </svg>
+    </button>
+
+    <div class="trabajo-dialog-foot">
+      <div class="trabajo-dialog-meta">
+        <h2 id="trabajo-dialog-title" class="trabajo-dialog-title"></h2>
+        <p id="trabajo-dialog-caption" class="trabajo-dialog-caption"></p>
+      </div>
+      <span id="trabajo-dialog-counter" class="trabajo-dialog-counter">1 / 6</span>
+    </div>
+  </div>
+</dialog>
+
+<!-- Separador Bandera de Colombia (Sastrería de Lujo 2:1:1) -->
+<div class="separador-sastreria" data-reveal-line aria-hidden="true"></div>

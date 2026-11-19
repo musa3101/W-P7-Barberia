@@ -1,1868 +1,1497 @@
 <!DOCTYPE html>
-<html lang="es" class="scroll-smooth overflow-x-hidden">
+<html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>P7 Barber Master Studio | Palma de Mallorca · Since 2023</title>
-  <meta name="description" content="P7 Barber Master Studio en Palma de Mallorca (C/ Miguel Ángel Riera, 2). Alta barbería artesanal, degradados de precisión y ritual de barba con toalla caliente. Valorado 5.0 ★ en Booksy (+250 reseñas)." />
-  <link rel="icon" type="image/png" href="./assets/img/favicon.png" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>P7 Barber Master Studio | Barbería de lujo en Palma de Mallorca</title>
+  <meta name="description" content="Barbería artesanal en C/ Miguel Ángel Riera, 2, Palma de Mallorca. Desde 2023. 5,0 en Booksy (296 reseñas verificadas). Reserva tu cita.">
+  <meta name="theme-color" content="#0B2E22">
 
-  <!-- Enlaces Tipográficos Opción 1 (Boska + General Sans + Satoshi + Rye) -->
-  <link rel="preconnect" href="https://api.fontshare.com" crossorigin />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=boska@400,401,500,501,600,700,701&f[]=general-sans@400,500,600,700&f[]=satoshi@400,500,700&display=swap" />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Rye&display=swap" />
-  <link rel="stylesheet" href="../tipografia/fonts.css" />
-  <link rel="stylesheet" href="./assets/css/fonts.css" />
+  <!-- Geo / SEO Local Palma de Mallorca -->
+  <meta name="geo.region" content="ES-PM">
+  <meta name="geo.placename" content="Palma de Mallorca">
+  <meta name="geo.position" content="39.5789;2.6518">
+  <meta name="ICBM" content="39.5789, 2.6518">
 
-  <!-- Tailwind CSS CDN & Configuración Esmeralda & Oro Exacta -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            emerald: {
-              950: '#071F17',
-              900: '#0B2E22',
-              800: '#0F3D2E',
-              700: '#164A38',
-              600: '#1E5E48'
-            },
-            gold: {
-              300: '#F1D592',
-              400: '#DFBE77',
-              500: '#C9A45C',
-              700: '#9A7838'
-            },
-            cream: {
-              100: '#F8F1E4',
-              200: '#F3E9D7',
-              300: '#E5D6BC'
-            },
-            burgundy: {
-              600: '#7A1F2B',
-              700: '#5E1620'
-            }
-          },
-          fontFamily: {
-            display: ['Boska', 'Cormorant Garamond', 'Georgia', 'serif'],
-            sans: ['General Sans', 'Satoshi', 'system-ui', 'sans-serif'],
-            stamp: ['Rye', 'serif']
-          }
-        }
-      }
-    };
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_ES">
+  <meta property="og:title" content="P7 Barber Master Studio | Barbería artesanal en Palma de Mallorca">
+  <meta property="og:description" content="Precisión, trato uno a uno y sesiones de una hora en C/ Miguel Ángel Riera, 2, Palma. 5,0 en Booksy (296 reseñas verificadas).">
+  <meta property="og:image" content="./assets/video/hero-poster.jpg">
+
+  <link rel="icon" type="image/png" href="./assets/img/favicon.png">
+
+  <!-- Precarga LCP del póster del Hero -->
+  <link rel="preload" as="image" href="./assets/video/hero-poster.avif" type="image/avif" fetchpriority="high">
+
+  <!-- Preconexión y fuentes (Boska + General Sans) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+  <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=boska@400,401,500,501,600,700,701&f[]=general-sans@400,500,600,700&display=swap">
+
+  <!-- Hojas de estilo -->
+  <link rel="stylesheet" href="./assets/css/site.css">
+  <link rel="stylesheet" href="./assets/css/sections.css">
+  <link rel="stylesheet" href="./assets/css/sobre.css">
+  <link rel="stylesheet" href="./assets/css/trabajo.css">
+  <link rel="stylesheet" href="./assets/css/contacto.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BarberShop",
+    "name": "P7 Barber Master Studio",
+    "description": "Barbería artesanal dirigida por Manu desde 2023 en Palma de Mallorca. Precisión colombiana, trato 1 a 1 y ritual de toalla caliente.",
+    "foundingDate": "2023",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "C/ Miguel Ángel Riera, 2",
+      "addressLocality": "Palma de Mallorca",
+      "postalCode": "07004",
+      "addressRegion": "Illes Balears",
+      "addressCountry": "ES"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5.0",
+      "reviewCount": "296"
+    }
+  }
   </script>
-
-  <style>
-    :root {
-      --emerald-900: #0B2E22;
-      --emerald-800: #0F3D2E;
-      --emerald-700: #164A38;
-      --gold-300: #F1D592;
-      --gold-500: #C9A45C;
-      --gold-700: #9A7838;
-      --cream-100: #F8F1E4;
-      --cream-200: #F3E9D7;
-      --burgundy-600: #7A1F2B;
-      --gold-gradient: linear-gradient(135deg, #9A7838, #F1D592 45%, #C9A45C 70%, #9A7838);
-    }
-
-    html, body {
-      overflow-x: hidden;
-    }
-
-    body {
-      background-color: #0F3D2E;
-      color: #F3E9D7;
-      font-family: 'General Sans', 'Satoshi', system-ui, -apple-system, sans-serif;
-      overflow-x: hidden;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    .font-display {
-      font-family: 'Boska', 'Cormorant Garamond', Georgia, serif;
-    }
-
-    .font-stamp {
-      font-family: 'Rye', serif;
-      letter-spacing: 0.16em;
-    }
-
-    /* Degradado Oro Metálico Oficial */
-    .bg-gold-metallic {
-      background-image: linear-gradient(135deg, #9A7838 0%, #F1D592 45%, #C9A45C 70%, #9A7838 100%);
-      background-size: 200% auto;
-      transition: background-position 0.5s ease, transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .bg-gold-metallic:hover {
-      background-position: right center;
-      box-shadow: 0 10px 30px -5px rgba(201, 164, 92, 0.45);
-    }
-
-    .text-gold-metallic {
-      background: linear-gradient(135deg, #C9A45C 0%, #F1D592 50%, #9A7838 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    .border-gold-subtle {
-      border-color: rgba(201, 164, 92, 0.28);
-    }
-
-    /* Movimiento Ken Burns para respaldo de vídeo en Hero */
-    @keyframes kenBurnsSlow {
-      0% { transform: scale(1.03) translate(0, 0); }
-      50% { transform: scale(1.1) translate(-1%, -1%); }
-      100% { transform: scale(1.03) translate(0, 0); }
-    }
-    .animate-kenburns {
-      animation: kenBurnsSlow 24s ease-in-out infinite;
-    }
-
-    /* Textura de papel verjurado cálido para la Carta de Precios */
-    .paper-parchment {
-      background-color: #F8F1E4;
-      background-image:
-        radial-gradient(rgba(154, 120, 56, 0.06) 1px, transparent 0),
-        radial-gradient(rgba(11, 46, 34, 0.03) 1px, #F8F1E4 0);
-      background-size: 24px 24px;
-      background-position: 0 0, 12px 12px;
-    }
-
-    /* Filtro Esmeralda Oscuro para el mapa interactivo */
-    .emerald-map-filter {
-      filter: grayscale(100%) invert(92%) hue-rotate(115deg) brightness(82%) contrast(115%) sepia(18%);
-    }
-
-    /* Respeto a prefers-reduced-motion */
-    @media (prefers-reduced-motion: reduce) {
-      .animate-kenburns {
-        animation: none !important;
-      }
-      * {
-        scroll-behavior: auto !important;
-      }
-    }
-  </style>
 </head>
+<body>
 
-<body class="bg-emerald-800 text-cream-200 selection:bg-gold-500 selection:text-emerald-900">
+<div id="scroll-progress" class="scroll-progress" aria-hidden="true"></div>
+<a href="#main-content" class="skip-link">Saltar al contenido</a>
 
-  <!-- ===================================================================== -->
-  <!-- HEADER FIJO (Esquema Freeform: Logo + Nav 4 secciones + ES/EN/DE + CTA) -->
-  <!-- ===================================================================== -->
-  <header id="site-header" class="fixed top-0 left-0 right-0 z-50 bg-emerald-900/95 backdrop-blur-md border-b border-gold-500/25 transition-all duration-300">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
-      
-      <!-- Logo P7 + Nombre -->
-      <a href="#inicio" class="flex items-center gap-3 group focus:outline-none">
-        <div class="relative w-12 h-12 rounded-full bg-emerald-800 border border-gold-500/40 p-1 flex items-center justify-center shadow-lg group-hover:border-gold-300 transition-colors">
-          <img src="./assets/img/logo-p7.png" alt="Logo P7 Barber Master Studio" class="w-full h-full object-contain" onerror="this.src='../referencias/Logo-P7-v1.jpg'" />
-        </div>
-        <div class="flex flex-col">
-          <span class="font-display text-xl sm:text-2xl font-bold tracking-wide text-cream-100 leading-none">
-            P7 <span class="text-gold-300 italic font-normal">Barber</span>
-          </span>
-          <span class="font-stamp text-[10px] text-gold-500 uppercase tracking-widest mt-1">
-            Master Studio · Palma
-          </span>
-        </div>
-      </a>
+<header id="site-header" class="site-header">
+  <div class="container header-inner">
+    <a href="#inicio" class="header-brand" aria-label="P7 Barber Master Studio — Inicio">
+      <img src="./assets/img/opt/logo-p7-256w.webp" alt="Escudo P7 Barber Master Studio" width="40" height="40" decoding="async">
+      <span class="header-brand-name">P7 Barber</span>
+    </a>
 
-      <!-- Navegación Principal (Escritorio) -->
-      <nav aria-label="Navegación principal" class="hidden lg:flex items-center gap-8">
-        <a href="#inicio" data-i18n="nav.home" class="text-sm font-medium uppercase tracking-widest text-cream-100 hover:text-gold-300 transition-colors py-2">Inicio</a>
-        <a href="#sobre-nosotros" data-i18n="nav.about" class="text-sm font-medium uppercase tracking-widest text-cream-200/85 hover:text-gold-300 transition-colors py-2">Sobre nosotros</a>
-        <a href="#nuestro-trabajo" data-i18n="nav.work" class="text-sm font-medium uppercase tracking-widest text-cream-200/85 hover:text-gold-300 transition-colors py-2">Nuestro trabajo</a>
-        <a href="#contacto" data-i18n="nav.contact" class="text-sm font-medium uppercase tracking-widest text-cream-200/85 hover:text-gold-300 transition-colors py-2">Contacto</a>
-      </nav>
+    <nav class="header-nav" aria-label="Navegación principal">
+      <a href="#inicio">Inicio</a>
+      <a href="#sobre-nosotros">Sobre nosotros</a>
+      <a href="#nuestro-trabajo">Nuestro trabajo</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
 
-      <!-- Selector de Idiomas (ES / EN / DE) + Botón Reservar + Hamburger Móvil -->
-      <div class="flex items-center gap-3 sm:gap-4">
-        
-        <!-- Selector ES | EN | DE -->
-        <div class="flex items-center bg-emerald-800/90 border border-gold-500/30 rounded-full p-1 text-xs font-semibold tracking-wider" role="group" aria-label="Selector de idioma">
-          <button type="button" data-lang="es" class="lang-btn px-2.5 py-1 rounded-full bg-gold-500 text-emerald-900 font-bold transition-all">ES</button>
-          <button type="button" data-lang="en" class="lang-btn px-2.5 py-1 rounded-full text-cream-200/80 hover:text-gold-300 transition-all">EN</button>
-          <button type="button" data-lang="de" class="lang-btn px-2.5 py-1 rounded-full text-cream-200/80 hover:text-gold-300 transition-all">DE</button>
-        </div>
-
-        <!-- Botón Dorado Metálico Reservar -->
-        <a href="#reserva" data-i18n="nav.book" class="hidden sm:inline-flex items-center justify-center px-5 py-2.5 rounded-lg bg-gold-metallic text-emerald-900 font-bold text-xs uppercase tracking-widest shadow-md hover:-translate-y-0.5 transition-all">
-          Reservar
-        </a>
-
-        <!-- Botón Menú Móvil (min 44x44px) -->
-        <button id="mobile-menu-open" type="button" aria-label="Abrir menú de navegación" aria-expanded="false" class="lg:hidden min-w-[44px] min-h-[44px] w-11 h-11 rounded-lg bg-emerald-800 border border-gold-500/40 text-gold-300 flex items-center justify-center hover:bg-emerald-700 transition-colors">
-          <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M4 7h16M4 12h16M10 17h10" />
-          </svg>
-        </button>
-      </div>
+    <div class="header-actions">
+      <a href="https://booksy.com/es-es/" target="_blank" rel="noopener noreferrer" class="btn-gold-metallic header-cta">Reservar</a>
+      <button
+        type="button"
+        id="mobile-menu-open"
+        class="mobile-menu-btn"
+        aria-label="Abrir menú de navegación"
+        aria-controls="mobile-menu"
+        aria-expanded="false"
+      >
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true">
+          <line x1="3" y1="7" x2="21" y2="7"></line>
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="17" x2="21" y2="17"></line>
+        </svg>
+      </button>
     </div>
+  </div>
+</header>
 
-    <!-- Overlay Menú Móvil a Pantalla Completa -->
-    <div id="mobile-menu-overlay" class="fixed inset-0 top-0 left-0 w-full h-screen bg-emerald-900/98 backdrop-blur-xl z-50 hidden flex-col justify-between p-6 sm:p-8">
-      <div class="flex items-center justify-between border-b border-gold-500/20 pb-5">
-        <div class="flex items-center gap-3">
-          <img src="./assets/img/logo-p7.png" alt="Logo P7" class="w-11 h-11 object-contain" onerror="this.src='../referencias/Logo-P7-v1.jpg'" />
-          <div>
-            <span class="font-display text-xl font-bold text-cream-100 block leading-none">P7 Barber</span>
-            <span class="font-stamp text-[10px] text-gold-500 uppercase tracking-widest">Since 2023 · Palma</span>
-          </div>
-        </div>
-        <button id="mobile-menu-close" type="button" aria-label="Cerrar menú" class="min-w-[44px] min-h-[44px] w-11 h-11 rounded-lg bg-emerald-800 border border-gold-500/40 text-gold-300 flex items-center justify-center">
-          <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-          </svg>
-        </button>
-      </div>
+<div id="mobile-menu" class="mobile-menu" hidden aria-label="Menú móvil">
+  <div class="mobile-menu-top">
+    <span class="header-brand-name">P7 Barber Master Studio</span>
+    <button type="button" id="mobile-menu-close" class="mobile-menu-btn" aria-label="Cerrar menú">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true">
+        <line x1="5" y1="5" x2="19" y2="19"></line>
+        <line x1="19" y1="5" x2="5" y2="19"></line>
+      </svg>
+    </button>
+  </div>
 
-      <nav class="flex flex-col items-center justify-center gap-6 my-auto text-center">
-        <a href="#inicio" data-i18n="nav.home" class="mobile-nav-link font-display text-3xl text-cream-100 hover:text-gold-300 transition-colors py-2">Inicio</a>
-        <a href="#sobre-nosotros" data-i18n="nav.about" class="mobile-nav-link font-display text-3xl text-cream-100 hover:text-gold-300 transition-colors py-2">Sobre nosotros</a>
-        <a href="#nuestro-equipo" data-i18n="nav.team" class="mobile-nav-link font-sans text-sm uppercase tracking-widest text-gold-500 hover:text-gold-300 transition-colors">↳ Nuestro equipo</a>
-        <a href="#nuestro-trabajo" data-i18n="nav.work" class="mobile-nav-link font-display text-3xl text-cream-100 hover:text-gold-300 transition-colors py-2">Nuestro trabajo</a>
-        <a href="#lista-precios" data-i18n="nav.prices" class="mobile-nav-link font-sans text-sm uppercase tracking-widest text-gold-500 hover:text-gold-300 transition-colors">↳ Lista de precios</a>
-        <a href="#contacto" data-i18n="nav.contact" class="mobile-nav-link font-display text-3xl text-cream-100 hover:text-gold-300 transition-colors py-2">Contacto</a>
-        <a href="#donde-estamos" data-i18n="nav.map" class="mobile-nav-link font-sans text-sm uppercase tracking-widest text-gold-500 hover:text-gold-300 transition-colors">↳ Dónde estamos</a>
-      </nav>
+  <ul class="mobile-menu-links">
+    <li><a href="#inicio">Inicio</a></li>
+    <li><a href="#sobre-nosotros">Sobre nosotros</a></li>
+    <li><a href="#nuestro-trabajo">Nuestro trabajo</a></li>
+    <li><a href="#contacto">Contacto</a></li>
+  </ul>
 
-      <div class="border-t border-gold-500/20 pt-6 flex flex-col gap-4">
-        <div class="flex items-center justify-center gap-2" role="group" aria-label="Selector de idioma móvil">
-          <button type="button" data-lang="es" class="lang-btn px-3 py-1.5 rounded-full bg-gold-500 text-emerald-900 font-bold text-xs tracking-wider transition-all">ES</button>
-          <button type="button" data-lang="en" class="lang-btn px-3 py-1.5 rounded-full text-cream-200/80 hover:text-gold-300 text-xs tracking-wider transition-all">EN</button>
-          <button type="button" data-lang="de" class="lang-btn px-3 py-1.5 rounded-full text-cream-200/80 hover:text-gold-300 text-xs tracking-wider transition-all">DE</button>
-        </div>
-        <a href="#reserva" data-i18n="hero.ctaBook" class="mobile-nav-link w-full py-4 rounded-xl bg-gold-metallic text-emerald-900 font-bold text-center uppercase tracking-widest text-sm shadow-lg">
-          Reservar Cita Ahora
-        </a>
-        <p class="text-center text-xs text-cream-200/70">C/ Miguel Ángel Riera, 2 · 07004 Palma de Mallorca · ★ 5.0 Booksy</p>
-      </div>
-    </div>
-  </header>
+  <div class="mobile-menu-foot">
+    <a href="https://booksy.com/es-es/" target="_blank" rel="noopener noreferrer" class="btn-gold-metallic">Reservar cita</a>
+    <span>C/ Miguel Ángel Riera, 2 · 07004 Palma de Mallorca</span>
+  </div>
+</div>
 
-  <main class="pt-20">
+<main id="main-content" class="page-shell">
 
-    <!-- ===================================================================== -->
-    <!-- 1. INICIO (#inicio — HERO CON VÍDEO EN BUCLE + ESCUDO P7 + DOBLE CTA) -->
-    <!-- ===================================================================== -->
-    <section id="inicio" class="relative min-h-[92vh] flex items-center justify-center overflow-hidden bg-emerald-900 py-16 lg:py-24">
-      
-      <!-- Fondo Cinemático: Imagen de respaldo en movimiento Ken Burns + Vídeo de Barbería en bucle -->
-      <div class="absolute inset-0 z-0 overflow-hidden">
+<section id="inicio" class="hero">
+  <div class="hero-media">
+    <picture class="hero-poster-picture">
+      <source srcset="./assets/video/hero-poster.avif" type="image/avif">
+      <source srcset="./assets/video/hero-poster.webp" type="image/webp">
+      <img
+        src="./assets/video/hero-poster.jpg"
+        alt="Interior de P7 Barber Master Studio en Palma de Mallorca"
+        class="hero-poster-media is-ken-burns"
+        width="1920"
+        height="1080"
+        fetchpriority="high"
+        decoding="async"
+      >
+    </picture>
+
+    <video
+      id="hero-video"
+      class="hero-video"
+      autoplay
+      loop
+      muted
+      playsinline
+      width="1920"
+      height="1080"
+      aria-hidden="true"
+      poster="./assets/video/hero-poster.avif"
+    >
+      <source src="./assets/video/hero-9x16.webm" type="video/webm" media="(max-width: 767px)">
+      <source src="./assets/video/hero-9x16.mp4" type="video/mp4" media="(max-width: 767px)">
+      <source src="./assets/video/hero-16x9.webm" type="video/webm">
+      <source src="./assets/video/hero-16x9.mp4" type="video/mp4">
+    </video>
+
+    <div class="hero-veil" aria-hidden="true"></div>
+  </div>
+
+  <div class="container hero-content">
+    <div class="grid-12">
+      <div class="hero-crest">
         <img
-          src="./assets/img/hero-atelier.png"
-          alt="Interior de P7 Barber Master Studio en Palma de Mallorca"
-          class="w-full h-full object-cover object-center animate-kenburns opacity-65"
-          onerror="this.src='https://images.unsplash.com/photo-1585747860715-2ba37e788b70?auto=format&fit=crop&w=1920&q=85'"
-        />
-        <video
-          autoplay
-          loop
-          muted
-          playsinline
-          poster="./assets/img/hero-atelier.png"
-          class="absolute inset-0 w-full h-full object-cover object-center opacity-55 mix-blend-luminosity"
+          src="./assets/img/opt/logo-p7-256w.webp"
+          alt="Escudo gótico P7 Barber Master Studio"
+          width="92"
+          height="92"
+          decoding="async"
         >
-          <source src="https://videos.pexels.com/video-files/4178114/4178114-hd_1920_1080_25fps.mp4" type="video/mp4" />
-          <source src="https://videos.pexels.com/video-files/3998516/3998516-uhd_2560_1440_25fps.mp4" type="video/mp4" />
-        </video>
-        <!-- Velo Esmeralda Profundo (#0B2E22/80 + Viñeta Radial) -->
-        <div class="absolute inset-0 bg-emerald-900/75"></div>
-        <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_15%,#0B2E22_95%)]"></div>
-        <div class="absolute inset-x-0 bottom-0 h-36 bg-gradient-to-t from-emerald-800 to-transparent"></div>
       </div>
 
-      <!-- Contenido Central del Hero -->
-      <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center">
-        
-        <!-- Eyebrow con Prueba Social Real -->
-        <div class="inline-flex flex-wrap items-center justify-center gap-2 px-4 py-1.5 rounded-full bg-emerald-900/90 border border-gold-500/40 shadow-lg mb-7">
-          <span class="w-2 h-2 rounded-full bg-gold-300 animate-pulse"></span>
-          <span data-i18n="hero.eyebrow" class="text-xs sm:text-sm font-medium tracking-wider uppercase text-gold-300">
-            Palma de Mallorca · Since 2023 · ★ 5.0 en Booksy (+250 reseñas)
-          </span>
-        </div>
-
-        <!-- Escudo Oficial P7 con Halo Dorado -->
-        <div class="relative mb-6 group">
-          <div class="absolute -inset-4 rounded-full bg-gold-500/20 blur-2xl group-hover:bg-gold-300/30 transition-all duration-700"></div>
-          <div class="relative w-28 h-28 sm:w-36 sm:h-36 rounded-full border-2 border-gold-500/60 bg-emerald-900/90 p-2.5 shadow-[0_15px_40px_rgba(0,0,0,0.85)] flex items-center justify-center">
-            <img
-              src="./assets/img/logo-p7.png"
-              alt="Monograma P7 Barber Master Studio"
-              class="w-full h-full object-contain rounded-full"
-              onerror="this.src='../referencias/Logo-P7-v1.jpg'"
-            />
-          </div>
-        </div>
-
-        <!-- Sello Rye Western -->
-        <span data-i18n="hero.stamp" class="font-stamp text-xs sm:text-sm text-gold-500 uppercase tracking-[0.28em] mb-3">
-          BARBER MASTER STUDIO · PALMA
-        </span>
-
-        <!-- H1 en Boska con cursivas editoriales -->
-        <h1 data-i18n="hero.title" class="font-display text-4xl sm:text-6xl lg:text-7xl font-bold text-cream-100 tracking-tight leading-[1.08] max-w-4xl mb-6">
-          El Arte de la <span class="italic font-normal text-gold-300">Barbería Clásica</span> Llevado a la Excelencia
+      <div class="hero-title-wrap">
+        <h1 class="h1-editorial">
+          <span class="hero-line-mask"><span class="hero-line">Maestría en</span></span>
+          <span class="hero-line-mask"><span class="hero-line hero-line-2">cada trazo.</span></span>
         </h1>
+      </div>
 
-        <!-- Subtítulo descriptivo -->
-        <p data-i18n="hero.subtitle" class="text-base sm:text-lg lg:text-xl text-cream-200/90 max-w-2xl mx-auto leading-relaxed mb-10 font-normal">
-          Santuario de cuidado masculino artesanal en el corazón de Palma de Mallorca. Degradados milimétricos, corte a tijera y ritual de afeitado tradicional con toalla caliente.
+      <div class="hero-sub-wrap">
+        <p class="lead-copy">
+          Barbería artesanal dirigida por Manu en Palma de Mallorca. Precisión colombiana, trato uno a uno y ritual de toalla caliente.
         </p>
 
-        <!-- Doble CTA -->
-        <div class="flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto mb-12">
-          <a href="#reserva" class="w-full sm:w-auto min-h-[48px] px-8 py-4 rounded-xl bg-gold-metallic text-emerald-900 font-bold text-sm uppercase tracking-widest shadow-xl hover:-translate-y-0.5 transition-all flex items-center justify-center gap-2">
-            <span data-i18n="hero.ctaBook">Reservar Cita</span>
-            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 5l7 7-7 7" />
-            </svg>
+        <div class="hero-actions">
+          <a href="https://booksy.com/es-es/" target="_blank" rel="noopener noreferrer" class="btn-gold-metallic">
+            Reservar cita
           </a>
-          <a href="#nuestro-trabajo" class="w-full sm:w-auto min-h-[48px] px-8 py-4 rounded-xl bg-emerald-900/70 hover:bg-emerald-700/80 border border-gold-500/50 text-cream-100 font-semibold text-sm uppercase tracking-widest transition-all flex items-center justify-center gap-2">
-            <span data-i18n="hero.ctaWork">Ver Nuestro Trabajo</span>
+          <a href="https://www.setmore.com/" target="_blank" rel="noopener noreferrer" class="link-subtle">
+            O reserva en Setmore
           </a>
         </div>
 
-        <!-- Barra de Garantías Artesanales (con iconos SVG a medida en oro) -->
-        <div class="w-full max-w-3xl rounded-2xl bg-emerald-900/85 border border-gold-500/30 backdrop-blur-md px-6 py-4 grid grid-cols-1 sm:grid-cols-3 gap-4 text-left sm:text-center shadow-2xl">
-          <div class="flex items-center sm:justify-center gap-3">
-            <svg class="w-5 h-5 text-gold-500 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M12 2l2.9 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l7.1-1.01L12 2z" />
-            </svg>
-            <span data-i18n="hero.badge1" class="text-xs uppercase tracking-widest text-cream-100 font-semibold">5.0 ★ Booksy (+250 reseñas)</span>
-          </div>
-          <div class="flex items-center sm:justify-center gap-3">
-            <svg class="w-5 h-5 text-gold-500 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-              <circle cx="6" cy="6" r="3" />
-              <circle cx="6" cy="18" r="3" />
-              <path stroke-linecap="round" stroke-linejoin="round" d="M20 4L8.12 15.88M14.47 14.48L20 20M8.12 8.12L12 12" />
-            </svg>
-            <span data-i18n="hero.badge2" class="text-xs uppercase tracking-widest text-cream-100 font-semibold">Maestría en Navaja &amp; Fade</span>
-          </div>
-          <div class="flex items-center sm:justify-center gap-3">
-            <svg class="w-5 h-5 text-gold-500 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M12 21s-7-4.35-7-10a4 4 0 017-2.65A4 4 0 0119 11c0 5.65-7 10-7 10z" />
-            </svg>
-            <span data-i18n="hero.badge3" class="text-xs uppercase tracking-widest text-cream-100 font-semibold">Ritual Toalla Caliente</span>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- Divisor de Filigrana SVG Dorado Hecho a Medida -->
-    <div class="max-w-5xl mx-auto px-6 py-6 flex items-center justify-center" aria-hidden="true">
-      <svg class="w-full max-w-lg h-8 text-gold-500" viewBox="0 0 500 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <line x1="0" y1="16" x2="195" y2="16" stroke="currentColor" stroke-opacity="0.35" stroke-width="1" />
-        <path d="M210 16C220 8 230 8 238 16C230 24 220 24 210 16Z" stroke="currentColor" stroke-width="1.3" fill="none" />
-        <polygon points="250,5 259,16 250,27 241,16" stroke="#F1D592" stroke-width="1.5" fill="#C9A45C" fill-opacity="0.25" />
-        <circle cx="250" cy="16" r="2.5" fill="#F1D592" />
-        <path d="M290 16C280 8 270 8 262 16C270 24 280 24 290 16Z" stroke="currentColor" stroke-width="1.3" fill="none" />
-        <line x1="305" y1="16" x2="500" y2="16" stroke="currentColor" stroke-opacity="0.35" stroke-width="1" />
-      </svg>
-    </div>
-
-    <!-- ===================================================================== -->
-    <!-- 2. SOBRE NOSOTROS (#sobre-nosotros) + SUBSECCIÓN NUESTRO EQUIPO (GALERÍA 1) -->
-    <!-- ===================================================================== -->
-    <section id="sobre-nosotros" class="py-16 lg:py-24 bg-emerald-800 relative">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        <!-- Bloque Principal: Historia de Manu y P7 Barber Master Studio -->
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center mb-20">
-          
-          <!-- Columna Izquierda: Retrato Editorial de Manu -->
-          <div class="lg:col-span-5 relative">
-            <div class="absolute -inset-2.5 rounded-2xl bg-gradient-to-tr from-gold-700/30 via-gold-500/20 to-transparent blur-lg"></div>
-            <div class="relative rounded-2xl overflow-hidden border-2 border-gold-500/40 bg-emerald-900 shadow-2xl">
-              <img
-                src="./assets/img/manu-portrait.png"
-                alt="Manu — Founder & Master Barber en P7 Barber Master Studio Palma"
-                class="w-full h-[460px] sm:h-[520px] object-cover object-top"
-                onerror="this.src='https://images.unsplash.com/photo-1621607512214-68297480165e?auto=format&fit=crop&w=1000&q=85'"
-              />
-              <div class="absolute inset-0 bg-gradient-to-t from-emerald-900 via-emerald-900/25 to-transparent"></div>
-              <div class="absolute bottom-0 inset-x-0 p-6 flex items-end justify-between gap-4">
-                <div>
-                  <span class="font-stamp text-xs text-gold-300 uppercase tracking-widest block">Founder &amp; Master Barber</span>
-                  <h3 class="font-display text-3xl font-bold text-cream-100 mt-0.5">Manu</h3>
-                  <p data-i18n="about.portraitRole" class="text-xs text-cream-200/80 uppercase tracking-wider mt-1">Dirección Artística · P7 Palma de Mallorca</p>
-                </div>
-                <span class="px-3 py-1.5 rounded-lg bg-burgundy-600 text-cream-100 font-stamp text-[10px] uppercase tracking-widest border border-gold-500/40">
-                  SINCE 2023
-                </span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Columna Derecha: Manifiesto Artesanal + Contadores -->
-          <div class="lg:col-span-7 space-y-6">
-            <div class="inline-flex items-center gap-3">
-              <span class="w-10 h-px bg-gold-500"></span>
-              <span data-i18n="about.eyebrow" class="font-stamp text-xs text-gold-300 uppercase tracking-widest">Nuestra Historia · Palma de Mallorca</span>
-            </div>
-
-            <h2 data-i18n="about.title" class="font-display text-3xl sm:text-5xl font-bold text-cream-100 leading-[1.12]">
-              Donde la Tradición del <span class="italic font-normal text-gold-300">Maestro Barbero</span> se Encuentra con la Precisión Contemporánea
-            </h2>
-
-            <p data-i18n="about.p1" class="text-base sm:text-lg text-cream-200/90 leading-relaxed">
-              Fundado en 2023 por <strong>Manu</strong> en la calle Miguel Ángel Riera 2 de Palma de Mallorca, <strong>P7 Barber Master Studio</strong> nació con una visión clara: recuperar el carácter solemne, cálido y artesanal de la barbería clásica europea, alejándose de los cortes apresurados e impersonales.
-            </p>
-
-            <p data-i18n="about.p2" class="text-base sm:text-lg text-cream-200/85 leading-relaxed">
-              En nuestro estudio de tonos verde esmeralda y detalles en oro envejecido, cada servicio comienza con un diagnóstico morfológico personalizado. Trabajamos el cabello y la barba como una obra de sastrería a medida, combinando tijera, navaja tradicional y toallas aromáticas al vapor.
-            </p>
-
-            <!-- Cifras Reales Verificadas -->
-            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4">
-              <div class="rounded-xl bg-emerald-700/90 border border-gold-500/35 p-5 text-center shadow-lg">
-                <span class="font-display text-3xl sm:text-4xl font-bold text-gold-300 block">5,0 ★</span>
-                <span data-i18n="about.stat1" class="text-xs uppercase tracking-widest text-cream-200/85 mt-1 block">Puntuación en Booksy</span>
-              </div>
-              <div class="rounded-xl bg-emerald-700/90 border border-gold-500/35 p-5 text-center shadow-lg">
-                <span class="font-display text-3xl sm:text-4xl font-bold text-gold-300 block">+250</span>
-                <span data-i18n="about.stat2" class="text-xs uppercase tracking-widest text-cream-200/85 mt-1 block">Reseñas Verificadas</span>
-              </div>
-              <div class="rounded-xl bg-emerald-700/90 border border-gold-500/35 p-5 text-center shadow-lg">
-                <span class="font-display text-3xl sm:text-4xl font-bold text-gold-300 block">100%</span>
-                <span data-i18n="about.stat3" class="text-xs uppercase tracking-widest text-cream-200/85 mt-1 block">Ritual Artesanal</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- ================================================================= -->
-        <!-- SUBSECCIÓN 2.1: NUESTRO EQUIPO — GALERÍA 1 (#nuestro-equipo)      -->
-        <!-- ================================================================= -->
-        <div id="nuestro-equipo" class="pt-12 border-t border-gold-500/25">
-          <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10">
-            <div>
-              <span data-i18n="team.eyebrow" class="font-stamp text-xs text-gold-500 uppercase tracking-widest block mb-2">
-                Subsección · Galería 1
-              </span>
-              <h3 data-i18n="team.title" class="font-display text-3xl sm:text-4xl font-bold text-cream-100">
-                Nuestro Equipo &amp; <span class="italic font-normal text-gold-300">El Atelier</span>
-              </h3>
-            </div>
-            <p data-i18n="team.subtitle" class="text-sm sm:text-base text-cream-200/80 max-w-md">
-              Conoce a Manu y descubre por dentro la atmósfera artesanal de P7 Barber Master Studio en Palma.
-            </p>
-          </div>
-
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
-            
-            <!-- Tarjeta 1: Manu (Founder & Master Barber) -->
-            <article class="rounded-2xl bg-emerald-700 border border-gold-500/35 overflow-hidden shadow-xl flex flex-col justify-between group">
-              <div class="relative h-72 overflow-hidden bg-emerald-900">
-                <img
-                  src="./assets/img/manu-portrait.png"
-                  alt="Manu — Founder & Master Barber"
-                  class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700"
-                  onerror="this.src='https://images.unsplash.com/photo-1621607512214-68297480165e?auto=format&fit=crop&w=900&q=80'"
-                />
-                <div class="absolute inset-0 bg-gradient-to-t from-emerald-900 via-transparent to-transparent"></div>
-                <span class="absolute top-4 left-4 px-3 py-1 rounded-full bg-burgundy-600 text-cream-100 text-[11px] font-bold uppercase tracking-wider border border-gold-500/40">
-                  Founder &amp; Master Barber
-                </span>
-              </div>
-              <div class="p-6 flex-1 flex flex-col justify-between">
-                <div>
-                  <h4 class="font-display text-2xl font-bold text-cream-100">Manu</h4>
-                  <p data-i18n="team.card1Role" class="text-xs text-gold-300 uppercase tracking-widest mt-1 mb-3">
-                    Especialista en Corte Clásico, Skin Fade &amp; Esculpido de Barba
-                  </p>
-                  <p data-i18n="team.card1Desc" class="text-sm text-cream-200/85 leading-relaxed">
-                    Alma de P7 Barber Master Studio. Precisión milimétrica en degradados, dominio de la tijera y ritual tradicional de navaja con toalla caliente.
-                  </p>
-                </div>
-                <div class="mt-6 pt-4 border-t border-gold-500/20 flex items-center justify-between">
-                  <span class="text-xs font-medium text-gold-300">@p7barberstudio</span>
-                  <a href="#reserva" data-i18n="team.bookManu" class="text-xs font-bold uppercase tracking-widest text-cream-100 hover:text-gold-300 transition-colors">
-                    Reservar con Manu →
-                  </a>
-                </div>
-              </div>
-            </article>
-
-            <!-- Tarjeta 2: El Salón Mediterráneo (Galería 1 - Estaciones de Sillón Clásico) -->
-            <article class="rounded-2xl bg-emerald-700 border border-gold-500/35 overflow-hidden shadow-xl flex flex-col justify-between group">
-              <div class="relative h-72 overflow-hidden bg-emerald-900">
-                <img
-                  src="./assets/img/salon-mediterraneo.png"
-                  alt="Estaciones de trabajo y sillones clásicos en P7 Barber Master Studio"
-                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                  onerror="this.src='https://images.unsplash.com/photo-1585747860715-2ba37e788b70?auto=format&fit=crop&w=900&q=80'"
-                />
-                <div class="absolute inset-0 bg-gradient-to-t from-emerald-900 via-transparent to-transparent"></div>
-                <span data-i18n="team.card2Badge" class="absolute top-4 left-4 px-3 py-1 rounded-full bg-emerald-900/90 text-gold-300 text-[11px] font-bold uppercase tracking-wider border border-gold-500/40">
-                  El Estudio · Palma
-                </span>
-              </div>
-              <div class="p-6 flex-1 flex flex-col justify-between">
-                <div>
-                  <h4 data-i18n="team.card2Title" class="font-display text-2xl font-bold text-cream-100">Sillones &amp; Estaciones</h4>
-                  <p data-i18n="team.card2Role" class="text-xs text-gold-300 uppercase tracking-widest mt-1 mb-3">
-                    Arquitectura Esmeralda, Piedra de Marés &amp; Latón
-                  </p>
-                  <p data-i18n="team.card2Desc" class="text-sm text-cream-200/85 leading-relaxed">
-                    Un ambiente privado, relajado y cuidado al detalle en C/ Miguel Ángel Riera 2, diseñado para que cada cita sea una pausa de desconexión.
-                  </p>
-                </div>
-                <div class="mt-6 pt-4 border-t border-gold-500/20 flex items-center justify-between">
-                  <span class="text-xs text-cream-200/75">C/ Miguel Ángel Riera, 2</span>
-                  <a href="#donde-estamos" data-i18n="team.seeLocation" class="text-xs font-bold uppercase tracking-widest text-gold-300 hover:text-cream-100 transition-colors">
-                    Ver ubicación →
-                  </a>
-                </div>
-              </div>
-            </article>
-
-            <!-- Tarjeta 3: Herramientas & Ritual Artesanal (Galería 1) -->
-            <article class="rounded-2xl bg-emerald-700 border border-gold-500/35 overflow-hidden shadow-xl flex flex-col justify-between group">
-              <div class="relative h-72 overflow-hidden bg-emerald-900">
-                <img
-                  src="./assets/img/hero-atelier.png"
-                  alt="Herramientas y ritual de barbería en P7 Master Studio"
-                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                  onerror="this.src='https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=900&q=80'"
-                />
-                <div class="absolute inset-0 bg-gradient-to-t from-emerald-900 via-transparent to-transparent"></div>
-                <span data-i18n="team.card3Badge" class="absolute top-4 left-4 px-3 py-1 rounded-full bg-emerald-900/90 text-gold-300 text-[11px] font-bold uppercase tracking-wider border border-gold-500/40">
-                  Sello de Calidad
-                </span>
-              </div>
-              <div class="p-6 flex-1 flex flex-col justify-between">
-                <div>
-                  <h4 data-i18n="team.card3Title" class="font-display text-2xl font-bold text-cream-100">Atención 1 a 1 sin Prisas</h4>
-                  <p data-i18n="team.card3Role" class="text-xs text-gold-300 uppercase tracking-widest mt-1 mb-3">
-                    Higiene Quirúrgica &amp; Productos Premium
-                  </p>
-                  <p data-i18n="team.card3Desc" class="text-sm text-cream-200/85 leading-relaxed">
-                    Esterilización rigurosa en cada servicio, cosmética botánica de primera línea y asesoramiento honesto según tu estilo y fisonomía.
-                  </p>
-                </div>
-                <div class="mt-6 pt-4 border-t border-gold-500/20 flex items-center justify-between">
-                  <span class="text-xs text-gold-300">★ 5.0 Valoración Media</span>
-                  <a href="#lista-precios" data-i18n="team.seeMenu" class="text-xs font-bold uppercase tracking-widest text-cream-100 hover:text-gold-300 transition-colors">
-                    Ver carta →
-                  </a>
-                </div>
-              </div>
-            </article>
-
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- Divisor de Filigrana SVG Dorado -->
-    <div class="max-w-5xl mx-auto px-6 py-4 flex items-center justify-center" aria-hidden="true">
-      <svg class="w-full max-w-lg h-8 text-gold-500" viewBox="0 0 500 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <line x1="0" y1="16" x2="210" y2="16" stroke="currentColor" stroke-opacity="0.35" stroke-width="1" />
-        <circle cx="230" cy="16" r="3" stroke="currentColor" stroke-width="1.3" />
-        <polygon points="250,6 258,16 250,26 242,16" stroke="#F1D592" stroke-width="1.5" fill="#C9A45C" fill-opacity="0.3" />
-        <circle cx="270" cy="16" r="3" stroke="currentColor" stroke-width="1.3" />
-        <line x1="290" y1="16" x2="500" y2="16" stroke="currentColor" stroke-opacity="0.35" stroke-width="1" />
-      </svg>
-    </div>
-
-    <!-- ===================================================================== -->
-    <!-- 3. NUESTRO TRABAJO (#nuestro-trabajo — GALERÍA 2)                     -->
-    <!-- ===================================================================== -->
-    <section id="nuestro-trabajo" class="py-16 lg:py-24 bg-emerald-900">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        <!-- Cabecera + Filtros Interactivos -->
-        <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-12">
-          <div>
-            <span data-i18n="work.eyebrow" class="font-stamp text-xs text-gold-500 uppercase tracking-widest block mb-2">
-              Portfolio · Galería 2
-            </span>
-            <h2 data-i18n="work.title" class="font-display text-3xl sm:text-5xl font-bold text-cream-100">
-              Nuestro <span class="italic font-normal text-gold-300">Trabajo</span> en Detalle
-            </h2>
-          </div>
-
-          <!-- Botones de Filtro -->
-          <div class="flex flex-wrap items-center gap-2" role="tablist" aria-label="Filtrar galería de trabajos">
-            <button type="button" data-filter="all" data-i18n="work.filterAll" class="work-filter-btn px-4 py-2.5 rounded-full bg-gold-500 text-emerald-900 font-bold text-xs uppercase tracking-widest transition-all">
-              Todos
-            </button>
-            <button type="button" data-filter="fade" data-i18n="work.filterFade" class="work-filter-btn px-4 py-2.5 rounded-full bg-emerald-800 border border-gold-500/30 text-cream-200 hover:border-gold-300 text-xs uppercase tracking-widest transition-all">
-              Degradados &amp; Fades
-            </button>
-            <button type="button" data-filter="beard" data-i18n="work.filterBeard" class="work-filter-btn px-4 py-2.5 rounded-full bg-emerald-800 border border-gold-500/30 text-cream-200 hover:border-gold-300 text-xs uppercase tracking-widest transition-all">
-              Ritual de Barba
-            </button>
-            <button type="button" data-filter="classic" data-i18n="work.filterClassic" class="work-filter-btn px-4 py-2.5 rounded-full bg-emerald-800 border border-gold-500/30 text-cream-200 hover:border-gold-300 text-xs uppercase tracking-widest transition-all">
-              Corte Clásico
-            </button>
-          </div>
-        </div>
-
-        <!-- Grid Editorial de Cortes y Barbas (con Lightbox al hacer clic) -->
-        <div id="work-gallery-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          
-          <!-- Trabajo 1 -->
-          <figure data-category="beard" class="work-item group relative rounded-2xl overflow-hidden bg-emerald-800 border border-gold-500/30 shadow-xl cursor-pointer">
-            <img
-              src="./assets/img/corte-navaja-oro.png"
-              alt="Perfilado de barba a navaja tradicional en P7 Barber Master Studio"
-              class="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-700"
-              onerror="this.src='https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=900&q=80'"
-            />
-            <div class="absolute inset-0 bg-gradient-to-t from-emerald-900 via-emerald-900/20 to-transparent opacity-90"></div>
-            <figcaption class="absolute bottom-0 inset-x-0 p-6">
-              <span class="text-[11px] font-bold uppercase tracking-widest text-gold-300 block">Ritual de Barba · Navaja</span>
-              <h3 data-i18n="work.item1Title" class="font-display text-2xl font-bold text-cream-100 mt-0.5">Perfilado Geométrico &amp; Toalla Caliente</h3>
-            </figcaption>
-          </figure>
-
-          <!-- Trabajo 2 -->
-          <figure data-category="fade" class="work-item group relative rounded-2xl overflow-hidden bg-emerald-800 border border-gold-500/30 shadow-xl cursor-pointer">
-            <img
-              src="https://images.unsplash.com/photo-1599351431202-1e0f0137899a?auto=format&fit=crop&w=900&q=80"
-              alt="Skin Fade milimétrico con textura superior"
-              class="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-700"
-              onerror="this.src='./assets/img/corte-navaja-oro.png'"
-            />
-            <div class="absolute inset-0 bg-gradient-to-t from-emerald-900 via-emerald-900/20 to-transparent opacity-90"></div>
-            <figcaption class="absolute bottom-0 inset-x-0 p-6">
-              <span class="text-[11px] font-bold uppercase tracking-widest text-gold-300 block">Degradados &amp; Fades</span>
-              <h3 data-i18n="work.item2Title" class="font-display text-2xl font-bold text-cream-100 mt-0.5">Mid Skin Fade &amp; Textura Natural</h3>
-            </figcaption>
-          </figure>
-
-          <!-- Trabajo 3 -->
-          <figure data-category="classic" class="work-item group relative rounded-2xl overflow-hidden bg-emerald-800 border border-gold-500/30 shadow-xl cursor-pointer">
-            <img
-              src="https://images.unsplash.com/photo-1622286342621-4bd786c2447c?auto=format&fit=crop&w=900&q=80"
-              alt="Corte clásico a tijera estilo ejecutivo"
-              class="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-700"
-              onerror="this.src='./assets/img/manu-portrait.png'"
-            />
-            <div class="absolute inset-0 bg-gradient-to-t from-emerald-900 via-emerald-900/20 to-transparent opacity-90"></div>
-            <figcaption class="absolute bottom-0 inset-x-0 p-6">
-              <span class="text-[11px] font-bold uppercase tracking-widest text-gold-300 block">Corte Clásico · Tijera</span>
-              <h3 data-i18n="work.item3Title" class="font-display text-2xl font-bold text-cream-100 mt-0.5">Corte Sastre a Tijera &amp; Acabado Mate</h3>
-            </figcaption>
-          </figure>
-
-          <!-- Trabajo 4 -->
-          <figure data-category="fade" class="work-item group relative rounded-2xl overflow-hidden bg-emerald-800 border border-gold-500/30 shadow-xl cursor-pointer">
-            <img
-              src="https://images.unsplash.com/photo-1517832607067-4db24a2ae47c?auto=format&fit=crop&w=900&q=80"
-              alt="Taper Fade de precisión y contornos limpios"
-              class="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-700"
-              onerror="this.src='./assets/img/corte-navaja-oro.png'"
-            />
-            <div class="absolute inset-0 bg-gradient-to-t from-emerald-900 via-emerald-900/20 to-transparent opacity-90"></div>
-            <figcaption class="absolute bottom-0 inset-x-0 p-6">
-              <span class="text-[11px] font-bold uppercase tracking-widest text-gold-300 block">Degradados &amp; Fades</span>
-              <h3 data-i18n="work.item4Title" class="font-display text-2xl font-bold text-cream-100 mt-0.5">Low Taper &amp; Contorno a Navaja</h3>
-            </figcaption>
-          </figure>
-
-          <!-- Trabajo 5 -->
-          <figure data-category="beard" class="work-item group relative rounded-2xl overflow-hidden bg-emerald-800 border border-gold-500/30 shadow-xl cursor-pointer">
-            <img
-              src="https://images.unsplash.com/photo-1593702288056-7927b442d0fa?auto=format&fit=crop&w=900&q=80"
-              alt="Ritual completo de corte y barba esculpida"
-              class="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-700"
-              onerror="this.src='./assets/img/salon-mediterraneo.png'"
-            />
-            <div class="absolute inset-0 bg-gradient-to-t from-emerald-900 via-emerald-900/20 to-transparent opacity-90"></div>
-            <figcaption class="absolute bottom-0 inset-x-0 p-6">
-              <span class="text-[11px] font-bold uppercase tracking-widest text-gold-300 block">Ritual Completo</span>
-              <h3 data-i18n="work.item5Title" class="font-display text-2xl font-bold text-cream-100 mt-0.5">Master Ritual: Corte + Barba Imperial</h3>
-            </figcaption>
-          </figure>
-
-          <!-- Trabajo 6 -->
-          <figure data-category="classic" class="work-item group relative rounded-2xl overflow-hidden bg-emerald-800 border border-gold-500/30 shadow-xl cursor-pointer">
-            <img
-              src="./assets/img/salon-mediterraneo.png"
-              alt="Detalle de acabado clásico en el sillón de P7"
-              class="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-700"
-              onerror="this.src='https://images.unsplash.com/photo-1585747860715-2ba37e788b70?auto=format&fit=crop&w=900&q=80'"
-            />
-            <div class="absolute inset-0 bg-gradient-to-t from-emerald-900 via-emerald-900/20 to-transparent opacity-90"></div>
-            <figcaption class="absolute bottom-0 inset-x-0 p-6">
-              <span class="text-[11px] font-bold uppercase tracking-widest text-gold-300 block">Experiencia P7</span>
-              <h3 data-i18n="work.item6Title" class="font-display text-2xl font-bold text-cream-100 mt-0.5">Acabado de Autor en Nuestro Estudio</h3>
-            </figcaption>
-          </figure>
-
-        </div>
-      </div>
-
-      <!-- =================================================================== -->
-      <!-- SUBSECCIÓN 3.1: LISTA DE PRECIOS EN HTML (#lista-precios)            -->
-      <!-- Fondo Crema Cálido (#F8F1E4) y Texto Esmeralda Oscuro (#0B2E22)     -->
-      <!-- =================================================================== -->
-      <div id="lista-precios" class="mt-20 py-16 lg:py-24 paper-parchment text-emerald-900 border-y-4 border-gold-700/40 shadow-2xl">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          
-          <!-- Marco Doble Clásico de Carta de Barbería de Lujo -->
-          <div class="border-2 border-gold-700/60 p-3 sm:p-5 rounded-2xl bg-cream-100/90 shadow-xl">
-            <div class="border border-gold-700/35 rounded-xl p-6 sm:p-10 lg:p-14">
-              
-              <!-- Encabezado de la Carta -->
-              <div class="text-center max-w-2xl mx-auto mb-12">
-                <span data-i18n="prices.eyebrow" class="font-stamp text-xs text-gold-700 uppercase tracking-[0.25em] block mb-2">
-                  Subsección · Carta de Servicios en HTML
-                </span>
-                <h3 data-i18n="prices.title" class="font-display text-3xl sm:text-5xl font-bold text-emerald-900 tracking-tight">
-                  Lista de Precios &amp; <span class="italic font-normal text-gold-700">Rituales</span>
-                </h3>
-                <div class="w-24 h-0.5 bg-gold-700/60 mx-auto my-4"></div>
-                <p data-i18n="prices.subtitle" class="text-sm sm:text-base text-emerald-900/80 leading-relaxed">
-                  Todos nuestros servicios incluyen asesoramiento personalizado, lavado revitalizante, perfilado a navaja con gel térmico y acabado con productos de barbería de autor.
-                </p>
-              </div>
-
-              <!-- Servicio Estrella Destacado con Badge Burdeos (#7A1F2B) -->
-              <div class="mb-10 rounded-xl bg-emerald-900 text-cream-100 p-6 sm:p-8 border-2 border-gold-500 shadow-lg relative overflow-hidden">
-                <div class="flex flex-col md:flex-row md:items-center justify-between gap-6">
-                  <div class="space-y-2 max-w-2xl">
-                    <span data-i18n="prices.featuredBadge" class="inline-block px-3 py-1 rounded-full bg-burgundy-600 text-cream-100 text-[11px] font-bold uppercase tracking-widest border border-gold-300/40">
-                      ★ Servicio Estrella · Más Solicitado
-                    </span>
-                    <div class="flex items-baseline gap-3 flex-wrap">
-                      <h4 data-i18n="prices.s4Name" class="font-display text-2xl sm:text-3xl font-bold text-gold-300">
-                        Ritual Master P7: Corte de Autor + Barba Completa
-                      </h4>
-                    </div>
-                    <p data-i18n="prices.s4Desc" class="text-sm sm:text-base text-cream-200/90 leading-relaxed">
-                      La experiencia insignia del estudio: corte personalizado (clásico o fade), arreglo y esculpido integral de barba con doble toalla caliente aromática, afeitado de contornos a navaja, bálsamo frío y masaje capilar.
-                    </p>
-                  </div>
-                  <div class="flex md:flex-col items-center md:items-end justify-between gap-3 shrink-0 border-t md:border-t-0 pt-4 md:pt-0 border-gold-500/25">
-                    <div class="text-left md:text-right">
-                      <span class="font-display text-4xl font-bold text-gold-300 block leading-none">38 €</span>
-                      <span class="text-xs uppercase tracking-widest text-cream-200/75 mt-1 block">75 MIN</span>
-                    </div>
-                    <a href="#reserva" data-i18n="prices.bookBtn" class="px-5 py-2.5 rounded-lg bg-gold-metallic text-emerald-900 font-bold text-xs uppercase tracking-widest shadow-md">
-                      Reservar →
-                    </a>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Lista de Servicios en 2 Columnas con Líneas de Puntos Doradas -->
-              <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-12 gap-y-8">
-                
-                <!-- Item 1 -->
-                <div class="group border-b border-gold-700/20 pb-5">
-                  <div class="flex items-baseline justify-between gap-2">
-                    <h4 data-i18n="prices.s1Name" class="font-display text-xl sm:text-2xl font-bold text-emerald-900">
-                      Corte de Cabello Clásico / Ejecutivo
-                    </h4>
-                    <div class="flex-1 border-b-2 border-dotted border-[#9A7838]/60 mx-2"></div>
-                    <span class="font-display text-2xl font-bold text-[#9A7838] shrink-0">25 €</span>
-                  </div>
-                  <p data-i18n="prices.s1Desc" class="text-sm text-emerald-900/75 mt-1.5 leading-relaxed">
-                    Estudio de facciones, corte a tijera y máquina, lavado con masaje craneal, limpieza de nuca a navaja y peinado con pomada mate o brillo clásico.
-                  </p>
-                  <div class="mt-3 flex items-center justify-between text-xs">
-                    <span class="font-semibold uppercase tracking-widest text-emerald-800/70">45 MIN</span>
-                    <a href="#reserva" data-i18n="prices.bookBtn" class="font-bold uppercase tracking-widest text-[#9A7838] hover:text-burgundy-600 transition-colors">
-                      Reservar →
-                    </a>
-                  </div>
-                </div>
-
-                <!-- Item 2 -->
-                <div class="group border-b border-gold-700/20 pb-5">
-                  <div class="flex items-baseline justify-between gap-2">
-                    <h4 data-i18n="prices.s2Name" class="font-display text-xl sm:text-2xl font-bold text-emerald-900">
-                      Signature Skin Fade / Degradado a Navaja
-                    </h4>
-                    <div class="flex-1 border-b-2 border-dotted border-[#9A7838]/60 mx-2"></div>
-                    <span class="font-display text-2xl font-bold text-[#9A7838] shrink-0">28 €</span>
-                  </div>
-                  <p data-i18n="prices.s2Desc" class="text-sm text-emerald-900/75 mt-1.5 leading-relaxed">
-                    Transición milimétrica desde cero (shaver/navaja), conexión estructurada en la zona superior, lavado refrescante y texturizado de acabado.
-                  </p>
-                  <div class="mt-3 flex items-center justify-between text-xs">
-                    <span class="font-semibold uppercase tracking-widest text-emerald-800/70">50 MIN</span>
-                    <a href="#reserva" data-i18n="prices.bookBtn" class="font-bold uppercase tracking-widest text-[#9A7838] hover:text-burgundy-600 transition-colors">
-                      Reservar →
-                    </a>
-                  </div>
-                </div>
-
-                <!-- Item 3 -->
-                <div class="group border-b border-gold-700/20 pb-5">
-                  <div class="flex items-baseline justify-between gap-2">
-                    <h4 data-i18n="prices.s3Name" class="font-display text-xl sm:text-2xl font-bold text-emerald-900">
-                      Ritual de Barba &amp; Toalla Caliente
-                    </h4>
-                    <div class="flex-1 border-b-2 border-dotted border-[#9A7838]/60 mx-2"></div>
-                    <span class="font-display text-2xl font-bold text-[#9A7838] shrink-0">18 €</span>
-                  </div>
-                  <p data-i18n="prices.s3Desc" class="text-sm text-emerald-900/75 mt-1.5 leading-relaxed">
-                    Esculpido geométrico de volumen, preparación con toalla caliente de eucalipto, perfilado de mejillas y cuello a navaja e hidratación con aceites esenciales.
-                  </p>
-                  <div class="mt-3 flex items-center justify-between text-xs">
-                    <span class="font-semibold uppercase tracking-widest text-emerald-800/70">30 MIN</span>
-                    <a href="#reserva" data-i18n="prices.bookBtn" class="font-bold uppercase tracking-widest text-[#9A7838] hover:text-burgundy-600 transition-colors">
-                      Reservar →
-                    </a>
-                  </div>
-                </div>
-
-                <!-- Item 4 -->
-                <div class="group border-b border-gold-700/20 pb-5">
-                  <div class="flex items-baseline justify-between gap-2">
-                    <h4 data-i18n="prices.s5Name" class="font-display text-xl sm:text-2xl font-bold text-emerald-900">
-                      Afeitado Clásico Tradicional a Navaja
-                    </h4>
-                    <div class="flex-1 border-b-2 border-dotted border-[#9A7838]/60 mx-2"></div>
-                    <span class="font-display text-2xl font-bold text-[#9A7838] shrink-0">22 €</span>
-                  </div>
-                  <p data-i18n="prices.s5Desc" class="text-sm text-emerald-900/75 mt-1.5 leading-relaxed">
-                    Espuma tibia batida con brocha de tejón, doble pasada a navaja libre, compresa fría calmante y loción aftershave de sándalo.
-                  </p>
-                  <div class="mt-3 flex items-center justify-between text-xs">
-                    <span class="font-semibold uppercase tracking-widest text-emerald-800/70">40 MIN</span>
-                    <a href="#reserva" data-i18n="prices.bookBtn" class="font-bold uppercase tracking-widest text-[#9A7838] hover:text-burgundy-600 transition-colors">
-                      Reservar →
-                    </a>
-                  </div>
-                </div>
-
-                <!-- Item 5 -->
-                <div class="group border-b border-gold-700/20 pb-5">
-                  <div class="flex items-baseline justify-between gap-2">
-                    <h4 data-i18n="prices.s6Name" class="font-display text-xl sm:text-2xl font-bold text-emerald-900">
-                      Corte Junior Master (Hasta 14 años)
-                    </h4>
-                    <div class="flex-1 border-b-2 border-dotted border-[#9A7838]/60 mx-2"></div>
-                    <span class="font-display text-2xl font-bold text-[#9A7838] shrink-0">20 €</span>
-                  </div>
-                  <p data-i18n="prices.s6Desc" class="text-sm text-emerald-900/75 mt-1.5 leading-relaxed">
-                    Corte paciente y adaptado a los más jóvenes, con la misma dedicación artesanal y acabado limpio.
-                  </p>
-                  <div class="mt-3 flex items-center justify-between text-xs">
-                    <span class="font-semibold uppercase tracking-widest text-emerald-800/70">35 MIN</span>
-                    <a href="#reserva" data-i18n="prices.bookBtn" class="font-bold uppercase tracking-widest text-[#9A7838] hover:text-burgundy-600 transition-colors">
-                      Reservar →
-                    </a>
-                  </div>
-                </div>
-
-                <!-- Item 6 -->
-                <div class="group border-b border-gold-700/20 pb-5">
-                  <div class="flex items-baseline justify-between gap-2">
-                    <div class="flex items-center gap-2">
-                      <h4 data-i18n="prices.s7Name" class="font-display text-xl sm:text-2xl font-bold text-emerald-900">
-                        Experiencia VIP P7 Grooming
-                      </h4>
-                      <span class="px-2 py-0.5 rounded bg-burgundy-600 text-cream-100 text-[10px] font-bold uppercase tracking-wider">VIP</span>
-                    </div>
-                    <div class="flex-1 border-b-2 border-dotted border-[#9A7838]/60 mx-2"></div>
-                    <span class="font-display text-2xl font-bold text-[#9A7838] shrink-0">50 €</span>
-                  </div>
-                  <p data-i18n="prices.s7Desc" class="text-sm text-emerald-900/75 mt-1.5 leading-relaxed">
-                    Corte de autor + ritual de barba completo + exfoliación facial con vapor de ozono, diseño de cejas y tratamiento revitalizante.
-                  </p>
-                  <div class="mt-3 flex items-center justify-between text-xs">
-                    <span class="font-semibold uppercase tracking-widest text-emerald-800/70">90 MIN</span>
-                    <a href="#reserva" data-i18n="prices.bookBtn" class="font-bold uppercase tracking-widest text-[#9A7838] hover:text-burgundy-600 transition-colors">
-                      Reservar →
-                    </a>
-                  </div>
-                </div>
-
-              </div>
-
-              <!-- Pie de la Carta de Precios -->
-              <div class="mt-10 pt-6 border-t border-gold-700/30 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
-                <p data-i18n="prices.footnote" class="text-xs sm:text-sm text-emerald-900/80 font-medium">
-                  * Todos los precios incluyen IVA. Bebida de cortesía incluida en cada visita (café espresso o refresco).
-                </p>
-                <a href="#reserva" data-i18n="prices.ctaAll" class="px-6 py-3 rounded-xl bg-emerald-900 hover:bg-emerald-700 text-cream-100 font-bold text-xs uppercase tracking-widest transition-colors shadow">
-                  Elegir Plataforma de Reserva →
-                </a>
-              </div>
-
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- ===================================================================== -->
-    <!-- BLOQUE DE RESEÑAS VERIFICADAS (5.0 ★ BOOKSY · +250 RESEÑAS)           -->
-    <!-- ===================================================================== -->
-    <section id="resenas" class="py-16 lg:py-24 bg-emerald-800 border-b border-gold-500/20">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
-          <div>
-            <span data-i18n="reviews.eyebrow" class="font-stamp text-xs text-gold-500 uppercase tracking-widest block mb-2">
-              Prueba Social Real · Palma de Mallorca
-            </span>
-            <h2 data-i18n="reviews.title" class="font-display text-3xl sm:text-5xl font-bold text-cream-100">
-              Lo Que Dicen Nuestros <span class="italic font-normal text-gold-300">Clientes</span>
-            </h2>
-          </div>
-
-          <!-- Insignia Oficial 5.0 Booksy -->
-          <div class="inline-flex items-center gap-4 px-5 py-3.5 rounded-2xl bg-emerald-900 border border-gold-500/40 shadow-xl">
-            <div class="text-gold-300 font-display text-4xl font-bold leading-none">5.0</div>
-            <div>
-              <div class="flex items-center gap-1 text-gold-300 text-sm" aria-label="5 de 5 estrellas">
-                <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
-              </div>
-              <span data-i18n="reviews.badgeText" class="text-xs text-cream-200/85 uppercase tracking-wider block mt-0.5">
-                +250 Reseñas Verificadas en Booksy
-              </span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Tarjetas de Testimonios -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-          
-          <!-- Reseña 1 -->
-          <article class="rounded-2xl bg-emerald-700/90 border border-gold-500/30 p-7 flex flex-col justify-between shadow-xl">
-            <div>
-              <div class="flex items-center justify-between mb-4">
-                <div class="flex items-center gap-1 text-gold-300 text-base">
-                  <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
-                </div>
-                <span class="text-[11px] uppercase tracking-widest text-gold-300 font-semibold">Booksy Verificado</span>
-              </div>
-              <p data-i18n="reviews.r1Text" class="text-base text-cream-100 italic leading-relaxed mb-6">
-                “El mejor barbero de Palma sin ninguna duda. Manu cuida cada detalle al milímetro, el degradado queda impecable y el trato en el local es de diez. Un ritual de desconexión total.”
-              </p>
-            </div>
-            <div class="pt-4 border-t border-gold-500/20 flex items-center justify-between">
-              <div>
-                <span class="font-bold text-sm text-cream-100 block">Carlos M.</span>
-                <span class="text-xs text-gold-300">Corte + Ritual de Barba</span>
-              </div>
-              <span class="text-xs text-cream-200/60">Palma</span>
-            </div>
-          </article>
-
-          <!-- Reseña 2 -->
-          <article class="rounded-2xl bg-emerald-700/90 border border-gold-500/30 p-7 flex flex-col justify-between shadow-xl">
-            <div>
-              <div class="flex items-center justify-between mb-4">
-                <div class="flex items-center gap-1 text-gold-300 text-base">
-                  <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
-                </div>
-                <span class="text-[11px] uppercase tracking-widest text-gold-300 font-semibold">Booksy Verificado</span>
-              </div>
-              <p data-i18n="reviews.r2Text" class="text-base text-cream-100 italic leading-relaxed mb-6">
-                “Increíble atención al detalle. Reservé el ritual completo antes de un evento en Mallorca y el trabajo con la navaja y las toallas calientes fue espectacular. Local precioso y muy limpio.”
-              </p>
-            </div>
-            <div class="pt-4 border-t border-gold-500/20 flex items-center justify-between">
-              <div>
-                <span class="font-bold text-sm text-cream-100 block">Marc R.</span>
-                <span class="text-xs text-gold-300">Ritual Master P7</span>
-              </div>
-              <span class="text-xs text-cream-200/60">Palma</span>
-            </div>
-          </article>
-
-          <!-- Reseña 3 -->
-          <article class="rounded-2xl bg-emerald-700/90 border border-gold-500/30 p-7 flex flex-col justify-between shadow-xl">
-            <div>
-              <div class="flex items-center justify-between mb-4">
-                <div class="flex items-center gap-1 text-gold-300 text-base">
-                  <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
-                </div>
-                <span class="text-[11px] uppercase tracking-widest text-gold-300 font-semibold">Booksy Verificado</span>
-              </div>
-              <p data-i18n="reviews.r3Text" class="text-base text-cream-100 italic leading-relaxed mb-6">
-                “Llevo viniendo desde que abrieron en 2023. La puntualidad, el ambiente tranquilo, la música y la precisión con la que trabaja Manu hacen que no cambie P7 por nada en la isla.”
-              </p>
-            </div>
-            <div class="pt-4 border-t border-gold-500/20 flex items-center justify-between">
-              <div>
-                <span class="font-bold text-sm text-cream-100 block">Alejandro V.</span>
-                <span class="text-xs text-gold-300">Signature Skin Fade</span>
-              </div>
-              <span class="text-xs text-cream-200/60">Palma</span>
-            </div>
-          </article>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- ===================================================================== -->
-    <!-- 4. CONTACTO (#contacto): INFO DEL LOCAL + SUBSECCIÓN RESERVA (#reserva) -->
-    <!-- ===================================================================== -->
-    <section id="contacto" class="py-16 lg:py-24 bg-emerald-900">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        <div class="text-center max-w-3xl mx-auto mb-14">
-          <span data-i18n="contact.eyebrow" class="font-stamp text-xs text-gold-500 uppercase tracking-widest block mb-2">
-            Atención Directa &amp; Cita Previa
-          </span>
-          <h2 data-i18n="contact.title" class="font-display text-3xl sm:text-5xl font-bold text-cream-100">
-            Contacto &amp; <span class="italic font-normal text-gold-300">Reserva Online</span>
-          </h2>
-        </div>
-
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-stretch">
-          
-          <!-- SUBSECCIÓN 4.1: INFORMACIÓN DEL LOCAL -->
-          <div class="lg:col-span-6 rounded-2xl bg-emerald-800 border border-gold-500/35 p-7 sm:p-10 shadow-2xl flex flex-col justify-between">
-            <div>
-              <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-700 border border-gold-500/40 mb-6">
-                <span class="w-2 h-2 rounded-full bg-gold-300 animate-ping"></span>
-                <span data-i18n="contact.openBadge" class="text-xs font-bold uppercase tracking-widest text-gold-300">
-                  Información del Local · Abierto con Cita Previa
-                </span>
-              </div>
-
-              <h3 data-i18n="contact.infoTitle" class="font-display text-2xl sm:text-3xl font-bold text-cream-100 mb-6">
-                P7 Barber Master Studio
-              </h3>
-
-              <div class="space-y-6">
-                <!-- Dirección -->
-                <div class="flex items-start gap-4">
-                  <div class="w-11 h-11 rounded-xl bg-emerald-900 border border-gold-500/40 flex items-center justify-center text-gold-300 shrink-0">
-                    <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M12 21s-7-5.2-7-11a7 7 0 1114 0c0 5.8-7 11-7 11z" />
-                      <circle cx="12" cy="10" r="2.5" />
-                    </svg>
-                  </div>
-                  <div>
-                    <h4 data-i18n="contact.addressLabel" class="text-xs font-bold uppercase tracking-widest text-gold-300">Dirección en Palma</h4>
-                    <p class="text-base sm:text-lg font-semibold text-cream-100 mt-0.5">C/ Miguel Ángel Riera, 2</p>
-                    <p class="text-sm text-cream-200/80">07004 Palma de Mallorca, Illes Balears (A 5 min de Plaça d'Espanya)</p>
-                  </div>
-                </div>
-
-                <!-- Horario -->
-                <div class="flex items-start gap-4">
-                  <div class="w-11 h-11 rounded-xl bg-emerald-900 border border-gold-500/40 flex items-center justify-center text-gold-300 shrink-0">
-                    <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-                      <circle cx="12" cy="12" r="9" />
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M12 7v5l3 2" />
-                    </svg>
-                  </div>
-                  <div>
-                    <h4 data-i18n="contact.hoursLabel" class="text-xs font-bold uppercase tracking-widest text-gold-300">Horario del Atelier</h4>
-                    <p data-i18n="contact.hoursWeek" class="text-base font-medium text-cream-100 mt-0.5">Martes a Sábado: 10:00 – 20:00 h</p>
-                    <p data-i18n="contact.hoursClosed" class="text-sm text-cream-200/75">Lunes y Domingos: Cerrado (Atención bajo cita previa)</p>
-                  </div>
-                </div>
-
-                <!-- Teléfono / WhatsApp / Instagram -->
-                <div class="flex items-start gap-4">
-                  <div class="w-11 h-11 rounded-xl bg-emerald-900 border border-gold-500/40 flex items-center justify-center text-gold-300 shrink-0">
-                    <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.12.96.36 1.9.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.34 1.85.58 2.81.7A2 2 0 0122 16.92z" />
-                    </svg>
-                  </div>
-                  <div>
-                    <h4 data-i18n="contact.phoneLabel" class="text-xs font-bold uppercase tracking-widest text-gold-300">Teléfono, WhatsApp &amp; Redes</h4>
-                    <p class="text-base font-semibold text-cream-100 mt-0.5">
-                      <a href="tel:+34971002277" class="hover:text-gold-300 transition-colors">+34 971 00 22 77</a> · <a href="https://wa.me/34611778899" target="_blank" rel="noopener noreferrer" class="hover:text-gold-300 transition-colors">WhatsApp Directo</a>
-                    </p>
-                    <p class="text-sm text-cream-200/80 mt-0.5">
-                      Instagram Oficial: <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" class="text-gold-300 underline hover:text-cream-100">@p7barberstudio</a>
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="mt-8 pt-6 border-t border-gold-500/20 flex flex-wrap items-center justify-between gap-4">
-              <a href="tel:+34971002277" data-i18n="contact.callDirect" class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-gold-300 hover:text-cream-100 transition-colors">
-                <span>Llamar al Estudio →</span>
-              </a>
-              <a href="#donde-estamos" data-i18n="contact.viewMapLink" class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-cream-200 hover:text-gold-300 transition-colors">
-                <span>Ver mapa interactivo ↓</span>
-              </a>
-            </div>
-          </div>
-
-          <!-- SUBSECCIÓN 4.2: RESERVA DUAL (#reserva — BOOKSY + SETMORE) -->
-          <div id="reserva" class="lg:col-span-6 rounded-2xl bg-gradient-to-br from-emerald-700 via-emerald-800 to-emerald-900 border-2 border-gold-500/60 p-7 sm:p-10 shadow-2xl flex flex-col justify-between relative overflow-hidden">
-            
-            <div>
-              <div class="flex items-center justify-between gap-2 mb-4">
-                <span data-i18n="booking.eyebrow" class="font-stamp text-xs text-gold-300 uppercase tracking-widest">
-                  Subsección · Reserva Instantánea 24/7
-                </span>
-                <span class="px-3 py-1 rounded-full bg-burgundy-600 text-cream-100 text-[11px] font-bold uppercase tracking-wider border border-gold-300/40">
-                  Confirmación Inmediata
-                </span>
-              </div>
-
-              <h3 data-i18n="booking.title" class="font-display text-3xl sm:text-4xl font-bold text-cream-100 mb-3">
-                Reserva Tu Cita en <span class="italic font-normal text-gold-300">P7 Barber</span>
-              </h3>
-
-              <p data-i18n="booking.desc" class="text-sm sm:text-base text-cream-200/90 leading-relaxed mb-8">
-                Elige tu plataforma preferida para consultar disponibilidad en tiempo real con <strong>Manu</strong>, seleccionar tu servicio de corte o barba y recibir recordatorio automático en tu móvil.
-              </p>
-
-              <!-- Dos Botones Principales Bien Diferenciados: Booksy y Setmore -->
-              <div class="space-y-4">
-                
-                <!-- Botón 1: Reservar en Booksy -->
-                <a
-                  href="https://booksy.com/es-es/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="w-full min-h-[60px] p-4 sm:px-6 rounded-xl bg-gold-metallic text-emerald-900 font-bold flex items-center justify-between gap-4 shadow-xl hover:-translate-y-0.5 transition-all group"
-                >
-                  <div class="flex items-center gap-3.5">
-                    <div class="w-10 h-10 rounded-lg bg-emerald-900 text-gold-300 flex items-center justify-center font-display text-xl font-bold shrink-0">
-                      B
-                    </div>
-                    <div class="text-left">
-                      <span data-i18n="booking.booksyBtn" class="text-sm sm:text-base font-extrabold uppercase tracking-wider block leading-tight">
-                        Reservar en Booksy
-                      </span>
-                      <span data-i18n="booking.booksySub" class="text-xs font-medium text-emerald-900/80 block">
-                        Valorado 5.0 ★ (+250 reseñas verificadas)
-                      </span>
-                    </div>
-                  </div>
-                  <span class="text-xs font-extrabold uppercase tracking-widest px-3 py-1.5 rounded bg-emerald-900/15 group-hover:translate-x-1 transition-transform">
-                    Abrir →
-                  </span>
-                </a>
-
-                <!-- Botón 2: Reservar en Setmore -->
-                <a
-                  href="https://www.setmore.com/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="w-full min-h-[60px] p-4 sm:px-6 rounded-xl bg-emerald-900 hover:bg-emerald-950 border-2 border-gold-500/70 text-cream-100 font-bold flex items-center justify-between gap-4 shadow-xl hover:-translate-y-0.5 transition-all group"
-                >
-                  <div class="flex items-center gap-3.5">
-                    <div class="w-10 h-10 rounded-lg bg-gold-500/20 border border-gold-500/50 text-gold-300 flex items-center justify-center font-display text-xl font-bold shrink-0">
-                      S
-                    </div>
-                    <div class="text-left">
-                      <span data-i18n="booking.setmoreBtn" class="text-sm sm:text-base font-bold uppercase tracking-wider text-gold-300 block leading-tight">
-                        Reservar en Setmore
-                      </span>
-                      <span data-i18n="booking.setmoreSub" class="text-xs font-normal text-cream-200/80 block">
-                        Reserva rápida sin registro · Calendario directo
-                      </span>
-                    </div>
-                  </div>
-                  <span class="text-xs font-bold uppercase tracking-widest text-gold-300 group-hover:translate-x-1 transition-transform">
-                    Abrir →
-                  </span>
-                </a>
-
-              </div>
-            </div>
-
-            <div class="mt-8 pt-5 border-t border-gold-500/25 flex items-center justify-between text-xs text-cream-200/80">
-              <span data-i18n="booking.policy">Cancelación gratuita hasta 12h antes de la cita.</span>
-              <span class="font-stamp text-gold-300">P7 PALMA</span>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- ===================================================================== -->
-    <!-- 5. MINI SECCIÓN DÓNDE ESTAMOS CON EL MAPA (#donde-estamos)            -->
-    <!-- ===================================================================== -->
-    <section id="donde-estamos" class="py-16 lg:py-20 bg-emerald-800 border-t border-gold-500/25">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8">
-          <div>
-            <span data-i18n="map.eyebrow" class="font-stamp text-xs text-gold-500 uppercase tracking-widest block mb-2">
-              Ubicación &amp; Cómo Llegar
-            </span>
-            <h2 data-i18n="map.title" class="font-display text-3xl sm:text-4xl font-bold text-cream-100">
-              Dónde <span class="italic font-normal text-gold-300">Estamos</span> en Palma
-            </h2>
-          </div>
-          <a
-            href="https://www.google.com/maps/search/?api=1&query=Carrer+de+Miquel+Angel+Riera+2+07004+Palma+Illes+Balears"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-gold-metallic text-emerald-900 font-bold text-xs uppercase tracking-widest shadow-lg"
+        <div class="hero-meta-row">
+          <p class="hero-meta-note">C/ Miguel Ángel Riera, 2 · Palma · 5,0 en Booksy</p>
+          <button
+            type="button"
+            id="hero-video-toggle"
+            class="hero-video-toggle"
+            aria-pressed="false"
           >
-            <span data-i18n="map.ctaDirections">Cómo llegar en Google Maps</span>
-            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M17 7l-10 10M8 7h9v9" />
-            </svg>
-          </a>
+            Pausar ambiente
+          </button>
         </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-        <!-- Contenedor del Mapa Estilizado Esmeralda -->
-        <div class="relative rounded-2xl overflow-hidden border-2 border-gold-500/45 shadow-2xl bg-emerald-900 h-[400px] sm:h-[450px]">
-          <iframe
-            title="Mapa de ubicación P7 Barber Master Studio en C/ Miguel Ángel Riera, 2, Palma de Mallorca"
-            src="https://www.google.com/maps?q=Carrer+de+Miquel+Angel+Riera+2,+07004+Palma,+Illes+Balears&output=embed"
-            class="w-full h-full border-0 emerald-map-filter"
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
-          ></iframe>
+<!-- ==========================================================================
+     SECCIÓN 02 · SOBRE NOSOTROS + GALERÍA 1 (#sobre-nosotros)
+     Fondo: Crema #F8F1E4 · Tinta: Esmeralda #0B2E22
+     Orden vertical: Título -> Texto -> Auto-slider Galería 1 -> Botón Equipo
+     ========================================================================== -->
+<section
+  id="sobre-nosotros"
+  class="sobre-v2"
+  aria-labelledby="sobre-titulo"
+>
+  <div class="container">
+    <div class="sobre-v2-shell">
+      <!-- 1. Bloque superior minimalista: Título + Texto -->
+      <div class="sobre-v2-intro" data-reveal>
+        <h2 id="sobre-titulo" class="sobre-v2-h2">Sobre nosotros</h2>
 
-          <!-- Tarjeta Flotante sobre el Mapa -->
-          <div class="absolute bottom-4 left-4 right-4 sm:right-auto sm:max-w-sm rounded-xl bg-emerald-900/95 backdrop-blur-md border border-gold-500/50 p-5 shadow-2xl">
-            <div class="flex items-center gap-3.5">
-              <img src="./assets/img/logo-p7.png" alt="P7" class="w-11 h-11 rounded-full border border-gold-500/50 object-contain" onerror="this.src='../referencias/Logo-P7-v1.jpg'" />
-              <div>
-                <h3 class="font-display text-xl font-bold text-cream-100 leading-none">P7 Barber Master Studio</h3>
-                <p class="text-xs text-gold-300 mt-1">C/ Miguel Ángel Riera, 2 · 07004 Palma</p>
+        <p class="sobre-v2-lead">
+          Abiertos en Palma desde 2023, en P7 Barber Master Studio cuidamos cada
+          detalle del corte masculino y la barba. Trabajamos con cita previa,
+          técnica precisa y un trato cercano en un espacio pensado para que
+          desconectes y salgas con tu mejor versión.
+        </p>
+      </div>
+
+      <!-- 2. Galería 1: Auto-slider infinito responsive (imágenes de relleno) -->
+      <div
+        class="galeria-marquee"
+        data-gallery-slug="galeria-1"
+        data-relleno="galeria-1"
+        role="region"
+        aria-label="Galería 1: fotografías del estudio P7"
+      >
+        <div class="galeria-marquee-track">
+          <!-- Grupo principal (4 fotos) -->
+          <div class="galeria-marquee-group">
+            <figure class="galeria-card">
+              <picture>
+                <source
+                  type="image/avif"
+                  srcset="
+                    ./assets/img/opt/salon-mediterraneo-480w.avif 480w,
+                    ./assets/img/opt/salon-mediterraneo-900w.avif 900w
+                  "
+                  sizes="(max-width: 639px) 192px, (max-width: 1023px) 240px, 288px"
+                />
+                <source
+                  type="image/webp"
+                  srcset="
+                    ./assets/img/opt/salon-mediterraneo-480w.webp 480w,
+                    ./assets/img/opt/salon-mediterraneo-900w.webp 900w
+                  "
+                  sizes="(max-width: 639px) 192px, (max-width: 1023px) 240px, 288px"
+                />
+                <img
+                  src="./assets/img/opt/salon-mediterraneo-900w.webp"
+                  alt="Interior del estudio P7 Barber Master Studio en Palma con sillón clásico y luz natural"
+                  width="600"
+                  height="600"
+                  loading="lazy"
+                  decoding="async"
+                  class="galeria-card-img"
+                />
+              </picture>
+            </figure>
+
+            <figure class="galeria-card">
+              <picture>
+                <source
+                  type="image/avif"
+                  srcset="
+                    ./assets/img/opt/hero-atelier-480w.avif 480w,
+                    ./assets/img/opt/hero-atelier-900w.avif 900w
+                  "
+                  sizes="(max-width: 639px) 192px, (max-width: 1023px) 240px, 288px"
+                />
+                <source
+                  type="image/webp"
+                  srcset="
+                    ./assets/img/opt/hero-atelier-480w.webp 480w,
+                    ./assets/img/opt/hero-atelier-900w.webp 900w
+                  "
+                  sizes="(max-width: 639px) 192px, (max-width: 1023px) 240px, 288px"
+                />
+                <img
+                  src="./assets/img/opt/hero-atelier-900w.webp"
+                  alt="Atmósfera privada de P7 Barber Master Studio con madera oscura y tocadores individuales"
+                  width="600"
+                  height="600"
+                  loading="lazy"
+                  decoding="async"
+                  class="galeria-card-img"
+                />
+              </picture>
+            </figure>
+
+            <figure class="galeria-card">
+              <picture>
+                <source
+                  type="image/avif"
+                  srcset="
+                    ./assets/img/opt/corte-navaja-oro-480w.avif 480w,
+                    ./assets/img/opt/corte-navaja-oro-900w.avif 900w
+                  "
+                  sizes="(max-width: 639px) 192px, (max-width: 1023px) 240px, 288px"
+                />
+                <source
+                  type="image/webp"
+                  srcset="
+                    ./assets/img/opt/corte-navaja-oro-480w.webp 480w,
+                    ./assets/img/opt/corte-navaja-oro-900w.webp 900w
+                  "
+                  sizes="(max-width: 639px) 192px, (max-width: 1023px) 240px, 288px"
+                />
+                <img
+                  src="./assets/img/opt/corte-navaja-oro-900w.webp"
+                  alt="Estación de trabajo con navaja clásica, tijeras de precisión y ritual de toalla caliente"
+                  width="600"
+                  height="600"
+                  loading="lazy"
+                  decoding="async"
+                  class="galeria-card-img"
+                />
+              </picture>
+            </figure>
+
+            <figure class="galeria-card">
+              <picture>
+                <source
+                  type="image/avif"
+                  srcset="
+                    ./assets/img/opt/salon-lounge-480w.avif 480w,
+                    ./assets/img/opt/salon-lounge-900w.avif 900w
+                  "
+                  sizes="(max-width: 639px) 192px, (max-width: 1023px) 240px, 288px"
+                />
+                <source
+                  type="image/webp"
+                  srcset="
+                    ./assets/img/opt/salon-lounge-480w.webp 480w,
+                    ./assets/img/opt/salon-lounge-900w.webp 900w
+                  "
+                  sizes="(max-width: 639px) 192px, (max-width: 1023px) 240px, 288px"
+                />
+                <img
+                  src="./assets/img/opt/salon-lounge-900w.webp"
+                  alt="Zona de espera del estudio con sillón de cuero esmeralda, madera cálida y luz natural"
+                  width="600"
+                  height="600"
+                  loading="lazy"
+                  decoding="async"
+                  class="galeria-card-img"
+                />
+              </picture>
+            </figure>
+          </div>
+
+          <!-- Grupo espejo para bucle continuo sin saltos (oculto a lectores de pantalla) -->
+          <div class="galeria-marquee-group" aria-hidden="true">
+            <div class="galeria-card">
+              <picture>
+                <source
+                  type="image/avif"
+                  srcset="
+                    ./assets/img/opt/salon-mediterraneo-480w.avif 480w,
+                    ./assets/img/opt/salon-mediterraneo-900w.avif 900w
+                  "
+                  sizes="(max-width: 639px) 192px, (max-width: 1023px) 240px, 288px"
+                />
+                <source
+                  type="image/webp"
+                  srcset="
+                    ./assets/img/opt/salon-mediterraneo-480w.webp 480w,
+                    ./assets/img/opt/salon-mediterraneo-900w.webp 900w
+                  "
+                  sizes="(max-width: 639px) 192px, (max-width: 1023px) 240px, 288px"
+                />
+                <img
+                  src="./assets/img/opt/salon-mediterraneo-900w.webp"
+                  alt=""
+                  width="600"
+                  height="600"
+                  loading="lazy"
+                  decoding="async"
+                  class="galeria-card-img"
+                />
+              </picture>
+            </div>
+
+            <div class="galeria-card">
+              <picture>
+                <source
+                  type="image/avif"
+                  srcset="
+                    ./assets/img/opt/hero-atelier-480w.avif 480w,
+                    ./assets/img/opt/hero-atelier-900w.avif 900w
+                  "
+                  sizes="(max-width: 639px) 192px, (max-width: 1023px) 240px, 288px"
+                />
+                <source
+                  type="image/webp"
+                  srcset="
+                    ./assets/img/opt/hero-atelier-480w.webp 480w,
+                    ./assets/img/opt/hero-atelier-900w.webp 900w
+                  "
+                  sizes="(max-width: 639px) 192px, (max-width: 1023px) 240px, 288px"
+                />
+                <img
+                  src="./assets/img/opt/hero-atelier-900w.webp"
+                  alt=""
+                  width="600"
+                  height="600"
+                  loading="lazy"
+                  decoding="async"
+                  class="galeria-card-img"
+                />
+              </picture>
+            </div>
+
+            <div class="galeria-card">
+              <picture>
+                <source
+                  type="image/avif"
+                  srcset="
+                    ./assets/img/opt/corte-navaja-oro-480w.avif 480w,
+                    ./assets/img/opt/corte-navaja-oro-900w.avif 900w
+                  "
+                  sizes="(max-width: 639px) 192px, (max-width: 1023px) 240px, 288px"
+                />
+                <source
+                  type="image/webp"
+                  srcset="
+                    ./assets/img/opt/corte-navaja-oro-480w.webp 480w,
+                    ./assets/img/opt/corte-navaja-oro-900w.webp 900w
+                  "
+                  sizes="(max-width: 639px) 192px, (max-width: 1023px) 240px, 288px"
+                />
+                <img
+                  src="./assets/img/opt/corte-navaja-oro-900w.webp"
+                  alt=""
+                  width="600"
+                  height="600"
+                  loading="lazy"
+                  decoding="async"
+                  class="galeria-card-img"
+                />
+              </picture>
+            </div>
+
+            <div class="galeria-card">
+              <picture>
+                <source
+                  type="image/avif"
+                  srcset="
+                    ./assets/img/opt/salon-lounge-480w.avif 480w,
+                    ./assets/img/opt/salon-lounge-900w.avif 900w
+                  "
+                  sizes="(max-width: 639px) 192px, (max-width: 1023px) 240px, 288px"
+                />
+                <source
+                  type="image/webp"
+                  srcset="
+                    ./assets/img/opt/salon-lounge-480w.webp 480w,
+                    ./assets/img/opt/salon-lounge-900w.webp 900w
+                  "
+                  sizes="(max-width: 639px) 192px, (max-width: 1023px) 240px, 288px"
+                />
+                <img
+                  src="./assets/img/opt/salon-lounge-900w.webp"
+                  alt=""
+                  width="600"
+                  height="600"
+                  loading="lazy"
+                  decoding="async"
+                  class="galeria-card-img"
+                />
+              </picture>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. Botón de cierre Liquid Glass: Ver nuestro equipo -->
+      <div class="sobre-v2-actions" data-reveal>
+        <a
+          href="./equipo.html"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="liquid-glass-btn"
+          aria-label="Ver nuestro equipo (se abre en una pestaña nueva)"
+        >
+          <span class="liquid-glass-surface" aria-hidden="true"></span>
+          <span class="liquid-glass-blur" aria-hidden="true"></span>
+          <span class="liquid-glass-label">
+            <span>Ver nuestro equipo</span>
+            <svg
+              class="sobre-v2-cta-arrow"
+              width="17"
+              height="17"
+              viewBox="0 0 18 18"
+              fill="none"
+              aria-hidden="true"
+            >
+              <path
+                d="M5 13L13 5M13 5H6.5M13 5V11.5"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linecap="square"
+              />
+            </svg>
+          </span>
+        </a>
+
+        <svg class="liquid-glass-svg" aria-hidden="true" focusable="false">
+          <defs>
+            <filter
+              id="container-glass"
+              x="0%"
+              y="0%"
+              width="100%"
+              height="100%"
+              color-interpolation-filters="sRGB"
+            >
+              <feTurbulence
+                type="fractalNoise"
+                baseFrequency="0.05 0.05"
+                numOctaves="1"
+                seed="1"
+                result="turbulence"
+              />
+              <feGaussianBlur in="turbulence" stdDeviation="2" result="blurredNoise" />
+              <feDisplacementMap
+                in="SourceGraphic"
+                in2="blurredNoise"
+                scale="70"
+                xChannelSelector="R"
+                yChannelSelector="B"
+                result="displaced"
+              />
+              <feGaussianBlur in="displaced" stdDeviation="4" result="finalBlur" />
+              <feComposite in="finalBlur" in2="finalBlur" operator="over" />
+            </filter>
+          </defs>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Separador de sección -->
+<div class="separador-sastreria" data-reveal-line aria-hidden="true"></div>
+
+<!-- ==========================================================================
+     SECCIÓN 03 — NUESTRO TRABAJO (GALERÍA 2 EXPANDIBLE + PILARES + CARTA DE SERVICIOS)
+     Integrado desde laboratorio web/seccion de nuestro trabjajo/
+     ========================================================================== -->
+<section
+  id="nuestro-trabajo"
+  class="trabajo-v2"
+  aria-labelledby="titulo-nuestro-trabajo"
+>
+  <div class="trabajo-v2-shell">
+
+    <!-- 1. Intro Editorial -->
+    <header class="trabajo-v2-intro">
+      <h2 id="titulo-nuestro-trabajo" class="trabajo-v2-h2">Nuestro trabajo</h2>
+      <p class="trabajo-v2-lead">
+        Degradados limpios, barbas perfiladas con calma y técnica de precisión en cada detalle.
+        En P7 Barber Master Studio cada cita reserva una hora completa dedicada exclusivamente a tu estilo,
+        respaldada por años de oficio, formación continua y escenarios del sector.
+      </p>
+    </header>
+
+    <!-- 2. Galería 2: Expandable Gallery (6 piezas reales · 5 WebP + 1 minivideoclip en bucle) -->
+    <div class="exp-gallery-stage">
+      <span class="exp-side-label exp-side-label--left" aria-hidden="true">
+        Toca la imagen para expandir
+      </span>
+
+      <div
+        class="exp-gallery"
+        id="exp-gallery"
+        data-gallery-slug="galeria-2"
+        role="region"
+        aria-label="Galería 2: muestra de cortes y trabajos reales de P7 Barber Master Studio"
+      >
+        <!-- 1. Minivideoclip en bucle: Sesión con Lyano -->
+        <button
+          type="button"
+          class="exp-panel is-active"
+          data-index="0"
+          data-type="video"
+          data-title="Sesión con Lyano"
+          data-full-src="./assets/media/galeria-2/sesion-lyano.mp4"
+          data-poster="./assets/media/galeria-2/sesion-lyano-poster.webp"
+          aria-label="Sesión con Lyano (vídeo) — pulsar para expandir o ampliar"
+          aria-expanded="true"
+        >
+          <video
+            class="exp-video"
+            autoplay
+            muted
+            loop
+            playsinline
+            preload="metadata"
+            poster="./assets/media/galeria-2/sesion-lyano-poster.webp"
+          >
+            <source src="./assets/media/galeria-2/sesion-lyano.mp4" type="video/mp4" />
+          </video>
+          <span class="exp-scrim" aria-hidden="true"></span>
+          <span class="exp-overlay">
+            <span class="exp-title">Sesión con Lyano</span>
+          </span>
+          <span class="exp-expand-hint" aria-hidden="true">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="15 3 21 3 21 9"></polyline>
+              <polyline points="9 21 3 21 3 15"></polyline>
+              <line x1="21" y1="3" x2="14" y2="10"></line>
+              <line x1="3" y1="21" x2="10" y2="14"></line>
+            </svg>
+          </span>
+        </button>
+
+        <!-- 2. Lyano · P7 -->
+        <button
+          type="button"
+          class="exp-panel"
+          data-index="1"
+          data-type="image"
+          data-title="Lyano · P7"
+          data-full-src="./assets/media/galeria-2/lyano-p7.webp"
+          aria-label="Lyano · P7 — pulsar para expandir o ampliar"
+          aria-expanded="false"
+        >
+          <img src="./assets/media/galeria-2/lyano-p7.webp" alt="Sesión con Lyano en P7 Barber Master Studio" class="exp-img" loading="lazy" decoding="async" />
+          <span class="exp-scrim" aria-hidden="true"></span>
+          <span class="exp-overlay">
+            <span class="exp-title">Lyano · P7</span>
+          </span>
+          <span class="exp-expand-hint" aria-hidden="true">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="15 3 21 3 21 9"></polyline>
+              <polyline points="9 21 3 21 3 15"></polyline>
+              <line x1="21" y1="3" x2="14" y2="10"></line>
+              <line x1="3" y1="21" x2="10" y2="14"></line>
+            </svg>
+          </span>
+        </button>
+
+        <!-- 3. Sesión con Lunay -->
+        <button
+          type="button"
+          class="exp-panel"
+          data-index="2"
+          data-type="image"
+          data-title="Sesión con Lunay"
+          data-full-src="./assets/media/galeria-2/sesion-lunay.webp"
+          aria-label="Sesión con Lunay — pulsar para expandir o ampliar"
+          aria-expanded="false"
+        >
+          <img src="./assets/media/galeria-2/sesion-lunay.webp" alt="Sesión con Lunay en P7 Barber Master Studio" class="exp-img" loading="lazy" decoding="async" />
+          <span class="exp-scrim" aria-hidden="true"></span>
+          <span class="exp-overlay">
+            <span class="exp-title">Sesión con Lunay</span>
+          </span>
+          <span class="exp-expand-hint" aria-hidden="true">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="15 3 21 3 21 9"></polyline>
+              <polyline points="9 21 3 21 3 15"></polyline>
+              <line x1="21" y1="3" x2="14" y2="10"></line>
+              <line x1="3" y1="21" x2="10" y2="14"></line>
+            </svg>
+          </span>
+        </button>
+
+        <!-- 4. Arte Freestyle -->
+        <button
+          type="button"
+          class="exp-panel"
+          data-index="3"
+          data-type="image"
+          data-title="Arte Freestyle"
+          data-full-src="./assets/media/galeria-2/arte-freestyle.webp"
+          aria-label="Arte Freestyle — pulsar para expandir o ampliar"
+          aria-expanded="false"
+        >
+          <img src="./assets/media/galeria-2/arte-freestyle.webp" alt="Diseño Arte Freestyle en P7 Barber Master Studio" class="exp-img" loading="lazy" decoding="async" />
+          <span class="exp-scrim" aria-hidden="true"></span>
+          <span class="exp-overlay">
+            <span class="exp-title">Arte Freestyle</span>
+          </span>
+          <span class="exp-expand-hint" aria-hidden="true">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="15 3 21 3 21 9"></polyline>
+              <polyline points="9 21 3 21 3 15"></polyline>
+              <line x1="21" y1="3" x2="14" y2="10"></line>
+              <line x1="3" y1="21" x2="10" y2="14"></line>
+            </svg>
+          </span>
+        </button>
+
+        <!-- 5. Freestyle a color -->
+        <button
+          type="button"
+          class="exp-panel"
+          data-index="4"
+          data-type="image"
+          data-title="Freestyle a color"
+          data-full-src="./assets/media/galeria-2/freestyle-color.webp"
+          aria-label="Freestyle a color — pulsar para expandir o ampliar"
+          aria-expanded="false"
+        >
+          <img src="./assets/media/galeria-2/freestyle-color.webp" alt="Diseño Freestyle a color en P7 Barber Master Studio" class="exp-img" loading="lazy" decoding="async" />
+          <span class="exp-scrim" aria-hidden="true"></span>
+          <span class="exp-overlay">
+            <span class="exp-title">Freestyle a color</span>
+          </span>
+          <span class="exp-expand-hint" aria-hidden="true">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="15 3 21 3 21 9"></polyline>
+              <polyline points="9 21 3 21 3 15"></polyline>
+              <line x1="21" y1="3" x2="14" y2="10"></line>
+              <line x1="3" y1="21" x2="10" y2="14"></line>
+            </svg>
+          </span>
+        </button>
+
+        <!-- 6. Firma P7 -->
+        <button
+          type="button"
+          class="exp-panel"
+          data-index="5"
+          data-type="image"
+          data-title="Firma P7"
+          data-full-src="./assets/media/galeria-2/firma-p7.webp"
+          aria-label="Firma P7 — pulsar para expandir o ampliar"
+          aria-expanded="false"
+        >
+          <img src="./assets/media/galeria-2/firma-p7.webp" alt="Diseño Firma P7 en P7 Barber Master Studio" class="exp-img" loading="lazy" decoding="async" />
+          <span class="exp-scrim" aria-hidden="true"></span>
+          <span class="exp-overlay">
+            <span class="exp-title">Firma P7</span>
+          </span>
+          <span class="exp-expand-hint" aria-hidden="true">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="15 3 21 3 21 9"></polyline>
+              <polyline points="9 21 3 21 3 15"></polyline>
+              <line x1="21" y1="3" x2="14" y2="10"></line>
+              <line x1="3" y1="21" x2="10" y2="14"></line>
+            </svg>
+          </span>
+        </button>
+      </div>
+
+      <span class="exp-side-label exp-side-label--right" aria-hidden="true">
+        Toca la imagen para expandir
+      </span>
+    </div>
+
+    <p class="exp-mobile-tip">Toca una imagen para desplegarla · toca de nuevo para ampliar</p>
+
+    <!-- Botón hacia Galería 3 (nueva ventana a pantalla completa con Staircase Carousel infinito) -->
+    <div class="exp-more-wrap">
+      <a
+        href="./galeria.html"
+        target="_blank"
+        rel="noopener"
+        class="liquid-glass-btn liquid-glass-btn--dark liquid-glass-btn--sm"
+      >
+        <span class="liquid-glass-surface" aria-hidden="true"></span>
+        <span class="liquid-glass-blur" aria-hidden="true"></span>
+        <span class="liquid-glass-label">
+          <span>Ver más fotos</span>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="7" y1="17" x2="17" y2="7"></line>
+            <polyline points="7 7 17 7 17 17"></polyline>
+          </svg>
+        </span>
+      </a>
+    </div>
+
+    <!-- 2.5 Showcase Editorial: Cómo se trabaja en P7 (Medallón 3D Giratorio + Columna Editorial) -->
+    <div class="trabajo-showcase" aria-label="Cómo se trabaja en P7 Barber Master Studio">
+      <!-- Columna Visual: Escudo Oficial P7 que Gira sobre su Eje Vertical en 360° -->
+      <div class="showcase-visual" aria-hidden="true">
+        <div class="showcase-emblem-wrap">
+          <div class="coin-3d-pedestal">
+            <div class="coin-3d-mesh">
+              <div class="coin-edge" aria-hidden="true"></div>
+              <div class="coin-face coin-front">
+                <img
+                  src="./assets/img/opt/logo-p7-512w.webp"
+                  alt="Escudo oficial P7 Barber Master Studio"
+                  class="coin-img"
+                  width="210"
+                  height="210"
+                  decoding="async"
+                />
+              </div>
+              <div class="coin-face coin-back">
+                <img
+                  src="./assets/img/opt/logo-p7-512w.webp"
+                  alt="Escudo oficial P7 Barber Master Studio"
+                  class="coin-img"
+                  width="210"
+                  height="210"
+                  decoding="async"
+                />
               </div>
             </div>
-            <p data-i18n="map.cardNote" class="text-xs text-cream-200/80 mt-3 leading-relaxed">
-              A 5 minutos a pie de Plaça d'Espanya y estaciones de tren/metro. Fácil aparcamiento en zona ORA.
-            </p>
           </div>
         </div>
 
+        <div class="showcase-visual-caption">
+          <span class="caption-lead">P7 BARBER MASTER STUDIO</span>
+        </div>
       </div>
-    </section>
 
-  </main>
+      <!-- Columna Editorial: Textos Reales y Humanos -->
+      <div class="showcase-content">
+        <header class="showcase-header">
+          <span class="showcase-kicker">La experiencia en cabina</span>
+          <h3 class="showcase-title">Cómo se trabaja en P7</h3>
+          <p class="showcase-subtitle">
+            Cortes bien hechos, calma y una atención cuidada de principio a fin.
+          </p>
+        </header>
 
-  <!-- ===================================================================== -->
-  <!-- FOOTER (#0B2E22) + MODALES LEGALES INTERACTIVOS                        -->
-  <!-- ===================================================================== -->
-  <footer class="bg-emerald-900 border-t border-gold-500/30 text-cream-200 pt-16 pb-28 sm:pb-14">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 pb-12 border-b border-gold-500/20">
-        
-        <!-- Columna 1: Marca -->
-        <div class="space-y-4">
-          <div class="flex items-center gap-3">
-            <img src="./assets/img/logo-p7.png" alt="Logo P7 Barber Master Studio" class="w-12 h-12 rounded-full border border-gold-500/40 object-contain" onerror="this.src='../referencias/Logo-P7-v1.jpg'" />
-            <div>
-              <span class="font-display text-2xl font-bold text-cream-100 block leading-none">P7 Barber</span>
-              <span class="font-stamp text-[10px] text-gold-500 uppercase tracking-widest">Master Studio · Since 2023</span>
+        <div class="showcase-list">
+          <article class="showcase-item">
+            <div class="item-tag">UNA HORA COMPLETA</div>
+            <h4 class="item-title">Sesiones sin prisas</h4>
+            <p class="item-text">
+              En P7 no se corta con prisas ni con la vista puesta en el siguiente cliente. Cada cita tiene sesenta minutos reservados solo para ti, con el tiempo necesario para hablar de tu estilo y dejar el corte perfecto.
+            </p>
+          </article>
+
+          <article class="showcase-item">
+            <div class="item-tag">OFICIO Y ESCENARIOS</div>
+            <h4 class="item-title">ManuCuts: técnica y formación</h4>
+            <p class="item-text">
+              Manu compagina el día a día en el estudio con masterclasses y eventos del sector. Esa misma exigencia técnica de los escenarios es la que te llevas cada vez que te sientas en el sillón.
+            </p>
+          </article>
+
+          <article class="showcase-item">
+            <div class="item-tag">EL TOQUE DE LA CASA</div>
+            <h4 class="item-title">Higiene, ambiente y colonia</h4>
+            <p class="item-text">
+              Herramientas desinfectadas, local impecable y un ambiente cuidado al milímetro. Al retirar la capa, cerramos cada sesión con unas gotas de colonia clásica en las manos del cliente para salir impecable a la calle.
+            </p>
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. Botón Liquid Glass Oscuro + Carta de Servicios Full-Bleed Desplegable -->
+    <div id="lista-precios" class="trabajo-v2-cta-wrap">
+      <button
+        type="button"
+        id="precios-toggle-btn"
+        class="liquid-glass-btn liquid-glass-btn--dark"
+        aria-expanded="false"
+        aria-controls="precios-drawer"
+      >
+        <span class="liquid-glass-surface" aria-hidden="true"></span>
+        <span class="liquid-glass-blur" aria-hidden="true"></span>
+        <span class="liquid-glass-label">
+          <span id="precios-toggle-label">Lista de precios</span>
+          <svg
+            class="liquid-glass-chevron"
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </span>
+      </button>
+
+      <!-- Carta de Servicios Oficial (Cuerpo Completo Full-Bleed + Auto-cierre al bajar) -->
+      <div
+        id="precios-drawer"
+        class="precios-drawer"
+        aria-hidden="true"
+        role="region"
+        aria-labelledby="carta-servicios-titulo"
+      >
+        <div class="precios-drawer-inner">
+          <div class="precios-poster">
+            <div class="precios-poster-rail" aria-hidden="true">
+              <span class="precios-poster-word">SERVICIOS</span>
+            </div>
+
+            <div class="precios-poster-body">
+              <header class="precios-poster-head">
+                <span class="precios-poster-brand">P7 BARBER</span>
+              </header>
+
+              <div class="precios-group">
+                <h3 id="carta-servicios-titulo" class="precios-group-title">Carta oficial</h3>
+                <ul class="precios-list">
+                  <li class="precios-item">
+                    <div class="precios-item-main">
+                      <span class="precios-item-name">Corte de pelo</span>
+                      <span class="precios-item-price">25,00 €</span>
+                    </div>
+                    <p class="precios-item-sub">1 hora · Precisión adaptada a tu morfología y estilo.</p>
+                  </li>
+                  <li class="precios-item">
+                    <div class="precios-item-main">
+                      <span class="precios-item-name">Corte + barba</span>
+                      <span class="precios-item-price">30,00 €</span>
+                    </div>
+                    <p class="precios-item-sub">1 hora · Estilismo capilar integral y perfilado de barba.</p>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="precios-group">
+                <h4 class="precios-group-title">Experiencia en cabina</h4>
+                <ul class="precios-list precios-list--compact">
+                  <li class="precios-item">
+                    <div class="precios-item-main">
+                      <span class="precios-item-name">Sesión individual</span>
+                      <span class="precios-item-meta">60 min</span>
+                    </div>
+                  </li>
+                  <li class="precios-item">
+                    <div class="precios-item-main">
+                      <span class="precios-item-name">Diagnóstico y acabado</span>
+                      <span class="precios-item-meta">Incluido</span>
+                    </div>
+                  </li>
+                  <li class="precios-item">
+                    <div class="precios-item-main">
+                      <span class="precios-item-name">Cita previa</span>
+                      <span class="precios-item-meta">Booksy · Online</span>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+
+              <footer class="precios-poster-foot">
+                <p class="precios-address">
+                  Calle Miguel Ángel Riera, 2 · 07004 Palma
+                </p>
+                <div class="precios-foot-actions">
+                  <a href="#contacto" class="precios-online-btn">
+                    Online
+                  </a>
+                  <a
+                    href="https://booksy.com/es-es/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="precios-booksy-btn"
+                  >
+                    Booksy
+                  </a>
+                </div>
+              </footer>
             </div>
           </div>
-          <p data-i18n="footer.desc" class="text-sm text-cream-200/80 leading-relaxed">
-            Barbería clásica y contemporánea de autor en Palma de Mallorca. Fundada por Manu. Valorada con 5,0 ★ en Booksy por más de 250 clientes.
-          </p>
         </div>
+      </div>
+    </div>
 
-        <!-- Columna 2: Navegación Rápida -->
-        <div>
-          <h4 data-i18n="footer.navTitle" class="font-stamp text-xs text-gold-300 uppercase tracking-widest mb-4">Mapa del Estudio</h4>
-          <ul class="space-y-2.5 text-sm">
-            <li><a href="#inicio" data-i18n="nav.home" class="hover:text-gold-300 transition-colors">Inicio</a></li>
-            <li><a href="#sobre-nosotros" data-i18n="nav.about" class="hover:text-gold-300 transition-colors">Sobre nosotros</a></li>
-            <li><a href="#nuestro-equipo" data-i18n="nav.team" class="hover:text-gold-300 transition-colors">↳ Nuestro equipo</a></li>
-            <li><a href="#nuestro-trabajo" data-i18n="nav.work" class="hover:text-gold-300 transition-colors">Nuestro trabajo</a></li>
-            <li><a href="#lista-precios" data-i18n="nav.prices" class="hover:text-gold-300 transition-colors">↳ Lista de precios</a></li>
-            <li><a href="#contacto" data-i18n="nav.contact" class="hover:text-gold-300 transition-colors">Contacto y Reserva</a></li>
+  </div>
+</section>
+
+<!-- Lightbox Modal Flotante Sin Caja para Galería 2 (Foto + Vídeo en bucle limpio) -->
+<dialog id="trabajo-dialog" class="trabajo-dialog" aria-labelledby="trabajo-dialog-title">
+  <div class="trabajo-dialog-stage" id="trabajo-dialog-stage">
+    <button type="button" id="trabajo-dialog-close" class="trabajo-dialog-close" aria-label="Cerrar vista ampliada">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+    </button>
+
+    <button type="button" id="trabajo-dialog-prev" class="trabajo-dialog-nav trabajo-dialog-nav--prev" aria-label="Fotografía anterior">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <polyline points="15 18 9 12 15 6"></polyline>
+      </svg>
+    </button>
+
+    <div class="trabajo-dialog-media" id="trabajo-dialog-media">
+      <img id="trabajo-dialog-img" class="trabajo-dialog-img" src="" alt="" />
+    </div>
+
+    <button type="button" id="trabajo-dialog-next" class="trabajo-dialog-nav trabajo-dialog-nav--next" aria-label="Fotografía siguiente">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <polyline points="9 18 15 12 9 6"></polyline>
+      </svg>
+    </button>
+
+    <div class="trabajo-dialog-foot">
+      <div class="trabajo-dialog-meta">
+        <h2 id="trabajo-dialog-title" class="trabajo-dialog-title"></h2>
+        <p id="trabajo-dialog-caption" class="trabajo-dialog-caption"></p>
+      </div>
+      <span id="trabajo-dialog-counter" class="trabajo-dialog-counter">1 / 6</span>
+    </div>
+  </div>
+</dialog>
+
+<!-- Separador Bandera de Colombia (Sastrería de Lujo 2:1:1) -->
+<div class="separador-sastreria" data-reveal-line aria-hidden="true"></div>
+
+<!-- ==========================================================================
+     SECCIÓN 05 — CONTACTO (INFO DEL LOCAL + RESERVA) + ¿DÓNDE ESTAMOS? + FAQ (21st.dev BlurredStagger)
+     Integrado desde web/seccion de contacto/ + web/seccion sobre nosotros/faq.*
+     ========================================================================== -->
+
+<!-- 1. Banda Crema (#F8F1E4): Contacto (Información del local | Reserva Premium) -->
+<section id="contacto" class="contacto-v2" aria-labelledby="contacto-titulo">
+  <div class="contacto-shell">
+    <div class="contacto-block-wrap">
+      <header class="contacto-head">
+        <h2 id="contacto-titulo" class="contacto-h2">Contacto</h2>
+      </header>
+
+      <div class="contacto-grid">
+        <!-- Bloque 1: Información del local (misma proporción y altura que Reserva) -->
+        <div class="contacto-info-card">
+          <div class="info-card-top">
+            <span class="info-kicker">Información del local</span>
+            <h3 class="info-title">P7 Barber Master Studio</h3>
+          </div>
+
+          <ul class="local-list">
+            <li class="local-item">
+              <span class="local-icon" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+              </span>
+              <div class="local-text">
+                <span class="local-primary">Manuel</span>
+                <span class="local-secondary">Barbero fundador</span>
+              </div>
+            </li>
+
+            <li class="local-item">
+              <span class="local-icon" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                </svg>
+              </span>
+              <div class="local-text">
+                <a href="tel:+34600000000" class="local-primary" data-relleno="telefono">+34 600 000 000</a>
+              </div>
+            </li>
+
+            <li class="local-item">
+              <span class="local-icon" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+                  <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+                </svg>
+              </span>
+              <div class="local-text">
+                <a href="mailto:p7barberpalma@gmail.com" class="local-primary" data-relleno="email">p7barberpalma@gmail.com</a>
+              </div>
+            </li>
+
+            <li class="local-item">
+              <span class="local-icon" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                  <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+              </span>
+              <div class="local-text">
+                <span class="local-primary">Calle Miguel Ángel Riera, 2</span>
+                <span class="local-secondary">07004 Palma de Mallorca</span>
+              </div>
+            </li>
           </ul>
-        </div>
 
-        <!-- Columna 3: Contacto Palma -->
-        <div>
-          <h4 data-i18n="footer.contactTitle" class="font-stamp text-xs text-gold-300 uppercase tracking-widest mb-4">Ubicación &amp; Horario</h4>
-          <p class="text-sm text-cream-100 font-semibold">C/ Miguel Ángel Riera, 2</p>
-          <p class="text-sm text-cream-200/80 mb-3">07004 Palma de Mallorca, Illes Balears</p>
-          <p data-i18n="contact.hoursWeek" class="text-xs text-gold-300 uppercase tracking-wider">Mar – Sáb: 10:00 – 20:00 h</p>
-          <p class="text-sm text-cream-100 mt-3">+34 971 00 22 77</p>
-        </div>
-
-        <!-- Columna 4: Plataformas Oficiales -->
-        <div>
-          <h4 data-i18n="footer.bookTitle" class="font-stamp text-xs text-gold-300 uppercase tracking-widest mb-4">Reserva Oficial</h4>
-          <div class="flex flex-col gap-3">
-            <a href="https://booksy.com/es-es/" target="_blank" rel="noopener noreferrer" class="px-4 py-2.5 rounded-lg bg-emerald-800 hover:bg-emerald-700 border border-gold-500/40 text-xs font-bold uppercase tracking-widest text-gold-300 flex items-center justify-between">
-              <span>Booksy · 5.0 ★</span>
-              <span>→</span>
-            </a>
-            <a href="https://www.setmore.com/" target="_blank" rel="noopener noreferrer" class="px-4 py-2.5 rounded-lg bg-emerald-800 hover:bg-emerald-700 border border-gold-500/40 text-xs font-bold uppercase tracking-widest text-cream-100 flex items-center justify-between">
-              <span>Setmore Direct</span>
-              <span>→</span>
-            </a>
+          <div class="info-hours-foot">
+            <span class="info-hours-label">Horario</span>
+            <div class="local-hours">
+              <span><strong>Lun</strong> 10:00 – 19:00</span>
+              <span><strong>Mar – Jue</strong> 10:00 – 20:00</span>
+              <span><strong>Vie – Sáb</strong> 08:00 – 19:00</span>
+              <span class="local-secondary">Domingo cerrado</span>
+            </div>
           </div>
         </div>
 
-      </div>
+        <!-- Bloque 2: Reserva Premium (Panel Esmeralda Profundo gemelo) -->
+        <div id="reserva" class="reserva-panel">
+          <div class="reserva-top">
+            <span class="reserva-kicker">Cita previa</span>
+            <h3 class="reserva-title">Reserva tu hora.</h3>
+            <p class="reserva-desc">
+              Cada cita reserva una hora completa dedicada exclusivamente a ti. Elige cómo prefieres agendar:
+            </p>
+          </div>
 
-      <!-- Derechos y Enlaces Legales Interactivos -->
-      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-cream-200/70">
-        <p>© 2023–2026 P7 Barber Master Studio · Palma de Mallorca. Todos los derechos reservados.</p>
-        <div class="flex flex-wrap items-center gap-5">
-          <button type="button" data-legal="aviso" data-i18n="footer.legalNotice" class="legal-open-btn hover:text-gold-300 underline transition-colors">Aviso Legal</button>
-          <button type="button" data-legal="privacidad" data-i18n="footer.privacy" class="legal-open-btn hover:text-gold-300 underline transition-colors">Política de Privacidad</button>
-          <button type="button" data-legal="cookies" data-i18n="footer.cookies" class="legal-open-btn hover:text-gold-300 underline transition-colors">Política de Cookies</button>
+          <div class="reserva-actions">
+            <a
+              href="https://booksy.com/es-es/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="reserva-btn-booksy"
+            >
+              <span>Reservar en Booksy</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <line x1="7" y1="17" x2="17" y2="7"></line>
+                <polyline points="7 7 17 7 17 17"></polyline>
+              </svg>
+            </a>
+
+            <a
+              href="https://www.setmore.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="liquid-glass-btn liquid-glass-btn--dark"
+            >
+              <span class="liquid-glass-surface" aria-hidden="true"></span>
+              <span class="liquid-glass-blur" aria-hidden="true"></span>
+              <span class="liquid-glass-label">
+                <span>Reserva online</span>
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <line x1="7" y1="17" x2="17" y2="7"></line>
+                  <polyline points="7 7 17 7 17 17"></polyline>
+                </svg>
+              </span>
+            </a>
+          </div>
+
+          <div class="reserva-proof">
+            <span class="reserva-proof-score">
+              <span class="reserva-proof-star" aria-hidden="true">★</span>
+              <span>5,0 en Booksy</span>
+            </span>
+            <span>296 reseñas verificadas</span>
+          </div>
         </div>
       </div>
-
     </div>
-  </footer>
+  </div>
+</section>
 
-  <!-- ===================================================================== -->
-  <!-- BARRA INFERIOR FIJA EN MÓVIL ÚNICA (sm:hidden · 3 Botones >44px)      -->
-  <!-- ===================================================================== -->
-  <div class="sm:hidden fixed bottom-0 inset-x-0 z-40 bg-emerald-900/95 backdrop-blur-xl border-t border-gold-500/40 px-3 py-2.5 shadow-[0_-8px_25px_rgba(0,0,0,0.75)]">
-    <div class="grid grid-cols-12 gap-2 items-center">
+<!-- 2. Banda Carbón Editorial (#111112): ¿Dónde estamos? (Mapa blanco limpio) + Preguntas Frecuentes (21st.dev BlurredStagger) -->
+<section id="donde-estamos" class="ubicacion-faq-band" aria-labelledby="donde-titulo">
+  <div class="ubicacion-faq-shell">
+
+    <!-- Mini sección Mapa: título centrado con interrogación + mapa blanco contenido -->
+    <div class="mapa-section">
+      <h2 id="donde-titulo" class="mapa-title">¿Dónde estamos?</h2>
+
+      <div class="mapa-frame-wrap">
+        <iframe
+          class="mapa-iframe"
+          title="Ubicación de P7 Barber Master Studio en Calle Miguel Ángel Riera, 2, Palma"
+          src="https://maps.google.com/maps?q=Calle%20Miguel%20angel%20riera%2C%202%2C%2007004%2C%20Palma&t=&z=16&ie=UTF8&iwloc=&output=embed"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+      </div>
+
       <a
-        href="tel:+34971002277"
-        aria-label="Llamar a P7 Barber Master Studio"
-        class="col-span-3 min-h-[46px] rounded-xl bg-emerald-800 border border-gold-500/40 text-gold-300 flex flex-col items-center justify-center text-[11px] font-bold uppercase tracking-wider"
-      >
-        <span data-i18n="mobileBar.call">Llamar</span>
-      </a>
-      <a
-        href="https://www.google.com/maps/search/?api=1&query=Carrer+de+Miquel+Angel+Riera+2+07004+Palma+Illes+Balears"
+        href="https://www.google.com/maps/search/?api=1&query=Calle+Miguel+angel+riera,+2,+07004,+Palma"
         target="_blank"
         rel="noopener noreferrer"
-        aria-label="Cómo llegar a P7 Barber Master Studio"
-        class="col-span-4 min-h-[46px] rounded-xl bg-emerald-800 border border-gold-500/40 text-cream-100 flex flex-col items-center justify-center text-[11px] font-bold uppercase tracking-wider"
+        class="mapa-link"
       >
-        <span data-i18n="mobileBar.directions">Cómo llegar</span>
-      </a>
-      <a
-        href="#reserva"
-        class="col-span-5 min-h-[46px] rounded-xl bg-gold-metallic text-emerald-900 flex items-center justify-center text-xs font-extrabold uppercase tracking-widest shadow-lg"
-      >
-        <span data-i18n="mobileBar.book">Reservar Cita</span>
+        <span>Cómo llegar en Google Maps</span>
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <line x1="7" y1="17" x2="17" y2="7"></line>
+          <polyline points="7 7 17 7 17 17"></polyline>
+        </svg>
       </a>
     </div>
-  </div>
 
-  <!-- ===================================================================== -->
-  <!-- LIGHTBOX DE GALERÍA INTERACTIVO                                       -->
-  <!-- ===================================================================== -->
-  <div id="lightbox-modal" class="fixed inset-0 z-50 bg-emerald-950/95 backdrop-blur-lg hidden items-center justify-center p-4" role="dialog" aria-modal="true" aria-label="Vista ampliada del trabajo">
-    <div class="relative max-w-3xl w-full rounded-2xl overflow-hidden bg-emerald-900 border-2 border-gold-500/60 shadow-2xl">
-      <button id="lightbox-close" type="button" aria-label="Cerrar imagen" class="absolute top-4 right-4 z-10 w-11 h-11 rounded-full bg-emerald-900/90 border border-gold-500 text-gold-300 flex items-center justify-center">
-        ✕
-      </button>
-      <img id="lightbox-img" src="" alt="" class="w-full max-h-[75vh] object-contain bg-emerald-950" />
-      <div class="p-5 bg-emerald-900 border-t border-gold-500/30 flex items-center justify-between gap-4">
-        <p id="lightbox-caption" class="font-display text-2xl font-bold text-cream-100"></p>
-        <a href="#reserva" id="lightbox-book" class="px-4 py-2 rounded-lg bg-gold-metallic text-emerald-900 font-bold text-xs uppercase tracking-widest">
-          Reservar este estilo
-        </a>
+    <!-- PREGUNTAS FRECUENTES (Adaptación 21st.dev Ruixen UI · BlurredStagger del chat en paralelo) -->
+    <div id="preguntas-frecuentes" class="faq-grid" aria-labelledby="faq-main-heading">
+      <div class="faq-intro-col">
+        <h2 id="faq-main-heading" class="faq-heading">Preguntas frecuentes</h2>
+        <p class="faq-description">
+          Todo lo que necesitas saber antes de tu cita en P7 Barber Master Studio.
+        </p>
+      </div>
+
+      <div class="faq-accordion" role="region" aria-label="Lista de preguntas frecuentes">
+        <!-- Item 1 -->
+        <div class="faq-item" data-state="closed">
+          <button
+            type="button"
+            class="faq-trigger"
+            aria-expanded="false"
+            aria-controls="faq-ans-1"
+            id="faq-btn-1"
+          >
+            <span>¿Es necesario pedir cita previa?</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
+          <div id="faq-ans-1" class="faq-panel" role="region" aria-labelledby="faq-btn-1" aria-hidden="true">
+            <div class="faq-panel-inner">
+              <p
+                class="faq-answer blurred-stagger"
+                data-raw-text="Sí. Trabajamos con cita previa para garantizar una atención individual y sin esperas. Puedes reservar en segundos desde Booksy o directamente con el botón de reserva online."
+              >
+                Sí. Trabajamos con cita previa para garantizar una atención individual y sin esperas. Puedes reservar en segundos desde Booksy o directamente con el botón de reserva online.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Item 2 -->
+        <div class="faq-item" data-state="closed">
+          <button
+            type="button"
+            class="faq-trigger"
+            aria-expanded="false"
+            aria-controls="faq-ans-2"
+            id="faq-btn-2"
+          >
+            <span>¿Cuánto dura cada servicio?</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
+          <div id="faq-ans-2" class="faq-panel" role="region" aria-labelledby="faq-btn-2" aria-hidden="true">
+            <div class="faq-panel-inner">
+              <p
+                class="faq-answer blurred-stagger"
+                data-raw-text="Tanto el corte de pelo (25,00 €) como el servicio de corte + barba (30,00 €) tienen reservada una hora completa de sesenta minutos para trabajar con calma y precisión."
+              >
+                Tanto el corte de pelo (25,00 €) como el servicio de corte + barba (30,00 €) tienen reservada una hora completa de sesenta minutos para trabajar con calma y precisión.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Item 3 -->
+        <div class="faq-item" data-state="closed">
+          <button
+            type="button"
+            class="faq-trigger"
+            aria-expanded="false"
+            aria-controls="faq-ans-3"
+            id="faq-btn-3"
+          >
+            <span>¿Cómo puedo cambiar o cancelar mi cita?</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
+          <div id="faq-ans-3" class="faq-panel" role="region" aria-labelledby="faq-btn-3" aria-hidden="true">
+            <div class="faq-panel-inner">
+              <p
+                class="faq-answer blurred-stagger"
+                data-raw-text="Puedes gestionarlo directamente desde tu confirmación de Booksy o avisándonos con antelación para que podamos liberar ese hueco para otro cliente."
+              >
+                Puedes gestionarlo directamente desde tu confirmación de Booksy o avisándonos con antelación para que podamos liberar ese hueco para otro cliente.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Item 4 -->
+        <div class="faq-item" data-state="closed">
+          <button
+            type="button"
+            class="faq-trigger"
+            aria-expanded="false"
+            aria-controls="faq-ans-4"
+            id="faq-btn-4"
+          >
+            <span>¿Qué métodos de pago aceptáis en el estudio?</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
+          <div id="faq-ans-4" class="faq-panel" role="region" aria-labelledby="faq-btn-4" aria-hidden="true">
+            <div class="faq-panel-inner">
+              <p
+                class="faq-answer blurred-stagger"
+                data-raw-text="Aceptamos pago con tarjeta, Bizum y efectivo directamente en el estudio al finalizar tu servicio."
+              >
+                Aceptamos pago con tarjeta, Bizum y efectivo directamente en el estudio al finalizar tu servicio.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Item 5 -->
+        <div class="faq-item" data-state="closed">
+          <button
+            type="button"
+            class="faq-trigger"
+            aria-expanded="false"
+            aria-controls="faq-ans-5"
+            id="faq-btn-5"
+          >
+            <span>¿Dónde está exactamente el estudio?</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
+          <div id="faq-ans-5" class="faq-panel" role="region" aria-labelledby="faq-btn-5" aria-hidden="true">
+            <div class="faq-panel-inner">
+              <p
+                class="faq-answer blurred-stagger"
+                data-raw-text="Estamos en Calle Miguel Ángel Riera, 2 (07004 Palma de Mallorca), a pocos minutos del centro. Dispones de mapa interactivo y botón directo para abrir la ruta en Google Maps."
+              >
+                Estamos en Calle Miguel Ángel Riera, 2 (07004 Palma de Mallorca), a pocos minutos del centro. Dispones de mapa interactivo y botón directo para abrir la ruta en Google Maps.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Item 6: Contacto directo / WhatsApp -->
+        <div class="faq-item" data-state="open">
+          <button
+            type="button"
+            class="faq-trigger"
+            aria-expanded="true"
+            aria-controls="faq-ans-6"
+            id="faq-btn-6"
+          >
+            <span>¿No encuentras lo que buscas?</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
+          <div id="faq-ans-6" class="faq-panel" role="region" aria-labelledby="faq-btn-6">
+            <div class="faq-panel-inner">
+              <p
+                class="faq-answer blurred-stagger"
+                data-raw-text="Escríbenos directamente por WhatsApp o llámanos al estudio. Estamos a tu disposición para ayudarte a elegir tu servicio, consultar disponibilidad o gestionar tu cita sin compromiso."
+              >
+                Escríbenos directamente por WhatsApp o llámanos al estudio. Estamos a tu disposición para ayudarte a elegir tu servicio, consultar disponibilidad o gestionar tu cita sin compromiso.
+              </p>
+              <div class="faq-extra-action">
+                <a
+                  href="https://wa.me/34689020087"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="faq-chat-btn"
+                  aria-label="Escribir por WhatsApp (se abre en una ventana nueva)"
+                >
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+                  </svg>
+                  <span>Escribir por WhatsApp</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-cols">
+      <div>
+        <h2 class="footer-col-title">El Estudio</h2>
+        <ul class="footer-list">
+          <li>P7 Barber Master Studio</li>
+          <li>C/ Miguel Ángel Riera, 2</li>
+          <li>07004 Palma de Mallorca</li>
+          <li>Since 2023 · 5,0 en Booksy</li>
+        </ul>
+      </div>
+
+      <div>
+        <h2 class="footer-col-title">Navegación</h2>
+        <ul class="footer-list">
+          <li><a href="#inicio">Inicio</a></li>
+          <li><a href="#sobre-nosotros">Sobre nosotros</a></li>
+          <li><a href="#nuestro-trabajo">Nuestro trabajo</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h2 class="footer-col-title">Reservas y Redes</h2>
+        <ul class="footer-list">
+          <li><a href="https://booksy.com/es-es/" target="_blank" rel="noopener noreferrer">Booksy (Principal)</a></li>
+          <li><a href="https://www.setmore.com/" target="_blank" rel="noopener noreferrer">Setmore</a></li>
+          <li><a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" data-relleno="instagram">@p7barberpalma</a></li>
+          <li><a href="tel:+34600000000" data-relleno="telefono">+34 600 000 000</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h2 class="footer-col-title">Horario</h2>
+        <ul class="footer-list">
+          <li data-relleno="horario">Mar – Sáb: 10:00 – 20:00</li>
+          <li data-relleno="horario">Dom – Lun: Cerrado</li>
+          <li>Atención bajo cita previa 1 a 1</li>
+        </ul>
       </div>
     </div>
   </div>
 
-  <!-- ===================================================================== -->
-  <!-- MODAL LEGAL INTERACTIVO (Aviso Legal, Privacidad, Cookies)             -->
-  <!-- ===================================================================== -->
-  <div id="legal-modal" class="fixed inset-0 z-50 bg-emerald-950/90 backdrop-blur-md hidden items-center justify-center p-4" role="dialog" aria-modal="true">
-    <div class="max-w-xl w-full rounded-2xl bg-cream-100 text-emerald-900 border-2 border-gold-700 p-6 sm:p-8 shadow-2xl">
-      <div class="flex items-center justify-between border-b border-gold-700/30 pb-4 mb-4">
-        <h3 id="legal-modal-title" class="font-display text-2xl font-bold text-emerald-900">Información Legal</h3>
-        <button id="legal-modal-close" type="button" class="w-10 h-10 rounded-lg bg-emerald-900 text-cream-100 font-bold">✕</button>
+  <div class="footer-spacer" aria-hidden="true"></div>
+
+  <div class="container">
+    <p class="footer-wordmark" aria-hidden="true">P7 BARBER</p>
+
+    <div class="footer-legal">
+      <span>© 2026 P7 Barber Master Studio · Palma de Mallorca</span>
+      <div class="footer-legal-links">
+        <button type="button" class="footer-legal-btn" data-legal="aviso">Aviso legal</button>
+        <button type="button" class="footer-legal-btn" data-legal="privacidad">Privacidad</button>
+        <button type="button" class="footer-legal-btn" data-legal="cookies">Cookies</button>
       </div>
-      <div id="legal-modal-body" class="text-sm leading-relaxed space-y-3 text-emerald-900/90"></div>
     </div>
   </div>
+</footer>
 
-  <!-- ===================================================================== -->
-  <!-- SCRIPTS INTERACTIVOS (i18n ES/EN/DE + Filtros + Lightbox + Menú Móvil) -->
-  <!-- ===================================================================== -->
-  <script>
-    const translations = {
-      es: {
-        "nav.home": "Inicio",
-        "nav.about": "Sobre nosotros",
-        "nav.team": "↳ Nuestro equipo",
-        "nav.work": "Nuestro trabajo",
-        "nav.prices": "↳ Lista de precios",
-        "nav.contact": "Contacto",
-        "nav.map": "↳ Dónde estamos",
-        "nav.book": "Reservar",
-        "hero.eyebrow": "Palma de Mallorca · Since 2023 · ★ 5.0 en Booksy (+250 reseñas)",
-        "hero.stamp": "BARBER MASTER STUDIO · PALMA",
-        "hero.title": "El Arte de la <span class='italic font-normal text-gold-300'>Barbería Clásica</span> Llevado a la Excelencia",
-        "hero.subtitle": "Santuario de cuidado masculino artesanal en el corazón de Palma de Mallorca. Degradados milimétricos, corte a tijera y ritual de afeitado tradicional con toalla caliente.",
-        "hero.ctaBook": "Reservar Cita",
-        "hero.ctaWork": "Ver Nuestro Trabajo",
-        "hero.badge1": "5.0 ★ Booksy (+250 reseñas)",
-        "hero.badge2": "Maestría en Navaja & Fade",
-        "hero.badge3": "Ritual Toalla Caliente",
-        "about.portraitRole": "Dirección Artística · P7 Palma de Mallorca",
-        "about.eyebrow": "Nuestra Historia · Palma de Mallorca",
-        "about.title": "Donde la Tradición del <span class='italic font-normal text-gold-300'>Maestro Barbero</span> se Encuentra con la Precisión Contemporánea",
-        "about.p1": "Fundado en 2023 por <strong>Manu</strong> en la calle Miguel Ángel Riera 2 de Palma de Mallorca, <strong>P7 Barber Master Studio</strong> nació con una visión clara: recuperar el carácter solemne, cálido y artesanal de la barbería clásica europea.",
-        "about.p2": "En nuestro estudio de tonos verde esmeralda y detalles en oro envejecido, cada servicio comienza con un diagnóstico morfológico personalizado, combinando tijera, navaja tradicional y toallas aromáticas al vapor.",
-        "about.stat1": "Puntuación en Booksy",
-        "about.stat2": "Reseñas Verificadas",
-        "about.stat3": "Ritual Artesanal",
-        "team.eyebrow": "Subsección · Galería 1",
-        "team.title": "Nuestro Equipo & <span class='italic font-normal text-gold-300'>El Atelier</span>",
-        "team.subtitle": "Conoce a Manu y descubre por dentro la atmósfera artesanal de P7 Barber Master Studio en Palma.",
-        "team.card1Role": "Especialista en Corte Clásico, Skin Fade & Esculpido de Barba",
-        "team.card1Desc": "Alma de P7 Barber Master Studio. Precisión milimétrica en degradados, dominio de la tijera y ritual tradicional de navaja con toalla caliente.",
-        "team.bookManu": "Reservar con Manu →",
-        "team.card2Badge": "El Estudio · Palma",
-        "team.card2Title": "Sillones & Estaciones",
-        "team.card2Role": "Arquitectura Esmeralda, Piedra de Marés & Latón",
-        "team.card2Desc": "Un ambiente privado, relajado y cuidado al detalle en C/ Miguel Ángel Riera 2, diseñado para que cada cita sea una pausa de desconexión.",
-        "team.seeLocation": "Ver ubicación →",
-        "team.card3Badge": "Sello de Calidad",
-        "team.card3Title": "Atención 1 a 1 sin Prisas",
-        "team.card3Role": "Higiene Quirúrgica & Productos Premium",
-        "team.card3Desc": "Esterilización rigurosa en cada servicio, cosmética botánica de primera línea y asesoramiento honesto según tu estilo y fisonomía.",
-        "team.seeMenu": "Ver carta →",
-        "work.eyebrow": "Portfolio · Galería 2",
-        "work.title": "Nuestro <span class='italic font-normal text-gold-300'>Trabajo</span> en Detalle",
-        "work.filterAll": "Todos",
-        "work.filterFade": "Degradados & Fades",
-        "work.filterBeard": "Ritual de Barba",
-        "work.filterClassic": "Corte Clásico",
-        "work.item1Title": "Perfilado Geométrico & Toalla Caliente",
-        "work.item2Title": "Mid Skin Fade & Textura Natural",
-        "work.item3Title": "Corte Sastre a Tijera & Acabado Mate",
-        "work.item4Title": "Low Taper & Contorno a Navaja",
-        "work.item5Title": "Master Ritual: Corte + Barba Imperial",
-        "work.item6Title": "Acabado de Autor en Nuestro Estudio",
-        "prices.eyebrow": "Subsección · Carta de Servicios en HTML",
-        "prices.title": "Lista de Precios & <span class='italic font-normal text-gold-700'>Rituales</span>",
-        "prices.subtitle": "Todos nuestros servicios incluyen asesoramiento personalizado, lavado revitalizante, perfilado a navaja con gel térmico y acabado con productos de barbería de autor.",
-        "prices.featuredBadge": "★ Servicio Estrella · Más Solicitado",
-        "prices.s4Name": "Ritual Master P7: Corte de Autor + Barba Completa",
-        "prices.s4Desc": "La experiencia insignia del estudio: corte personalizado (clásico o fade), arreglo y esculpido integral de barba con doble toalla caliente aromática, afeitado de contornos a navaja, bálsamo frío y masaje capilar.",
-        "prices.s1Name": "Corte de Cabello Clásico / Ejecutivo",
-        "prices.s1Desc": "Estudio de facciones, corte a tijera y máquina, lavado con masaje craneal, limpieza de nuca a navaja y peinado con pomada mate o brillo clásico.",
-        "prices.s2Name": "Signature Skin Fade / Degradado a Navaja",
-        "prices.s2Desc": "Transición milimétrica desde cero (shaver/navaja), conexión estructurada en la zona superior, lavado refrescante y texturizado de acabado.",
-        "prices.s3Name": "Ritual de Barba & Toalla Caliente",
-        "prices.s3Desc": "Esculpido geométrico de volumen, preparación con toalla caliente de eucalipto, perfilado de mejillas y cuello a navaja e hidratación con aceites esenciales.",
-        "prices.s5Name": "Afeitado Clásico Tradicional a Navaja",
-        "prices.s5Desc": "Espuma tibia batida con brocha de tejón, doble pasada a navaja libre, compresa fría calmante y loción aftershave de sándalo.",
-        "prices.s6Name": "Corte Junior Master (Hasta 14 años)",
-        "prices.s6Desc": "Corte paciente y adaptado a los más jóvenes, con la misma dedicación artesanal y acabado limpio.",
-        "prices.s7Name": "Experiencia VIP P7 Grooming",
-        "prices.s7Desc": "Corte de autor + ritual de barba completo + exfoliación facial con vapor de ozono, diseño de cejas y tratamiento revitalizante.",
-        "prices.bookBtn": "Reservar →",
-        "prices.footnote": "* Todos los precios incluyen IVA. Bebida de cortesía incluida en cada visita (café espresso o refresco).",
-        "prices.ctaAll": "Elegir Plataforma de Reserva →",
-        "reviews.eyebrow": "Prueba Social Real · Palma de Mallorca",
-        "reviews.title": "Lo Que Dicen Nuestros <span class='italic font-normal text-gold-300'>Clientes</span>",
-        "reviews.badgeText": "+250 Reseñas Verificadas en Booksy",
-        "reviews.r1Text": "“El mejor barbero de Palma sin ninguna duda. Manu cuida cada detalle al milímetro, el degradado queda impecable y el trato en el local es de diez. Un ritual de desconexión total.”",
-        "reviews.r2Text": "“Increíble atención al detalle. Reservé el ritual completo antes de un evento en Mallorca y el trabajo con la navaja y las toallas calientes fue espectacular. Local precioso y muy limpio.”",
-        "reviews.r3Text": "“Llevo viniendo desde que abrieron en 2023. La puntualidad, el ambiente tranquilo, la música y la precisión con la que trabaja Manu hacen que no cambie P7 por nada en la isla.”",
-        "contact.eyebrow": "Atención Directa & Cita Previa",
-        "contact.title": "Contacto & <span class='italic font-normal text-gold-300'>Reserva Online</span>",
-        "contact.openBadge": "Información del Local · Abierto con Cita Previa",
-        "contact.infoTitle": "P7 Barber Master Studio",
-        "contact.addressLabel": "Dirección en Palma",
-        "contact.hoursLabel": "Horario del Atelier",
-        "contact.hoursWeek": "Martes a Sábado: 10:00 – 20:00 h",
-        "contact.hoursClosed": "Lunes y Domingos: Cerrado (Atención bajo cita previa)",
-        "contact.phoneLabel": "Teléfono, WhatsApp & Redes",
-        "contact.callDirect": "Llamar al Estudio →",
-        "contact.viewMapLink": "Ver mapa interactivo ↓",
-        "booking.eyebrow": "Subsección · Reserva Instantánea 24/7",
-        "booking.title": "Reserva Tu Cita en <span class='italic font-normal text-gold-300'>P7 Barber</span>",
-        "booking.desc": "Elige tu plataforma preferida para consultar disponibilidad en tiempo real con <strong>Manu</strong>, seleccionar tu servicio y recibir confirmación inmediata.",
-        "booking.booksyBtn": "Reservar en Booksy",
-        "booking.booksySub": "Valorado 5.0 ★ (+250 reseñas verificadas)",
-        "booking.setmoreBtn": "Reservar en Setmore",
-        "booking.setmoreSub": "Reserva rápida sin registro · Calendario directo",
-        "booking.policy": "Cancelación gratuita hasta 12h antes de la cita.",
-        "map.eyebrow": "Ubicación & Cómo Llegar",
-        "map.title": "Dónde <span class='italic font-normal text-gold-300'>Estamos</span> en Palma",
-        "map.ctaDirections": "Cómo llegar en Google Maps",
-        "map.cardNote": "A 5 minutos a pie de Plaça d'Espanya y estaciones de tren/metro. Fácil aparcamiento en zona ORA.",
-        "footer.desc": "Barbería clásica y contemporánea de autor en Palma de Mallorca. Fundada por Manu. Valorada con 5,0 ★ en Booksy por más de 250 clientes.",
-        "footer.navTitle": "Mapa del Estudio",
-        "footer.contactTitle": "Ubicación & Horario",
-        "footer.bookTitle": "Reserva Oficial",
-        "footer.legalNotice": "Aviso Legal",
-        "footer.privacy": "Política de Privacidad",
-        "footer.cookies": "Política de Cookies",
-        "mobileBar.call": "Llamar",
-        "mobileBar.directions": "Cómo llegar",
-        "mobileBar.book": "Reservar Cita"
-      },
-      en: {
-        "nav.home": "Home",
-        "nav.about": "About Us",
-        "nav.team": "↳ Our Team",
-        "nav.work": "Our Work",
-        "nav.prices": "↳ Price List",
-        "nav.contact": "Contact",
-        "nav.map": "↳ Location",
-        "nav.book": "Book Now",
-        "hero.eyebrow": "Palma de Mallorca · Since 2023 · ★ 5.0 on Booksy (250+ reviews)",
-        "hero.stamp": "BARBER MASTER STUDIO · PALMA",
-        "hero.title": "The Art of <span class='italic font-normal text-gold-300'>Classical Barbering</span> Taken to Excellence",
-        "hero.subtitle": "Bespoke gentlemen's grooming sanctuary in the heart of Palma de Mallorca. Razor-sharp skin fades, tailored scissor cuts, and hot towel straight-razor rituals.",
-        "hero.ctaBook": "Book Appointment",
-        "hero.ctaWork": "Explore Our Work",
-        "hero.badge1": "5.0 ★ Booksy (250+ reviews)",
-        "hero.badge2": "Razor & Fade Mastery",
-        "hero.badge3": "Hot Towel Ritual",
-        "about.portraitRole": "Artistic Founder · P7 Palma de Mallorca",
-        "about.eyebrow": "Our Story · Palma de Mallorca",
-        "about.title": "Where <span class='italic font-normal text-gold-300'>Master Barber</span> Tradition Meets Contemporary Precision",
-        "about.p1": "Founded in 2023 by <strong>Manu</strong> at C/ Miguel Ángel Riera 2 in Palma de Mallorca, <strong>P7 Barber Master Studio</strong> was born to restore the warm, unhurried craftsmanship of classic European barbering.",
-        "about.p2": "In our deep emerald and antique gold atelier, every appointment begins with a personal consultation, blending scissor tailoring, straight-razor work, and steaming botanical towels.",
-        "about.stat1": "Booksy Rating",
-        "about.stat2": "Verified Reviews",
-        "about.stat3": "Artisanal Ritual",
-        "team.eyebrow": "Sub-section · Gallery 1",
-        "team.title": "Our Team & <span class='italic font-normal text-gold-300'>The Atelier</span>",
-        "team.subtitle": "Meet Manu and step inside the handcrafted atmosphere of P7 Barber Master Studio in Palma.",
-        "team.card1Role": "Classic Scissor Cuts, Skin Fades & Beard Architecture",
-        "team.card1Desc": "Founder and heart of P7 Barber Master Studio. Millimeter fade precision, scissor mastery, and traditional hot towel straight-razor shaves.",
-        "team.bookManu": "Book with Manu →",
-        "team.card2Badge": "The Studio · Palma",
-        "team.card2Title": "Chairs & Stations",
-        "team.card2Role": "Emerald Interior, Marés Stone & Brass",
-        "team.card2Desc": "A serene, private sanctuary at C/ Miguel Ángel Riera 2, crafted so every appointment feels like a restorative retreat.",
-        "team.seeLocation": "See location →",
-        "team.card3Badge": "Quality Seal",
-        "team.card3Title": "Unhurried 1-on-1 Care",
-        "team.card3Role": "Surgical Hygiene & Botanical Elixirs",
-        "team.card3Desc": "Strict tool sterilization, top-tier grooming products, and tailored advice suited to your bone structure.",
-        "team.seeMenu": "See price menu →",
-        "work.eyebrow": "Portfolio · Gallery 2",
-        "work.title": "Our <span class='italic font-normal text-gold-300'>Craft</span> in Detail",
-        "work.filterAll": "All",
-        "work.filterFade": "Skin Fades",
-        "work.filterBeard": "Beard Rituals",
-        "work.filterClassic": "Classic Cuts",
-        "work.item1Title": "Geometric Beard Lineup & Hot Towel",
-        "work.item2Title": "Mid Skin Fade & Natural Texture",
-        "work.item3Title": "Tailored Scissor Cut & Matte Finish",
-        "work.item4Title": "Low Taper & Straight-Razor Contour",
-        "work.item5Title": "Master Ritual: Haircut + Imperial Beard",
-        "work.item6Title": "Signature Finish at Our Palma Studio",
-        "prices.eyebrow": "Sub-section · HTML Service Tariff",
-        "prices.title": "Price List & <span class='italic font-normal text-gold-700'>Rituals</span>",
-        "prices.subtitle": "Every service includes personal consultation, revitalizing wash, straight-razor neck cleanup, and signature styling finish.",
-        "prices.featuredBadge": "★ Flagship Ritual · Most Popular",
-        "prices.s4Name": "P7 Master Ritual: Bespoke Haircut + Full Beard",
-        "prices.s4Desc": "Our signature experience: tailored haircut (classic or fade), full beard sculpting with double aromatic hot towel, razor linework, and cranial massage.",
-        "prices.s1Name": "Classic Gentleman's Haircut",
-        "prices.s1Desc": "Bone-structure consultation, scissor and clipper tailoring, wash with cranial massage, razor neck cleanup, and matte or classic pomade finish.",
-        "prices.s2Name": "Signature Skin Fade & Taper",
-        "prices.s2Desc": "Seamless zero transition (shaver/razor), structured top blending, refreshing wash, and textured styling finish.",
-        "prices.s3Name": "Beard Sculpting & Hot Towel Ritual",
-        "prices.s3Desc": "Geometric volume shaping, eucalyptus hot towel preparation, straight-razor cheek and neck definition, and essential oil hydration.",
-        "prices.s5Name": "Traditional Straight-Razor Shave",
-        "prices.s5Desc": "Warm lather whipped with badger brush, double straight-razor pass, soothing cold compress, and sandalwood aftershave.",
-        "prices.s6Name": "Junior Master Cut (Under 14)",
-        "prices.s6Desc": "Patient, tailored haircut for young gentlemen with the same artisanal dedication and clean finish.",
-        "prices.s7Name": "VIP P7 Grooming Experience",
-        "prices.s7Desc": "Bespoke haircut + full beard ritual + ozone steam facial exfoliation, eyebrow detailing, and revitalizing treatment.",
-        "prices.bookBtn": "Book →",
-        "prices.footnote": "* All prices include VAT. Complimentary beverage included with every visit (espresso coffee or soft drink).",
-        "prices.ctaAll": "Choose Booking Platform →",
-        "reviews.eyebrow": "Verified Social Proof · Palma de Mallorca",
-        "reviews.title": "What Our <span class='italic font-normal text-gold-300'>Patrons</span> Say",
-        "reviews.badgeText": "250+ Verified Reviews on Booksy",
-        "reviews.r1Text": "“Hands down the best barber in Palma. Manu takes care of every millimeter, the fade is flawless, and the studio atmosphere is 10/10. A true relaxation ritual.”",
-        "reviews.r2Text": "“Incredible attention to detail. I booked the full ritual before an event in Mallorca and the razor and hot towel work was spectacular. Gorgeous, spotless studio.”",
-        "reviews.r3Text": "“Been coming here since they opened in 2023. The punctuality, calm vibe, great music, and Manu's precision mean I wouldn't trade P7 for anything on the island.”",
-        "contact.eyebrow": "Direct Concierge & Booking",
-        "contact.title": "Contact & <span class='italic font-normal text-gold-300'>Online Booking</span>",
-        "contact.openBadge": "Studio Info · Open by Appointment",
-        "contact.infoTitle": "P7 Barber Master Studio",
-        "contact.addressLabel": "Palma Studio Address",
-        "contact.hoursLabel": "Atelier Opening Hours",
-        "contact.hoursWeek": "Tuesday – Saturday: 10:00 – 20:00",
-        "contact.hoursClosed": "Monday & Sunday: Closed",
-        "contact.phoneLabel": "Phone, WhatsApp & Social",
-        "contact.callDirect": "Call the Studio →",
-        "contact.viewMapLink": "View interactive map ↓",
-        "booking.eyebrow": "Sub-section · Instant 24/7 Booking",
-        "booking.title": "Book Your Visit at <span class='italic font-normal text-gold-300'>P7 Barber</span>",
-        "booking.desc": "Select your preferred booking platform to check real-time availability with <strong>Manu</strong> and receive instant confirmation.",
-        "booking.booksyBtn": "Book on Booksy",
-        "booking.booksySub": "Rated 5.0 ★ (250+ verified reviews)",
-        "booking.setmoreBtn": "Book on Setmore",
-        "booking.setmoreSub": "Fast booking without registration · Direct calendar",
-        "booking.policy": "Free cancellation up to 12h before your appointment.",
-        "map.eyebrow": "Location & Directions",
-        "map.title": "Where <span class='italic font-normal text-gold-300'>We Are</span> in Palma",
-        "map.ctaDirections": "Get Directions on Google Maps",
-        "map.cardNote": "5-minute walk from Plaça d'Espanya and train/metro stations. Easy street parking nearby.",
-        "footer.desc": "Bespoke classic and contemporary barber studio in Palma de Mallorca. Founded by Manu. Rated 5.0 ★ on Booksy by over 250 clients.",
-        "footer.navTitle": "Studio Sitemap",
-        "footer.contactTitle": "Location & Hours",
-        "footer.bookTitle": "Official Booking",
-        "footer.legalNotice": "Legal Notice",
-        "footer.privacy": "Privacy Policy",
-        "footer.cookies": "Cookie Policy",
-        "mobileBar.call": "Call",
-        "mobileBar.directions": "Directions",
-        "mobileBar.book": "Book Now"
-      },
-      de: {
-        "nav.home": "Start",
-        "nav.about": "Über uns",
-        "nav.team": "↳ Unser Team",
-        "nav.work": "Unsere Arbeit",
-        "nav.prices": "↳ Preisliste",
-        "nav.contact": "Kontakt",
-        "nav.map": "↳ Standort",
-        "nav.book": "Buchen",
-        "hero.eyebrow": "Palma de Mallorca · Seit 2023 · ★ 5.0 auf Booksy (250+ Bewertungen)",
-        "hero.stamp": "BARBER MASTER STUDIO · PALMA",
-        "hero.title": "Die Kunst des <span class='italic font-normal text-gold-300'>Klassischen Barbiers</span> in Perfektion",
-        "hero.subtitle": "Exklusives Herrenpflege-Atelier im Herzen von Palma de Mallorca. Präzise Skin Fades, klassische Scherenschnitte und traditionelle Heiße-Kompresse-Rasur.",
-        "hero.ctaBook": "Termin Buchen",
-        "hero.ctaWork": "Unsere Arbeit",
-        "hero.badge1": "5.0 ★ Booksy (250+ Bewertungen)",
-        "hero.badge2": "Rasiermesser & Fade Meister",
-        "hero.badge3": "Heiße-Tuch-Ritual",
-        "about.portraitRole": "Gründer & Master Barber · P7 Palma",
-        "about.eyebrow": "Unsere Geschichte · Palma de Mallorca",
-        "about.title": "Wo Traditionelle <span class='italic font-normal text-gold-300'>Barbierkunst</span> auf Moderne Präzision Trifft",
-        "about.p1": "2023 von <strong>Manu</strong> in der C/ Miguel Ángel Riera 2 in Palma gegründet, steht das <strong>P7 Barber Master Studio</strong> für erstklassige, entschleunigte Handwerkskunst.",
-        "about.p2": "In unserem smaragdgrünen und goldenen Atelier beginnt jeder Termin mit einer individuellen Beratung – mit Schere, Rasiermesser und aromatischen Dampftüchern.",
-        "about.stat1": "Booksy Bewertung",
-        "about.stat2": "Verifizierte Rezensionen",
-        "about.stat3": "Handwerkliches Ritual",
-        "team.eyebrow": "Unterabschnitt · Galerie 1",
-        "team.title": "Unser Team & <span class='italic font-normal text-gold-300'>Das Atelier</span>",
-        "team.subtitle": "Lernen Sie Manu kennen und entdecken Sie das Atelier von P7 Barber Master Studio in Palma.",
-        "team.card1Role": "Klassischer Schnitt, Skin Fade & Bartpflege",
-        "team.card1Desc": "Gründer von P7 Barber Master Studio. Millimetergenaue Übergänge, Scherenkunst und traditionelle Nassrasur.",
-        "team.bookManu": "Bei Manu buchen →",
-        "team.card2Badge": "Das Studio · Palma",
-        "team.card2Title": "Stühle & Ambiente",
-        "team.card2Role": "Smaragd-Design, Marés-Stein & Messing",
-        "team.card2Desc": "Eine ruhige, exklusive Atmosphäre in der C/ Miguel Ángel Riera 2 – nur 5 Gehminuten von der Plaça d'Espanya.",
-        "team.seeLocation": "Standort ansehen →",
-        "team.card3Badge": "Qualitätssiegel",
-        "team.card3Title": "Persönliche 1-zu-1 Betreuung",
-        "team.card3Role": "Höchste Hygiene & Premium-Pflege",
-        "team.card3Desc": "Strenge Sterilisation, ausgewählte Naturkosmetik und ehrliche Stilberatung.",
-        "team.seeMenu": "Zur Preisliste →",
-        "work.eyebrow": "Portfolio · Galerie 2",
-        "work.title": "Unsere <span class='italic font-normal text-gold-300'>Arbeit</span> im Detail",
-        "work.filterAll": "Alle",
-        "work.filterFade": "Skin Fades",
-        "work.filterBeard": "Bart-Ritual",
-        "work.filterClassic": "Klassischer Schnitt",
-        "work.item1Title": "Geometrische Bartkontur & Heiße Kompresse",
-        "work.item2Title": "Mid Skin Fade & Natürliche Textur",
-        "work.item3Title": "Klassischer Scherenschnitt & Matt-Finish",
-        "work.item4Title": "Low Taper & Rasiermesser-Kontur",
-        "work.item5Title": "Master Ritual: Haarschnitt + Vollbart",
-        "work.item6Title": "Signature-Finish in Unserem Atelier",
-        "prices.eyebrow": "Unterabschnitt · Preisliste (HTML)",
-        "prices.title": "Preisliste & <span class='italic font-normal text-gold-700'>Rituale</span>",
-        "prices.subtitle": "Jeder Service beinhaltet persönliche Beratung, Haarwäsche, Nackenrasur mit dem Messer und hochwertiges Styling.",
-        "prices.featuredBadge": "★ Signature-Service · Bestseller",
-        "prices.s4Name": "P7 Master Ritual: Haarschnitt + Komplettbart",
-        "prices.s4Desc": "Unser Flaggschiff-Ritual: Maßgeschneiderter Haarschnitt, komplette Bartformung mit doppelter heißer Kompresse, Konturenrasur und Kopfmassage.",
-        "prices.s1Name": "Klassischer Herrenhaarschnitt",
-        "prices.s1Desc": "Typberatung, Scheren- und Maschinenschnitt, Haarwäsche mit Kopfmassage, Nackenrasur und klassisches Pomade-Styling.",
-        "prices.s2Name": "Signature Skin Fade / Übergang",
-        "prices.s2Desc": "Millimetergenauer Übergang ab Null (Shaver/Messer), strukturierter Oberkopfschnitt, erfrischende Wäsche und Textur-Finish.",
-        "prices.s3Name": "Bartformung & Heiße Kompresse",
-        "prices.s3Desc": "GeometrischerBartschnitt, Eukalyptus-Dampfkompresse, Wangen- und Halskontur mit dem Rasiermesser sowie Pflegeöl.",
-        "prices.s5Name": "Traditionelle Messerrasur",
-        "prices.s5Desc": "Warmer Rasierschaum mit Dachshaarpinsel, doppelte Messerrasur, kühlende Kompresse und Sandelholz-Aftershave.",
-        "prices.s6Name": "Junior Master Schnitt (Bis 14 J.)",
-        "prices.s6Desc": "Geduldiger, handwerklicher Haarschnitt für junge Herren mit sauberem Finish.",
-        "prices.s7Name": "VIP P7 Grooming Erlebnis",
-        "prices.s7Desc": "Meisterschnitt + komplettes Bart-Ritual + Gesichtsbehandlung mit Ozondampf, Augenbrauenpflege und Revitalisierung.",
-        "prices.bookBtn": "Buchen →",
-        "prices.footnote": "* Alle Preise inkl. MwSt. Kostenloses Getränk bei jedem Besuch inklusive (Espresso oder Erfrischungsgetränk).",
-        "prices.ctaAll": "Buchungsplattform Wählen →",
-        "reviews.eyebrow": "Echte Kundenstimmen · Palma de Mallorca",
-        "reviews.title": "Was Unsere <span class='italic font-normal text-gold-300'>Gäste</span> Sagen",
-        "reviews.badgeText": "250+ Verifizierte Booksy-Bewertungen",
-        "reviews.r1Text": "„Ohne Zweifel der beste Barbier in Palma. Manu achtet auf jedes Detail, der Übergang ist makellos und der Service im Studio ist erstklassig.“",
-        "reviews.r2Text": "„Unglaubliche Liebe zum Detail. Ich habe vor einem Event auf Mallorca das komplette Ritual gebucht – Rasiermesser und heiße Tücher waren spektakulär.“",
-        "reviews.r3Text": "„Ich komme seit der Eröffnung 2023 hierher. Pünktlichkeit, entspannte Atmosphäre und Manus Präzision machen P7 zur besten Adresse der Insel.“",
-        "contact.eyebrow": "Direktkontakt & Terminbuchung",
-        "contact.title": "Kontakt & <span class='italic font-normal text-gold-300'>Online-Buchung</span>",
-        "contact.openBadge": "Studio-Info · Geöffnet nach Vereinbarung",
-        "contact.infoTitle": "P7 Barber Master Studio",
-        "contact.addressLabel": "Adresse in Palma",
-        "contact.hoursLabel": "Öffnungszeiten",
-        "contact.hoursWeek": "Dienstag – Samstag: 10:00 – 20:00 Uhr",
-        "contact.hoursClosed": "Montag & Sonntag: Geschlossen",
-        "contact.phoneLabel": "Telefon, WhatsApp & Social Media",
-        "contact.callDirect": "Studio anrufen →",
-        "contact.viewMapLink": "Interaktive Karte ansehen ↓",
-        "booking.eyebrow": "Unterabschnitt · 24/7 Sofortbuchung",
-        "booking.title": "Termin Buchen bei <span class='italic font-normal text-gold-300'>P7 Barber</span>",
-        "booking.desc": "Wählen Sie Ihre bevorzugte Plattform für Echtzeit-Termine bei <strong>Manu</strong> mit sofortiger Bestätigung.",
-        "booking.booksyBtn": "Über Booksy Buchen",
-        "booking.booksySub": "Bewertet mit 5.0 ★ (250+ verifizierte Rezensionen)",
-        "booking.setmoreBtn": "Über Setmore Buchen",
-        "booking.setmoreSub": "Schnellbuchung ohne Registrierung · Direktkalender",
-        "booking.policy": "Kostenlose Stornierung bis 12 Stunden vor dem Termin.",
-        "map.eyebrow": "Anfahrt & Karte",
-        "map.title": "Wo Sie <span class='italic font-normal text-gold-300'>Uns Finden</span>",
-        "map.ctaDirections": "Route in Google Maps öffnen",
-        "map.cardNote": "5 Gehminuten von der Plaça d'Espanya entfernt. Gute Parkmöglichkeiten in der Umgebung.",
-        "footer.desc": "Klassisches und modernes Meister-Barbershop-Atelier in Palma de Mallorca. Gegründet von Manu. 5,0 ★ auf Booksy bei über 250 Bewertungen.",
-        "footer.navTitle": "Studio-Navigation",
-        "footer.contactTitle": "Standort & Zeiten",
-        "footer.bookTitle": "Offizielle Buchung",
-        "footer.legalNotice": "Impressum",
-        "footer.privacy": "Datenschutz",
-        "footer.cookies": "Cookie-Richtlinie",
-        "mobileBar.call": "Anrufen",
-        "mobileBar.directions": "Route",
-        "mobileBar.book": "Termin Buchen"
-      }
-    };
+<!-- Barra móvil fija inferior (única) -->
+<nav class="mobile-bar" aria-label="Acciones rápidas móviles">
+  <a href="https://booksy.com/es-es/" target="_blank" rel="noopener noreferrer" class="mobile-bar-action btn-gold-metallic">
+    Reservar
+  </a>
+  <a href="tel:+34600000000" class="mobile-bar-action" data-relleno="telefono">
+    Llamar
+  </a>
+  <a href="https://maps.google.com/?q=C/+Miguel+%C3%81ngel+Riera,+2,+07004+Palma,+Illes+Balears" target="_blank" rel="noopener noreferrer" class="mobile-bar-action">
+    Cómo llegar
+  </a>
+</nav>
 
-    // Cambio dinámico de idioma (ES / EN / DE)
-    const langButtons = document.querySelectorAll('.lang-btn');
-    function setLanguage(lang) {
-      const dict = translations[lang] || translations.es;
-      document.documentElement.lang = lang;
-      document.querySelectorAll('[data-i18n]').forEach(el => {
-        const key = el.getAttribute('data-i18n');
-        if (dict[key]) {
-          el.innerHTML = dict[key];
-        }
-      });
-      langButtons.forEach(btn => {
-        if (btn.getAttribute('data-lang') === lang) {
-          btn.className = 'lang-btn px-2.5 py-1 rounded-full bg-gold-500 text-emerald-900 font-bold transition-all';
-        } else {
-          btn.className = 'lang-btn px-2.5 py-1 rounded-full text-cream-200/80 hover:text-gold-300 transition-all';
-        }
-      });
-    }
-    langButtons.forEach(btn => {
-      btn.addEventListener('click', () => setLanguage(btn.getAttribute('data-lang')));
-    });
+<!-- Lightbox de Galería (<dialog> nativo) -->
+<dialog id="lightbox-dialog" closedby="any" aria-labelledby="lightbox-title">
+  <div class="dialog-head">
+    <h2 id="lightbox-title" class="dialog-title">Trabajo P7</h2>
+    <button type="button" class="dialog-close" data-dialog-close aria-label="Cerrar vista ampliada">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true">
+        <line x1="5" y1="5" x2="19" y2="19"></line>
+        <line x1="19" y1="5" x2="5" y2="19"></line>
+      </svg>
+    </button>
+  </div>
+  <div class="dialog-body">
+    <img id="lightbox-image" class="lightbox-img" src="" alt="">
+    <div class="lightbox-meta">
+      <span id="lightbox-category"></span>
+      <span>P7 Barber Master Studio · Palma</span>
+    </div>
+  </div>
+</dialog>
 
-    // Menú móvil
-    const mobileMenuOpen = document.getElementById('mobile-menu-open');
-    const mobileMenuClose = document.getElementById('mobile-menu-close');
-    const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
-    function toggleMobileMenu(show) {
-      if (show) {
-        mobileMenuOverlay.classList.remove('hidden');
-        mobileMenuOverlay.classList.add('flex');
-        mobileMenuOpen.setAttribute('aria-expanded', 'true');
-      } else {
-        mobileMenuOverlay.classList.add('hidden');
-        mobileMenuOverlay.classList.remove('flex');
-        mobileMenuOpen.setAttribute('aria-expanded', 'false');
-      }
-    }
-    mobileMenuOpen.addEventListener('click', () => toggleMobileMenu(true));
-    mobileMenuClose.addEventListener('click', () => toggleMobileMenu(false));
-    document.querySelectorAll('.mobile-nav-link').forEach(link => {
-      link.addEventListener('click', () => toggleMobileMenu(false));
-    });
+<!-- Modal Legal (<dialog> nativo) -->
+<dialog id="legal-dialog" closedby="any" aria-labelledby="legal-title">
+  <div class="dialog-head">
+    <h2 id="legal-title" class="dialog-title">Información Legal</h2>
+    <button type="button" class="dialog-close" data-dialog-close aria-label="Cerrar aviso legal">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true">
+        <line x1="5" y1="5" x2="19" y2="19"></line>
+        <line x1="19" y1="5" x2="5" y2="19"></line>
+      </svg>
+    </button>
+  </div>
+  <div id="legal-body" class="dialog-body"></div>
+</dialog>
 
-    // Filtros de la Galería 2 (Nuestro Trabajo)
-    const filterBtns = document.querySelectorAll('.work-filter-btn');
-    const workItems = document.querySelectorAll('.work-item');
-    filterBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
-        const filter = btn.getAttribute('data-filter');
-        filterBtns.forEach(b => {
-          b.className = 'work-filter-btn px-4 py-2.5 rounded-full bg-emerald-800 border border-gold-500/30 text-cream-200 hover:border-gold-300 text-xs uppercase tracking-widest transition-all';
-        });
-        btn.className = 'work-filter-btn px-4 py-2.5 rounded-full bg-gold-500 text-emerald-900 font-bold text-xs uppercase tracking-widest transition-all';
-        workItems.forEach(item => {
-          const cat = item.getAttribute('data-category');
-          if (filter === 'all' || cat === filter) {
-            item.classList.remove('hidden');
-          } else {
-            item.classList.add('hidden');
-          }
-        });
-      });
-    });
-
-    // Lightbox al hacer clic en Galería 2
-    const lightboxModal = document.getElementById('lightbox-modal');
-    const lightboxImg = document.getElementById('lightbox-img');
-    const lightboxCaption = document.getElementById('lightbox-caption');
-    const lightboxClose = document.getElementById('lightbox-close');
-    const lightboxBook = document.getElementById('lightbox-book');
-
-    workItems.forEach(item => {
-      item.addEventListener('click', () => {
-        const img = item.querySelector('img');
-        const title = item.querySelector('h3');
-        lightboxImg.src = img.src;
-        lightboxImg.alt = img.alt;
-        lightboxCaption.textContent = title ? title.textContent : img.alt;
-        lightboxModal.classList.remove('hidden');
-        lightboxModal.classList.add('flex');
-      });
-    });
-
-    function closeLightbox() {
-      lightboxModal.classList.add('hidden');
-      lightboxModal.classList.remove('flex');
-    }
-    lightboxClose.addEventListener('click', closeLightbox);
-    lightboxBook.addEventListener('click', closeLightbox);
-    lightboxModal.addEventListener('click', (e) => {
-      if (e.target === lightboxModal) closeLightbox();
-    });
-
-    // Modales Legales
-    const legalData = {
-      aviso: {
-        title: "Aviso Legal — P7 Barber Master Studio",
-        body: "<p><strong>Titular:</strong> P7 Barber Master Studio (Manu)</p><p><strong>Domicilio social:</strong> C/ Miguel Ángel Riera, 2 — 07004 Palma de Mallorca, Illes Balears, España.</p><p><strong>Objeto:</strong> Sitio web oficial informativo y de enlace a reserva de citas para los servicios de barbería artesanal y cuidado masculino.</p>"
-      },
-      privacidad: {
-        title: "Política de Privacidad (RGPD)",
-        body: "<p>En <strong>P7 Barber Master Studio</strong> respetamos estrictamente tu privacidad conforme al Reglamento General de Protección de Datos (UE) 2016/679.</p><p>Este sitio web no almacena datos personales propios; las gestiones de reserva se realizan directamente en las plataformas seguras certificadas Booksy y Setmore bajo tu consentimiento expreso.</p>"
-      },
-      cookies: {
-        title: "Política de Cookies",
-        body: "<p>Utilizamos únicamente cookies técnicas esenciales para recordar tu preferencia de idioma (ES / EN / DE) y garantizar el correcto funcionamiento del mapa interactivo.</p>"
-      }
-    };
-    const legalModal = document.getElementById('legal-modal');
-    const legalTitle = document.getElementById('legal-modal-title');
-    const legalBody = document.getElementById('legal-modal-body');
-    const legalClose = document.getElementById('legal-modal-close');
-
-    document.querySelectorAll('.legal-open-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const key = btn.getAttribute('data-legal');
-        const info = legalData[key] || legalData.aviso;
-        legalTitle.textContent = info.title;
-        legalBody.innerHTML = info.body;
-        legalModal.classList.remove('hidden');
-        legalModal.classList.add('flex');
-      });
-    });
-    legalClose.addEventListener('click', () => {
-      legalModal.classList.add('hidden');
-      legalModal.classList.remove('flex');
-    });
-    legalModal.addEventListener('click', (e) => {
-      if (e.target === legalModal) {
-        legalModal.classList.add('hidden');
-        legalModal.classList.remove('flex');
-      }
-    });
-  </script>
+<script defer src="./assets/js/site.js"></script>
+<script defer src="./assets/js/trabajo.js"></script>
+<script defer src="./assets/js/contacto.js"></script>
 </body>
 </html>
