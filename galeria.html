@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Galería · P7 Barber Master Studio</title>
+  <meta name="description" content="Galería completa de cortes, diseños freestyle y sesiones en P7 Barber Master Studio, Palma de Mallorca." />
+  <meta name="theme-color" content="#111112" />
+  <link rel="icon" type="image/png" href="./assets/img/favicon.png" />
+  <link rel="preconnect" href="https://api.fontshare.com" crossorigin />
+  <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=boska@400,401,500,501,600,700,701&f[]=general-sans@400,500,600,700&display=swap" />
+  <link rel="stylesheet" href="./assets/css/fonts.css" />
+  <link rel="stylesheet" href="./assets/css/galeria.css" />
+</head>
+<body>
+
+  <!-- 1. Header fijo superior (provisional hasta diseñar el header oficial global) -->
+  <header class="gal-header">
+    <div class="gal-header-inner">
+      <a href="./index.html#nuestro-trabajo" class="gal-brand" data-back-to-studio aria-label="P7 Barber Master Studio — Volver al estudio">
+        <img src="./assets/img/opt/logo-p7-256w.webp" alt="Escudo P7 Barber Master Studio" width="34" height="34" decoding="async" />
+        <span class="gal-brand-name">P7 Barber</span>
+      </a>
+
+      <a href="./index.html#nuestro-trabajo" class="liquid-glass-btn" data-back-to-studio>
+        <span class="liquid-glass-surface" aria-hidden="true"></span>
+        <span class="liquid-glass-blur" aria-hidden="true"></span>
+        <span class="liquid-glass-label">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polyline points="15 18 9 12 15 6"></polyline>
+          </svg>
+          <span>Volver al estudio</span>
+        </span>
+      </a>
+    </div>
+  </header>
+
+  <!-- 2. Galería 3 a pantalla completa: Staircase Carousel infinito (Fotos + Minivideoclips) -->
+  <main>
+    <section
+      id="stc-root"
+      class="stc-root"
+      role="region"
+      aria-roledescription="carousel"
+      aria-label="Galería completa de cortes y clips de P7 Barber Master Studio"
+      tabindex="0"
+    >
+      <div class="stc-stage">
+        <div id="stc-strip" class="stc-strip"></div>
+        <div id="stc-titles" class="stc-titles" aria-hidden="true"></div>
+      </div>
+
+      <div class="stc-controls">
+        <button type="button" id="stc-prev" class="stc-btn" aria-label="Anterior">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="m15 18-6-6 6-6"></path>
+          </svg>
+        </button>
+
+        <div id="stc-dots" class="stc-dots"></div>
+
+        <button type="button" id="stc-next" class="stc-btn" aria-label="Siguiente">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="m9 18 6-6-6-6"></path>
+          </svg>
+        </button>
+      </div>
+
+      <div id="stc-sr" class="stc-sr" aria-live="polite" aria-atomic="true"></div>
+    </section>
+  </main>
+
+  <!-- 3. Footer provisional (se unificará con el footer oficial al rediseñar el footer global) -->
+  <footer class="gal-footer">
+    <div class="gal-footer-shell">
+      <div class="gal-footer-brand">
+        <a href="./index.html#nuestro-trabajo" class="gal-footer-logo" data-back-to-studio>
+          <img src="./assets/img/opt/logo-p7-256w.webp" alt="Escudo P7 Barber Master Studio" width="38" height="38" decoding="async" />
+          <span>P7 Barber Master Studio</span>
+        </a>
+        <p class="gal-footer-copy">
+          Barbería de autor en Palma de Mallorca. Citas individuales de una hora completa con técnica de precisión.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="gal-footer-col-title">Dónde estamos</h2>
+        <ul class="gal-footer-list">
+          <li>Calle Miguel Ángel Riera, 2</li>
+          <li>07004 Palma de Mallorca, España</li>
+        </ul>
+        <a href="https://booksy.com/es-es/" target="_blank" rel="noopener noreferrer" class="gal-footer-cta">
+          Reservar en Booksy
+        </a>
+      </div>
+
+      <div>
+        <h2 class="gal-footer-col-title">Horario oficial</h2>
+        <ul class="gal-footer-list">
+          <li>Lunes: 10:00 – 19:00</li>
+          <li>Martes a Jueves: 10:00 – 20:00</li>
+          <li>Viernes y Sábado: 08:00 – 19:00</li>
+          <li>Domingo: Cerrado</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="gal-footer-bottom">
+      <span>© P7 Barber Master Studio · Palma de Mallorca</span>
+      <a href="./index.html#nuestro-trabajo" class="gal-footer-back" data-back-to-studio>← Volver al estudio</a>
+    </div>
+  </footer>
+
+  <!-- Lightbox Modal Flotante Sin Caja -->
+  <dialog id="gal-dialog" class="gal-dialog" aria-labelledby="gal-dialog-title">
+    <div class="gal-dialog-inner">
+      <button type="button" id="gal-dialog-close" class="gal-dialog-close" aria-label="Cerrar vista ampliada">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+      <div id="gal-dialog-media" class="gal-dialog-media"></div>
+      <div class="gal-dialog-foot">
+        <h2 id="gal-dialog-title" class="gal-dialog-title"></h2>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- Filtro SVG de refracción para el botón Liquid Glass -->
+  <svg class="liquid-glass-svg" aria-hidden="true" focusable="false">
+    <defs>
+      <filter id="container-glass" x="0%" y="0%" width="100%" height="100%" color-interpolation-filters="sRGB">
+        <feTurbulence type="fractalNoise" baseFrequency="0.05 0.05" numOctaves="1" seed="1" result="turbulence" />
+        <feGaussianBlur in="turbulence" stdDeviation="2" result="blurredNoise" />
+        <feDisplacementMap in="SourceGraphic" in2="blurredNoise" scale="70" xChannelSelector="R" yChannelSelector="B" result="displaced" />
+        <feGaussianBlur in="displaced" stdDeviation="4" result="finalBlur" />
+        <feComposite in="finalBlur" in2="finalBlur" operator="over" />
+      </filter>
+    </defs>
+  </svg>
+
+  <script src="./assets/js/galeria3-data.js"></script>
+  <script src="./assets/js/galeria.js"></script>
+</body>
+</html>

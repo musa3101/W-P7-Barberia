@@ -26,12 +26,16 @@ Fuente de verdad del diseño. Cualquier decisión nueva se anota aquí.
 **Degradado oro:** `linear-gradient(135deg, #9A7838, #F1D592 45%, #C9A45C 70%, #9A7838)`
 **Reglas:** el oro es acento (≤10 % de la pantalla). Alternar secciones verde / crema para ritmo.
 
-## 3. Tipografía (propuesta, validar)
+## 3. Tipografía (v1 consolidada)
 | Rol | Fuente | Nota |
 |---|---|---|
-| Display / títulos | **Playfair Display** o **Cormorant** (serif alta con contraste) | Grande, a veces en oro |
-| Etiquetas / detalles | **Rye** o similar western, solo en pequeño | Eco del "BARBER" del logo |
-| Texto | **Inter** / **Manrope** | Legible, moderna |
+| Display / títulos | **Boska** (Fontshare) | Serif editorial de alto contraste; sin cursivas doradas forzadas |
+| Cuerpo y UI | **General Sans** (Fontshare) | Limpia, moderna, cifras tabulares en precios |
+
+> **Notas consolidadas en el rediseño v1:**
+> - **Oro metálico reservado:** el degradado metálico se aplica únicamente en el escudo P7 y en el botón principal de reserva; el resto de acentos usan `#C9A45C` plano (y `#6E521C` sobre crema para cumplir contraste AA).
+> - **Separadores Bandera de Colombia (2:1:1):** hilo de sastrería de `3px` animado al scroll (`#C9A45C` 50 %, `#13294B` 25 %, `#7A1F2B` 25 %).
+> - **Idiomas:** v1 activa en **ES**; diccionarios `EN` / `DE` congelados en `assets/js/i18n-congelado.js` hasta aprobar la v1 en español.
 
 ## 4. Estructura (aprobada — Freeform)
 1. **Header** fijo: logo · Inicio · Sobre nosotros · Nuestro trabajo · Contacto · ES/EN/DE · botón "Reservar"

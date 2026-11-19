@@ -1,0 +1,350 @@
+<!-- ==========================================================================
+     SECCIÓN 02 · SOBRE NOSOTROS + GALERÍA 1 (#sobre-nosotros)
+     Fondo: Crema #F8F1E4 · Tinta: Esmeralda #0B2E22
+     Orden vertical: Título -> Texto -> Auto-slider Galería 1 -> Botón Equipo
+     ========================================================================== -->
+<section
+  id="sobre-nosotros"
+  class="sobre-v2"
+  aria-labelledby="sobre-titulo"
+>
+  <div class="container">
+    <div class="sobre-v2-shell">
+      <!-- 1. Bloque superior minimalista: Título + Texto -->
+      <div class="sobre-v2-intro" data-reveal>
+        <h2 id="sobre-titulo" class="sobre-v2-h2">Sobre nosotros</h2>
+
+        <p class="sobre-v2-lead">
+          Abiertos en Palma desde 2023, en P7 Barber Master Studio cuidamos cada
+          detalle del corte masculino y la barba. Trabajamos con cita previa,
+          técnica precisa y un trato cercano en un espacio pensado para que
+          desconectes y salgas con tu mejor versión.
+        </p>
+      </div>
+
+      <!-- 2. Galería 1: Auto-slider infinito responsive (imágenes de relleno) -->
+      <div
+        class="galeria-marquee"
+        data-gallery-slug="galeria-1"
+        data-relleno="galeria-1"
+        role="region"
+        aria-label="Galería 1: fotografías del estudio P7"
+      >
+        <div class="galeria-marquee-track">
+          <!-- Grupo principal (4 fotos) -->
+          <div class="galeria-marquee-group">
+            <figure class="galeria-card">
+              <picture>
+                <source
+                  type="image/avif"
+                  srcset="
+                    ./assets/img/opt/salon-mediterraneo-480w.avif 480w,
+                    ./assets/img/opt/salon-mediterraneo-900w.avif 900w
+                  "
+                  sizes="(max-width: 639px) 192px, (max-width: 1023px) 240px, 288px"
+                />
+                <source
+                  type="image/webp"
+                  srcset="
+                    ./assets/img/opt/salon-mediterraneo-480w.webp 480w,
+                    ./assets/img/opt/salon-mediterraneo-900w.webp 900w
+                  "
+                  sizes="(max-width: 639px) 192px, (max-width: 1023px) 240px, 288px"
+                />
+                <img
+                  src="./assets/img/opt/salon-mediterraneo-900w.webp"
+                  alt="Interior del estudio P7 Barber Master Studio en Palma con sillón clásico y luz natural"
+                  width="600"
+                  height="600"
+                  loading="lazy"
+                  decoding="async"
+                  class="galeria-card-img"
+                />
+              </picture>
+            </figure>
+
+            <figure class="galeria-card">
+              <picture>
+                <source
+                  type="image/avif"
+                  srcset="
+                    ./assets/img/opt/hero-atelier-480w.avif 480w,
+                    ./assets/img/opt/hero-atelier-900w.avif 900w
+                  "
+                  sizes="(max-width: 639px) 192px, (max-width: 1023px) 240px, 288px"
+                />
+                <source
+                  type="image/webp"
+                  srcset="
+                    ./assets/img/opt/hero-atelier-480w.webp 480w,
+                    ./assets/img/opt/hero-atelier-900w.webp 900w
+                  "
+                  sizes="(max-width: 639px) 192px, (max-width: 1023px) 240px, 288px"
+                />
+                <img
+                  src="./assets/img/opt/hero-atelier-900w.webp"
+                  alt="Atmósfera privada de P7 Barber Master Studio con madera oscura y tocadores individuales"
+                  width="600"
+                  height="600"
+                  loading="lazy"
+                  decoding="async"
+                  class="galeria-card-img"
+                />
+              </picture>
+            </figure>
+
+            <figure class="galeria-card">
+              <picture>
+                <source
+                  type="image/avif"
+                  srcset="
+                    ./assets/img/opt/corte-navaja-oro-480w.avif 480w,
+                    ./assets/img/opt/corte-navaja-oro-900w.avif 900w
+                  "
+                  sizes="(max-width: 639px) 192px, (max-width: 1023px) 240px, 288px"
+                />
+                <source
+                  type="image/webp"
+                  srcset="
+                    ./assets/img/opt/corte-navaja-oro-480w.webp 480w,
+                    ./assets/img/opt/corte-navaja-oro-900w.webp 900w
+                  "
+                  sizes="(max-width: 639px) 192px, (max-width: 1023px) 240px, 288px"
+                />
+                <img
+                  src="./assets/img/opt/corte-navaja-oro-900w.webp"
+                  alt="Estación de trabajo con navaja clásica, tijeras de precisión y ritual de toalla caliente"
+                  width="600"
+                  height="600"
+                  loading="lazy"
+                  decoding="async"
+                  class="galeria-card-img"
+                />
+              </picture>
+            </figure>
+
+            <figure class="galeria-card">
+              <picture>
+                <source
+                  type="image/avif"
+                  srcset="
+                    ./assets/img/opt/salon-lounge-480w.avif 480w,
+                    ./assets/img/opt/salon-lounge-900w.avif 900w
+                  "
+                  sizes="(max-width: 639px) 192px, (max-width: 1023px) 240px, 288px"
+                />
+                <source
+                  type="image/webp"
+                  srcset="
+                    ./assets/img/opt/salon-lounge-480w.webp 480w,
+                    ./assets/img/opt/salon-lounge-900w.webp 900w
+                  "
+                  sizes="(max-width: 639px) 192px, (max-width: 1023px) 240px, 288px"
+                />
+                <img
+                  src="./assets/img/opt/salon-lounge-900w.webp"
+                  alt="Zona de espera del estudio con sillón de cuero esmeralda, madera cálida y luz natural"
+                  width="600"
+                  height="600"
+                  loading="lazy"
+                  decoding="async"
+                  class="galeria-card-img"
+                />
+              </picture>
+            </figure>
+          </div>
+
+          <!-- Grupo espejo para bucle continuo sin saltos (oculto a lectores de pantalla) -->
+          <div class="galeria-marquee-group" aria-hidden="true">
+            <div class="galeria-card">
+              <picture>
+                <source
+                  type="image/avif"
+                  srcset="
+                    ./assets/img/opt/salon-mediterraneo-480w.avif 480w,
+                    ./assets/img/opt/salon-mediterraneo-900w.avif 900w
+                  "
+                  sizes="(max-width: 639px) 192px, (max-width: 1023px) 240px, 288px"
+                />
+                <source
+                  type="image/webp"
+                  srcset="
+                    ./assets/img/opt/salon-mediterraneo-480w.webp 480w,
+                    ./assets/img/opt/salon-mediterraneo-900w.webp 900w
+                  "
+                  sizes="(max-width: 639px) 192px, (max-width: 1023px) 240px, 288px"
+                />
+                <img
+                  src="./assets/img/opt/salon-mediterraneo-900w.webp"
+                  alt=""
+                  width="600"
+                  height="600"
+                  loading="lazy"
+                  decoding="async"
+                  class="galeria-card-img"
+                />
+              </picture>
+            </div>
+
+            <div class="galeria-card">
+              <picture>
+                <source
+                  type="image/avif"
+                  srcset="
+                    ./assets/img/opt/hero-atelier-480w.avif 480w,
+                    ./assets/img/opt/hero-atelier-900w.avif 900w
+                  "
+                  sizes="(max-width: 639px) 192px, (max-width: 1023px) 240px, 288px"
+                />
+                <source
+                  type="image/webp"
+                  srcset="
+                    ./assets/img/opt/hero-atelier-480w.webp 480w,
+                    ./assets/img/opt/hero-atelier-900w.webp 900w
+                  "
+                  sizes="(max-width: 639px) 192px, (max-width: 1023px) 240px, 288px"
+                />
+                <img
+                  src="./assets/img/opt/hero-atelier-900w.webp"
+                  alt=""
+                  width="600"
+                  height="600"
+                  loading="lazy"
+                  decoding="async"
+                  class="galeria-card-img"
+                />
+              </picture>
+            </div>
+
+            <div class="galeria-card">
+              <picture>
+                <source
+                  type="image/avif"
+                  srcset="
+                    ./assets/img/opt/corte-navaja-oro-480w.avif 480w,
+                    ./assets/img/opt/corte-navaja-oro-900w.avif 900w
+                  "
+                  sizes="(max-width: 639px) 192px, (max-width: 1023px) 240px, 288px"
+                />
+                <source
+                  type="image/webp"
+                  srcset="
+                    ./assets/img/opt/corte-navaja-oro-480w.webp 480w,
+                    ./assets/img/opt/corte-navaja-oro-900w.webp 900w
+                  "
+                  sizes="(max-width: 639px) 192px, (max-width: 1023px) 240px, 288px"
+                />
+                <img
+                  src="./assets/img/opt/corte-navaja-oro-900w.webp"
+                  alt=""
+                  width="600"
+                  height="600"
+                  loading="lazy"
+                  decoding="async"
+                  class="galeria-card-img"
+                />
+              </picture>
+            </div>
+
+            <div class="galeria-card">
+              <picture>
+                <source
+                  type="image/avif"
+                  srcset="
+                    ./assets/img/opt/salon-lounge-480w.avif 480w,
+                    ./assets/img/opt/salon-lounge-900w.avif 900w
+                  "
+                  sizes="(max-width: 639px) 192px, (max-width: 1023px) 240px, 288px"
+                />
+                <source
+                  type="image/webp"
+                  srcset="
+                    ./assets/img/opt/salon-lounge-480w.webp 480w,
+                    ./assets/img/opt/salon-lounge-900w.webp 900w
+                  "
+                  sizes="(max-width: 639px) 192px, (max-width: 1023px) 240px, 288px"
+                />
+                <img
+                  src="./assets/img/opt/salon-lounge-900w.webp"
+                  alt=""
+                  width="600"
+                  height="600"
+                  loading="lazy"
+                  decoding="async"
+                  class="galeria-card-img"
+                />
+              </picture>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. Botón de cierre Liquid Glass: Ver nuestro equipo -->
+      <div class="sobre-v2-actions" data-reveal>
+        <a
+          href="./equipo.html"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="liquid-glass-btn"
+          aria-label="Ver nuestro equipo (se abre en una pestaña nueva)"
+        >
+          <span class="liquid-glass-surface" aria-hidden="true"></span>
+          <span class="liquid-glass-blur" aria-hidden="true"></span>
+          <span class="liquid-glass-label">
+            <span>Ver nuestro equipo</span>
+            <svg
+              class="sobre-v2-cta-arrow"
+              width="17"
+              height="17"
+              viewBox="0 0 18 18"
+              fill="none"
+              aria-hidden="true"
+            >
+              <path
+                d="M5 13L13 5M13 5H6.5M13 5V11.5"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linecap="square"
+              />
+            </svg>
+          </span>
+        </a>
+
+        <svg class="liquid-glass-svg" aria-hidden="true" focusable="false">
+          <defs>
+            <filter
+              id="container-glass"
+              x="0%"
+              y="0%"
+              width="100%"
+              height="100%"
+              color-interpolation-filters="sRGB"
+            >
+              <feTurbulence
+                type="fractalNoise"
+                baseFrequency="0.05 0.05"
+                numOctaves="1"
+                seed="1"
+                result="turbulence"
+              />
+              <feGaussianBlur in="turbulence" stdDeviation="2" result="blurredNoise" />
+              <feDisplacementMap
+                in="SourceGraphic"
+                in2="blurredNoise"
+                scale="70"
+                xChannelSelector="R"
+                yChannelSelector="B"
+                result="displaced"
+              />
+              <feGaussianBlur in="displaced" stdDeviation="4" result="finalBlur" />
+              <feComposite in="finalBlur" in2="finalBlur" operator="over" />
+            </filter>
+          </defs>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Separador de sección -->
+<div class="separador-sastreria" data-reveal-line aria-hidden="true"></div>

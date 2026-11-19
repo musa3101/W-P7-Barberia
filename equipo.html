@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nuestro equipo · P7 Barber Master Studio</title>
+    <meta
+      name="description"
+      content="Conoce a los tres barberos de P7 Barber Master Studio en Palma de Mallorca."
+    />
+    <link rel="icon" type="image/png" href="./assets/img/favicon.png" />
+    <link rel="stylesheet" href="./assets/css/fonts.css" />
+    <link rel="stylesheet" href="./assets/css/site.css" />
+    <link rel="stylesheet" href="./assets/css/sobre.css" />
+  </head>
+  <body class="equipo-page">
+    <header class="equipo-topbar">
+      <div class="container equipo-topbar-inner">
+        <a href="./index.html#sobre-nosotros" class="equipo-brand">
+          <img
+            src="./assets/img/logo-p7.png"
+            alt="Escudo de P7 Barber Master Studio"
+            width="34"
+            height="34"
+            class="equipo-brand-logo"
+          />
+          <span>P7<span class="equipo-brand-full"> Barber Master Studio</span></span>
+        </a>
+
+        <a
+          href="./index.html#sobre-nosotros"
+          class="liquid-glass-btn liquid-glass-btn--dark liquid-glass-btn--sm"
+        >
+          <span class="liquid-glass-surface" aria-hidden="true"></span>
+          <span class="liquid-glass-blur" aria-hidden="true"></span>
+          <span class="liquid-glass-label">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path
+                d="M10.5 3.5L6 8L10.5 12.5"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linecap="square"
+              />
+            </svg>
+            <span>Volver al estudio</span>
+          </span>
+        </a>
+      </div>
+    </header>
+
+    <div class="separador-sastreria is-visible" aria-hidden="true"></div>
+
+    <main class="equipo-main">
+      <div class="container">
+        <div class="equipo-shell">
+          <header class="equipo-header">
+            <h1 class="equipo-h1">Nuestro equipo</h1>
+            <p class="equipo-intro">
+              Tres barberos, atención individual con cita previa y cada uno con su
+              especialidad. Desliza hacia abajo para conocernos.
+            </p>
+          </header>
+
+          <div class="equipo-cards-stack" aria-label="Barberos de P7 Barber Master Studio">
+            <!-- Barbero 1: El dueño (visible al entrar, con parallax vivo al hacer scroll) -->
+            <article class="barbero-cartulina barbero-cartulina--first">
+              <div class="barbero-photo-wrap">
+                <div class="barbero-photo-card">
+                  <picture>
+                    <source
+                      type="image/avif"
+                      srcset="
+                        ./assets/img/opt/manu-portrait-480w.avif 480w,
+                        ./assets/img/opt/manu-portrait-900w.avif 900w
+                      "
+                      sizes="(max-width: 720px) 84vw, 290px"
+                    />
+                    <source
+                      type="image/webp"
+                      srcset="
+                        ./assets/img/opt/manu-portrait-480w.webp 480w,
+                        ./assets/img/opt/manu-portrait-900w.webp 900w
+                      "
+                      sizes="(max-width: 720px) 84vw, 290px"
+                    />
+                    <img
+                      src="./assets/img/opt/manu-portrait-900w.webp"
+                      alt="Retrato de Manu, fundador y maestro barbero de P7 Barber Master Studio"
+                      width="900"
+                      height="1125"
+                      decoding="async"
+                      class="barbero-photo"
+                    />
+                  </picture>
+                </div>
+              </div>
+
+              <div class="barbero-info">
+                <p class="barbero-role">Fundador · Dueño</p>
+                <h2 class="barbero-name">Manu</h2>
+                <p class="barbero-bio">
+                  Al frente de P7 desde 2023. Especializado en degradados milimétricos,
+                  arquitectura de corte a tijera y ritual clásico de barba con navaja y
+                  toalla caliente.
+                </p>
+              </div>
+            </article>
+
+            <!-- Barbero 2: Revelado 3D al hacer scroll -->
+            <article class="barbero-cartulina barbero-cartulina--scroll" data-relleno="barbero-2">
+              <div class="barbero-photo-wrap">
+                <div class="barbero-photo-card">
+                  <picture>
+                    <source
+                      type="image/avif"
+                      srcset="
+                        ./assets/img/opt/corte-navaja-oro-480w.avif 480w,
+                        ./assets/img/opt/corte-navaja-oro-900w.avif 900w
+                      "
+                      sizes="(max-width: 720px) 84vw, 290px"
+                    />
+                    <source
+                      type="image/webp"
+                      srcset="
+                        ./assets/img/opt/corte-navaja-oro-480w.webp 480w,
+                        ./assets/img/opt/corte-navaja-oro-900w.webp 900w
+                      "
+                      sizes="(max-width: 720px) 84vw, 290px"
+                    />
+                    <img
+                      src="./assets/img/opt/corte-navaja-oro-900w.webp"
+                      alt="Retrato de Carlos Vega, especialista en fade, perfilado y color en P7 Barber Master Studio"
+                      width="900"
+                      height="1125"
+                      loading="lazy"
+                      decoding="async"
+                      class="barbero-photo"
+                    />
+                  </picture>
+                </div>
+              </div>
+
+              <div class="barbero-info">
+                <p class="barbero-role">Barbero especialista</p>
+                <h2 class="barbero-name">Carlos Vega</h2>
+                <p class="barbero-bio">
+                  Especializado en degradados a cero, perfilado limpio a navaja, diseño
+                  de contornos y trabajos de coloración masculina, desde mechas sutiles
+                  hasta tintes completos.
+                </p>
+              </div>
+            </article>
+
+            <!-- Barbero 3: Revelado 3D al hacer scroll -->
+            <article class="barbero-cartulina barbero-cartulina--scroll" data-relleno="barbero-3">
+              <div class="barbero-photo-wrap">
+                <div class="barbero-photo-card">
+                  <picture>
+                    <source
+                      type="image/avif"
+                      srcset="
+                        ./assets/img/opt/hero-atelier-480w.avif 480w,
+                        ./assets/img/opt/hero-atelier-900w.avif 900w
+                      "
+                      sizes="(max-width: 720px) 84vw, 290px"
+                    />
+                    <source
+                      type="image/webp"
+                      srcset="
+                        ./assets/img/opt/hero-atelier-480w.webp 480w,
+                        ./assets/img/opt/hero-atelier-900w.webp 900w
+                      "
+                      sizes="(max-width: 720px) 84vw, 290px"
+                    />
+                    <img
+                      src="./assets/img/opt/hero-atelier-900w.webp"
+                      alt="Retrato de Mateo Ruiz, especialista en corte clásico a tijera y ritual de barba en P7 Barber Master Studio"
+                      width="900"
+                      height="1125"
+                      loading="lazy"
+                      decoding="async"
+                      class="barbero-photo"
+                    />
+                  </picture>
+                </div>
+              </div>
+
+              <div class="barbero-info">
+                <p class="barbero-role">Barbero especialista</p>
+                <h2 class="barbero-name">Mateo Ruiz</h2>
+                <p class="barbero-bio">
+                  Enfocado en cortes clásicos a tijera, cabellos medios y largos con
+                  caída natural y arreglo integral de barba con vapor, aceites esenciales
+                  y toalla caliente.
+                </p>
+              </div>
+            </article>
+          </div>
+
+          <footer class="equipo-footer-bar">
+            <p class="equipo-footer-text">
+              C/ Miguel Ángel Riera, 2 · Palma de Mallorca · Atención solo con cita previa.
+            </p>
+
+            <a href="./index.html#sobre-nosotros" class="liquid-glass-btn">
+              <span class="liquid-glass-surface" aria-hidden="true"></span>
+              <span class="liquid-glass-blur" aria-hidden="true"></span>
+              <span class="liquid-glass-label">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                  <path
+                    d="M10.5 3.5L6 8L10.5 12.5"
+                    stroke="currentColor"
+                    stroke-width="1.6"
+                    stroke-linecap="square"
+                  />
+                </svg>
+                <span>Volver a Sobre nosotros</span>
+              </span>
+            </a>
+          </footer>
+        </div>
+      </div>
+    </main>
+
+    <!-- Filtro SVG reutilizable para los botones Liquid Glass -->
+    <svg class="liquid-glass-svg" aria-hidden="true" focusable="false">
+      <defs>
+        <filter
+          id="container-glass"
+          x="0%"
+          y="0%"
+          width="100%"
+          height="100%"
+          color-interpolation-filters="sRGB"
+        >
+          <feTurbulence
+            type="fractalNoise"
+            baseFrequency="0.05 0.05"
+            numOctaves="1"
+            seed="1"
+            result="turbulence"
+          />
+          <feGaussianBlur in="turbulence" stdDeviation="2" result="blurredNoise" />
+          <feDisplacementMap
+            in="SourceGraphic"
+            in2="blurredNoise"
+            scale="70"
+            xChannelSelector="R"
+            yChannelSelector="B"
+            result="displaced"
+          />
+          <feGaussianBlur in="displaced" stdDeviation="4" result="finalBlur" />
+          <feComposite in="finalBlur" in2="finalBlur" operator="over" />
+        </filter>
+      </defs>
+    </svg>
+
+    <!-- Respaldo IntersectionObserver solo donde no existan CSS Scroll-Driven Animations -->
+    <script>
+      if (
+        !CSS.supports('(animation-timeline: view()) and (animation-range: entry)') &&
+        window.matchMedia('(prefers-reduced-motion: no-preference)').matches
+      ) {
+        const cards = document.querySelectorAll('.barbero-cartulina--scroll');
+        cards.forEach((card) => card.classList.add('is-io-hidden'));
+
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('is-io-visible');
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.18 }
+        );
+
+        cards.forEach((card) => observer.observe(card));
+      }
+    </script>
+  </body>
+</html>
