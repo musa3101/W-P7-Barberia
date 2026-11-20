@@ -22,7 +22,7 @@
     <!-- 2. Galería 2: Expandable Gallery (6 piezas reales · 5 WebP + 1 minivideoclip en bucle) -->
     <div class="exp-gallery-stage">
       <span class="exp-side-label exp-side-label--left" aria-hidden="true">
-        Toca la imagen para expandir
+        Toca una imagen para ampliarla
       </span>
 
       <div
@@ -35,14 +35,14 @@
         <!-- 1. Minivideoclip en bucle: Sesión con Lyano -->
         <button
           type="button"
-          class="exp-panel is-active"
+          class="exp-panel"
           data-index="0"
           data-type="video"
           data-title="Sesión con Lyano"
           data-full-src="./assets/media/galeria-2/sesion-lyano.mp4"
           data-poster="./assets/media/galeria-2/sesion-lyano-poster.webp"
           aria-label="Sesión con Lyano (vídeo) — pulsar para expandir o ampliar"
-          aria-expanded="true"
+          aria-expanded="false"
         >
           <video
             class="exp-video"
@@ -201,11 +201,9 @@
       </div>
 
       <span class="exp-side-label exp-side-label--right" aria-hidden="true">
-        Toca la imagen para expandir
+        Toca una imagen para ampliarla
       </span>
     </div>
-
-    <p class="exp-mobile-tip">Toca una imagen para desplegarla · toca de nuevo para ampliar</p>
 
     <!-- Botón hacia Galería 3 (nueva ventana a pantalla completa con Staircase Carousel infinito) -->
     <div class="exp-more-wrap">
@@ -349,6 +347,7 @@
             <div class="precios-poster-body">
               <header class="precios-poster-head">
                 <span class="precios-poster-brand">P7 BARBER</span>
+                <span class="precios-poster-meta">MASTER STUDIO · PALMA</span>
               </header>
 
               <div class="precios-group">
@@ -356,14 +355,20 @@
                 <ul class="precios-list">
                   <li class="precios-item">
                     <div class="precios-item-main">
-                      <span class="precios-item-name">Corte de pelo</span>
+                      <div class="precios-item-title">
+                        <span class="precios-item-num" aria-hidden="true">01</span>
+                        <span class="precios-item-name">Corte de pelo</span>
+                      </div>
                       <span class="precios-item-price">25,00 €</span>
                     </div>
                     <p class="precios-item-sub">1 hora · Precisión adaptada a tu morfología y estilo.</p>
                   </li>
                   <li class="precios-item">
                     <div class="precios-item-main">
-                      <span class="precios-item-name">Corte + barba</span>
+                      <div class="precios-item-title">
+                        <span class="precios-item-num" aria-hidden="true">02</span>
+                        <span class="precios-item-name">Corte + barba</span>
+                      </div>
                       <span class="precios-item-price">30,00 €</span>
                     </div>
                     <p class="precios-item-sub">1 hora · Estilismo capilar integral y perfilado de barba.</p>
@@ -394,25 +399,6 @@
                   </li>
                 </ul>
               </div>
-
-              <footer class="precios-poster-foot">
-                <p class="precios-address">
-                  Calle Miguel Ángel Riera, 2 · 07004 Palma
-                </p>
-                <div class="precios-foot-actions">
-                  <a href="#contacto" class="precios-online-btn">
-                    Online
-                  </a>
-                  <a
-                    href="https://booksy.com/es-es/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="precios-booksy-btn"
-                  >
-                    Booksy
-                  </a>
-                </div>
-              </footer>
             </div>
           </div>
         </div>

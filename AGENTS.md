@@ -27,4 +27,5 @@ Se activan cuando el usuario dice: **"setup de Musa"**, **"@setup"**, **"abre el
 - Listar tokens o credenciales.
 - Hacer commit en `main`, merge o push sin la frase y la doble confirmación.
 - Instalar o copiar skills por defecto (ver `interview.md` / `skills-library`).
+- **NUNCA añadir barras fijas/pegajosas inferiores en móvil** (tipo "Reservar / Llamar / Cómo llegar" o botones flotantes abajo). Las webs de MYNEXT tienen estándar de agencia de lujo (10.000 €+): limpias, libres, sin barras invasivas que tapen contenido o parezcan apps genéricas baratas.
 

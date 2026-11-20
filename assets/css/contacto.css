@@ -222,7 +222,7 @@ a.local-primary:hover {
 .reserva-top {
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 8px;
 }
 
 .reserva-kicker {
@@ -245,7 +245,7 @@ a.local-primary:hover {
 }
 
 .reserva-desc {
-  margin: 0;
+  margin: 6px 0 0;
   font-family: var(--font-sans, 'General Sans', sans-serif);
   font-size: 0.9375rem;
   line-height: 1.65;
@@ -441,7 +441,7 @@ a.local-primary:hover {
 }
 
 .faq-description {
-  margin: 14px 0 0;
+  margin: 18px 0 0;
   font-family: var(--font-sans, 'General Sans', sans-serif);
   font-size: clamp(0.9375rem, 1.25vw, 1.0625rem);
   line-height: 1.6;
@@ -536,16 +536,16 @@ a.local-primary:hover {
   padding-bottom: clamp(20px, 2.5vw, 26px);
   font-family: var(--font-sans, 'General Sans', sans-serif);
   font-size: clamp(0.9375rem, 1.15vw, 1.0625rem);
-  line-height: 1.7;
-  color: rgba(245, 243, 238, 0.68);
+  line-height: 1.75;
+  color: rgba(245, 243, 238, 0.72);
   max-width: 65ch;
   word-break: break-word;
 }
 
 /* Acción extra de WhatsApp dentro de la 6ª pregunta */
 .faq-extra-action {
-  margin-top: -6px;
-  padding-bottom: clamp(20px, 2.5vw, 26px);
+  margin-top: 12px;
+  padding-bottom: clamp(24px, 3vw, 32px);
 }
 
 .faq-chat-btn {
@@ -579,7 +579,7 @@ a.local-primary:hover {
 
 /* Animación BlurredStagger por caracteres */
 .blurred-stagger {
-  display: inline;
+  display: block;
 }
 
 .blurred-word {
