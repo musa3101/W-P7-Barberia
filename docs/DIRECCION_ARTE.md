@@ -128,7 +128,6 @@ Rejilla base de **12 columnas** con márgenes exteriores generosos (`5vw–6vw`)
       - Abajo: wordmark monumental `P7 BARBER` de margen a margen en SVG o `vw` ajustado + línea legal en `13px`.
 
 11. **Móvil (Barra inferior fija):**
-    - Barra fija en la parte inferior con acceso en 1 toque a **Reservar** (oro metálico), **Llamar** y **Cómo llegar**.
 
 ---
 

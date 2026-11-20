@@ -32,11 +32,11 @@
   <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=boska@400,401,500,501,600,700,701&f[]=general-sans@400,500,600,700&display=swap">
 
   <!-- Hojas de estilo -->
-  <link rel="stylesheet" href="./assets/css/site.css">
+  <link rel="stylesheet" href="./assets/css/site.css?v=20261120c">
   <link rel="stylesheet" href="./assets/css/sections.css">
-  <link rel="stylesheet" href="./assets/css/sobre.css">
-  <link rel="stylesheet" href="./assets/css/trabajo.css">
-  <link rel="stylesheet" href="./assets/css/contacto.css">
+  <link rel="stylesheet" href="./assets/css/sobre.css?v=20261120c">
+  <link rel="stylesheet" href="./assets/css/trabajo.css?v=20261120c">
+  <link rel="stylesheet" href="./assets/css/contacto.css?v=20261120c">
 
   <script type="application/ld+json">
   {
@@ -126,7 +126,8 @@
 
 <main id="main-content" class="page-shell">
 
-<section id="inicio" class="hero">
+<section id="inicio" class="hero" aria-label="P7 Barber Master Studio">
+  <h1 class="sr-only">P7 Barber Master Studio — Barbería artesanal en Palma de Mallorca</h1>
   <div class="hero-media">
     <picture class="hero-poster-picture">
       <source srcset="./assets/video/hero-poster.avif" type="image/avif">
@@ -159,56 +160,6 @@
       <source src="./assets/video/hero-16x9.webm" type="video/webm">
       <source src="./assets/video/hero-16x9.mp4" type="video/mp4">
     </video>
-
-    <div class="hero-veil" aria-hidden="true"></div>
-  </div>
-
-  <div class="container hero-content">
-    <div class="grid-12">
-      <div class="hero-crest">
-        <img
-          src="./assets/img/opt/logo-p7-256w.webp"
-          alt="Escudo gótico P7 Barber Master Studio"
-          width="92"
-          height="92"
-          decoding="async"
-        >
-      </div>
-
-      <div class="hero-title-wrap">
-        <h1 class="h1-editorial">
-          <span class="hero-line-mask"><span class="hero-line">Maestría en</span></span>
-          <span class="hero-line-mask"><span class="hero-line hero-line-2">cada trazo.</span></span>
-        </h1>
-      </div>
-
-      <div class="hero-sub-wrap">
-        <p class="lead-copy">
-          Barbería artesanal dirigida por Manu en Palma de Mallorca. Precisión colombiana, trato uno a uno y ritual de toalla caliente.
-        </p>
-
-        <div class="hero-actions">
-          <a href="https://booksy.com/es-es/" target="_blank" rel="noopener noreferrer" class="btn-gold-metallic">
-            Reservar cita
-          </a>
-          <a href="https://www.setmore.com/" target="_blank" rel="noopener noreferrer" class="link-subtle">
-            O reserva en Setmore
-          </a>
-        </div>
-
-        <div class="hero-meta-row">
-          <p class="hero-meta-note">C/ Miguel Ángel Riera, 2 · Palma · 5,0 en Booksy</p>
-          <button
-            type="button"
-            id="hero-video-toggle"
-            class="hero-video-toggle"
-            aria-pressed="false"
-          >
-            Pausar ambiente
-          </button>
-        </div>
-      </div>
-    </div>
   </div>
 </section>
 
@@ -587,7 +538,7 @@
     <!-- 2. Galería 2: Expandable Gallery (6 piezas reales · 5 WebP + 1 minivideoclip en bucle) -->
     <div class="exp-gallery-stage">
       <span class="exp-side-label exp-side-label--left" aria-hidden="true">
-        Toca la imagen para expandir
+        Toca una imagen para ampliarla
       </span>
 
       <div
@@ -600,14 +551,14 @@
         <!-- 1. Minivideoclip en bucle: Sesión con Lyano -->
         <button
           type="button"
-          class="exp-panel is-active"
+          class="exp-panel"
           data-index="0"
           data-type="video"
           data-title="Sesión con Lyano"
           data-full-src="./assets/media/galeria-2/sesion-lyano.mp4"
           data-poster="./assets/media/galeria-2/sesion-lyano-poster.webp"
           aria-label="Sesión con Lyano (vídeo) — pulsar para expandir o ampliar"
-          aria-expanded="true"
+          aria-expanded="false"
         >
           <video
             class="exp-video"
@@ -766,11 +717,9 @@
       </div>
 
       <span class="exp-side-label exp-side-label--right" aria-hidden="true">
-        Toca la imagen para expandir
+        Toca una imagen para ampliarla
       </span>
     </div>
-
-    <p class="exp-mobile-tip">Toca una imagen para desplegarla · toca de nuevo para ampliar</p>
 
     <!-- Botón hacia Galería 3 (nueva ventana a pantalla completa con Staircase Carousel infinito) -->
     <div class="exp-more-wrap">
@@ -914,6 +863,7 @@
             <div class="precios-poster-body">
               <header class="precios-poster-head">
                 <span class="precios-poster-brand">P7 BARBER</span>
+                <span class="precios-poster-meta">MASTER STUDIO · PALMA</span>
               </header>
 
               <div class="precios-group">
@@ -921,14 +871,20 @@
                 <ul class="precios-list">
                   <li class="precios-item">
                     <div class="precios-item-main">
-                      <span class="precios-item-name">Corte de pelo</span>
+                      <div class="precios-item-title">
+                        <span class="precios-item-num" aria-hidden="true">01</span>
+                        <span class="precios-item-name">Corte de pelo</span>
+                      </div>
                       <span class="precios-item-price">25,00 €</span>
                     </div>
                     <p class="precios-item-sub">1 hora · Precisión adaptada a tu morfología y estilo.</p>
                   </li>
                   <li class="precios-item">
                     <div class="precios-item-main">
-                      <span class="precios-item-name">Corte + barba</span>
+                      <div class="precios-item-title">
+                        <span class="precios-item-num" aria-hidden="true">02</span>
+                        <span class="precios-item-name">Corte + barba</span>
+                      </div>
                       <span class="precios-item-price">30,00 €</span>
                     </div>
                     <p class="precios-item-sub">1 hora · Estilismo capilar integral y perfilado de barba.</p>
@@ -959,25 +915,6 @@
                   </li>
                 </ul>
               </div>
-
-              <footer class="precios-poster-foot">
-                <p class="precios-address">
-                  Calle Miguel Ángel Riera, 2 · 07004 Palma
-                </p>
-                <div class="precios-foot-actions">
-                  <a href="#contacto" class="precios-online-btn">
-                    Online
-                  </a>
-                  <a
-                    href="https://booksy.com/es-es/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="precios-booksy-btn"
-                  >
-                    Booksy
-                  </a>
-                </div>
-              </footer>
             </div>
           </div>
         </div>
@@ -1442,19 +1379,6 @@
     </div>
   </div>
 </footer>
-
-<!-- Barra móvil fija inferior (única) -->
-<nav class="mobile-bar" aria-label="Acciones rápidas móviles">
-  <a href="https://booksy.com/es-es/" target="_blank" rel="noopener noreferrer" class="mobile-bar-action btn-gold-metallic">
-    Reservar
-  </a>
-  <a href="tel:+34600000000" class="mobile-bar-action" data-relleno="telefono">
-    Llamar
-  </a>
-  <a href="https://maps.google.com/?q=C/+Miguel+%C3%81ngel+Riera,+2,+07004+Palma,+Illes+Balears" target="_blank" rel="noopener noreferrer" class="mobile-bar-action">
-    Cómo llegar
-  </a>
-</nav>
 
 <!-- Lightbox de Galería (<dialog> nativo) -->
 <dialog id="lightbox-dialog" closedby="any" aria-labelledby="lightbox-title">

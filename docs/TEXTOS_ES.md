@@ -133,4 +133,3 @@ Todos los textos definitivos en **español puro**, listos para copiar en HTML.
   4. `Horario` (`[RELLENO] Mar – Sáb: 10:00 – 20:00`, `[RELLENO] Dom – Lun: Cerrado`)
 - **Wordmark monumental:** `P7 BARBER`
 - **Línea legal:** `© 2026 P7 Barber Master Studio · Palma de Mallorca · Aviso Legal y Privacidad`
-- **Barra fija móvil:** `Reservar` · `Llamar` · `Cómo llegar`

@@ -1,62 +1,71 @@
-# Resumen de Sesión — 19 de Noviembre de 2026
+# Resumen de Sesión — 19 de Noviembre de 2026 (Cierre con Despliegue en Producción)
 
 ## 1. Qué se ha hecho hoy
-- **Traspaso oficial a `web/v1/` y limpieza de `x/`:**
-  - Se trasladó el proyecto completo desde `x/v1/` a la carpeta oficial **`web/v1/`** (manteniendo rama `dev` y Setup de Musa 2.0).
-  - Se eliminó la copia duplicada `x/v1/`. La carpeta **`x/`** queda únicamente como archivo de apoyo (`x/referencias/`, `x/tipografia/` y `x/componentes/`).
-- **Rediseño completo de "Sobre nosotros" y "Nuestro equipo" (trabajado en laboratorio `web/seccion sobre nosotros/` e integrado en `web/v1/`):**
-  - **Sección "Sobre nosotros":** Diseño minimalista vertical sobre fondo Crema (`#F8F1E4`) y Esmeralda (`#0B2E22`): título directo *"Sobre nosotros"*, texto breve (quiénes son, qué hacen y apertura en 2023, sin menciones a raíces ni términos técnicos), **Galería 1** con slider automático infinito adaptado de `21st.dev` (`image-auto-slider`) a HTML/CSS puro con ritmo pausado (38s escritorio / 32s móvil, pausa al hover y 4 fotos de relleno coherentes, incluida la nueva `salon-lounge`), y botón **Liquid Glass** (estilo Apple) *"Ver nuestro equipo"* centrado debajo.
-  - **Página "Nuestro equipo" (`web/v1/equipo.html`):** Se abre en pestaña nueva con botón **Liquid Glass** *"Volver al estudio"* arriba y abajo. Muestra a los **3 barberos** (Manu + Carlos Vega y Mateo Ruiz como boceto) en formato limpio sin cajas crema ni píldoras: foto a la izquierda y puesto + nombre + minidescripción a la derecha. La foto de Manu aparece al entrar con parallax suave; las fotos 2 y 3 se revelan con giro/despliegue 3D suave al hacer scroll, y todas tienen inclinación 3D sutil en hover.
-  - **Contrato de datos listo para InsForge:** Guardado en `web/v1/assets/js/sobre-data.js` (`GALERIA_1` y `EQUIPO`) para conectar el backend más adelante sin tocar el diseño.
-- **Biblioteca de componentes reutilizables en `x/componentes/`:**
-  - Guardado el botón **Liquid Glass** (variante clara para fondo crema y oscura para fondo esmeralda) en `x/componentes/liquid-glass-button/` para reutilizarlo en cualquier sección futura sin volver a pasar el prompt de 21st.dev.
-- **Auditoría full responsive y mobile-first:**
-  - `sobre.css` reescrito a **mobile-first** (`min-width`: base 320px → 480px / 640px / 720px / 1024px), comprobado en 390px, 768px y 1440px.
-- **Mini-merges realizados:** Ninguno (todo se mantiene en la rama `dev` de `web/v1/`).
+- **Sección 03 — "Nuestro trabajo" + Galería 2 + Galería 3 (`galeria.html`) + Carta de Precios (integrado en `web/v1/`):**
+  - **Galería 2 (`ExpandableGallery` de `21st.dev` en HTML/CSS/JS puro):**
+    - Integradas las 6 piezas reales optimizadas para web (`.webp` y `.mp4` sin audio en bucle): *Sesión con Lyano* (vídeo), *Lyano · P7*, *Sesión con Lunay*, *Arte Freestyle*, *Freestyle a color* y *Firma P7*.
+    - Eliminados subtítulos innecesarios en las tarjetas y añadidas etiquetas verticales laterales (`TOCA LA IMAGEN PARA EXPANDIR`) en escritorio (`≥ 1024px`) con animación de revelado de arriba hacia abajo (`IntersectionObserver`).
+    - Visor Lightbox `<dialog>` sin marco sobre fondo carbono (`rgba(8, 8, 9, 0.92)`), compatible con fotos y vídeos en bucle **sin controles nativos de reproducción** (`controls = false`).
+  - **Página "Galería Completa" (`web/v1/galeria.html` — Galería 3 `StaircaseCarousel` de `21st.dev`):**
+    - Bucle infinito (`Triple Strip` con recentrado silencioso), fondo estudio carbono (`#111112`), marco central protagonista ampliado y navegación fluida con rueda, teclado, clic lateral y swipe táctil (vertical y horizontal en móvil, sin barra inferior).
+    - Integrados los **26 trabajos reales** (`corte-1` a `corte-26` en `assets/media/galeria-3/`), con títulos destacados para celebridades (*#1 Sesión con Lyano*, *#2 Lyano · P7*, *#3 Sesión con Lunay*, *#4 Sesión con Pirlo 420*) y *Corte 5..26*.
+  - **Bloque Editorial "Cómo se trabaja en P7" + Moneda/Escudo 3D P7 (del chat paralelo):**
+    - Integrado el pedestal con el escudo P7 en rotación 3D 360° continua y los 3 pilares (*Sesiones sin prisas*, *ManuCuts: técnica y formación*, *Higiene, ambiente y colonia*).
+  - **Botón Liquid Glass "Lista de precios" + Póster Suizo Full-Bleed (`100vw`):**
+    - Desplegable a sangre completa sobre fondo carbono `#0B0B0C` con riel vertical monumental `SERVICIOS`, cabecera `P7 BARBER`, los 2 servicios oficiales de Booksy (**Corte de pelo `25,00 € · 1 hora`** y **Corte + barba `30,00 € · 1 hora`**), cita previa `Booksy · Online` (sin mencionar Setmore) y **autocierre inteligente al hacer scroll hacia abajo** sin salto de página.
+- **Eliminación de la Sección 04 ("Reseñas"):**
+  - Eliminada `src/sections/04-resenas.html` para no mostrar reseñas inventadas.
+  - Actualizada la nota oficial verificada en SEO/JSON-LD y tarjetas a **`5,0 ★ · 296 reseñas verificadas en Booksy`**.
+- **Sección 05 — "Contacto" + "¿Dónde estamos?" + "Preguntas frecuentes" (integrado en `web/v1/`):**
+  - **Bloque 1 (Información del local):** Tarjeta piedra cálida (`#EFE6D5`) a una sola columna limpia (`General Sans 400`) con iconos finos en oro: `Manuel · P7 Barber Master Studio`, teléfono `+34 600 000 000` (provisional), email `p7barberpalma@gmail.com` (provisional), dirección `Calle Miguel Ángel Riera, 2 · 07004 Palma de Mallorca` y horario oficial simplificado en 3 líneas (`Lun 10:00 – 19:00`, `Mar – Jue 10:00 – 20:00`, `Vie – Sáb 08:00 – 19:00`, `Domingo cerrado`).
+  - **Bloque 2 (Reserva tu hora):** Tarjeta esmeralda profundo (`#0B2E22`) con botón principal dorado **Reservar en Booksy**, botón secundario **Reserva online** y sello inferior `★ 5,0 en Booksy · 296 reseñas verificadas`.
+  - **Banda Carbono (`#111112`) — "¿Dónde estamos?" + "Preguntas frecuentes":**
+    - Mapa limpio en blanco centrado (`max-width: 820px`) bajo el título centrado `¿Dónde estamos?` con enlace directo a Google Maps.
+    - Acordeón de **6 Preguntas Frecuentes** unificado con el trabajo del chat paralelo (`BlurredStagger` de `21st.dev`, animación letra por letra con desenfoque suave y 6.ª pregunta *"¿No encuentras lo que buscas?"* con CTA directo a WhatsApp).
+- **Subida a GitHub y Despliegue en Producción (Cloudflare Pages):**
+  - Configurado remoto `origin` en `web/v1/` hacia `https://github.com/musa3101/W-P7-Barberia`.
+  - Excluido `assets/video/raw/` en `.gitignore` para subir únicamente activos optimizados de producción.
+  - Ejecutado mini-merge autorizado por Musa y conectada la rama `main` con **Cloudflare Pages** (ya en producción para revisión en móvil).
+
+### Mini-merges realizados en esta sesión
+- `2026-11-19T21:57:33 | merge completo | all | push=1` (`dev` → `main` y push a `origin/main` en `https://github.com/musa3101/W-P7-Barberia`).
 
 ---
 
-## 2. Proceso de trabajo acordado (para recordar en próximas sesiones)
-Trabajaremos **sección por sección** siguiendo siempre este flujo:
-1. **Carpeta activa del proyecto:** Todo el código real vive en **`web/v1/`** (rama `dev`). La carpeta `x/` es solo para referencias, tipografía y componentes guardados (como `x/componentes/liquid-glass-button/`).
-2. **Laboratorio aislado por sección:** Para mejorar una sección concreta, creamos o usamos una carpeta dedicada dentro de `web/` (ej. `web/seccion <nombre>/`).
-3. **Iteración y componentes:** Diseñamos en limpio, adaptando componentes de `21st.dev` / referencias a **HTML + CSS + JS puro** (sin instalar React/Tailwind innecesarios) y respetando `modern-web-guidance` y `taste-skill-v2`.
-4. **Auditoría mobile-first:** Antes de integrar, auditamos la sección en móvil (390px), tablet (768px) y escritorio (1440px) asegurando 0 desbordamientos y CSS mobile-first.
-5. **Integración en `web/v1/`:** Copiamos la sección final a `web/v1/src/sections/`, su CSS/JS/páginas a `web/v1/` y recompilamos con `python3 scripts/build.py`.
-
----
-
-## 3. Archivos creados y modificados
+## 2. Archivos creados y modificados
 - **Web principal (`web/v1/`):**
-  - `src/sections/02-sobre.html`, `src/head.html`, `index.html` (recompilado).
-  - `equipo.html` (nueva página del equipo).
-  - `assets/css/sobre.css` (estilos mobile-first de Sobre nosotros, Galería 1, Liquid Glass y Equipo).
-  - `assets/js/sobre-data.js` (datos de Galería 1 y 3 barberos listos para InsForge).
-  - `assets/img/salon-lounge.jpg` y `assets/img/opt/salon-lounge-{480w,900w}.{avif,webp}`.
-  - `docs/SESSION_LATEST_ES.md`, `docs/ROADMAP.md`.
-- **Componentes reutilizables (`x/componentes/liquid-glass-button/`):**
-  - `liquid-glass-button.css`, `liquid-glass-button.html`, `README.md`.
-- **Laboratorio (`web/seccion sobre nosotros/`):**
-  - `index.html`, `sobre.html`, `equipo.html`, `sobre.css`, `data/sobre-data.js`, `design_draft.md`, `plan_equipo.md`.
+  - `index.html` (recompilado con `python3 scripts/build.py`), `galeria.html`, `equipo.html`.
+  - `src/head.html`, `src/footer.html`, `src/sections/02-sobre.html`, `src/sections/03-trabajo-precios.html`, `src/sections/05-contacto-mapa.html` (y eliminado `src/sections/04-resenas.html`).
+  - `assets/css/sobre.css`, `assets/css/trabajo.css`, `assets/css/galeria.css`, `assets/css/contacto.css`.
+  - `assets/js/sobre-data.js`, `assets/js/trabajo-data.js`, `assets/js/trabajo.js`, `assets/js/galeria3-data.js`, `assets/js/galeria.js`, `assets/js/contacto.js`.
+  - `assets/media/galeria-2/` (6 piezas `.webp`/`.mp4`) y `assets/media/galeria-3/` (26 piezas `.webp`/`.mp4`).
+  - `docs/DATOS_OFICIALES_NEGOCIO.md`, `docs/SESSION_LATEST_ES.md`, `docs/ROADMAP.md`, `.gitignore`.
+- **Laboratorios (`web/seccion de nuestro trabjajo/`, `web/seccion de contacto/`, `web/seccion sobre nosotros/`):**
+  - Prototipos completos de Nuestro Trabajo, Galería 3, Contacto/Mapa y FAQ `BlurredStagger`.
 
 ---
 
-## 4. Problemas solucionados
-- Corregida la desproporción inicial del carrusel frente al texto y eliminadas referencias no deseadas ("raíz colombiana") del titular de *Sobre nosotros*.
-- Ajustada la velocidad del slider automático de 21st.dev (de 20s rápidos a 38s/32s pausados) y adaptado del fondo negro original al fondo crema de P7.
-- Eliminados el recuadro crema y las píldoras en `equipo.html`, reducidos tamaños/espaciados y añadido movimiento al scroll + hover.
-- Corregida la simetría de fotos en móvil (390px) y el recorte del nombre de marca en la barra superior móvil de `equipo.html`.
+## 3. Problemas solucionados
+- **Colisión de estilos heredados en `sections.css`:** Neutralizado el fondo crema antiguo de `#lista-precios` y aislados los selectores `#contacto.contacto-v2` y `#donde-estamos.ubicacion-faq-band`.
+- **Cortes de línea en email y datos de contacto:** Cambiada la maquetación de 2 columnas en serif a 1 sola columna limpia en `General Sans` con iconos finos en oro.
+- **Vídeos en galerías sin controles molestos:** Eliminado el atributo `controls` y añadido `pointer-events: none` al `<video>` tanto en las tarjetas como en el Lightbox.
+- **Sincronización entre 2 ventanas de chat en paralelo:** Integrados sin pérdida tanto la moneda 3D de *Cómo se trabaja en P7* como el FAQ `BlurredStagger` con botón de WhatsApp.
 
 ---
 
-## 5. Qué queda pendiente
-- Seguir puliendo el resto de secciones de **`web/v1/`** una por una siguiendo el mismo flujo de laboratorio (Hero, Nuestro trabajo / Precios, Reseñas, Contacto / Mapa).
-- Sustituir fotos y nombres provisionales (`data-relleno`) cuando estén los reales del local (Galería 1) y de los barberos 2 y 3 (y generar/añadir sus retratos reales).
-- Conectar el backend con **InsForge** más adelante usando los contratos de datos preparados (`sobre-data.js`).
-- Integrar vídeo final de Google Flow en el Hero y reactivar idiomas `EN` / `DE` al terminar la v1 en español.
+## 4. Qué queda pendiente
+- **Pulido del bloque `Hero` (`01-hero.html`):** Revisar diseño visual, textos, llamadas a la acción y comportamiento del vídeo en móvil/escritorio.
+- **Pulido del `Header` (`src/header.html`):** Revisar barra de navegación fija, enlaces ancla, menú móvil y aplicar también a las páginas secundarias (`equipo.html` y `galeria.html`).
+- **Pulido del `Footer` (`src/footer.html`):** Rediseñar el pie de página final y unificarlo en `index.html`, `equipo.html` y `galeria.html`.
+- **Páginas / Textos `Legales`:** Crear y enlazar los textos legales obligatorios (Aviso Legal, Política de Privacidad y Política de Cookies).
+- **Datos pendientes de Manu:** Teléfono oficial definitivo, Gmail definitivo y fotos reales de Galería 1 / barberos cuando estén disponibles.
 
 ---
 
-## 6. Qué se recomienda hacer en la próxima sesión
-1. **Elegir la siguiente sección a mejorar** en laboratorio (por ejemplo `web/seccion nuestro trabajo/` o el Hero) aplicando el mismo flujo sección por sección y reutilizando `x/componentes/liquid-glass-button/` donde encaje.
-2. **Hacer commit de respaldo en rama `dev`** dentro de `web/v1/` si quieres dejar guardado este hito antes de empezar la siguiente sección.
+## 5. Qué se recomienda hacer en la próxima sesión (PRIORIDAD MARCADA POR MUSA)
+Trabajar en este orden exacto:
+1. **Hero (`01-hero.html`)**
+2. **Header (`src/header.html`)**
+3. **Footer (`src/footer.html`)**
+4. **Legales (Aviso Legal, Privacidad y Cookies)**
+*(Y una vez listos Header y Footer, aplicarlos también a `equipo.html` y `galeria.html`).*

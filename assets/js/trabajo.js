@@ -37,6 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let currentModalIndex = 0;
 
   const setActivePanelMobile = (targetPanel) => {
+    if (gallery) gallery.classList.add('has-active');
     panels.forEach((panel) => {
       const isTarget = panel === targetPanel;
       panel.classList.toggle('is-active', isTarget);

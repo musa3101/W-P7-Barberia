@@ -100,27 +100,38 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 18px;
+  gap: 8px;
 }
 
 .exp-side-label {
   display: none;
+  flex-shrink: 0;
+  font-family: var(--font-sans, 'General Sans', sans-serif);
+  font-size: 0.625rem;
+  font-weight: 400;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(241, 213, 146, 0.58);
+  writing-mode: vertical-rl;
+  white-space: nowrap;
+  user-select: none;
+  pointer-events: none;
+}
+
+.exp-side-label--right {
+  display: block;
 }
 
 @media (min-width: 1024px) {
+  .exp-gallery-stage {
+    gap: 18px;
+  }
+
   .exp-side-label {
     display: block;
-    flex-shrink: 0;
-    font-family: var(--font-sans, 'General Sans', sans-serif);
     font-size: 0.6875rem;
-    font-weight: 400;
     letter-spacing: 0.28em;
-    text-transform: uppercase;
     color: rgba(241, 213, 146, 0.56);
-    writing-mode: vertical-rl;
-    white-space: nowrap;
-    user-select: none;
-    pointer-events: none;
     transition:
       color 300ms ease,
       opacity 1000ms cubic-bezier(0.22, 1, 0.36, 1),
@@ -168,28 +179,31 @@
   position: relative;
   z-index: 1;
   isolation: isolate;
+  flex: 1 1 0%;
+  min-width: 0;
   width: 100%;
   max-width: 1120px;
   display: flex;
-  flex-direction: column;
-  gap: 10px;
+  flex-direction: row;
+  gap: 6px;
+  height: clamp(340px, 52vh, 430px);
 }
 
 .exp-panel {
   position: relative;
-  width: 100%;
-  height: 76px;
+  flex: 1 1 0%;
+  min-width: 0;
+  height: 100%;
   margin: 0;
   padding: 0;
   border: 1px solid rgba(248, 241, 228, 0.08);
-  border-radius: 14px;
+  border-radius: 10px;
   background-color: var(--p7-emerald-950);
   overflow: hidden;
   cursor: pointer;
   text-align: left;
   -webkit-tap-highlight-color: transparent;
   transition:
-    height 480ms cubic-bezier(0.22, 1, 0.36, 1),
     flex 520ms cubic-bezier(0.22, 1, 0.36, 1),
     border-color 280ms ease;
 }
@@ -199,16 +213,14 @@
   outline-offset: 3px;
 }
 
-/* En móvil: el panel activo se despliega verticalmente */
-.exp-panel.is-active {
-  height: 290px;
-  border-color: rgba(241, 213, 146, 0.28);
+/* En móvil: todas iguales por defecto; al tocar una, se despliega y las demás se afilan */
+.exp-gallery.has-active .exp-panel {
+  flex: 0.42 1 0%;
 }
 
-@media (min-width: 480px) {
-  .exp-panel.is-active {
-    height: 330px;
-  }
+.exp-gallery.has-active .exp-panel.is-active {
+  flex: 4.5 1 0%;
+  border-color: rgba(241, 213, 146, 0.32);
 }
 
 .exp-picture {
@@ -247,12 +259,12 @@
   opacity: 0;
 }
 
-/* Pie sutil en la parte inferior de cada lámina */
+/* Pie sutil en la parte inferior de cada lámina (solo visible en la lámina abierta) */
 .exp-overlay {
   position: absolute;
   inset-inline: 0;
   bottom: 0;
-  padding: 28px 18px 14px;
+  padding: 28px 16px 14px;
   background: linear-gradient(
     to top,
     rgba(5, 18, 13, 0.84) 0%,
@@ -263,6 +275,14 @@
   flex-direction: column;
   gap: 3px;
   pointer-events: none;
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 280ms ease, transform 320ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.exp-panel.is-active .exp-overlay {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .exp-title {
@@ -349,7 +369,9 @@
   }
 
   .exp-panel,
-  .exp-panel.is-active {
+  .exp-panel.is-active,
+  .exp-gallery.has-active .exp-panel,
+  .exp-gallery.has-active .exp-panel.is-active {
     width: auto;
     height: 100%;
     flex: 1 1 0%;
@@ -365,7 +387,8 @@
     opacity: 1;
   }
 
-  .exp-overlay {
+  .exp-overlay,
+  .exp-panel.is-active .exp-overlay {
     opacity: 0;
     transform: translateY(8px);
     padding: 36px 22px 20px;
@@ -727,12 +750,16 @@
   display: grid;
   grid-template-columns: auto minmax(0, 1fr);
   width: 100%;
-  min-height: clamp(480px, 72svh, 760px);
+  min-height: clamp(460px, 68svh, 700px);
   background-color: #0b0b0c;
+  background-image: radial-gradient(circle at 88% 12%, rgba(201, 164, 92, 0.08), transparent 52%);
   color: #f5f3ee;
   border-radius: 0;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow:
+    inset 0 1px 0 rgba(241, 213, 146, 0.1),
+    inset 0 -1px 0 rgba(241, 213, 146, 0.06);
   overflow: hidden;
   transform: translateY(-10px);
   transition: transform 520ms cubic-bezier(0.22, 1, 0.36, 1);
@@ -742,36 +769,40 @@
   transform: translateY(0);
 }
 
-/* Columna izquierda monumental pegada al borde de la pantalla */
+/* Columna izquierda monumental sangrada al borde (entrecortada por el margen izquierdo) */
 .precios-poster-rail {
   display: flex;
   align-items: center;
-  justify-content: center;
-  padding: 20px 6px 20px 10px;
-  background-color: #0b0b0c;
+  justify-content: flex-start;
+  width: clamp(44px, 11vw, 96px);
+  padding: 28px 0;
+  background-color: transparent;
   overflow: hidden;
   user-select: none;
 }
 
 .precios-poster-word {
-  font-family: var(--font-sans, 'General Sans', sans-serif);
-  font-size: clamp(2.5rem, 11.5vw, 7.5rem);
-  font-weight: 700;
-  line-height: 0.76;
-  letter-spacing: -0.04em;
-  color: #f5f3ee;
+  font-family: var(--font-display, 'Boska', serif);
+  font-size: clamp(3.5rem, 14vw, 8.25rem);
+  font-weight: 500;
+  line-height: 0.84;
+  letter-spacing: 0.04em;
+  color: rgba(245, 243, 238, 0.92);
   writing-mode: vertical-rl;
   text-orientation: mixed;
   white-space: nowrap;
+  transform: rotate(180deg) translateX(36%);
 }
 
 @media (min-width: 640px) {
   .precios-poster-rail {
-    padding: 28px 18px 28px 20px;
+    width: clamp(72px, 9vw, 112px);
+    padding: 36px 0;
   }
 
   .precios-poster-word {
-    font-size: clamp(4.75rem, 9.5vw, 8.25rem);
+    font-size: clamp(5rem, 10vw, 8.75rem);
+    transform: rotate(180deg) translateX(34%);
   }
 }
 
@@ -779,11 +810,11 @@
 .precios-poster-body {
   width: 100%;
   max-width: 1040px;
-  padding: clamp(32px, 6vw, 72px) clamp(20px, 6vw, 80px);
+  padding: clamp(36px, 6vw, 72px) clamp(20px, 5vw, 72px);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: clamp(28px, 4.5vw, 48px);
+  gap: clamp(36px, 5vw, 56px);
   text-align: left;
 }
 
@@ -791,23 +822,33 @@
   display: flex;
   flex-wrap: wrap;
   align-items: baseline;
-  gap: 4px 12px;
-  padding-bottom: 14px;
-  border-bottom: 1px solid rgba(245, 243, 238, 0.22);
+  justify-content: space-between;
+  gap: 8px 18px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid rgba(245, 243, 238, 0.14);
 }
 
 .precios-poster-brand {
   font-family: var(--font-sans, 'General Sans', sans-serif);
-  font-size: clamp(0.875rem, 1.8vw, 1rem);
+  font-size: clamp(0.9375rem, 1.8vw, 1.0625rem);
   font-weight: 700;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.16em;
   color: #f5f3ee;
+}
+
+.precios-poster-meta {
+  font-family: var(--font-sans, 'General Sans', sans-serif);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(241, 213, 146, 0.62);
 }
 
 .precios-poster-role {
   font-family: var(--font-display, 'Boska', serif);
   font-style: italic;
-  font-size: clamp(0.9375rem, 1.8vw, 1.125rem);
+  font-size: clamp(1rem, 1.8vw, 1.1875rem);
   font-weight: 400;
   color: rgba(245, 243, 238, 0.76);
 }
@@ -815,19 +856,19 @@
 .precios-group {
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 20px;
 }
 
 .precios-group-title {
   margin: 0;
-  padding-bottom: 10px;
+  padding-bottom: 12px;
   border-bottom: 1px solid rgba(245, 243, 238, 0.16);
   font-family: var(--font-sans, 'General Sans', sans-serif);
-  font-size: 0.8125rem;
-  font-weight: 500;
-  letter-spacing: 0.18em;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: #f5f3ee;
+  color: var(--p7-gold-300);
 }
 
 .precios-list {
@@ -836,38 +877,64 @@
   padding: 0;
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 20px;
 }
 
 .precios-list--compact {
-  gap: 10px;
+  gap: 16px;
 }
 
 .precios-item {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 6px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(245, 243, 238, 0.08);
+}
+
+.precios-item:last-child {
+  padding-bottom: 0;
+  border-bottom: 0;
 }
 
 .precios-item-main {
   display: flex;
   align-items: baseline;
   justify-content: space-between;
-  gap: 14px;
+  gap: 16px;
+}
+
+.precios-item-title {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  min-width: 0;
+}
+
+.precios-item-num {
+  flex-shrink: 0;
+  font-family: var(--font-display, 'Boska', serif);
+  font-style: italic;
+  font-size: 0.95rem;
+  line-height: 1;
+  color: rgba(241, 213, 146, 0.65);
 }
 
 .precios-item-name {
-  font-family: var(--font-display, 'Boska', serif);
-  font-size: clamp(1.15rem, 2.2vw, 1.6rem);
-  font-weight: 400;
-  color: rgba(245, 243, 238, 0.94);
+  font-family: var(--font-sans, 'General Sans', sans-serif);
+  font-size: clamp(1.0625rem, 2vw, 1.35rem);
+  font-weight: 500;
+  letter-spacing: -0.015em;
+  line-height: 1.3;
+  color: rgba(245, 243, 238, 0.96);
 }
 
 .precios-item-price {
-  font-family: var(--font-display, 'Boska', serif);
-  font-size: clamp(1.25rem, 2.4vw, 1.75rem);
-  font-weight: 500;
+  font-family: var(--font-sans, 'General Sans', sans-serif);
+  font-size: clamp(1.125rem, 2.2vw, 1.45rem);
+  font-weight: 600;
   font-variant-numeric: tabular-nums;
+  letter-spacing: -0.01em;
   color: var(--p7-gold-300);
   white-space: nowrap;
 }
@@ -876,16 +943,16 @@
   font-family: var(--font-sans, 'General Sans', sans-serif);
   font-size: 0.875rem;
   font-variant-numeric: tabular-nums;
-  color: rgba(245, 243, 238, 0.62);
+  color: rgba(245, 243, 238, 0.68);
   white-space: nowrap;
 }
 
 .precios-item-sub {
-  margin: 0;
+  margin: 2px 0 0;
   font-family: var(--font-sans, 'General Sans', sans-serif);
-  font-size: 0.8125rem;
-  line-height: 1.5;
-  color: rgba(245, 243, 238, 0.54);
+  font-size: 0.875rem;
+  line-height: 1.55;
+  color: rgba(245, 243, 238, 0.62);
   max-width: 40ch;
 }
 

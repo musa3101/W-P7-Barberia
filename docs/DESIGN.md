@@ -54,7 +54,6 @@ Fuente de verdad del diseño. Cualquier decisión nueva se anota aquí.
 - `prefers-reduced-motion` respetado; animaciones más ligeras en móvil.
 
 ## 6. Móvil
-Mobile-first. Vídeo vertical ligero + póster. Barra inferior fija: **Reservar · Llamar · Cómo llegar**.
 
 ## 7. Stack
 Astro · islas React (21st.dev) · Tailwind CSS v4 · GSAP + ScrollTrigger · Lenis · i18n ES/EN/DE · Cloudflare Pages.
