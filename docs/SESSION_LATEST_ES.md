@@ -1,71 +1,70 @@
-# Resumen de Sesión — 19 de Noviembre de 2026 (Cierre con Despliegue en Producción)
+# Resumen de Sesión — 21 de Noviembre de 2026 (Cierre con Mini-Merge y Auditoría 360°)
 
 ## 1. Qué se ha hecho hoy
-- **Sección 03 — "Nuestro trabajo" + Galería 2 + Galería 3 (`galeria.html`) + Carta de Precios (integrado en `web/v1/`):**
-  - **Galería 2 (`ExpandableGallery` de `21st.dev` en HTML/CSS/JS puro):**
-    - Integradas las 6 piezas reales optimizadas para web (`.webp` y `.mp4` sin audio en bucle): *Sesión con Lyano* (vídeo), *Lyano · P7*, *Sesión con Lunay*, *Arte Freestyle*, *Freestyle a color* y *Firma P7*.
-    - Eliminados subtítulos innecesarios en las tarjetas y añadidas etiquetas verticales laterales (`TOCA LA IMAGEN PARA EXPANDIR`) en escritorio (`≥ 1024px`) con animación de revelado de arriba hacia abajo (`IntersectionObserver`).
-    - Visor Lightbox `<dialog>` sin marco sobre fondo carbono (`rgba(8, 8, 9, 0.92)`), compatible con fotos y vídeos en bucle **sin controles nativos de reproducción** (`controls = false`).
-  - **Página "Galería Completa" (`web/v1/galeria.html` — Galería 3 `StaircaseCarousel` de `21st.dev`):**
-    - Bucle infinito (`Triple Strip` con recentrado silencioso), fondo estudio carbono (`#111112`), marco central protagonista ampliado y navegación fluida con rueda, teclado, clic lateral y swipe táctil (vertical y horizontal en móvil, sin barra inferior).
-    - Integrados los **26 trabajos reales** (`corte-1` a `corte-26` en `assets/media/galeria-3/`), con títulos destacados para celebridades (*#1 Sesión con Lyano*, *#2 Lyano · P7*, *#3 Sesión con Lunay*, *#4 Sesión con Pirlo 420*) y *Corte 5..26*.
-  - **Bloque Editorial "Cómo se trabaja en P7" + Moneda/Escudo 3D P7 (del chat paralelo):**
-    - Integrado el pedestal con el escudo P7 en rotación 3D 360° continua y los 3 pilares (*Sesiones sin prisas*, *ManuCuts: técnica y formación*, *Higiene, ambiente y colonia*).
-  - **Botón Liquid Glass "Lista de precios" + Póster Suizo Full-Bleed (`100vw`):**
-    - Desplegable a sangre completa sobre fondo carbono `#0B0B0C` con riel vertical monumental `SERVICIOS`, cabecera `P7 BARBER`, los 2 servicios oficiales de Booksy (**Corte de pelo `25,00 € · 1 hora`** y **Corte + barba `30,00 € · 1 hora`**), cita previa `Booksy · Online` (sin mencionar Setmore) y **autocierre inteligente al hacer scroll hacia abajo** sin salto de página.
-- **Eliminación de la Sección 04 ("Reseñas"):**
-  - Eliminada `src/sections/04-resenas.html` para no mostrar reseñas inventadas.
-  - Actualizada la nota oficial verificada en SEO/JSON-LD y tarjetas a **`5,0 ★ · 296 reseñas verificadas en Booksy`**.
-- **Sección 05 — "Contacto" + "¿Dónde estamos?" + "Preguntas frecuentes" (integrado en `web/v1/`):**
-  - **Bloque 1 (Información del local):** Tarjeta piedra cálida (`#EFE6D5`) a una sola columna limpia (`General Sans 400`) con iconos finos en oro: `Manuel · P7 Barber Master Studio`, teléfono `+34 600 000 000` (provisional), email `p7barberpalma@gmail.com` (provisional), dirección `Calle Miguel Ángel Riera, 2 · 07004 Palma de Mallorca` y horario oficial simplificado en 3 líneas (`Lun 10:00 – 19:00`, `Mar – Jue 10:00 – 20:00`, `Vie – Sáb 08:00 – 19:00`, `Domingo cerrado`).
-  - **Bloque 2 (Reserva tu hora):** Tarjeta esmeralda profundo (`#0B2E22`) con botón principal dorado **Reservar en Booksy**, botón secundario **Reserva online** y sello inferior `★ 5,0 en Booksy · 296 reseñas verificadas`.
-  - **Banda Carbono (`#111112`) — "¿Dónde estamos?" + "Preguntas frecuentes":**
-    - Mapa limpio en blanco centrado (`max-width: 820px`) bajo el título centrado `¿Dónde estamos?` con enlace directo a Google Maps.
-    - Acordeón de **6 Preguntas Frecuentes** unificado con el trabajo del chat paralelo (`BlurredStagger` de `21st.dev`, animación letra por letra con desenfoque suave y 6.ª pregunta *"¿No encuentras lo que buscas?"* con CTA directo a WhatsApp).
-- **Subida a GitHub y Despliegue en Producción (Cloudflare Pages):**
-  - Configurado remoto `origin` en `web/v1/` hacia `https://github.com/musa3101/W-P7-Barberia`.
-  - Excluido `assets/video/raw/` en `.gitignore` para subir únicamente activos optimizados de producción.
-  - Ejecutado mini-merge autorizado por Musa y conectada la rama `main` con **Cloudflare Pages** (ya en producción para revisión en móvil).
+- **Auditoría Técnica y Visual Completa (Playwright CLI + TestSprite):**
+  - **Playwright CLI:** 36 pruebas automatizadas ejecutadas sin incidencias (`0` fallos). Verificación en iPhone 14 (390×844), iPhone 14 Pro Max (430×932), iPhone SE (375×667), iPad (768×1024) y Desktop (1440×900). Desbordamiento horizontal: `0px` en todas las pantallas.
+  - **TestSprite:** Configurada globalmente la nueva API Key (`sk-member-R6dzySm-I4hbR6aUDX3Zq_amdKg0u4KQGpwX3ag1SjI`) en `mcp_config.json` y en la skill `/ts-sprite`. 14 pases de integridad de código completados (0 incidencias).
+  - Todas las capturas (16 imágenes HD) e informes técnicos se almacenaron aislados en `x/referencias/auditorias/2026-11-21-auditoria-v1/`.
+- **Corrección de las 3 Incidencias Reales en iPhone Safari:**
+  1. **Galería 3 (`galeria.html`) con Botón Volver y Memoria de Navegación:**
+     - Añadido botón visible y táctil `[ ← Volver atrás ]` (`.p7-back-pill`) tanto en la cabecera fija como al pie del carrusel.
+     - Actualizado `assets/js/nav-memory.js` con soporte para el `bfcache` de Safari iOS (`pageshow`), restaurando el píxel exacto de scroll tanto al pulsar el botón como al deslizar el dedo hacia atrás en iOS.
+  2. **Eliminación del Asomo de la Cinta Editorial en el Hero en Móvil:**
+     - Cambiado `.hero` de `100svh` a `min-height: 100lvh; height: 100lvh;` con padding inferior adaptado a la barra flotante de Safari (`safe-area-inset-bottom`). La cinta queda 100% oculta bajo el pliegue inicial (`ribbonTop >= windowHeight`).
+  3. **Eliminación de la Franja Verde en Footer y Barra del Navegador:**
+     - Cambiado `<meta name="theme-color">` de `#0B2E22` a `#0b0b0c` en todos los archivos HTML (`src/head.html`, `index.html`, `galeria.html`, `equipo.html`, `aviso-legal.html`, `privacidad.html`, `cookies.html`).
+     - Unificado el fondo de `html`, `body`, `--bg-hero` y `--bg-footer` a `#0b0b0c` en `site.css`. El footer y el canvas halftone se funden ahora en negro carbono puro con el navegador.
+- **Cuarentena del Preloader de Carga (`#p7-loading`):**
+  - Mantenido estrictamente aislado en `web/loading/` sin inyectarse en `web/v1/`, listo para retocarse en una sesión futura como indicó Musa.
+- **Mini-Merge Oficial a `main` y Despliegue en Cloudflare:**
+  - Ejecutado `scripts/mini-merge.sh` con subida a GitHub (`origin/main` commit `afdb32f`).
+  - La sesión de trabajo permanece activa en la rama `dev`.
 
 ### Mini-merges realizados en esta sesión
-- `2026-11-19T21:57:33 | merge completo | all | push=1` (`dev` → `main` y push a `origin/main` en `https://github.com/musa3101/W-P7-Barberia`).
+- `2026-11-21T14:46:46 | feat(v1): header glass + curved menu, footer halftone, cinta editorial, legales, memoria navegacion y pulido mobile | push=1`
+- `2026-11-21T15:16:42 | fix(mobile): boton volver galeria 3, correccion fold cinta hero 100lvh y theme-color negro carbon 0b0b0c | push=1`
 
 ---
 
-## 2. Archivos creados y modificados
-- **Web principal (`web/v1/`):**
-  - `index.html` (recompilado con `python3 scripts/build.py`), `galeria.html`, `equipo.html`.
-  - `src/head.html`, `src/footer.html`, `src/sections/02-sobre.html`, `src/sections/03-trabajo-precios.html`, `src/sections/05-contacto-mapa.html` (y eliminado `src/sections/04-resenas.html`).
-  - `assets/css/sobre.css`, `assets/css/trabajo.css`, `assets/css/galeria.css`, `assets/css/contacto.css`.
-  - `assets/js/sobre-data.js`, `assets/js/trabajo-data.js`, `assets/js/trabajo.js`, `assets/js/galeria3-data.js`, `assets/js/galeria.js`, `assets/js/contacto.js`.
-  - `assets/media/galeria-2/` (6 piezas `.webp`/`.mp4`) y `assets/media/galeria-3/` (26 piezas `.webp`/`.mp4`).
-  - `docs/DATOS_OFICIALES_NEGOCIO.md`, `docs/SESSION_LATEST_ES.md`, `docs/ROADMAP.md`, `.gitignore`.
-- **Laboratorios (`web/seccion de nuestro trabjajo/`, `web/seccion de contacto/`, `web/seccion sobre nosotros/`):**
-  - Prototipos completos de Nuestro Trabajo, Galería 3, Contacto/Mapa y FAQ `BlurredStagger`.
+## 2. Archivos modificados
+- **Estilos y Scripts:**
+  - `web/v1/assets/css/site.css`
+  - `web/v1/assets/css/galeria.css`
+  - `web/v1/assets/js/nav-memory.js`
+- **Páginas HTML:**
+  - `web/v1/src/head.html` e `web/v1/index.html` (recompilado con `scripts/build.py`)
+  - `web/v1/galeria.html`
+  - `web/v1/equipo.html`
+  - `web/v1/aviso-legal.html`
+  - `web/v1/privacidad.html`
+  - `web/v1/cookies.html`
+- **Auditoría y Referencias (Fuera de `web/v1`):**
+  - `x/referencias/auditorias/2026-11-21-auditoria-v1/INFORME_AUDITORIA_P7_COMPLETA.md`
+  - `x/referencias/auditorias/2026-11-21-auditoria-v1/capturas/` (16 screenshots HD)
+  - `x/referencias/auditorias/2026-11-21-auditoria-v1/logs/playwright_results.json`
+  - `x/referencias/auditorias/2026-11-21-auditoria-v1/ts-sprite/resumen_testsprite.md`
+- **Configuración Global:**
+  - `/Users/musa/.gemini/config/mcp_config.json` y `/Users/musa/.gemini/antigravity-ide/mcp_config.json` (Nueva API key TestSprite).
+  - `/Users/musa/.gemini/config/skills/ts-sprite/SKILL.md`.
 
 ---
 
 ## 3. Problemas solucionados
-- **Colisión de estilos heredados en `sections.css`:** Neutralizado el fondo crema antiguo de `#lista-precios` y aislados los selectores `#contacto.contacto-v2` y `#donde-estamos.ubicacion-faq-band`.
-- **Cortes de línea en email y datos de contacto:** Cambiada la maquetación de 2 columnas en serif a 1 sola columna limpia en `General Sans` con iconos finos en oro.
-- **Vídeos en galerías sin controles molestos:** Eliminado el atributo `controls` y añadido `pointer-events: none` al `<video>` tanto en las tarjetas como en el Lightbox.
-- **Sincronización entre 2 ventanas de chat en paralelo:** Integrados sin pérdida tanto la moneda 3D de *Cómo se trabaja en P7* como el FAQ `BlurredStagger` con botón de WhatsApp.
+- **Pérdida de posición al regresar de Galería 3:** Solucionado mediante `pageshow` y almacenamiento en sesión de subpáginas.
+- **Asomo indeseado de la cinta en el Hero:** Solucionado con `100lvh` y compensación de viewport grande.
+- **Tinte verde en la barra inferior y superior de Safari:** Solucionado unificando el theme-color y fondos base a negro carbono `#0b0b0c`.
+- **Cero archivos residuales en la web:** Toda la suite de pruebas se ejecutó en carpetas aisladas sin tocar el código fuente de producción.
 
 ---
 
 ## 4. Qué queda pendiente
-- **Pulido del bloque `Hero` (`01-hero.html`):** Revisar diseño visual, textos, llamadas a la acción y comportamiento del vídeo en móvil/escritorio.
-- **Pulido del `Header` (`src/header.html`):** Revisar barra de navegación fija, enlaces ancla, menú móvil y aplicar también a las páginas secundarias (`equipo.html` y `galeria.html`).
-- **Pulido del `Footer` (`src/footer.html`):** Rediseñar el pie de página final y unificarlo en `index.html`, `equipo.html` y `galeria.html`.
-- **Páginas / Textos `Legales`:** Crear y enlazar los textos legales obligatorios (Aviso Legal, Política de Privacidad y Política de Cookies).
-- **Datos pendientes de Manu:** Teléfono oficial definitivo, Gmail definitivo y fotos reales de Galería 1 / barberos cuando estén disponibles.
+- **Retoque del Preloader / Loading:** Diseñar y afinar la experiencia de carga guardada en `web/loading/` antes de decidir si se integra.
+- **Sustitución de datos provisionales:** Fotos de alta resolución de Manu / barberos reales en caso de que aporten nuevo material fotográfico.
+- **Salto a Astro (Fase futura tras OK del cliente):** Cuando el cliente dé el visto bueno final, migrar a Astro para escalabilidad, multiidioma (`EN`/`DE`) y backend con InsForge.
 
 ---
 
-## 5. Qué se recomienda hacer en la próxima sesión (PRIORIDAD MARCADA POR MUSA)
-Trabajar en este orden exacto:
-1. **Hero (`01-hero.html`)**
-2. **Header (`src/header.html`)**
-3. **Footer (`src/footer.html`)**
-4. **Legales (Aviso Legal, Privacidad y Cookies)**
-*(Y una vez listos Header y Footer, aplicarlos también a `equipo.html` y `galeria.html`).*
+## 5. Qué se recomienda hacer en la próxima sesión
+1. Comprobar la web en el iPhone real en producción y confirmar que los 3 puntos visuales (botón volver, cinta oculta en hero y footer negro) se ven perfectos.
+2. Si se desea activar el preloader, abrir la carpeta `web/loading/` para pulir la animación y sincronización antes de incluirlo en `src/`.
+3. Revisar si hay algún detalle menor de copy o fotografía que Manu quiera ajustar antes de la entrega final.
