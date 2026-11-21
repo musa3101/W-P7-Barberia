@@ -294,4 +294,78 @@ document.addEventListener('DOMContentLoaded', () => {
       { passive: true }
     );
   }
+
+  /* ------------------------------------------------------------------------
+     4. Carrusel automático + deslizable de "Cómo se trabaja en P7" en móvil
+     ------------------------------------------------------------------------ */
+  const showcaseRoot = document.querySelector('.trabajo-showcase');
+  const showcaseDots = Array.from(document.querySelectorAll('[data-showcase-dot]'));
+  const showcasePanels = Array.from(document.querySelectorAll('[data-showcase-panel]'));
+  const showcaseList = document.getElementById('showcase-slider');
+
+  if (showcaseDots.length && showcasePanels.length) {
+    let activeIdx = 0;
+    let autoTimer = 0;
+    let inView = false;
+    const INTERVAL_MS = 4400;
+
+    const restartAuto = () => {
+      clearInterval(autoTimer);
+      if (!inView || window.matchMedia('(min-width: 768px)').matches) return;
+      autoTimer = window.setInterval(() => {
+        showSlide(activeIdx + 1, false);
+      }, INTERVAL_MS);
+    };
+
+    const showSlide = (idx, resetTimer = true) => {
+      activeIdx = (idx + showcasePanels.length) % showcasePanels.length;
+      showcasePanels.forEach((panel, i) => {
+        panel.classList.toggle('is-active', i === activeIdx);
+      });
+      showcaseDots.forEach((bar, i) => {
+        bar.classList.remove('is-active', 'is-done');
+        // Fuerza reinicio limpio de la animación de relleno
+        void bar.offsetWidth;
+        if (i < activeIdx) bar.classList.add('is-done');
+        if (i === activeIdx) bar.classList.add('is-active');
+      });
+      if (resetTimer) restartAuto();
+    };
+
+    showcaseDots.forEach((bar, i) => {
+      bar.addEventListener('click', () => showSlide(i, true));
+    });
+
+    // Swipe táctil + arrastre con ratón en móvil/simulador
+    if (showcaseList) {
+      let sx = 0;
+      let dragging = false;
+      const onStart = (x) => { sx = x; dragging = true; };
+      const onEnd = (x) => {
+        if (!dragging) return;
+        dragging = false;
+        const dx = x - sx;
+        if (Math.abs(dx) > 36) {
+          showSlide(dx < 0 ? activeIdx + 1 : activeIdx - 1, true);
+        }
+      };
+      showcaseList.addEventListener('touchstart', (e) => { if (e.touches.length) onStart(e.touches[0].clientX); }, { passive: true });
+      showcaseList.addEventListener('touchend', (e) => { if (e.changedTouches.length) onEnd(e.changedTouches[0].clientX); }, { passive: true });
+      showcaseList.addEventListener('pointerdown', (e) => { if (e.pointerType !== 'touch') onStart(e.clientX); });
+      showcaseList.addEventListener('pointerup', (e) => { if (e.pointerType !== 'touch') onEnd(e.clientX); });
+    }
+
+    // Arranca el mini-autoplay solo al llegar a la sección
+    if (showcaseRoot && 'IntersectionObserver' in window) {
+      const obs = new IntersectionObserver((entries) => {
+        inView = Boolean(entries[0]?.isIntersecting);
+        if (inView) {
+          showSlide(activeIdx, true);
+        } else {
+          clearInterval(autoTimer);
+        }
+      }, { threshold: 0.35 });
+      obs.observe(showcaseRoot);
+    }
+  }
 });

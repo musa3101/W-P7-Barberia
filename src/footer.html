@@ -1,61 +1,68 @@
 </main>
 
-<footer class="site-footer">
-  <div class="container">
-    <div class="footer-cols">
-      <div>
-        <h2 class="footer-col-title">El Estudio</h2>
-        <ul class="footer-list">
-          <li>P7 Barber Master Studio</li>
-          <li>C/ Miguel Ángel Riera, 2</li>
-          <li>07004 Palma de Mallorca</li>
-          <li>Since 2023 · 5,0 en Booksy</li>
-        </ul>
-      </div>
+<!-- =========================================================================
+     FOOTER P7 BARBER MASTER STUDIO (Halftone Wordmark · 21st.dev)
+     ========================================================================= -->
+<footer
+  id="p7-halftone-footer"
+  class="hwf-root"
+  data-wordmark="P7 barber"
+  aria-label="Pie de página"
+>
+  <canvas id="p7-halftone-canvas" aria-hidden="true"></canvas>
+  <span class="hwf-sr">P7 Barber Master Studio</span>
 
-      <div>
-        <h2 class="footer-col-title">Navegación</h2>
-        <ul class="footer-list">
-          <li><a href="#inicio">Inicio</a></li>
-          <li><a href="#sobre-nosotros">Sobre nosotros</a></li>
-          <li><a href="#nuestro-trabajo">Nuestro trabajo</a></li>
-          <li><a href="#contacto">Contacto</a></li>
-        </ul>
-      </div>
-
-      <div>
-        <h2 class="footer-col-title">Reservas y Redes</h2>
-        <ul class="footer-list">
-          <li><a href="https://booksy.com/es-es/" target="_blank" rel="noopener noreferrer">Booksy (Principal)</a></li>
-          <li><a href="https://www.setmore.com/" target="_blank" rel="noopener noreferrer">Setmore</a></li>
-          <li><a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" data-relleno="instagram">@p7barberpalma</a></li>
-          <li><a href="tel:+34600000000" data-relleno="telefono">+34 600 000 000</a></li>
-        </ul>
-      </div>
-
-      <div>
-        <h2 class="footer-col-title">Horario</h2>
-        <ul class="footer-list">
-          <li data-relleno="horario">Mar – Sáb: 10:00 – 20:00</li>
-          <li data-relleno="horario">Dom – Lun: Cerrado</li>
-          <li>Atención bajo cita previa 1 a 1</li>
-        </ul>
-      </div>
+  <div class="hwf-top">
+    <div class="hwf-brand">
+      <a href="#inicio" class="hwf-logo-link" aria-label="P7 Barber Master Studio — Inicio">
+        <img
+          src="./assets/img/opt/logo-p7-512w.webp"
+          alt="Escudo P7 Barber Master Studio"
+          class="hwf-logo-img"
+          width="124"
+          height="124"
+          loading="lazy"
+          decoding="async"
+        >
+      </a>
     </div>
+
+    <nav class="hwf-col" aria-label="Navegación">
+      <h3>Navegación</h3>
+      <ul>
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#sobre-nosotros">Sobre nosotros</a></li>
+        <li><a href="#nuestro-trabajo">Nuestro trabajo</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+
+    <nav class="hwf-col hwf-col--legal" aria-label="Legal">
+      <h3>Legal</h3>
+      <ul>
+        <li><a href="./aviso-legal.html">Aviso legal</a></li>
+        <li><a href="./privacidad.html">Privacidad</a></li>
+        <li><a href="./cookies.html">Cookies</a></li>
+      </ul>
+    </nav>
   </div>
 
-  <div class="footer-spacer" aria-hidden="true"></div>
+  <div class="hwf-credits">
+    <a
+      href="https://mynextbymusa.com"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="hwf-credit-link"
+    >
+      Made by <strong>MYNEXT</strong>
+    </a>
+  </div>
 
-  <div class="container">
-    <p class="footer-wordmark" aria-hidden="true">P7 BARBER</p>
-
-    <div class="footer-legal">
-      <span>© 2026 P7 Barber Master Studio · Palma de Mallorca</span>
-      <div class="footer-legal-links">
-        <button type="button" class="footer-legal-btn" data-legal="aviso">Aviso legal</button>
-        <button type="button" class="footer-legal-btn" data-legal="privacidad">Privacidad</button>
-        <button type="button" class="footer-legal-btn" data-legal="cookies">Cookies</button>
-      </div>
+  <div class="hwf-rule">
+    <div class="hwf-rule-inner">
+      <button type="button" id="p7-back-to-top" class="hwf-up">
+        Volver arriba ↑
+      </button>
     </div>
   </div>
 </footer>
@@ -94,6 +101,11 @@
   <div id="legal-body" class="dialog-body"></div>
 </dialog>
 
+<script defer src="./assets/js/nav-memory.js?v=20261121"></script>
+<script defer src="./assets/js/header.js?v=20261121"></script>
+<script defer src="./assets/js/cinta.js?v=20261121"></script>
+<script defer src="./assets/js/footer.js?v=20261121"></script>
+<script defer src="./assets/js/sobre-carousel.js?v=20261121"></script>
 <script defer src="./assets/js/site.js"></script>
 <script defer src="./assets/js/trabajo.js"></script>
 <script defer src="./assets/js/contacto.js"></script>

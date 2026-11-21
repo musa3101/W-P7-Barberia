@@ -77,16 +77,25 @@
   }
 }
 
-/* Bloque 1: Información del local (superficie piedra cálida gemela al panel verde) */
+/* Bloque 1: Información del local (limpio y editorial en móvil, tarjeta suave en escritorio) */
 .contacto-info-card {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: clamp(24px, 3.5vw, 32px);
-  padding: clamp(28px, 4.5vw, 48px);
-  border-radius: 22px;
-  background-color: #efe6d5;
-  color: var(--p7-ink-900);
+  gap: 24px;
+  padding: 6px 0 12px;
+  border-radius: 0;
+  background-color: transparent;
+  color: #141416;
+}
+
+@media (min-width: 900px) {
+  .contacto-info-card {
+    gap: clamp(24px, 3.5vw, 32px);
+    padding: clamp(32px, 4.5vw, 48px);
+    border-radius: 20px;
+    background-color: #efe6d5;
+  }
 }
 
 .info-card-top {
@@ -203,20 +212,23 @@ a.local-primary:hover {
   margin-right: 6px;
 }
 
-/* Bloque 2: Reserva Premium (Panel Esmeralda Profundo, contraste de lujo sobre Crema) */
+/* Bloque 2: Reserva Premium (Panel Carbono Editorial #0B0B0C con halo oro) */
 .reserva-panel {
   position: relative;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: clamp(28px, 4vw, 40px);
-  padding: clamp(28px, 5vw, 52px);
-  border-radius: 22px;
-  background-color: var(--p7-emerald-900);
+  gap: clamp(24px, 3.5vw, 36px);
+  padding: clamp(28px, 4.5vw, 48px);
+  border-radius: 20px;
+  background:
+    radial-gradient(circle at 86% 12%, rgba(201, 164, 92, 0.12), transparent 52%),
+    #0b0b0c;
   color: var(--p7-cream-100);
+  border: 1px solid rgba(241, 213, 146, 0.14);
   box-shadow:
-    0 24px 64px rgba(11, 46, 34, 0.18),
-    inset 0 1px 0 rgba(248, 241, 228, 0.1);
+    0 24px 56px -14px rgba(0, 0, 0, 0.32),
+    inset 0 1px 0 rgba(241, 213, 146, 0.12);
 }
 
 .reserva-top {
@@ -227,9 +239,9 @@ a.local-primary:hover {
 
 .reserva-kicker {
   font-family: var(--font-sans, 'General Sans', sans-serif);
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   font-weight: 500;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--p7-gold-300);
 }
@@ -249,51 +261,67 @@ a.local-primary:hover {
   font-family: var(--font-sans, 'General Sans', sans-serif);
   font-size: 0.9375rem;
   line-height: 1.65;
-  color: rgba(248, 241, 228, 0.74);
+  color: rgba(248, 241, 228, 0.68);
   max-width: 38ch;
 }
 
 .reserva-actions {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 10px;
   width: 100%;
 }
 
-.reserva-btn-booksy {
+.reserva-btn-booksy,
+.reserva-btn-online {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
   width: 100%;
-  min-height: 56px;
-  padding: 0 28px;
-  border-radius: 9999px;
+  min-height: 46px;
+  padding: 0 22px;
+  border-radius: 10px;
   font-family: var(--font-sans, 'General Sans', sans-serif);
-  font-size: 0.9375rem;
-  font-weight: 600;
-  letter-spacing: 0.01em;
+  font-size: 0.8125rem;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
   text-decoration: none;
-  color: var(--p7-emerald-950);
-  background: linear-gradient(135deg, #9a7838, #f1d592 45%, #c9a45c 70%, #9a7838);
-  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.28);
   transition:
-    transform 260ms cubic-bezier(0.16, 1, 0.3, 1),
-    filter 220ms ease;
+    background-color 220ms cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 220ms cubic-bezier(0.16, 1, 0.3, 1),
+    color 220ms cubic-bezier(0.16, 1, 0.3, 1),
+    transform 180ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reserva-btn-booksy {
+  font-weight: 600;
+  color: #0b0b0c;
+  background: #e5c16c;
+  border: 1px solid #e5c16c;
 }
 
 .reserva-btn-booksy:hover {
-  transform: translateY(-2px);
-  filter: brightness(1.06);
+  background: #f1d592;
+  border-color: #f1d592;
+  transform: translateY(-1px);
 }
 
-.reserva-btn-booksy:active {
-  transform: scale(0.98);
+.reserva-btn-online {
+  font-weight: 500;
+  color: var(--p7-cream-100);
+  background: rgba(248, 241, 228, 0.04);
+  border: 1px solid rgba(248, 241, 228, 0.22);
 }
 
-.reserva-actions .liquid-glass-btn {
-  width: 100%;
-  min-height: 56px;
+.reserva-btn-online:hover {
+  border-color: var(--p7-gold-300);
+  color: var(--p7-gold-300);
+  transform: translateY(-1px);
+}
+
+.reserva-btn-booksy:active,
+.reserva-btn-online:active {
+  transform: scale(0.985);
 }
 
 .reserva-proof {

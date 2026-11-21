@@ -1,0 +1,164 @@
+/* ==========================================================================
+   PÁGINAS LEGALES — P7 Barber Master Studio (Aviso Legal · Privacidad · Cookies)
+   Estética editorial limpia sobre Crema #F8F1E4 · Full Responsive
+   ========================================================================== */
+
+.legal-page {
+  background-color: #f8f1e4;
+  color: #141416;
+  min-height: 100svh;
+  overflow-x: clip;
+}
+
+.legal-main {
+  padding-top: calc(var(--p7-hdr-height, 64px) + clamp(32px, 5vw, 64px));
+  padding-bottom: clamp(64px, 9vw, 112px);
+  padding-inline: clamp(20px, 5vw, 48px);
+}
+
+.legal-shell {
+  width: 100%;
+  max-width: 780px;
+  margin-inline: auto;
+}
+
+.legal-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: clamp(24px, 4vw, 36px);
+  font-family: var(--font-sans, 'General Sans', sans-serif);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #8c6a28;
+  text-decoration: none;
+  transition: color 200ms ease, transform 200ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.legal-back:hover {
+  color: #0b0b0c;
+  transform: translateX(-3px);
+}
+
+.legal-header {
+  padding-bottom: clamp(24px, 4vw, 36px);
+  border-bottom: 1px solid rgba(11, 11, 12, 0.12);
+}
+
+.legal-kicker {
+  display: block;
+  margin-bottom: 10px;
+  font-family: var(--font-sans, 'General Sans', sans-serif);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #8c6a28;
+}
+
+.legal-h1 {
+  margin: 0;
+  font-family: var(--font-display, 'Boska', serif);
+  font-size: clamp(2.1rem, 5.2vw, 3.5rem);
+  font-weight: 400;
+  line-height: 1.04;
+  letter-spacing: -0.02em;
+  color: #0b0b0c;
+}
+
+.legal-updated {
+  margin: 14px 0 0;
+  font-family: var(--font-sans, 'General Sans', sans-serif);
+  font-size: 0.875rem;
+  color: rgba(20, 20, 22, 0.58);
+}
+
+.legal-switcher {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+  margin-top: 20px;
+  font-family: var(--font-sans, 'General Sans', sans-serif);
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.legal-switcher a {
+  color: rgba(20, 20, 22, 0.56);
+  text-decoration: none;
+  padding-bottom: 3px;
+  border-bottom: 1px solid transparent;
+  transition: color 200ms ease, border-color 200ms ease;
+}
+
+.legal-switcher a:hover,
+.legal-switcher a[aria-current="page"] {
+  color: #0b0b0c;
+  font-weight: 600;
+  border-bottom-color: #8c6a28;
+}
+
+.legal-body {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(28px, 4vw, 40px);
+  padding-top: clamp(28px, 4.5vw, 44px);
+}
+
+.legal-section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.legal-section h2 {
+  margin: 0;
+  font-family: var(--font-display, 'Boska', serif);
+  font-size: clamp(1.35rem, 2.5vw, 1.75rem);
+  font-weight: 500;
+  line-height: 1.18;
+  letter-spacing: -0.015em;
+  color: #0b0b0c;
+}
+
+.legal-section p,
+.legal-section li {
+  margin: 0;
+  font-family: var(--font-sans, 'General Sans', sans-serif);
+  font-size: 0.96875rem;
+  line-height: 1.72;
+  color: rgba(20, 20, 22, 0.8);
+  max-width: 66ch;
+}
+
+.legal-section strong {
+  font-weight: 600;
+  color: #0b0b0c;
+}
+
+.legal-section ul {
+  margin: 4px 0 0;
+  padding-left: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.legal-section a {
+  color: #8c6a28;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.legal-section a:hover {
+  color: #0b0b0c;
+}
+
+.legal-foot-nav {
+  margin-top: clamp(36px, 5vw, 56px);
+  padding-top: 24px;
+  border-top: 1px solid rgba(11, 11, 12, 0.12);
+}
