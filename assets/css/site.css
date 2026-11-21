@@ -36,11 +36,11 @@
   --ease-editorial: cubic-bezier(0.16, 1, 0.3, 1);
 
   /* Superficies semánticas */
-  --bg-hero: var(--emerald-900);
+  --bg-hero: #0b0b0c;
   --bg-cream: var(--cream-100);
   --bg-cream-warm: var(--cream-200);
   --bg-emerald: var(--emerald-800);
-  --bg-footer: var(--emerald-900);
+  --bg-footer: #0b0b0c;
 }
 
 /* ==========================================================================
@@ -56,7 +56,7 @@
 html {
   scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
-  background-color: var(--emerald-900);
+  background-color: #0b0b0c;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -72,7 +72,7 @@ body {
   line-height: 1.6;
   font-size-adjust: from-font;
   color: var(--cream-200);
-  background-color: var(--emerald-900);
+  background-color: #0b0b0c;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -546,8 +546,10 @@ a {
 
 .hero {
   position: relative;
-  min-height: 100svh;
-  height: 100svh;
+  min-height: 100vh;
+  min-height: 100lvh;
+  height: 100vh;
+  height: 100lvh;
   background-color: #0b0b0c;
   padding: 0;
   overflow: hidden;
@@ -560,7 +562,7 @@ a {
   position: relative;
   z-index: 3;
   width: 100%;
-  padding: clamp(56px, 10vh, 96px) 24px clamp(38px, 6vh, 58px);
+  padding: clamp(56px, 10vh, 96px) 24px calc(clamp(64px, 11vh, 96px) + env(safe-area-inset-bottom, 0px));
   display: flex;
   flex-direction: column;
   align-items: center;
