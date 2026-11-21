@@ -1,0 +1,84 @@
+/* =========================================================================
+   P7 BARBER MASTER STUDIO — Cinta Editorial Recta (Negro Carbono + Blanco)
+   Ubicación: Entre el Hero (+ bandera Colombia) y "Sobre nosotros" (crema).
+   Full responsive (móvil / tablet / desktop) · GPU translate3d · 0 lag.
+   ========================================================================= */
+
+.p7-ribbon-section {
+  position: relative;
+  width: 100%;
+  background: #0b0b0c;
+  color: #ffffff;
+  overflow: hidden;
+  overflow-x: clip;
+  padding: clamp(18px, 2.3vw, 26px) 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  user-select: none;
+  contain: layout style paint;
+}
+
+/* Fade sutil en los bordes laterales para que el texto entre y salga suave */
+.p7-ribbon-section::before,
+.p7-ribbon-section::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: clamp(24px, 6vw, 88px);
+  z-index: 2;
+  pointer-events: none;
+}
+
+.p7-ribbon-section::before {
+  left: 0;
+  background: linear-gradient(90deg, #0b0b0c 0%, rgba(11, 11, 12, 0) 100%);
+}
+
+.p7-ribbon-section::after {
+  right: 0;
+  background: linear-gradient(270deg, #0b0b0c 0%, rgba(11, 11, 12, 0) 100%);
+}
+
+.p7-ribbon-viewport {
+  width: 100%;
+  overflow: hidden;
+}
+
+.p7-ribbon-track {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  will-change: transform;
+}
+
+.p7-ribbon-group {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  gap: clamp(22px, 3vw, 38px);
+  padding-right: clamp(22px, 3vw, 38px);
+}
+
+.p7-ribbon-item {
+  font-family: 'General Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 500;
+  font-size: clamp(0.95rem, 1.55vw, 1.22rem);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #ffffff;
+  white-space: nowrap;
+  line-height: 1;
+}
+
+.p7-ribbon-sep {
+  color: rgba(255, 255, 255, 0.42);
+  font-size: clamp(0.72rem, 1vw, 0.85rem);
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .p7-ribbon-track {
+    transform: none !important;
+  }
+}

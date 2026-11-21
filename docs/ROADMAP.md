@@ -38,7 +38,11 @@
   - [ ] **Footer (`src/footer.html`):** Rediseño del pie de página y enlaces (y unificación con `equipo.html` y `galeria.html`).
   - [ ] **Legales:** Creación de páginas/modales de Aviso Legal, Política de Privacidad y Política de Cookies.
 - [ ] **Sustitución de datos provisionales pendientes:** Teléfono definitivo, Gmail oficial y fotos reales de Galería 1 / retratos del equipo.
-- [ ] **Backend con InsForge e idiomas `EN` / `DE`:** Conectar contratos `*-data.js` y activar selector multiidioma al cerrar la v1 en español.
+- [ ] **Migración a Astro + Backend con InsForge + idiomas `EN` / `DE` (TRAS EL OK DEL CLIENTE):**
+  > [!IMPORTANT]
+  > **RECORDATORIO OBLIGATORIO PARA CUALQUIER SESIÓN FUTURA:** En cuanto Musa diga que ya enseñó el demo al cliente y que **le gustó / vamos a trabajar en el proyecto en serio**, recordar inmediatamente dar el **salto a Astro** antes de activar `EN`/`DE` e **InsForge** (para unificar Header/Footer, tener rutas SEO `/es/`, `/en/`, `/de/` y escalar limpio).
+  - [ ] Migrar la v1 aprobada (HTML/CSS/JS) a **Astro** (Cloudflare Pages).
+  - [ ] Conectar contratos `*-data.js` con **InsForge** y activar multiidioma `ES` / `EN` / `DE` con URLs separadas.
 
 ---
 

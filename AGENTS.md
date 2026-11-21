@@ -28,4 +28,8 @@ Se activan cuando el usuario dice: **"setup de Musa"**, **"@setup"**, **"abre el
 - Hacer commit en `main`, merge o push sin la frase y la doble confirmación.
 - Instalar o copiar skills por defecto (ver `interview.md` / `skills-library`).
 - **NUNCA añadir barras fijas/pegajosas inferiores en móvil** (tipo "Reservar / Llamar / Cómo llegar" o botones flotantes abajo). Las webs de MYNEXT tienen estándar de agencia de lujo (10.000 €+): limpias, libres, sin barras invasivas que tapen contenido o parezcan apps genéricas baratas.
+- **SIEMPRE mantener Memoria de Navegación (regla UX MYNEXT):** En todas las páginas secundarias (equipo, galería, legales, etc.), el botón de retorno debe decir **«Volver atrás»** y devolver al usuario al punto/píxel exacto (mismo botón o sección) desde donde salió, nunca mandarlo arriba de la página. Especificación completa en `docs/MEMORIA_NAVEGACION.md`.
+
+## 6. Recordatorio obligatorio tras el demo (Astro)
+- Cuando Musa comente en el futuro que **ya enseñó la web/demo al cliente y le gustó** (para pasar a trabajar en el proyecto definitivo), **recordarle siempre sin falta** que ese es el momento ideal para **migrar la web a Astro** antes de activar los idiomas **`EN` / `DE`** (rutas SEO separadas) y conectar **InsForge**.
 

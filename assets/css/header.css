@@ -1,0 +1,746 @@
+/* ==========================================================================
+   HEADER P7 BARBER MASTER STUDIO — Laboratorio Aislado
+   Transparente sobre Hero -> Cristal Carbono Oscuro (Glassmorphism) al scroll
+   Menú móvil pantalla completa editorial en Boska + Oro + Carbono
+   ========================================================================== */
+
+:root {
+  --p7-hdr-font-display: 'Boska', Georgia, serif;
+  --p7-hdr-font-sans: 'General Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --p7-hdr-carbon: #0b0b0c;
+  --p7-hdr-carbon-glass: rgba(11, 11, 12, 0.72);
+  --p7-hdr-cream: #f8f1e4;
+  --p7-hdr-cream-muted: rgba(248, 241, 228, 0.68);
+  --p7-hdr-gold: #f1d592;
+  --p7-hdr-gold-deep: #c9a45c;
+  --p7-hdr-ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --p7-hdr-height: 56px;
+}
+
+.skip-link {
+  position: fixed;
+  top: -100px;
+  left: 16px;
+  z-index: 300;
+  padding: 10px 16px;
+  background: var(--p7-hdr-gold);
+  color: var(--p7-hdr-carbon);
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 9999px;
+  transition: top 180ms ease;
+}
+
+.skip-link:focus {
+  top: 16px;
+}
+
+/* --------------------------------------------------------------------------
+   1. Barra principal del Header
+      - Estado inicial (Hero): 100% transparente, sin fondo ni línea inferior
+      - Estado scroll (>= 50% del Hero): Cristal Carbono Oscuro sin corte brusco
+   -------------------------------------------------------------------------- */
+.p7-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 120;
+  height: calc(var(--p7-hdr-height) + env(safe-area-inset-top, 0px));
+  padding-top: env(safe-area-inset-top, 0px);
+  background-color: transparent;
+  border-bottom: 0;
+  box-shadow: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  transition:
+    background-color 420ms var(--p7-hdr-ease),
+    box-shadow 420ms var(--p7-hdr-ease),
+    backdrop-filter 420ms var(--p7-hdr-ease),
+    -webkit-backdrop-filter 420ms var(--p7-hdr-ease);
+}
+
+/* Estado al pasar la mitad del Hero: Cristal Carbono Oscuro elegante */
+.p7-header[data-scrolled="true"] {
+  background-color: var(--p7-hdr-carbon-glass);
+  backdrop-filter: blur(20px) saturate(140%);
+  -webkit-backdrop-filter: blur(20px) saturate(140%);
+  box-shadow:
+    inset 0 -1px 0 rgba(255, 255, 255, 0.06),
+    0 10px 30px -10px rgba(0, 0, 0, 0.52);
+}
+
+.p7-header-inner {
+  width: 100%;
+  max-width: 1320px;
+  height: 100%;
+  margin-inline: auto;
+  padding-inline: clamp(16px, 4.5vw, 48px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+/* Marca (Logo + P7 Barber) */
+.p7-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  text-decoration: none;
+  color: var(--p7-hdr-cream);
+  min-height: 40px;
+  flex-shrink: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.p7-brand-crest {
+  position: relative;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  overflow: hidden;
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.45));
+  transition: transform 280ms var(--p7-hdr-ease);
+}
+
+.p7-brand-crest img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.p7-brand:hover .p7-brand-crest {
+  transform: scale(1.05);
+}
+
+.p7-brand-text {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  overflow: hidden;
+  padding: 4px 2px;
+}
+
+.p7-brand-name {
+  display: inline-block;
+  font-family: var(--p7-hdr-font-display);
+  font-size: clamp(1.0625rem, 2.2vw, 1.35rem);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  line-height: 1;
+  color: var(--p7-hdr-cream);
+  text-shadow: 0 1px 10px rgba(0, 0, 0, 0.45);
+}
+
+/* Coreografía de entrada al cargar: 1) Escudo entra de izq->der, 2) "P7 Barber" emerge del escudo */
+@keyframes p7CrestEnter {
+  0% {
+    opacity: 0;
+    transform: translate3d(-32px, 0, 0) scale(0.92);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+}
+
+@keyframes p7WordEmerge {
+  0% {
+    opacity: 0;
+    transform: translate3d(-100%, 0, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .p7-header .p7-brand-crest {
+    animation: p7CrestEnter 1050ms cubic-bezier(0.22, 1, 0.36, 1) 120ms both;
+    will-change: transform, opacity;
+  }
+
+  .p7-header .p7-brand-text .p7-brand-name {
+    animation: p7WordEmerge 1150ms cubic-bezier(0.22, 1, 0.36, 1) 740ms both;
+    will-change: transform, opacity;
+  }
+}
+
+/* Navegación central (oculta en móvil, visible en escritorio >= 960px) */
+.p7-nav {
+  display: none;
+}
+
+/* Acciones derecha */
+.p7-header-actions {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Botón Reservar (oculto en móvil para dejar barra ultra limpia; visible en escritorio) */
+.p7-header-cta {
+  display: none;
+}
+
+/* Botón Menú (solo icono limpio flotando sobre el vídeo, sin círculo ni fondo) */
+.p7-menu-trigger {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  padding: 0;
+  margin-right: -6px;
+  border-radius: 0;
+  border: 0;
+  background: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  color: var(--p7-hdr-cream);
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: transform 180ms var(--p7-hdr-ease), color 200ms ease;
+}
+
+/* Área táctil cómoda >= 44px */
+.p7-menu-trigger::before {
+  content: '';
+  position: absolute;
+  inset: -4px;
+}
+
+.p7-menu-trigger:hover {
+  background: transparent;
+}
+
+.p7-menu-trigger:active {
+  transform: scale(0.92);
+}
+
+.p7-menu-trigger:focus-visible {
+  outline: 2px solid var(--p7-hdr-gold);
+  outline-offset: 3px;
+}
+
+.p7-align-icon {
+  display: block;
+  width: 22px;
+  height: 22px;
+  color: var(--p7-hdr-cream);
+  filter: drop-shadow(0 1px 6px rgba(0, 0, 0, 0.48));
+  transition: color 220ms ease, transform 220ms var(--p7-hdr-ease);
+}
+
+.p7-menu-trigger:hover .p7-align-icon {
+  color: var(--p7-hdr-gold);
+}
+
+/* --------------------------------------------------------------------------
+   2. Tablet y Escritorio (>= 768px): CTA Reservar + Botón Curved Menu visible
+   -------------------------------------------------------------------------- */
+@media (min-width: 768px) {
+  :root {
+    --p7-hdr-height: 70px;
+  }
+
+  .p7-brand {
+    gap: 11px;
+  }
+
+  .p7-brand-crest {
+    width: 36px;
+    height: 36px;
+  }
+
+  /* CTA Reservar estilo Liquid Glass / Oro sutil */
+  .p7-header-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    min-height: 40px;
+    padding: 0 20px;
+    border-radius: 9999px;
+    font-family: var(--p7-hdr-font-sans);
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--p7-hdr-cream);
+    background: rgba(241, 213, 146, 0.12);
+    border: 1px solid rgba(241, 213, 146, 0.38);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12);
+    transition:
+      background-color 240ms var(--p7-hdr-ease),
+      color 240ms var(--p7-hdr-ease),
+      border-color 240ms var(--p7-hdr-ease),
+      transform 220ms var(--p7-hdr-ease),
+      box-shadow 240ms var(--p7-hdr-ease);
+  }
+
+  .p7-header-cta:hover {
+    background: var(--p7-hdr-gold);
+    color: var(--p7-hdr-carbon);
+    border-color: var(--p7-hdr-gold);
+    transform: translateY(-1px);
+    box-shadow: 0 8px 24px -6px rgba(241, 213, 146, 0.35);
+  }
+
+  .p7-header-cta:focus-visible {
+    outline: 2px solid var(--p7-hdr-gold);
+    outline-offset: 3px;
+  }
+
+  .p7-menu-trigger {
+    display: inline-flex;
+    width: 42px;
+    height: 42px;
+    margin-right: 0;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   4. CURVED MENU (Solo Tablet y Ordenador >= 768px · 21st.dev)
+   -------------------------------------------------------------------------- */
+.p7-curved {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .p7-curved {
+    display: block;
+    position: fixed;
+    inset: 0;
+    z-index: 220;
+    visibility: hidden;
+    pointer-events: none;
+    transition: visibility 0ms linear 820ms;
+  }
+
+  .p7-curved.is-open {
+    visibility: visible;
+    pointer-events: auto;
+    transition: visibility 0ms linear 0ms;
+  }
+
+  .p7-curved-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(6, 6, 7, 0.62);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    opacity: 0;
+    transition: opacity 520ms cubic-bezier(0.76, 0, 0.24, 1);
+  }
+
+  .p7-curved.is-open .p7-curved-backdrop {
+    opacity: 1;
+  }
+
+  .p7-curved-panel {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: min(100vw, 560px);
+    height: 100dvh;
+    background-color: #f8f1e4;
+    color: #0b2e22;
+    transform: translateX(calc(100% + 110px));
+    transition: transform 800ms cubic-bezier(0.76, 0, 0.24, 1);
+    will-change: transform;
+  }
+
+  .p7-curved.is-open .p7-curved-panel {
+    transform: translateX(0);
+  }
+
+  .p7-curved-svg {
+    position: absolute;
+    top: 0;
+    left: -99px;
+    width: 100px;
+    height: 100%;
+    fill: #f8f1e4;
+    stroke: none;
+    pointer-events: none;
+  }
+
+  .p7-curved-inner {
+    position: relative;
+    z-index: 1;
+    height: 100%;
+    padding: clamp(32px, 4.5vh, 48px) clamp(36px, 5vw, 68px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .p7-curved-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 18px;
+    border-bottom: 1px solid rgba(11, 46, 34, 0.18);
+  }
+
+  .p7-curved-kicker {
+    font-family: var(--p7-hdr-font-sans);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: rgba(11, 46, 34, 0.62);
+  }
+
+  .p7-menu-trigger--dark {
+    background: rgba(11, 46, 34, 0.06);
+    border-color: rgba(11, 46, 34, 0.2);
+    color: #0b2e22;
+  }
+
+  .p7-menu-trigger--dark .p7-align-icon {
+    color: #0b2e22;
+  }
+
+  .p7-menu-trigger--dark:hover {
+    background: #0b2e22;
+    border-color: #0b2e22;
+  }
+
+  .p7-menu-trigger--dark:hover .p7-align-icon {
+    color: var(--p7-hdr-gold);
+  }
+
+  .p7-curved-nav {
+    display: flex;
+    flex-direction: column;
+    margin-block: auto;
+    padding-block: 16px;
+  }
+
+  .p7-curved-link {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    padding: clamp(18px, 2.8vh, 26px) 0;
+    border-bottom: 1px solid rgba(11, 46, 34, 0.16);
+    text-decoration: none;
+    color: #0b2e22;
+    text-transform: uppercase;
+    transition: border-color 320ms ease, color 320ms ease;
+  }
+
+  .p7-curved-link:hover {
+    border-bottom-color: #c9a45c;
+  }
+
+  .p7-curved-index {
+    font-family: var(--p7-hdr-font-display);
+    font-style: italic;
+    font-size: clamp(1.35rem, 2.2vw, 1.75rem);
+    font-weight: 400;
+    color: #9b7a35;
+    min-width: 28px;
+  }
+
+  .p7-curved-text {
+    display: inline-flex;
+    flex-wrap: wrap;
+    font-family: var(--p7-hdr-font-sans);
+    font-size: clamp(1.65rem, 2.7vw, 2.35rem);
+    font-weight: 300;
+    letter-spacing: -0.015em;
+    line-height: 1.05;
+    transition: transform 380ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .p7-curved-char {
+    display: inline-block;
+    transition:
+      transform 420ms cubic-bezier(0.16, 1, 0.3, 1),
+      color 260ms ease;
+    transition-delay: calc(var(--char-i, 0) * 18ms);
+  }
+
+  .p7-curved-link:hover .p7-curved-text {
+    transform: translateX(-8px);
+  }
+
+  .p7-curved-link:hover .p7-curved-char {
+    transform: translateX(12px);
+    color: #071f17;
+  }
+
+  .p7-curved-foot {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    padding-top: 20px;
+  }
+
+  .p7-curved-cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    min-height: 52px;
+    padding: 0 24px;
+    border-radius: 9999px;
+    background: #0b2e22;
+    color: #f8f1e4;
+    font-family: var(--p7-hdr-font-sans);
+    font-size: 0.875rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition:
+      background-color 240ms var(--p7-hdr-ease),
+      color 240ms var(--p7-hdr-ease),
+      transform 200ms var(--p7-hdr-ease);
+  }
+
+  .p7-curved-cta:hover {
+    background: #c9a45c;
+    color: #0b0b0c;
+    transform: translateY(-1px);
+  }
+
+  .p7-curved-meta {
+    margin: 0;
+    text-align: center;
+    font-family: var(--p7-hdr-font-sans);
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(11, 46, 34, 0.56);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   3. Menú Móvil Pantalla Completa Editorial (Carbono + Boska + Oro)
+   -------------------------------------------------------------------------- */
+.p7-drawer {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  visibility: hidden;
+  pointer-events: none;
+  transition: visibility 0ms linear 420ms;
+}
+
+.p7-drawer.is-open {
+  visibility: visible;
+  pointer-events: auto;
+  transition: visibility 0ms linear 0ms;
+}
+
+.p7-drawer-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(6, 6, 7, 0.65);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  opacity: 0;
+  transition: opacity 360ms var(--p7-hdr-ease);
+}
+
+.p7-drawer.is-open .p7-drawer-backdrop {
+  opacity: 1;
+}
+
+.p7-drawer-sheet {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: env(safe-area-inset-top, 0px) clamp(22px, 6vw, 36px) calc(28px + env(safe-area-inset-bottom, 0px));
+  background:
+    radial-gradient(circle at 85% 15%, rgba(201, 164, 92, 0.11), transparent 48%),
+    radial-gradient(circle at 12% 88%, rgba(201, 164, 92, 0.06), transparent 42%),
+    #0b0b0c;
+  opacity: 0;
+  transform: translateY(-14px);
+  transition:
+    opacity 380ms var(--p7-hdr-ease),
+    transform 420ms var(--p7-hdr-ease);
+}
+
+.p7-drawer.is-open .p7-drawer-sheet {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.p7-drawer-top {
+  height: var(--p7-hdr-height);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(245, 243, 238, 0.08);
+}
+
+/* Lista de enlaces grandes en Boska */
+.p7-drawer-nav {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  padding-block: 24px;
+}
+
+.p7-drawer-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(14px, 3vh, 24px);
+}
+
+.p7-drawer-item {
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity 420ms var(--p7-hdr-ease),
+    transform 480ms var(--p7-hdr-ease);
+  transition-delay: 0ms;
+}
+
+.p7-drawer.is-open .p7-drawer-item {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: calc(90ms + var(--stagger, 0) * 55ms);
+}
+
+.p7-drawer-link {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  padding-block: 6px;
+  text-decoration: none;
+  color: var(--p7-hdr-cream);
+  -webkit-tap-highlight-color: transparent;
+  transition: color 220ms ease, transform 240ms var(--p7-hdr-ease);
+}
+
+.p7-drawer-link:active,
+.p7-drawer-link:hover {
+  color: var(--p7-hdr-gold);
+  transform: translateX(6px);
+}
+
+.p7-drawer-num {
+  font-family: var(--p7-hdr-font-display);
+  font-style: italic;
+  font-size: 0.9375rem;
+  color: rgba(241, 213, 146, 0.62);
+  min-width: 24px;
+}
+
+.p7-drawer-label {
+  font-family: var(--p7-hdr-font-display);
+  font-size: clamp(2.15rem, 8.8vw, 3.1rem);
+  font-weight: 400;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+}
+
+/* Pie del menú móvil: CTA Reservar + dirección */
+.p7-drawer-foot {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding-top: 22px;
+  border-top: 1px solid rgba(245, 243, 238, 0.1);
+  opacity: 0;
+  transform: translateY(14px);
+  transition:
+    opacity 400ms var(--p7-hdr-ease) 0ms,
+    transform 440ms var(--p7-hdr-ease) 0ms;
+}
+
+.p7-drawer.is-open .p7-drawer-foot {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 280ms;
+}
+
+.p7-drawer-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  min-height: 52px;
+  padding: 0 24px;
+  border-radius: 9999px;
+  background: linear-gradient(135deg, #f3dc9f 0%, #c9a45c 100%);
+  color: #0b0b0c;
+  font-family: var(--p7-hdr-font-sans);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.45),
+    0 10px 28px -8px rgba(201, 164, 92, 0.38);
+  transition: transform 180ms var(--p7-hdr-ease), filter 200ms ease;
+}
+
+.p7-drawer-cta:active {
+  transform: scale(0.98);
+}
+
+.p7-drawer-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 6px 14px;
+  font-size: 0.75rem;
+  letter-spacing: 0.03em;
+  color: rgba(248, 241, 228, 0.54);
+}
+
+.p7-drawer-rating {
+  color: var(--p7-hdr-gold);
+  font-weight: 500;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .p7-header,
+  .p7-drawer,
+  .p7-drawer-backdrop,
+  .p7-drawer-sheet,
+  .p7-drawer-item,
+  .p7-drawer-foot,
+  .p7-burger-line {
+    transition: none !important;
+  }
+}
+
+
+/* Separador fino bandera de Colombia entre secciones */
+.colombia-divider {
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, #fcd116 0%, #fcd116 50%, #003893 50%, #003893 75%, #ce1126 75%, #ce1126 100%);
+  opacity: 0.88;
+}

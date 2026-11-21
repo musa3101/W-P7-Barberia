@@ -209,8 +209,6 @@
     <div class="exp-more-wrap">
       <a
         href="./galeria.html"
-        target="_blank"
-        rel="noopener"
         class="liquid-glass-btn liquid-glass-btn--dark liquid-glass-btn--sm"
       >
         <span class="liquid-glass-surface" aria-hidden="true"></span>
@@ -272,8 +270,8 @@
           </p>
         </header>
 
-        <div class="showcase-list">
-          <article class="showcase-item">
+        <div class="showcase-list" id="showcase-slider">
+          <article class="showcase-item is-active" data-showcase-panel="0">
             <div class="item-tag">UNA HORA COMPLETA</div>
             <h4 class="item-title">Sesiones sin prisas</h4>
             <p class="item-text">
@@ -281,7 +279,7 @@
             </p>
           </article>
 
-          <article class="showcase-item">
+          <article class="showcase-item" data-showcase-panel="1">
             <div class="item-tag">OFICIO Y ESCENARIOS</div>
             <h4 class="item-title">ManuCuts: técnica y formación</h4>
             <p class="item-text">
@@ -289,13 +287,20 @@
             </p>
           </article>
 
-          <article class="showcase-item">
+          <article class="showcase-item" data-showcase-panel="2">
             <div class="item-tag">EL TOQUE DE LA CASA</div>
             <h4 class="item-title">Higiene, ambiente y colonia</h4>
             <p class="item-text">
               Herramientas desinfectadas, local impecable y un ambiente cuidado al milímetro. Al retirar la capa, cerramos cada sesión con unas gotas de colonia clásica en las manos del cliente para salir impecable a la calle.
             </p>
           </article>
+        </div>
+
+        <!-- Indicador minimalista de progreso solo móvil (3 fases + deslizar) -->
+        <div class="showcase-progress" aria-label="Progreso de fases">
+          <button type="button" class="showcase-bar is-active" data-showcase-dot="0" aria-label="Fase 1: Sesiones sin prisas"><span></span></button>
+          <button type="button" class="showcase-bar" data-showcase-dot="1" aria-label="Fase 2: ManuCuts"><span></span></button>
+          <button type="button" class="showcase-bar" data-showcase-dot="2" aria-label="Fase 3: Higiene, ambiente y colonia"><span></span></button>
         </div>
       </div>
     </div>
@@ -444,5 +449,5 @@
   </div>
 </dialog>
 
-<!-- Separador Bandera de Colombia (Sastrería de Lujo 2:1:1) -->
-<div class="separador-sastreria" data-reveal-line aria-hidden="true"></div>
+<!-- Separador fino Bandera de Colombia -->
+<div class="colombia-divider" aria-hidden="true"></div>
