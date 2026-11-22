@@ -1,70 +1,56 @@
-# Resumen de Sesión — 21 de Noviembre de 2026 (Cierre con Mini-Merge y Auditoría 360°)
+# Resumen de Sesión — 22 de Noviembre de 2026 (Nueva Paleta Oficial, Rediseño Editorial y Deploy a Producción)
 
 ## 1. Qué se ha hecho hoy
-- **Auditoría Técnica y Visual Completa (Playwright CLI + TestSprite):**
-  - **Playwright CLI:** 36 pruebas automatizadas ejecutadas sin incidencias (`0` fallos). Verificación en iPhone 14 (390×844), iPhone 14 Pro Max (430×932), iPhone SE (375×667), iPad (768×1024) y Desktop (1440×900). Desbordamiento horizontal: `0px` en todas las pantallas.
-  - **TestSprite:** Configurada globalmente la nueva API Key (`sk-member-R6dzySm-I4hbR6aUDX3Zq_amdKg0u4KQGpwX3ag1SjI`) en `mcp_config.json` y en la skill `/ts-sprite`. 14 pases de integridad de código completados (0 incidencias).
-  - Todas las capturas (16 imágenes HD) e informes técnicos se almacenaron aislados en `x/referencias/auditorias/2026-11-21-auditoria-v1/`.
-- **Corrección de las 3 Incidencias Reales en iPhone Safari:**
-  1. **Galería 3 (`galeria.html`) con Botón Volver y Memoria de Navegación:**
-     - Añadido botón visible y táctil `[ ← Volver atrás ]` (`.p7-back-pill`) tanto en la cabecera fija como al pie del carrusel.
-     - Actualizado `assets/js/nav-memory.js` con soporte para el `bfcache` de Safari iOS (`pageshow`), restaurando el píxel exacto de scroll tanto al pulsar el botón como al deslizar el dedo hacia atrás en iOS.
-  2. **Eliminación del Asomo de la Cinta Editorial en el Hero en Móvil:**
-     - Cambiado `.hero` de `100svh` a `min-height: 100lvh; height: 100lvh;` con padding inferior adaptado a la barra flotante de Safari (`safe-area-inset-bottom`). La cinta queda 100% oculta bajo el pliegue inicial (`ribbonTop >= windowHeight`).
-  3. **Eliminación de la Franja Verde en Footer y Barra del Navegador:**
-     - Cambiado `<meta name="theme-color">` de `#0B2E22` a `#0b0b0c` en todos los archivos HTML (`src/head.html`, `index.html`, `galeria.html`, `equipo.html`, `aviso-legal.html`, `privacidad.html`, `cookies.html`).
-     - Unificado el fondo de `html`, `body`, `--bg-hero` y `--bg-footer` a `#0b0b0c` en `site.css`. El footer y el canvas halftone se funden ahora en negro carbono puro con el navegador.
-- **Cuarentena del Preloader de Carga (`#p7-loading`):**
-  - Mantenido estrictamente aislado en `web/loading/` sin inyectarse en `web/v1/`, listo para retocarse en una sesión futura como indicó Musa.
-- **Mini-Merge Oficial a `main` y Despliegue en Cloudflare:**
-  - Ejecutado `scripts/mini-merge.sh` con subida a GitHub (`origin/main` commit `afdb32f`).
-  - La sesión de trabajo permanece activa en la rama `dev`.
+- **Nueva paleta oficial extraída del logo P7 (`p7-logo-paleta.pdf`):**
+  - Reemplazada la antigua paleta verde esmeralda por los tonos reales del logo: Carbón `#0A0909`, Ébano `#0B0702`, Antracita Grafito `#242423`, Bronce Dorado `#AC986C`, Champán Arena `#C3B9A0`, Plata Titanio `#9D9B95`, Blancos `#FFFFFF` / `#FDFDFC` / `#F6F5F5` y acento **Brick Red (`#C1091E`)**.
+  - Documentado el análisis en `docs/ANALISIS_COLOR_LOGO_P7.md` y actualizado `docs/DESIGN.md`.
+- **Botones Liquid Glass unificados (21st.dev):**
+  - Migrados *Reservar cita* (Hero), *Ver nuestro equipo*, *Ver más fotos*, *Lista de precios*, *Reserva online* y *Escribir por WhatsApp* a `.liquid-glass-btn` con centro transparente, refracción SVG y bordado/resplandor en Rojo Ladrillo (`#C1091E`).
+- **Rediseño editorial de secciones (nivel agencia):**
+  - **Cómo se trabaja en P7:** Banda full-bleed asimétrica en Piedra Champán Mate (`#EAE4D7`) con sello del escudo 3D a la izquierda y 3 filas editoriales con filetes `1px` a la derecha.
+  - **Lista de precios:** Misma plantilla de Pinterest en colores exactos del logo: fondo Champán Arena (`#C3B9A0`), rail vertical `SERVICIOS` y precios en Carbón (`#0A0909`), detalles en Grafito (`#242423`) y numeración `01` / `02` en `#C1091E`.
+  - **Contacto:** Banda full-bleed Piedra Champán Mate (`#EAE4D7`) con directorio editorial abierto + monolito de *Reserva tu hora* en Ébano (`#0B0702`).
+  - **Mapa y FAQ:** Mapa restaurado en blanco limpio con proporción más cuadrada en escritorio (`max-width: 880px`, altura hasta `460px`); título de FAQ centrado sobre el acordeón y las 6 preguntas cerradas por defecto.
+  - **Separadores Bandera de Colombia:** Restaurados a `3px` (2:1:1) entre secciones.
+- **Galería 3 en móvil (chat paralelo):**
+  - Limpiado `galeria.html` quitando el botón hamburguesa del header y el botón inferior duplicado, dejando solo el botón *Volver* con bordado rojo en la cabecera.
+  - Ajustado `galeria.js` (`mobileStep: 0.68`, recalibración en `resize` y swipe horizontal/diagonal para dejar libre el scroll vertical hacia el footer).
+- **Auditoría Mobile-First + Desktop con Playwright CLI:**
+  - Verificadas `/`, `/equipo.html` y `/galeria.html` en 8 viewports (`320px` a `1440px`): **0 px de overflow horizontal** y **0 errores JS/HTTP**.
+  - Ampliados tap targets móviles a `≥ 44px` en menú, barras del showcase, enlaces de contacto, mapa y botón *Volver*.
+- **Mini-merge y despliegue a producción (`main` → Cloudflare):**
+  - Ejecutado `scripts/mini-merge.sh --confirmed --push` (commit `7e0f8b1` en `origin/main`).
 
-### Mini-merges realizados en esta sesión
-- `2026-11-21T14:46:46 | feat(v1): header glass + curved menu, footer halftone, cinta editorial, legales, memoria navegacion y pulido mobile | push=1`
-- `2026-11-21T15:16:42 | fix(mobile): boton volver galeria 3, correccion fold cinta hero 100lvh y theme-color negro carbon 0b0b0c | push=1`
+### Mini-merges realizados hoy
+- `2026-11-22 | feat(v1): nueva paleta oficial del logo P7, botones liquid glass bordado rojo, rediseno editorial secciones, carta champan, galeria 3 mobile y auditoria responsive | push=1`
 
 ---
 
 ## 2. Archivos modificados
-- **Estilos y Scripts:**
-  - `web/v1/assets/css/site.css`
-  - `web/v1/assets/css/galeria.css`
-  - `web/v1/assets/js/nav-memory.js`
-- **Páginas HTML:**
-  - `web/v1/src/head.html` e `web/v1/index.html` (recompilado con `scripts/build.py`)
-  - `web/v1/galeria.html`
-  - `web/v1/equipo.html`
-  - `web/v1/aviso-legal.html`
-  - `web/v1/privacidad.html`
-  - `web/v1/cookies.html`
-- **Auditoría y Referencias (Fuera de `web/v1`):**
-  - `x/referencias/auditorias/2026-11-21-auditoria-v1/INFORME_AUDITORIA_P7_COMPLETA.md`
-  - `x/referencias/auditorias/2026-11-21-auditoria-v1/capturas/` (16 screenshots HD)
-  - `x/referencias/auditorias/2026-11-21-auditoria-v1/logs/playwright_results.json`
-  - `x/referencias/auditorias/2026-11-21-auditoria-v1/ts-sprite/resumen_testsprite.md`
-- **Configuración Global:**
-  - `/Users/musa/.gemini/config/mcp_config.json` y `/Users/musa/.gemini/antigravity-ide/mcp_config.json` (Nueva API key TestSprite).
-  - `/Users/musa/.gemini/config/skills/ts-sprite/SKILL.md`.
+- **CSS:** `assets/css/cinta.css`, `assets/css/contacto.css`, `assets/css/fonts.css`, `assets/css/footer.css`, `assets/css/galeria.css`, `assets/css/header.css`, `assets/css/sections.css`, `assets/css/site.css`, `assets/css/sobre.css`, `assets/css/trabajo.css`
+- **JS:** `assets/js/footer.js`, `assets/js/galeria.js`
+- **HTML / Plantillas:** `src/sections/01-hero.html`, `src/sections/03-trabajo-precios.html`, `src/sections/05-contacto-mapa.html`, `index.html`, `galeria.html`
+- **Docs y Assets nuevos:** `docs/DESIGN.md`, `docs/ANALISIS_COLOR_LOGO_P7.md`, `docs/p7-logo-paleta.pdf`, `assets/img/logo-p7-original-hd.jpg`
 
 ---
 
 ## 3. Problemas solucionados
-- **Pérdida de posición al regresar de Galería 3:** Solucionado mediante `pageshow` y almacenamiento en sesión de subpáginas.
-- **Asomo indeseado de la cinta en el Hero:** Solucionado con `100lvh` y compensación de viewport grande.
-- **Tinte verde en la barra inferior y superior de Safari:** Solucionado unificando el theme-color y fondos base a negro carbono `#0b0b0c`.
-- **Cero archivos residuales en la web:** Toda la suite de pruebas se ejecutó en carpetas aisladas sin tocar el código fuente de producción.
+- Eliminados `:root` locales conflictivos y restos de verde esmeralda (`#0b2e22`, `rgba(5, 18, 13, ...)`) en Hero, Galería 2, menú curvo (`.p7-curved-meta` invisible) y secciones.
+- Corregida la legibilidad de `Reserva tu hora.` y `5,0 en Booksy` sobre fondo oscuro.
+- Eliminada la flecha `←` duplicada en el botón *Volver* de `galeria.html` y el archivo temporal `paletas.html`.
+- Corregido el bloqueo del scroll vertical en Galería 3 móvil.
 
 ---
 
 ## 4. Qué queda pendiente
-- **Retoque del Preloader / Loading:** Diseñar y afinar la experiencia de carga guardada en `web/loading/` antes de decidir si se integra.
-- **Sustitución de datos provisionales:** Fotos de alta resolución de Manu / barberos reales en caso de que aporten nuevo material fotográfico.
-- **Salto a Astro (Fase futura tras OK del cliente):** Cuando el cliente dé el visto bueno final, migrar a Astro para escalabilidad, multiidioma (`EN`/`DE`) y backend con InsForge.
+- Revisar `assets/css/legal.css` (aún usa `#f8f1e4`) si se quiere alinear las páginas legales con la nueva paleta oficial.
+- Retoque opcional del preloader guardado en `web/loading/` antes de decidir si se integra.
+- Sustitución de datos provisionales (teléfono/fotos finales si Manu aporta material nuevo).
+- **Fase futura tras OK del cliente:** Migración a Astro + multiidioma (`ES`/`EN`/`DE`) + backend con InsForge.
 
 ---
 
 ## 5. Qué se recomienda hacer en la próxima sesión
-1. Comprobar la web en el iPhone real en producción y confirmar que los 3 puntos visuales (botón volver, cinta oculta en hero y footer negro) se ven perfectos.
-2. Si se desea activar el preloader, abrir la carpeta `web/loading/` para pulir la animación y sincronización antes de incluirlo en `src/`.
-3. Revisar si hay algún detalle menor de copy o fotografía que Manu quiera ajustar antes de la entrega final.
+1. Verificar la web desplegada en producción (Cloudflare) desde un móvil real y escritorio (revisando Hero, *Cómo se trabaja en P7*, *Lista de precios*, *Contacto*, Mapa, FAQ y *Galería 3*).
+2. Alinear `legal.css` con la paleta oficial si lo ves necesario.
+3. Preparar la demo para Manu y, en cuanto dé luz verde para el proyecto definitivo, planificar el salto a Astro.
