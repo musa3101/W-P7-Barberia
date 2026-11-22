@@ -21,6 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const CONFIG = {
     inactiveScale: 0.74,
     step: 0.88,
+    mobileStep: 0.68,
     bounce: 0.1,
     duration: 0.78,
     stepDuration: 0.58,
@@ -37,9 +38,14 @@ document.addEventListener('DOMContentLoaded', () => {
     return i < activePos ? -1 : i > activePos ? 1 : 0;
   }
 
+  function currentStepFactor() {
+    return window.matchMedia('(max-width: 640px)').matches ? CONFIG.mobileStep : CONFIG.step;
+  }
+
   function slideTransform(i, activePos) {
     const s = stepOf(i, activePos);
-    return `translateY(${s * CONFIG.step * 100}%) scale(${s === 0 ? 1 : CONFIG.inactiveScale})`;
+    const stepFactor = currentStepFactor();
+    return `translateY(${s * stepFactor * 100}%) scale(${s === 0 ? 1 : CONFIG.inactiveScale})`;
   }
 
   function springAt(t, bounce, duration) {
@@ -324,16 +330,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const absX = Math.abs(dx);
     const absY = Math.abs(dy);
 
-    // Gesto vertical (deslizar hacia arriba = siguiente, hacia abajo = anterior)
-    if (absY > 32 && absY >= absX) {
-      swipe.done = true;
-      goDelta(dy < 0 ? 1 : -1);
-    } else if (absX > 36 && absX > absY) {
-      // Gesto horizontal (deslizar izquierda = siguiente, derecha = anterior)
+    // Gesto horizontal o diagonal (deja libre el scroll vertical de la página hacia el separador y footer)
+    if (absX > 24 && absX >= absY * 0.75) {
       swipe.done = true;
       goDelta(dx < 0 ? 1 : -1);
     }
   });
+
+  window.addEventListener('resize', () => {
+    applyTransforms(true);
+  }, { passive: true });
 
   const endSwipe = () => {
     swipe.id = -1;

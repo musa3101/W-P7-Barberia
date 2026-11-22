@@ -7,12 +7,12 @@
 .p7-ribbon-section {
   position: relative;
   width: 100%;
-  background: #0b0b0c;
+  background: #0A0909;
   color: #ffffff;
   overflow: hidden;
   overflow-x: clip;
   padding: clamp(18px, 2.3vw, 26px) 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(195, 185, 160, 0.14);
   user-select: none;
   contain: layout style paint;
 }
@@ -31,12 +31,12 @@
 
 .p7-ribbon-section::before {
   left: 0;
-  background: linear-gradient(90deg, #0b0b0c 0%, rgba(11, 11, 12, 0) 100%);
+  background: linear-gradient(90deg, #0A0909 0%, rgba(10, 9, 9, 0) 100%);
 }
 
 .p7-ribbon-section::after {
   right: 0;
-  background: linear-gradient(270deg, #0b0b0c 0%, rgba(11, 11, 12, 0) 100%);
+  background: linear-gradient(270deg, #0A0909 0%, rgba(10, 9, 9, 0) 100%);
 }
 
 .p7-ribbon-viewport {

@@ -5,9 +5,9 @@
    ========================================================================== */
 
 .hwf-root {
-  --hwf-bg: #0b0b0c;
-  --hwf-ink: #f3ead8;
-  --hwf-warm: #e5c16c;
+  --hwf-bg: #0A0909;
+  --hwf-ink: #FDFDFC;
+  --hwf-warm: #AC986C;
   --hwf-mono: 'General Sans', -apple-system, BlinkMacSystemFont, sans-serif;
 
   position: relative;
@@ -106,13 +106,15 @@
 .hwf-col a,
 .hwf-col button,
 .hwf-up {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  min-height: 36px;
   color: inherit;
   text-decoration: none;
   opacity: 0.78;
   background: none;
   border: 0;
-  padding: 2px 0;
+  padding: 4px 0;
   font: inherit;
   letter-spacing: inherit;
   text-transform: inherit;

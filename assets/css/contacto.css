@@ -4,38 +4,38 @@
    ========================================================================== */
 
 :root {
-  --p7-emerald-950: #071f17;
-  --p7-emerald-900: #0b2e22;
-  --p7-emerald-800: #0f3d2e;
-  --p7-ink-900: #0b2e22;
-  --p7-ink-muted: rgba(11, 46, 34, 0.72);
-  --p7-ink-soft: rgba(11, 46, 34, 0.5);
-  --p7-cream-100: #f8f1e4;
-  --p7-cream-200: #f3e9d7;
-  --p7-gold-300: #f1d592;
-  --p7-gold-500: #c9a45c;
-  --p7-gold-text: #7a5b20;
-  --p7-hairline: rgba(11, 46, 34, 0.14);
-  --faq-accent: #e5c378;
+  --p7-emerald-950: #050403;
+  --p7-emerald-900: #0B0702;
+  --p7-emerald-800: #0A0909;
+  --p7-ink-900: #FFFFFF;
+  --p7-ink-muted: #9D9B95;
+  --p7-ink-soft: rgba(157, 155, 149, 0.65);
+  --p7-cream-100: #141313;
+  --p7-cream-200: #1C1B1A;
+  --p7-gold-300: #C3B9A0;
+  --p7-gold-500: #AC986C;
+  --p7-gold-text: #C3B9A0;
+  --p7-hairline: rgba(255, 255, 255, 0.1);
+  --faq-accent: #AC986C;
 }
 
 /* --------------------------------------------------------------------------
-   1. SECCIÓN 4 — CONTACTO (#contacto · Crema cálido #F8F1E4)
+   1. SECCIÓN 4 — CONTACTO (#contacto · Banda Full-Bleed Piedra Champán #EAE4D7)
    -------------------------------------------------------------------------- */
 #contacto.contacto-v2,
 .contacto-v2 {
   position: relative;
   z-index: 1;
-  background-color: var(--p7-cream-100);
-  color: var(--p7-ink-900);
-  padding-block: clamp(56px, 8vw, 112px);
-  padding-inline: clamp(16px, 4vw, 40px);
+  background-color: #EAE4D7;
+  color: #0A0909;
+  padding-block: clamp(56px, 7vw, 96px);
+  padding-inline: clamp(20px, 4vw, 48px);
   overflow-x: clip;
 }
 
 .contacto-shell {
   width: 100%;
-  max-width: 1200px;
+  max-width: 1180px;
   margin-inline: auto;
   display: flex;
   flex-direction: column;
@@ -45,7 +45,7 @@
 .contacto-block-wrap {
   display: flex;
   flex-direction: column;
-  gap: clamp(28px, 4vw, 40px);
+  gap: clamp(28px, 3.5vw, 40px);
 }
 
 .contacto-head {
@@ -57,45 +57,182 @@
 .contacto-h2 {
   margin: 0;
   font-family: var(--font-display, 'Boska', serif);
-  font-size: clamp(2.5rem, 5.5vw, 4rem);
+  font-size: clamp(2.5rem, 5.2vw, 3.85rem);
   font-weight: 400;
   line-height: 0.98;
-  letter-spacing: -0.025em;
-  color: var(--p7-ink-900);
+  letter-spacing: -0.03em;
+  color: #0A0909;
 }
 
 .contacto-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: clamp(20px, 3vw, 28px);
+  gap: clamp(32px, 4.5vw, 64px);
   align-items: stretch;
 }
 
 @media (min-width: 900px) {
   .contacto-grid {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1.05fr 0.95fr;
   }
 }
 
-/* Bloque 1: Información del local (limpio y editorial en móvil, tarjeta suave en escritorio) */
+/* Bloque 1: Información del local (Directo sobre la banda Piedra Champán · Cero caja flotante) */
 .contacto-info-card {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: 24px;
-  padding: 6px 0 12px;
+  gap: 28px;
+  padding: 0;
   border-radius: 0;
   background-color: transparent;
-  color: #141416;
+  border: 0;
+  color: #0A0909;
 }
 
 @media (min-width: 900px) {
   .contacto-info-card {
-    gap: clamp(24px, 3.5vw, 32px);
-    padding: clamp(32px, 4.5vw, 48px);
-    border-radius: 20px;
-    background-color: #efe6d5;
+    gap: 32px;
+    padding: 8px 0;
+    border-radius: 0;
   }
+}
+
+.contacto-info-card .info-kicker {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #786540;
+}
+
+.contacto-info-card .info-title {
+  color: #0A0909;
+  font-size: clamp(2rem, 3.2vw, 2.65rem);
+  letter-spacing: -0.03em;
+  line-height: 1.04;
+}
+
+.local-directory {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid rgba(10, 9, 9, 0.14);
+}
+
+.dir-row {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 12px 18px;
+  align-items: baseline;
+  padding-block: 14px;
+  border-bottom: 1px solid rgba(10, 9, 9, 0.12);
+}
+
+@media (max-width: 479px) {
+  .dir-row {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+}
+
+.dir-label {
+  font-family: var(--font-sans, 'General Sans', sans-serif);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #786540;
+}
+
+.dir-value {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-family: var(--font-sans, 'General Sans', sans-serif);
+  font-size: 0.96rem;
+  font-weight: 500;
+  line-height: 1.4;
+  color: #0A0909;
+}
+
+.dir-value a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  margin-block: -10px;
+  color: #0A0909;
+  text-decoration: none;
+  transition: color 220ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.dir-value a:hover {
+  color: #C1091E;
+}
+
+.dir-sub {
+  font-size: 0.84rem;
+  font-weight: 400;
+  color: rgba(10, 9, 9, 0.62);
+}
+
+.contacto-info-card .info-hours-foot {
+  padding-top: 4px;
+  border-top: 0;
+  gap: 10px;
+}
+
+.contacto-info-card .info-hours-label {
+  color: #786540;
+  font-weight: 600;
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+}
+
+.contacto-info-card .local-hours {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  color: #242423;
+  border-top: 1px solid rgba(10, 9, 9, 0.12);
+}
+
+.hours-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding-block: 9px;
+  border-bottom: 1px solid rgba(10, 9, 9, 0.10);
+  font-size: 0.88rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.hours-row:last-child {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+
+.hours-row span {
+  color: rgba(10, 9, 9, 0.72);
+  font-weight: 500;
+}
+
+.contacto-info-card .local-hours strong {
+  color: #0A0909;
+  font-weight: 600;
+  margin-right: 0;
+}
+
+.hours-row--closed strong {
+  color: #C1091E;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
 }
 
 .info-card-top {
@@ -220,15 +357,15 @@ a.local-primary:hover {
   justify-content: space-between;
   gap: clamp(24px, 3.5vw, 36px);
   padding: clamp(28px, 4.5vw, 48px);
-  border-radius: 20px;
+  border-radius: 6px;
   background:
-    radial-gradient(circle at 86% 12%, rgba(201, 164, 92, 0.12), transparent 52%),
-    #0b0b0c;
-  color: var(--p7-cream-100);
-  border: 1px solid rgba(241, 213, 146, 0.14);
+    radial-gradient(circle at 86% 12%, rgba(172, 152, 108, 0.15), transparent 52%),
+    #0A0909;
+  color: #FFFFFF;
+  border: 1px solid rgba(172, 152, 108, 0.22);
   box-shadow:
     0 24px 56px -14px rgba(0, 0, 0, 0.32),
-    inset 0 1px 0 rgba(241, 213, 146, 0.12);
+    inset 0 1px 0 rgba(195, 185, 160, 0.15);
 }
 
 .reserva-top {
@@ -253,7 +390,7 @@ a.local-primary:hover {
   font-weight: 400;
   line-height: 1.04;
   letter-spacing: -0.02em;
-  color: var(--p7-cream-100);
+  color: #FFFFFF;
 }
 
 .reserva-desc {
@@ -261,7 +398,7 @@ a.local-primary:hover {
   font-family: var(--font-sans, 'General Sans', sans-serif);
   font-size: 0.9375rem;
   line-height: 1.65;
-  color: rgba(248, 241, 228, 0.68);
+  color: var(--p7-silver-titanium, #9D9B95);
   max-width: 38ch;
 }
 
@@ -341,7 +478,7 @@ a.local-primary:hover {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  color: var(--p7-cream-100);
+  color: #FFFFFF;
   font-weight: 500;
   font-variant-numeric: tabular-nums;
 }
@@ -392,13 +529,13 @@ a.local-primary:hover {
 .mapa-frame-wrap {
   position: relative;
   width: 100%;
-  max-width: 820px;
-  height: clamp(240px, 32vw, 330px);
+  max-width: 880px;
+  height: clamp(300px, 42vw, 460px);
   border-radius: 18px;
   overflow: hidden;
-  background-color: #f5f3ee;
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.5);
+  background-color: #FFFFFF;
+  border: 2px solid rgba(195, 185, 160, 0.4);
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.45);
 }
 
 .mapa-iframe {
@@ -407,17 +544,19 @@ a.local-primary:hover {
   width: 100%;
   height: 100%;
   border: 0;
-  filter: saturate(75%) contrast(1.03);
-  transition: filter 280ms ease;
+  filter: none !important;
+  transition: opacity 280ms ease;
 }
 
 .mapa-frame-wrap:hover .mapa-iframe {
-  filter: saturate(100%) contrast(1.01);
+  filter: none !important;
+  opacity: 0.98;
 }
 
 .mapa-link {
   display: inline-flex;
   align-items: center;
+  min-height: 44px;
   gap: 6px;
   font-family: var(--font-sans, 'General Sans', sans-serif);
   font-size: 0.9375rem;
@@ -440,22 +579,20 @@ a.local-primary:hover {
 .faq-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: clamp(36px, 5vw, 64px);
+  gap: clamp(28px, 4vw, 40px);
   align-items: start;
-  padding-top: clamp(40px, 6vw, 64px);
+  width: 100%;
+  max-width: 840px;
+  margin-inline: auto;
+  padding-top: clamp(44px, 6vw, 68px);
   border-top: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-@media (min-width: 860px) {
-  .faq-grid {
-    grid-template-columns: minmax(260px, 2fr) minmax(360px, 3fr);
-    gap: clamp(48px, 6vw, 80px);
-  }
 }
 
 .faq-intro-col {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
 .faq-heading {
@@ -469,12 +606,12 @@ a.local-primary:hover {
 }
 
 .faq-description {
-  margin: 18px 0 0;
+  margin: 14px 0 0;
   font-family: var(--font-sans, 'General Sans', sans-serif);
   font-size: clamp(0.9375rem, 1.25vw, 1.0625rem);
   line-height: 1.6;
   color: rgba(245, 243, 238, 0.65);
-  max-width: 36ch;
+  max-width: 48ch;
 }
 
 .faq-accordion {

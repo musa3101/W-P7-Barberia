@@ -12,7 +12,7 @@
   --gal-ink-muted: rgba(245, 243, 238, 0.68);
   --gal-ink-soft: rgba(245, 243, 238, 0.48);
   --p7-gold-300: #f1d592;
-  --p7-gold-500: #c9a45c;
+  --p7-gold-500: #AC986C;
   --gal-hairline: rgba(255, 255, 255, 0.09);
   --gal-header-h: 72px;
 }
@@ -134,22 +134,28 @@ body {
   inset: 0;
   z-index: 0;
   border-radius: 9999px;
-  background: rgba(255, 255, 255, 0.07);
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(193, 9, 30, 0.55);
   box-shadow:
-    0 0 8px rgba(0, 0, 0, 0.08),
-    0 2px 6px rgba(0, 0, 0, 0.18),
-    inset 3px 3px 0.5px -3.5px rgba(255, 255, 255, 0.14),
+    0 0 12px rgba(193, 9, 30, 0.28),
+    0 2px 6px rgba(0, 0, 0, 0.25),
+    inset 0 0 0 1px rgba(193, 9, 30, 0.35),
+    inset 3px 3px 0.5px -3.5px rgba(255, 255, 255, 0.2),
     inset -3px -3px 0.5px -3.5px rgba(255, 255, 255, 0.85),
     inset 1px 1px 1px -0.5px rgba(255, 255, 255, 0.6),
-    inset -1px -1px 1px -0.5px rgba(255, 255, 255, 0.6),
-    inset 0 0 6px 6px rgba(255, 255, 255, 0.12),
-    inset 0 0 2px 2px rgba(255, 255, 255, 0.06),
-    0 0 12px rgba(0, 0, 0, 0.2);
-  transition: background-color 280ms ease;
+    inset -1px -1px 1px -0.5px rgba(255, 255, 255, 0.6);
+  transition: background-color 280ms ease, border-color 280ms ease, box-shadow 280ms ease;
 }
 
 .liquid-glass-btn:hover .liquid-glass-surface {
-  background: rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.16);
+  border-color: #C1091E;
+  box-shadow:
+    0 0 20px rgba(193, 9, 30, 0.45),
+    0 4px 14px rgba(0, 0, 0, 0.35),
+    inset 0 0 0 1.5px rgba(193, 9, 30, 0.75),
+    inset 3px 3px 0.5px -3.5px rgba(255, 255, 255, 0.3),
+    inset -3px -3px 0.5px -3.5px rgba(255, 255, 255, 0.95);
 }
 
 .liquid-glass-blur {
@@ -185,15 +191,17 @@ body {
    - Título a la derecha con animación pop-in/out (debajo centrado en móvil)
    -------------------------------------------------------------------------- */
 .stc-root {
-  --stc-w: clamp(188px, 52vw, 240px);
+  --stc-avail-h: calc(100svh - var(--p7-hdr-height, 56px) - env(safe-area-inset-top, 0px));
+  --stc-w: clamp(136px, min(48vw, calc((var(--stc-avail-h) - 36px) * 0.34)), 228px);
   position: relative;
   isolation: isolate;
   overflow: hidden;
   display: grid;
   place-items: center;
   width: 100%;
-  height: calc(100svh - var(--gal-header-h));
-  min-height: 540px;
+  height: 100dvh;
+  min-height: 100lvh;
+  padding-top: calc(var(--p7-hdr-height, 56px) + env(safe-area-inset-top, 0px));
   background-color: var(--gal-bg-main);
   color: var(--gal-ink-100);
   user-select: none;
@@ -205,7 +213,7 @@ body {
 
 @media (min-width: 641px) {
   .stc-root {
-    --stc-w: clamp(220px, min(25vw, 41svh), 340px);
+    --stc-w: clamp(200px, min(25vw, calc((var(--stc-avail-h) - 96px) * 0.29)), 336px);
   }
 }
 
@@ -307,10 +315,6 @@ body {
     right: 0;
     justify-content: center;
     transform-origin: 50% 50%;
-  }
-
-  .stc-root {
-    touch-action: none;
   }
 
   .stc-controls {
@@ -649,8 +653,8 @@ body {
   font-size: 0.875rem;
   font-weight: 600;
   text-decoration: none;
-  color: var(--gal-bg-deep);
-  background: linear-gradient(135deg, #9a7838, #f1d592 45%, #c9a45c 70%, #9a7838);
+  color: #0A0909;
+  background: linear-gradient(135deg, #786540, #C3B9A0 45%, #AC986C 70%, #786540);
 }
 
 .gal-footer-bottom {
@@ -683,14 +687,18 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 7px;
-  height: 36px;
-  padding: 0 14px;
+  min-height: 44px;
+  height: 44px;
+  padding: 0 18px;
   border-radius: 9999px;
-  background: rgba(255, 255, 255, 0.08);
+  background: transparent;
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  color: #f8f1e4;
+  border: 1px solid rgba(193, 9, 30, 0.65);
+  box-shadow:
+    0 0 12px rgba(193, 9, 30, 0.28),
+    inset 0 0 0 1px rgba(193, 9, 30, 0.35);
+  color: #FDFDFC;
   font-family: var(--font-sans, 'General Sans', sans-serif);
   font-size: 0.8125rem;
   font-weight: 500;
@@ -700,15 +708,19 @@ body {
   transition:
     background-color 200ms ease,
     border-color 200ms ease,
+    box-shadow 200ms ease,
     transform 160ms ease,
     color 200ms ease;
   white-space: nowrap;
 }
 
 .p7-back-pill:hover {
-  background: rgba(241, 213, 146, 0.16);
-  border-color: rgba(241, 213, 146, 0.45);
-  color: #f1d592;
+  background: rgba(255, 255, 255, 0.06);
+  border-color: #C1091E;
+  box-shadow:
+    0 0 20px rgba(193, 9, 30, 0.5),
+    inset 0 0 0 1.5px rgba(193, 9, 30, 0.75);
+  color: #C3B9A0;
   transform: translateX(-2px);
 }
 
@@ -717,8 +729,9 @@ body {
 }
 
 .p7-back-pill--lg {
-  height: 42px;
-  padding: 0 20px;
+  min-height: 46px;
+  height: 46px;
+  padding: 0 24px;
   font-size: 0.875rem;
   gap: 9px;
 }

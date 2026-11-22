@@ -22,9 +22,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const config = {
     wordmark: root.dataset.wordmark || 'p7 barber',
-    background: '#0b0b0c',
-    ink: '#f3ead8',
-    warm: '#e5c16c',
+    background: '#0A0909',
+    ink: '#FDFDFC',
+    warm: '#AC986C',
     crop: 0.2,
     grain: 0.45,
     fontWeight: 700,

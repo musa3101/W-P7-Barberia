@@ -5,16 +5,16 @@
    ========================================================================== */
 
 :root {
-  --p7-emerald-950: #071f17;
-  --p7-emerald-900: #0b2e22;
-  --p7-emerald-800: #0f3d2e;
-  --p7-cream-100: #f8f1e4;
-  --p7-cream-200: #f3e9d7;
-  --p7-cream-muted: rgba(243, 233, 215, 0.74);
-  --p7-cream-soft: rgba(243, 233, 215, 0.54);
-  --p7-gold-300: #f1d592;
-  --p7-gold-500: #c9a45c;
-  --p7-gold-hairline: rgba(201, 164, 92, 0.22);
+  --p7-emerald-950: #050403;
+  --p7-emerald-900: #0B0702;
+  --p7-emerald-800: #0A0909;
+  --p7-cream-100: #141313;
+  --p7-cream-200: #F6F5F5;
+  --p7-cream-muted: #9D9B95;
+  --p7-cream-soft: rgba(157, 155, 149, 0.6);
+  --p7-gold-300: #C3B9A0;
+  --p7-gold-500: #AC986C;
+  --p7-gold-hairline: rgba(172, 152, 108, 0.22);
 }
 
 /* --------------------------------------------------------------------------
@@ -24,10 +24,10 @@
   position: sticky;
   top: 0;
   z-index: 200;
-  background-color: rgba(7, 31, 23, 0.92);
+  background-color: rgba(11, 7, 2, 0.94);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
-  border-bottom: 1px solid rgba(201, 164, 92, 0.14);
+  border-bottom: 1px solid rgba(172, 152, 108, 0.18);
 }
 
 /* --------------------------------------------------------------------------
@@ -74,7 +74,7 @@
   font-weight: 400;
   line-height: 1.04;
   letter-spacing: -0.025em;
-  color: var(--p7-cream-100);
+  color: #FFFFFF;
   text-wrap: balance;
 }
 
@@ -83,7 +83,7 @@
   font-family: var(--font-sans, 'General Sans', sans-serif);
   font-size: clamp(0.9375rem, 1.35vw, 1.0625rem);
   line-height: 1.65;
-  color: var(--p7-cream-muted);
+  color: #9D9B95;
   max-width: 54ch;
   text-wrap: pretty;
 }
@@ -249,7 +249,7 @@
 .exp-scrim {
   position: absolute;
   inset: 0;
-  background: rgba(5, 18, 13, 0.42);
+  background: rgba(10, 9, 9, 0.42);
   opacity: 1;
   pointer-events: none;
   transition: opacity 320ms ease;
@@ -267,8 +267,8 @@
   padding: 28px 16px 14px;
   background: linear-gradient(
     to top,
-    rgba(5, 18, 13, 0.84) 0%,
-    rgba(5, 18, 13, 0.4) 58%,
+    rgba(10, 9, 9, 0.84) 0%,
+    rgba(10, 9, 9, 0.4) 58%,
     transparent 100%
   );
   display: flex;
@@ -318,7 +318,7 @@
   width: 34px;
   height: 34px;
   border-radius: 9999px;
-  background: rgba(7, 31, 23, 0.68);
+  background: rgba(10, 9, 9, 0.72);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   border: 1px solid rgba(248, 241, 228, 0.18);
@@ -383,7 +383,7 @@
   /* En reposo: velo sutil uniforme (0.26) y sin texto tapando las fotos */
   .exp-scrim,
   .exp-panel.is-active .exp-scrim {
-    background: rgba(5, 18, 13, 0.28);
+    background: rgba(10, 9, 9, 0.28);
     opacity: 1;
   }
 
@@ -415,7 +415,7 @@
   }
 
   .exp-gallery.has-hover .exp-panel .exp-scrim {
-    background: rgba(5, 18, 13, 0.42);
+    background: rgba(10, 9, 9, 0.42);
     opacity: 1;
   }
 
@@ -448,67 +448,111 @@
 }
 
 /* --------------------------------------------------------------------------
-   3.5 Showcase Editorial de Oficio & Autoridad (Atelier Split con SVG)
+   3.5 Showcase Editorial Full-Bleed: Banda Piedra Champán Asimétrica (Nivel Agencia)
+   Sin cajas flotantes, sin gradientes artificiales, sin 3 tarjetas iguales
    -------------------------------------------------------------------------- */
 .trabajo-showcase {
-  width: 100%;
-  max-width: 1180px;
-  margin-block: clamp(40px, 5.5vw, 68px);
-  padding: clamp(28px, 4vw, 48px);
-  background-color: #f7f3eb;
-  border-radius: 28px;
-  border: 1px solid rgba(201, 164, 92, 0.35);
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.85),
-    0 24px 60px -15px rgba(0, 0, 0, 0.45);
-  display: grid;
-  grid-template-columns: minmax(0, 1fr);
-  gap: clamp(32px, 4vw, 48px);
-  align-items: center;
+  position: relative;
+  width: 100vw;
+  max-width: none;
+  margin-inline: calc(50% - 50vw);
+  margin-block: clamp(44px, 6vw, 72px);
+  padding-block: clamp(44px, 5.5vw, 68px);
+  padding-inline: clamp(20px, 4vw, 48px);
+  background-color: #EAE4D7;
+  border-top: 1px solid rgba(172, 152, 108, 0.35);
+  border-bottom: 1px solid rgba(172, 152, 108, 0.35);
+  color: #0A0909;
   box-sizing: border-box;
-  overflow: hidden;
 }
 
-@media (min-width: 960px) {
-  .trabajo-showcase {
-    grid-template-columns: 360px 1fr;
-    gap: clamp(36px, 4.5vw, 56px);
+.trabajo-showcase-inner {
+  width: 100%;
+  max-width: 1180px;
+  margin-inline: auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: clamp(28px, 4vw, 64px);
+  align-items: start;
+}
+
+@media (min-width: 900px) {
+  .trabajo-showcase-inner {
+    grid-template-columns: 0.82fr 1.18fr;
+    gap: clamp(44px, 5vw, 80px);
+    align-items: center;
   }
 }
 
-/* Columna Visual Izquierda (Carbono editorial con halo oro sutil) */
-.showcase-visual {
-  position: relative;
-  background: radial-gradient(circle at 50% 38%, rgba(201, 164, 92, 0.14) 0%, #0b0b0c 72%);
-  border-radius: 22px;
-  border: 1px solid rgba(201, 164, 92, 0.28);
-  padding: 36px 20px 28px;
+.showcase-anchor {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  box-shadow:
-    inset 0 1px 0 rgba(241, 213, 146, 0.14),
-    0 16px 36px -10px rgba(0, 0, 0, 0.45);
-  overflow: hidden;
+  gap: clamp(24px, 3vw, 36px);
 }
 
-/* Contenedor del escudo con rotación 3D sobre su propio eje vertical (360° continuo) */
+.showcase-header {
+  margin: 0;
+}
+
+.showcase-kicker {
+  display: inline-block;
+  font-family: var(--font-sans, 'General Sans', sans-serif);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #786540;
+  margin-bottom: 10px;
+}
+
+.showcase-title {
+  margin: 0 0 12px 0;
+  font-family: var(--font-display, 'Boska', serif);
+  font-size: clamp(2.2rem, 3.8vw, 3.25rem);
+  font-weight: 400;
+  line-height: 1.02;
+  color: #0A0909;
+  letter-spacing: -0.03em;
+  text-wrap: balance;
+}
+
+.showcase-subtitle {
+  margin: 0;
+  font-family: var(--font-sans, 'General Sans', sans-serif);
+  font-size: 0.96rem;
+  line-height: 1.55;
+  color: #46443F;
+  max-width: 38ch;
+  text-wrap: pretty;
+}
+
+/* Sello del Escudo 3D integrado limpiamente sobre el fondo Piedra Champán */
+.showcase-seal {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(10, 9, 9, 0.14);
+}
+
 .showcase-emblem-wrap {
   position: relative;
-  width: 100%;
-  height: 240px;
+  width: 68px;
+  height: 68px;
+  flex-shrink: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-block: 4px;
+  border-radius: 50%;
+  background-color: #0B0702;
+  border: 1px solid rgba(172, 152, 108, 0.55);
 }
 
 .coin-3d-pedestal {
-  perspective: 1200px;
-  -webkit-perspective: 1200px;
-  width: 220px;
-  height: 220px;
+  perspective: 900px;
+  -webkit-perspective: 900px;
+  width: 58px;
+  height: 58px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -516,44 +560,39 @@
 
 .coin-3d-mesh {
   position: relative;
-  width: 190px;
-  height: 190px;
+  width: 54px;
+  height: 54px;
   transform-style: preserve-3d;
   -webkit-transform-style: preserve-3d;
-  animation: coinSpin360Smooth 15s linear infinite;
+  animation: coinSpin360Smooth 14s linear infinite;
   will-change: transform;
   pointer-events: none;
   user-select: none;
 }
 
-/* Rotación 360 continua ininterrumpida sobre su propio eje vertical (da igual si se pasa el ratón o se toca) */
 @keyframes coinSpin360Smooth {
   0% {
-    transform: rotateX(12deg) rotateY(0deg);
+    transform: rotateX(10deg) rotateY(0deg);
   }
   100% {
-    transform: rotateX(12deg) rotateY(360deg);
+    transform: rotateX(10deg) rotateY(360deg);
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .coin-3d-mesh {
     animation: none;
-    transform: rotateX(12deg) rotateY(-15deg);
+    transform: rotateX(10deg) rotateY(-15deg);
   }
 }
 
-/* Canto y cuerpo metálico de la moneda: evita que al ponerse de canto se vea invisible */
 .coin-edge {
   position: absolute;
-  inset: 4px;
+  inset: 2px;
   border-radius: 50%;
-  background: radial-gradient(circle, #0e3427 60%, #c9a45c 85%, #f1d592 95%, #9a7838 100%);
-  border: 2px solid rgba(241, 213, 146, 0.4);
+  background: radial-gradient(circle, #0B0702 60%, #AC986C 85%, #C3B9A0 95%, #786540 100%);
+  border: 1px solid rgba(195, 185, 160, 0.45);
   transform: translateZ(0);
-  box-shadow:
-    0 0 16px rgba(201, 164, 92, 0.25),
-    inset 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 .coin-face {
@@ -567,43 +606,46 @@
 }
 
 .coin-front {
-  transform: translateZ(6px);
+  transform: translateZ(3px);
 }
 
 .coin-back {
-  /* Cara posterior: rotada 180deg para que al girar se lea perfectamente al derecho sin efecto espejo */
-  transform: rotateY(180deg) translateZ(6px);
+  transform: rotateY(180deg) translateZ(3px);
 }
 
 .coin-img {
   width: 100%;
   height: 100%;
-  max-width: 190px;
-  max-height: 190px;
+  max-width: 54px;
+  max-height: 54px;
   object-fit: contain;
   display: block;
-  /* Conserva al 100% los tonos oro noble y negro gótico sin quemar brillo */
-  filter: drop-shadow(0 10px 18px rgba(0, 0, 0, 0.45));
   user-select: none;
   pointer-events: none;
 }
 
-.showcase-visual-caption {
-  text-align: center;
-  margin-top: 14px;
+.showcase-seal-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
 }
 
-.showcase-visual-caption .caption-lead {
-  display: block;
+.seal-brand {
   font-family: var(--font-sans, 'General Sans', sans-serif);
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.16em;
-  color: var(--p7-gold-300, #f1d592);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
+  color: #0A0909;
 }
 
-/* Columna Editorial Derecha (Tipografía de máximo contraste y legibilidad) */
+.seal-loc {
+  font-family: var(--font-sans, 'General Sans', sans-serif);
+  font-size: 0.78rem;
+  color: #6B675E;
+}
+
+/* Columna Derecha: Filas Editoriales Limpias con Filetes 1px (Cero cajas) */
 .showcase-content {
   display: flex;
   flex-direction: column;
@@ -611,113 +653,95 @@
   max-width: 100%;
 }
 
-.showcase-header {
-  margin-bottom: 24px;
-}
-
-.showcase-kicker {
-  display: block;
-  font-family: var(--font-sans, 'General Sans', sans-serif);
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: #8c6a28;
-  margin-bottom: 8px;
-}
-
-.showcase-title {
-  margin: 0 0 10px 0;
-  font-family: var(--font-display, 'Boska', serif);
-  font-size: clamp(1.8rem, 2.5vw, 2.35rem);
-  font-weight: 400;
-  line-height: 1.15;
-  color: #071f17;
-  letter-spacing: -0.02em;
-}
-
-.showcase-subtitle {
-  margin: 0;
-  font-family: var(--font-sans, 'General Sans', sans-serif);
-  font-size: 0.98rem;
-  line-height: 1.62;
-  color: #3b4e44;
-  text-wrap: pretty;
-  max-width: 64ch;
-}
-
 .showcase-list {
   display: flex;
   flex-direction: column;
+  border-top: 1px solid rgba(10, 9, 9, 0.16);
 }
 
 .showcase-item {
+  display: grid;
+  grid-template-columns: 44px 1fr;
+  gap: 16px;
+  align-items: baseline;
+  padding-block: 20px;
+  border-bottom: 1px solid rgba(10, 9, 9, 0.14);
+  transition: transform 240ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.showcase-item:hover {
+  transform: translateX(4px);
+}
+
+.showcase-item .item-num {
+  font-family: var(--font-sans, 'General Sans', sans-serif);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.08em;
+  color: #786540;
+  transition: color 220ms ease;
+}
+
+.showcase-item:hover .item-num {
+  color: #C1091E;
+}
+
+.showcase-item .item-body {
   display: flex;
   flex-direction: column;
-  padding-block: 20px;
-  border-top: 1px solid rgba(154, 120, 56, 0.22);
-  transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  gap: 4px;
+  min-width: 0;
+}
+
+.showcase-item .item-tag {
+  font-family: var(--font-sans, 'General Sans', sans-serif);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #786540;
+}
+
+.showcase-item .item-title {
+  margin: 0;
+  font-family: var(--font-display, 'Boska', serif);
+  font-size: clamp(1.3rem, 1.8vw, 1.55rem);
+  font-weight: 500;
+  line-height: 1.15;
+  color: #0A0909;
+  letter-spacing: -0.02em;
+}
+
+.showcase-item .item-text {
+  margin: 4px 0 0 0;
+  font-family: var(--font-sans, 'General Sans', sans-serif);
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: #3D3C38;
+  max-width: 56ch;
+  text-wrap: pretty;
 }
 
 .showcase-progress {
   display: none;
 }
 
-/* Móvil (< 768px): moneda carbono protagonista + carrusel automático/deslizable con 3 barritas finas */
+/* Móvil (< 768px): Banda Piedra Champán limpia + carrusel compacto */
 @media (max-width: 767px) {
   .trabajo-showcase {
-    padding: 20px 18px 24px;
-    gap: 22px;
-    border-radius: 24px;
+    padding-block: 36px;
+    padding-inline: 20px;
   }
 
-  .showcase-visual {
-    width: 100%;
-    min-width: 0;
-    box-sizing: border-box;
-    flex-direction: column;
-    justify-content: center;
-    gap: 10px;
-    padding: 22px 16px 18px;
-    border-radius: 18px;
-  }
-
-  .showcase-emblem-wrap {
-    width: 100%;
-    height: 146px;
-    margin-block: 0;
-  }
-
-  .coin-3d-pedestal {
-    width: 142px;
-    height: 142px;
-  }
-
-  .coin-3d-mesh,
-  .coin-img {
-    width: 136px;
-    height: 136px;
-    max-width: 136px;
-    max-height: 136px;
-  }
-
-  .showcase-visual-caption {
-    margin-top: 2px;
-    text-align: center;
-  }
-
-  .showcase-visual-caption .caption-lead {
-    font-size: 0.6875rem;
-    letter-spacing: 0.16em;
-    white-space: nowrap;
-  }
-
-  .showcase-header {
-    margin-bottom: 16px;
+  .showcase-seal {
+    padding-top: 16px;
   }
 
   .showcase-list {
     display: block;
+    border-top: 1px solid rgba(10, 9, 9, 0.16);
+    border-bottom: 1px solid rgba(10, 9, 9, 0.16);
     cursor: grab;
     user-select: none;
     touch-action: pan-y;
@@ -725,15 +749,13 @@
 
   .showcase-item {
     display: none;
-    padding: 18px 18px 20px;
-    border: 1px solid rgba(154, 120, 56, 0.22);
-    border-radius: 16px;
-    background: rgba(255, 255, 255, 0.62);
+    padding-block: 18px;
+    border-bottom: 0;
     animation: showcaseSlideIn 340ms cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   .showcase-item.is-active {
-    display: flex;
+    display: grid;
   }
 
   .showcase-item:hover {
@@ -749,7 +771,7 @@
 
   .showcase-bar {
     position: relative;
-    height: 24px;
+    height: 44px;
     padding: 0;
     border: 0;
     background: transparent;
@@ -764,7 +786,7 @@
     width: 100%;
     height: 2.5px;
     border-radius: 999px;
-    background: rgba(11, 46, 34, 0.14);
+    background: rgba(10, 9, 9, 0.18);
   }
 
   .showcase-bar span {
@@ -811,7 +833,7 @@
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: #8c6a28;
+  color: var(--p7-gold-antique, #AC986C);
   margin-bottom: 5px;
 }
 
@@ -821,7 +843,7 @@
   font-size: clamp(1.25rem, 1.6vw, 1.48rem);
   font-weight: 500;
   line-height: 1.25;
-  color: #071f17;
+  color: #FFFFFF;
   letter-spacing: -0.01em;
 }
 
@@ -830,14 +852,14 @@
   font-family: var(--font-sans, 'General Sans', sans-serif);
   font-size: 0.95rem;
   line-height: 1.68;
-  color: #2b3a33;
+  color: #9D9B95;
   text-wrap: pretty;
 }
 
 .item-text .text-gold-light {
-  color: #071f17;
+  color: #FDFDFC;
   font-weight: 700;
-  background-color: rgba(201, 164, 92, 0.22);
+  background-color: rgba(172, 152, 108, 0.25);
   padding: 1px 6px;
   border-radius: 4px;
 }
@@ -896,15 +918,13 @@
   grid-template-columns: auto minmax(0, 1fr);
   width: 100%;
   min-height: clamp(460px, 68svh, 700px);
-  background-color: #0b0b0c;
-  background-image: radial-gradient(circle at 88% 12%, rgba(201, 164, 92, 0.08), transparent 52%);
-  color: #f5f3ee;
+  background-color: #C3B9A0;
+  background-image: none;
+  color: #0A0909;
   border-radius: 0;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow:
-    inset 0 1px 0 rgba(241, 213, 146, 0.1),
-    inset 0 -1px 0 rgba(241, 213, 146, 0.06);
+  border-top: 1px solid rgba(10, 9, 9, 0.16);
+  border-bottom: 1px solid rgba(10, 9, 9, 0.16);
+  box-shadow: none;
   overflow: hidden;
   transform: translateY(-10px);
   transition: transform 520ms cubic-bezier(0.22, 1, 0.36, 1);
@@ -932,7 +952,7 @@
   font-weight: 500;
   line-height: 0.84;
   letter-spacing: 0.04em;
-  color: rgba(245, 243, 238, 0.92);
+  color: #0A0909;
   writing-mode: vertical-rl;
   text-orientation: mixed;
   white-space: nowrap;
@@ -970,7 +990,7 @@
   justify-content: space-between;
   gap: 8px 18px;
   padding-bottom: 18px;
-  border-bottom: 1px solid rgba(245, 243, 238, 0.14);
+  border-bottom: 1px solid rgba(10, 9, 9, 0.22);
 }
 
 .precios-poster-brand {
@@ -978,16 +998,16 @@
   font-size: clamp(0.9375rem, 1.8vw, 1.0625rem);
   font-weight: 700;
   letter-spacing: 0.16em;
-  color: #f5f3ee;
+  color: #0A0909;
 }
 
 .precios-poster-meta {
   font-family: var(--font-sans, 'General Sans', sans-serif);
   font-size: 0.6875rem;
-  font-weight: 500;
+  font-weight: 600;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: rgba(241, 213, 146, 0.62);
+  color: #242423;
 }
 
 .precios-poster-role {
@@ -995,7 +1015,7 @@
   font-style: italic;
   font-size: clamp(1rem, 1.8vw, 1.1875rem);
   font-weight: 400;
-  color: rgba(245, 243, 238, 0.76);
+  color: #242423;
 }
 
 .precios-group {
@@ -1007,13 +1027,13 @@
 .precios-group-title {
   margin: 0;
   padding-bottom: 12px;
-  border-bottom: 1px solid rgba(245, 243, 238, 0.16);
+  border-bottom: 1px solid rgba(10, 9, 9, 0.22);
   font-family: var(--font-sans, 'General Sans', sans-serif);
   font-size: 0.75rem;
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: var(--p7-gold-300);
+  color: #0A0909;
 }
 
 .precios-list {
@@ -1034,7 +1054,7 @@
   flex-direction: column;
   gap: 6px;
   padding-bottom: 20px;
-  border-bottom: 1px solid rgba(245, 243, 238, 0.08);
+  border-bottom: 1px solid rgba(10, 9, 9, 0.14);
 }
 
 .precios-item:last-child {
@@ -1058,11 +1078,13 @@
 
 .precios-item-num {
   flex-shrink: 0;
-  font-family: var(--font-display, 'Boska', serif);
-  font-style: italic;
-  font-size: 0.95rem;
+  font-family: var(--font-sans, 'General Sans', sans-serif);
+  font-style: normal;
+  font-size: 0.85rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
   line-height: 1;
-  color: rgba(241, 213, 146, 0.65);
+  color: #C1091E;
 }
 
 .precios-item-name {
@@ -1071,24 +1093,25 @@
   font-weight: 500;
   letter-spacing: -0.015em;
   line-height: 1.3;
-  color: rgba(245, 243, 238, 0.96);
+  color: #0A0909;
 }
 
 .precios-item-price {
   font-family: var(--font-sans, 'General Sans', sans-serif);
   font-size: clamp(1.125rem, 2.2vw, 1.45rem);
-  font-weight: 600;
+  font-weight: 700;
   font-variant-numeric: tabular-nums;
   letter-spacing: -0.01em;
-  color: var(--p7-gold-300);
+  color: #0A0909;
   white-space: nowrap;
 }
 
 .precios-item-meta {
   font-family: var(--font-sans, 'General Sans', sans-serif);
   font-size: 0.875rem;
+  font-weight: 500;
   font-variant-numeric: tabular-nums;
-  color: rgba(245, 243, 238, 0.68);
+  color: #242423;
   white-space: nowrap;
 }
 
@@ -1097,13 +1120,13 @@
   font-family: var(--font-sans, 'General Sans', sans-serif);
   font-size: 0.875rem;
   line-height: 1.55;
-  color: rgba(245, 243, 238, 0.62);
-  max-width: 40ch;
+  color: #242423;
+  max-width: 44ch;
 }
 
 .precios-poster-foot {
   padding-top: 18px;
-  border-top: 1px solid rgba(245, 243, 238, 0.14);
+  border-top: 1px solid rgba(10, 9, 9, 0.22);
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -1123,7 +1146,7 @@
   font-family: var(--font-sans, 'General Sans', sans-serif);
   font-size: 0.75rem;
   letter-spacing: 0.04em;
-  color: rgba(245, 243, 238, 0.5);
+  color: #242423;
 }
 
 .precios-foot-actions {
@@ -1142,18 +1165,18 @@
   border-radius: 9999px;
   font-family: var(--font-sans, 'General Sans', sans-serif);
   font-size: 0.8125rem;
-  font-weight: 500;
+  font-weight: 600;
   letter-spacing: 0.02em;
   text-decoration: none;
-  color: #f5f3ee;
-  background: rgba(255, 255, 255, 0.07);
-  border: 1px solid rgba(245, 243, 238, 0.2);
-  transition: background-color 220ms ease, border-color 220ms ease, transform 220ms ease;
+  color: #0A0909;
+  background: transparent;
+  border: 1px solid #C1091E;
+  transition: background-color 220ms ease, color 220ms ease, transform 220ms ease;
 }
 
 .precios-online-btn:hover {
-  background: rgba(255, 255, 255, 0.14);
-  border-color: var(--p7-gold-300);
+  background: #C1091E;
+  color: #FDFDFC;
   transform: translateY(-1px);
 }
 
@@ -1169,16 +1192,16 @@
   font-weight: 600;
   letter-spacing: 0.02em;
   text-decoration: none;
-  color: #0b0b0c;
-  background: linear-gradient(135deg, #9a7838, #f1d592 45%, #c9a45c 70%, #9a7838);
+  color: #FDFDFC;
+  background: #0A0909;
   transition:
     transform 220ms cubic-bezier(0.16, 1, 0.3, 1),
-    filter 220ms ease;
+    background-color 220ms ease;
 }
 
 .precios-booksy-btn:hover {
   transform: translateY(-1px);
-  filter: brightness(1.06);
+  background: #242423;
 }
 
 .precios-booksy-btn:active {

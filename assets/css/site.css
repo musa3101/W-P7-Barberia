@@ -5,26 +5,48 @@
    ========================================================================== */
 
 :root {
-  /* Esmeralda */
-  --emerald-950: #071F17;
-  --emerald-900: #0B2E22;
-  --emerald-800: #0F3D2E;
-  --emerald-700: #164A38;
+  /* ========================================================================
+     PALETA OFICIAL P7 (PDF COOLORS + BORDADO BRICK RED)
+     ======================================================================== */
+  /* Bases Oscuras Oficiales (PDF Coolors) */
+  --p7-carbon: #0A0909;             /* Fondo general de la web (Carbono Puro) */
+  --p7-ebony: #0B0702;              /* Fondo Hero / Cintas del escudo (Ébano) */
+  --p7-anthracite: #242423;         /* Tarjetas y superficies elevadas */
+  --p7-graphite-elevated: #161514;  /* Superficies secundarias */
 
-  /* Oro (metálico reservado únicamente para .btn-gold-metallic y escudo) */
-  --gold-300: #F1D592;
-  --gold-500: #C9A45C;
-  --gold-700: #9A7838;
+  /* Metales Nobles del Escudo (PDF Coolors) */
+  --p7-gold-antique: #AC986C;       /* Acento noble principal / Monograma P7 */
+  --p7-champagne: #C3B9A0;          /* Champán arena / Oro blanco fino */
+  --p7-silver-titanium: #9D9B95;    /* Plata / Titanio satinado */
 
-  /* Crema */
-  --cream-100: #F8F1E4;
-  --cream-200: #F3E9D7;
-  --cream-ink-muted: rgba(243, 233, 215, 0.78);
-  --emerald-ink-muted: rgba(11, 46, 34, 0.74);
+  /* Blancos y Luminosidad de Lectura (PDF Coolors) */
+  --p7-white: #FFFFFF;              /* Titulares y contraste máximo */
+  --p7-snow: #FDFDFC;               /* Texto principal de lectura */
+  --p7-smoke: #F6F5F5;              /* Texto suave y blanco humo */
 
-  /* Tonos joya acento colombiano (2:1:1) */
+  /* Acento de Bordado de Sastrería (Brick Red #C1091E) */
+  --p7-brick-red: #C1091E;
+  --p7-brick-red-border: rgba(193, 9, 30, 0.55);
+  --p7-brick-red-glow: rgba(193, 9, 30, 0.35);
+
+  /* Mapeo de compatibilidad con selectores existentes */
+  --emerald-950: #050403;
+  --emerald-900: var(--p7-ebony);
+  --emerald-800: var(--p7-carbon);
+  --emerald-700: var(--p7-anthracite);
+
+  --gold-300: var(--p7-champagne);
+  --gold-500: var(--p7-gold-antique);
+  --gold-700: #786540;
+
+  --cream-100: var(--p7-snow);
+  --cream-200: var(--p7-smoke);
+  --cream-ink-muted: rgba(246, 245, 245, 0.78);
+  --emerald-ink-muted: var(--p7-silver-titanium);
+
+  /* Tonos joya / sastrería */
   --sapphire-900: #13294B;
-  --burgundy-900: #7A1F2B;
+  --burgundy-900: var(--p7-brick-red);
 
   /* Tipografía (solo 2 familias principales) */
   --font-display: 'Boska', Georgia, serif;
@@ -36,11 +58,11 @@
   --ease-editorial: cubic-bezier(0.16, 1, 0.3, 1);
 
   /* Superficies semánticas */
-  --bg-hero: #0b0b0c;
-  --bg-cream: var(--cream-100);
-  --bg-cream-warm: var(--cream-200);
-  --bg-emerald: var(--emerald-800);
-  --bg-footer: #0b0b0c;
+  --bg-hero: var(--p7-ebony);
+  --bg-cream: #141313;
+  --bg-cream-warm: var(--p7-anthracite);
+  --bg-emerald: var(--p7-carbon);
+  --bg-footer: var(--p7-carbon);
 }
 
 /* ==========================================================================
@@ -56,7 +78,7 @@
 html {
   scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
-  background-color: #0b0b0c;
+  background-color: #0A0909;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -71,8 +93,8 @@ body {
   font-size: 1rem;
   line-height: 1.6;
   font-size-adjust: from-font;
-  color: var(--cream-200);
-  background-color: #0b0b0c;
+  color: var(--p7-smoke, #F6F5F5);
+  background-color: #0A0909;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -150,12 +172,12 @@ a {
 
 .section-cream {
   background-color: var(--bg-cream);
-  color: var(--emerald-900);
+  color: var(--p7-white, #FFFFFF);
 }
 
 .section-cream-warm {
   background-color: var(--bg-cream-warm);
-  color: var(--emerald-900);
+  color: var(--p7-white, #FFFFFF);
 }
 
 .section-emerald {
@@ -215,18 +237,10 @@ a {
   top: 0;
   left: 0;
   width: 100%;
-  height: 3px;
+  height: 2px;
   z-index: 60;
   pointer-events: none;
-  background: linear-gradient(
-    90deg,
-    #C9A45C 0%,
-    #C9A45C 50%,
-    #13294B 50%,
-    #13294B 75%,
-    #7A1F2B 75%,
-    #7A1F2B 100%
-  ); /* taste-skill-ignore */
+  background: linear-gradient(90deg, #AC986C 0%, #C3B9A0 60%, #C1091E 100%);
   transform-origin: left center;
   transform: scaleX(0);
 }
@@ -234,18 +248,17 @@ a {
 .separador-sastreria {
   display: block;
   width: 100%;
-  height: 3px;
+  height: 1px;
   border: 0;
   margin: 0;
   background: linear-gradient(
     90deg,
-    #C9A45C 0%,
-    #C9A45C 50%,
-    #13294B 50%,
-    #13294B 75%,
-    #7A1F2B 75%,
-    #7A1F2B 100%
-  ); /* taste-skill-ignore */
+    transparent 0%,
+    rgba(172, 152, 108, 0.3) 25%,
+    rgba(193, 9, 30, 0.5) 50%,
+    rgba(172, 152, 108, 0.3) 75%,
+    transparent 100%
+  );
   transform-origin: left center;
   transform: scaleX(1);
 }
@@ -277,8 +290,8 @@ a {
   gap: 10px;
   min-height: 46px;
   padding: 12px 26px;
-  background: linear-gradient(135deg, #9A7838, #F1D592 45%, #C9A45C 70%, #9A7838); /* taste-skill-ignore */
-  color: var(--emerald-950);
+  background: linear-gradient(135deg, #786540, #C3B9A0 45%, #AC986C 70%, #786540); /* taste-skill-ignore */
+  color: var(--p7-carbon, #0A0909);
   font-family: var(--font-sans);
   font-size: 0.9375rem;
   font-weight: 600;
@@ -294,6 +307,124 @@ a {
 
 .btn-gold-metallic:active {
   transform: scale(0.98);
+}
+
+/* ==========================================================================
+   COMPONENTE REUTILIZABLE: BOTÓN LIQUID GLASS (21st.dev / Apple Style)
+   Fondo 100% transparente con bordado y resplandor Brick Red (#C1091E)
+   ========================================================================== */
+
+.liquid-glass-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 52px;
+  padding: 0 32px;
+  border: 0;
+  border-radius: 9999px;
+  background-color: transparent;
+  color: var(--p7-white, #FFFFFF);
+  font-family: var(--font-sans, 'General Sans', sans-serif);
+  font-size: 0.9375rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  text-decoration: none;
+  cursor: pointer;
+  isolation: isolate;
+  touch-action: manipulation;
+  transition:
+    transform 300ms cubic-bezier(0.16, 1, 0.3, 1),
+    color 250ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.liquid-glass-btn:hover {
+  transform: scale(1.04);
+  color: var(--p7-champagne, #C3B9A0);
+}
+
+.liquid-glass-btn:active {
+  transform: scale(0.98);
+}
+
+.liquid-glass-btn:focus-visible {
+  outline: 2px solid var(--p7-brick-red, #C1091E);
+  outline-offset: 4px;
+}
+
+.liquid-glass-surface {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  border-radius: 9999px;
+  background: transparent;
+  border: 1px solid rgba(193, 9, 30, 0.65);
+  box-shadow:
+    0 0 14px rgba(193, 9, 30, 0.35),
+    0 2px 8px rgba(0, 0, 0, 0.35),
+    inset 0 0 0 1px rgba(193, 9, 30, 0.40),
+    inset 3px 3px 0.5px -3px rgba(255, 255, 255, 0.75),
+    inset -3px -3px 0.5px -3px rgba(255, 255, 255, 0.60),
+    inset 1px 1px 1px -0.5px rgba(255, 255, 255, 0.45),
+    inset -1px -1px 1px -0.5px rgba(255, 255, 255, 0.45);
+  transition:
+    background-color 300ms cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 300ms cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 300ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.liquid-glass-btn:hover .liquid-glass-surface {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: #C1091E;
+  box-shadow:
+    0 0 24px rgba(193, 9, 30, 0.60),
+    0 4px 16px rgba(0, 0, 0, 0.45),
+    inset 0 0 0 1.5px rgba(193, 9, 30, 0.85),
+    inset 3px 3px 0.5px -3px rgba(255, 255, 255, 0.90),
+    inset -3px -3px 0.5px -3px rgba(255, 255, 255, 0.75);
+}
+
+.liquid-glass-btn--dark {
+  color: var(--p7-white, #FFFFFF);
+}
+
+.liquid-glass-btn--dark .liquid-glass-surface {
+  background: transparent;
+}
+
+.liquid-glass-btn--sm {
+  min-height: 44px;
+  padding: 0 18px;
+  font-size: 0.8125rem;
+}
+
+.liquid-glass-blur {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: 9999px;
+  overflow: hidden;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: url("#container-glass") blur(8px);
+}
+
+.liquid-glass-label {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  pointer-events: none;
+}
+
+.liquid-glass-svg {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  pointer-events: none;
 }
 
 .btn-outline-gold {
@@ -583,7 +714,7 @@ a {
   font-weight: 400;
   line-height: 1.06;
   letter-spacing: -0.02em;
-  color: #f8f1e4;
+  color: #FFFFFF;
   text-wrap: balance;
   text-shadow: 0 2px 24px rgba(0, 0, 0, 0.45);
 }
@@ -598,8 +729,8 @@ a {
   background: rgba(11, 11, 12, 0.44);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
-  border: 1px solid rgba(241, 213, 146, 0.48);
-  color: #f8f1e4;
+  border: 1px solid rgba(195, 185, 160, 0.45);
+  color: #FFFFFF;
   font-family: var(--font-sans, 'General Sans', sans-serif);
   font-size: 0.78rem;
   font-weight: 500;
@@ -615,9 +746,9 @@ a {
 }
 
 .hero-simple-btn:hover {
-  background: #e5c16c;
-  border-color: #e5c16c;
-  color: #0b0b0c;
+  background: #AC986C;
+  border-color: #AC986C;
+  color: #0A0909;
   transform: translateY(-1px);
 }
 
@@ -676,9 +807,9 @@ a {
   z-index: 2;
   background: linear-gradient(
     180deg,
-    rgba(11, 46, 34, 0.66) 0%,
-    rgba(11, 46, 34, 0.56) 45%,
-    rgba(11, 46, 34, 0.84) 100%
+    rgba(10, 9, 9, 0.65) 0%,
+    rgba(11, 7, 2, 0.48) 45%,
+    rgba(10, 9, 9, 0.88) 100%
   ); /* taste-skill-ignore */
 }
 
@@ -887,8 +1018,9 @@ a {
 }
 
 .studio-story-card {
-  background-color: var(--cream-100);
-  color: var(--emerald-900);
+  background-color: #1A1918;
+  border: 1px solid rgba(195, 185, 160, 0.16);
+  color: #FFFFFF;
   padding: 20px;
   margin-top: 16px;
 }
@@ -926,7 +1058,7 @@ a {
   font-family: var(--font-display);
   font-size: 1.25rem;
   font-weight: 600;
-  color: var(--emerald-900);
+  color: var(--p7-gold-antique, #AC986C);
 }
 
 @media (min-width: 960px) {
@@ -1058,7 +1190,7 @@ a {
   font-family: var(--font-display);
   font-size: 1.5rem;
   font-weight: 600;
-  color: var(--emerald-900);
+  color: var(--p7-gold-antique, #AC986C);
 }
 
 .menu-item {
@@ -1077,7 +1209,7 @@ a {
   gap: 16px;
   font-size: 1.1875rem;
   font-weight: 500;
-  color: var(--emerald-900);
+  color: #FFFFFF;
 }
 
 .menu-item-price {
