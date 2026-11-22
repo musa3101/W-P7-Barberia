@@ -22,38 +22,46 @@
         </p>
       </div>
 
-      <!-- 2. Galería 1: Auto-slider infinito responsive (imágenes de relleno) -->
+      <!-- 2. Galería 1: Auto-slider infinito responsive (fotos y clips reales del estudio) -->
       <div
         class="galeria-marquee"
         data-gallery-slug="galeria-1"
-        data-relleno="galeria-1"
         role="region"
-        aria-label="Galería 1: fotografías del estudio P7"
+        aria-label="Galería 1: fotografías y clips del estudio P7"
       >
         <div class="galeria-marquee-track">
-          <!-- Grupo principal (4 fotos) -->
+          <!-- Grupo principal (6 piezas reales: 2 fotos + 4 clips en bucle) -->
           <div class="galeria-marquee-group">
-            <figure class="galeria-card">
+            <figure
+              class="galeria-card"
+              role="button"
+              tabindex="0"
+              data-lightbox-type="image"
+              data-lightbox-src="./assets/img/opt/galeria1/g1-foto-01-900w.webp"
+              data-lightbox-title="P7 Barber Master Studio · Palma"
+              data-lightbox-cat="Estudio"
+              aria-label="Ampliar fotografía del estudio P7"
+            >
               <picture>
                 <source
                   type="image/avif"
                   srcset="
-                    ./assets/img/opt/salon-mediterraneo-480w.avif 480w,
-                    ./assets/img/opt/salon-mediterraneo-900w.avif 900w
+                    ./assets/img/opt/galeria1/g1-foto-01-480w.avif 480w,
+                    ./assets/img/opt/galeria1/g1-foto-01-900w.avif 900w
                   "
                   sizes="(max-width: 639px) 192px, (max-width: 1023px) 240px, 288px"
                 />
                 <source
                   type="image/webp"
                   srcset="
-                    ./assets/img/opt/salon-mediterraneo-480w.webp 480w,
-                    ./assets/img/opt/salon-mediterraneo-900w.webp 900w
+                    ./assets/img/opt/galeria1/g1-foto-01-480w.webp 480w,
+                    ./assets/img/opt/galeria1/g1-foto-01-900w.webp 900w
                   "
                   sizes="(max-width: 639px) 192px, (max-width: 1023px) 240px, 288px"
                 />
                 <img
-                  src="./assets/img/opt/salon-mediterraneo-900w.webp"
-                  alt="Interior del estudio P7 Barber Master Studio en Palma con sillón clásico y luz natural"
+                  src="./assets/img/opt/galeria1/g1-foto-01-900w.webp"
+                  alt="Interior de P7 Barber Master Studio en Palma de Mallorca"
                   width="600"
                   height="600"
                   loading="lazy"
@@ -63,27 +71,86 @@
               </picture>
             </figure>
 
-            <figure class="galeria-card">
+            <figure
+              class="galeria-card"
+              role="button"
+              tabindex="0"
+              data-lightbox-type="video"
+              data-lightbox-src="./assets/video/galeria1/g1-clip-01.mp4"
+              data-lightbox-poster="./assets/video/galeria1/g1-clip-01-poster.webp"
+              data-lightbox-title="Sesión en P7 Barber"
+              data-lightbox-cat="Clip en bucle"
+              aria-label="Ampliar clip de vídeo del estudio P7"
+            >
+              <video
+                class="galeria-card-video"
+                autoplay
+                loop
+                muted
+                playsinline
+                preload="metadata"
+                poster="./assets/video/galeria1/g1-clip-01-poster.webp"
+                aria-hidden="true"
+              >
+                <source src="./assets/video/galeria1/g1-clip-01.mp4" type="video/mp4" />
+              </video>
+            </figure>
+
+            <figure
+              class="galeria-card"
+              role="button"
+              tabindex="0"
+              data-lightbox-type="video"
+              data-lightbox-src="./assets/video/galeria1/g1-clip-04.mp4"
+              data-lightbox-poster="./assets/video/galeria1/g1-clip-04-poster.webp"
+              data-lightbox-title="El local · P7 Barber"
+              data-lightbox-cat="Clip en bucle"
+              aria-label="Ampliar clip de vídeo del local P7"
+            >
+              <video
+                class="galeria-card-video"
+                autoplay
+                loop
+                muted
+                playsinline
+                preload="metadata"
+                poster="./assets/video/galeria1/g1-clip-04-poster.webp"
+                aria-hidden="true"
+              >
+                <source src="./assets/video/galeria1/g1-clip-04.mp4" type="video/mp4" />
+              </video>
+            </figure>
+
+            <figure
+              class="galeria-card"
+              role="button"
+              tabindex="0"
+              data-lightbox-type="image"
+              data-lightbox-src="./assets/img/opt/galeria1/g1-foto-02-900w.webp"
+              data-lightbox-title="Detalle de trabajo · P7 Barber"
+              data-lightbox-cat="Estudio"
+              aria-label="Ampliar fotografía de detalle en P7"
+            >
               <picture>
                 <source
                   type="image/avif"
                   srcset="
-                    ./assets/img/opt/hero-atelier-480w.avif 480w,
-                    ./assets/img/opt/hero-atelier-900w.avif 900w
+                    ./assets/img/opt/galeria1/g1-foto-02-480w.avif 480w,
+                    ./assets/img/opt/galeria1/g1-foto-02-900w.avif 900w
                   "
                   sizes="(max-width: 639px) 192px, (max-width: 1023px) 240px, 288px"
                 />
                 <source
                   type="image/webp"
                   srcset="
-                    ./assets/img/opt/hero-atelier-480w.webp 480w,
-                    ./assets/img/opt/hero-atelier-900w.webp 900w
+                    ./assets/img/opt/galeria1/g1-foto-02-480w.webp 480w,
+                    ./assets/img/opt/galeria1/g1-foto-02-900w.webp 900w
                   "
                   sizes="(max-width: 639px) 192px, (max-width: 1023px) 240px, 288px"
                 />
                 <img
-                  src="./assets/img/opt/hero-atelier-900w.webp"
-                  alt="Atmósfera privada de P7 Barber Master Studio con madera oscura y tocadores individuales"
+                  src="./assets/img/opt/galeria1/g1-foto-02-900w.webp"
+                  alt="Trabajo artesanal en P7 Barber Master Studio"
                   width="600"
                   height="600"
                   loading="lazy"
@@ -93,187 +160,137 @@
               </picture>
             </figure>
 
-            <figure class="galeria-card">
-              <picture>
-                <source
-                  type="image/avif"
-                  srcset="
-                    ./assets/img/opt/corte-navaja-oro-480w.avif 480w,
-                    ./assets/img/opt/corte-navaja-oro-900w.avif 900w
-                  "
-                  sizes="(max-width: 639px) 192px, (max-width: 1023px) 240px, 288px"
-                />
-                <source
-                  type="image/webp"
-                  srcset="
-                    ./assets/img/opt/corte-navaja-oro-480w.webp 480w,
-                    ./assets/img/opt/corte-navaja-oro-900w.webp 900w
-                  "
-                  sizes="(max-width: 639px) 192px, (max-width: 1023px) 240px, 288px"
-                />
-                <img
-                  src="./assets/img/opt/corte-navaja-oro-900w.webp"
-                  alt="Estación de trabajo con navaja clásica, tijeras de precisión y ritual de toalla caliente"
-                  width="600"
-                  height="600"
-                  loading="lazy"
-                  decoding="async"
-                  class="galeria-card-img"
-                />
-              </picture>
+            <figure
+              class="galeria-card"
+              role="button"
+              tabindex="0"
+              data-lightbox-type="video"
+              data-lightbox-src="./assets/video/galeria1/g1-clip-02.mp4"
+              data-lightbox-poster="./assets/video/galeria1/g1-clip-02-poster.webp"
+              data-lightbox-title="Precisión y acabado · P7 Barber"
+              data-lightbox-cat="Clip en bucle"
+              aria-label="Ampliar clip de vídeo de corte en P7"
+            >
+              <video
+                class="galeria-card-video"
+                autoplay
+                loop
+                muted
+                playsinline
+                preload="metadata"
+                poster="./assets/video/galeria1/g1-clip-02-poster.webp"
+                aria-hidden="true"
+              >
+                <source src="./assets/video/galeria1/g1-clip-02.mp4" type="video/mp4" />
+              </video>
             </figure>
 
-            <figure class="galeria-card">
-              <picture>
-                <source
-                  type="image/avif"
-                  srcset="
-                    ./assets/img/opt/salon-lounge-480w.avif 480w,
-                    ./assets/img/opt/salon-lounge-900w.avif 900w
-                  "
-                  sizes="(max-width: 639px) 192px, (max-width: 1023px) 240px, 288px"
-                />
-                <source
-                  type="image/webp"
-                  srcset="
-                    ./assets/img/opt/salon-lounge-480w.webp 480w,
-                    ./assets/img/opt/salon-lounge-900w.webp 900w
-                  "
-                  sizes="(max-width: 639px) 192px, (max-width: 1023px) 240px, 288px"
-                />
-                <img
-                  src="./assets/img/opt/salon-lounge-900w.webp"
-                  alt="Zona de espera del estudio con sillón de cuero esmeralda, madera cálida y luz natural"
-                  width="600"
-                  height="600"
-                  loading="lazy"
-                  decoding="async"
-                  class="galeria-card-img"
-                />
-              </picture>
+            <figure
+              class="galeria-card"
+              role="button"
+              tabindex="0"
+              data-lightbox-type="video"
+              data-lightbox-src="./assets/video/galeria1/g1-clip-03.mp4"
+              data-lightbox-poster="./assets/video/galeria1/g1-clip-03-poster.webp"
+              data-lightbox-title="Ritual P7 Master Studio"
+              data-lightbox-cat="Clip en bucle"
+              aria-label="Ampliar clip de vídeo del ritual P7"
+            >
+              <video
+                class="galeria-card-video"
+                autoplay
+                loop
+                muted
+                playsinline
+                preload="metadata"
+                poster="./assets/video/galeria1/g1-clip-03-poster.webp"
+                aria-hidden="true"
+              >
+                <source src="./assets/video/galeria1/g1-clip-03.mp4" type="video/mp4" />
+              </video>
             </figure>
           </div>
 
           <!-- Grupo espejo para bucle continuo sin saltos (oculto a lectores de pantalla) -->
           <div class="galeria-marquee-group" aria-hidden="true">
-            <div class="galeria-card">
+            <div
+              class="galeria-card"
+              data-lightbox-type="image"
+              data-lightbox-src="./assets/img/opt/galeria1/g1-foto-01-900w.webp"
+              data-lightbox-title="P7 Barber Master Studio · Palma"
+              data-lightbox-cat="Estudio"
+            >
               <picture>
-                <source
-                  type="image/avif"
-                  srcset="
-                    ./assets/img/opt/salon-mediterraneo-480w.avif 480w,
-                    ./assets/img/opt/salon-mediterraneo-900w.avif 900w
-                  "
-                  sizes="(max-width: 639px) 192px, (max-width: 1023px) 240px, 288px"
-                />
-                <source
-                  type="image/webp"
-                  srcset="
-                    ./assets/img/opt/salon-mediterraneo-480w.webp 480w,
-                    ./assets/img/opt/salon-mediterraneo-900w.webp 900w
-                  "
-                  sizes="(max-width: 639px) 192px, (max-width: 1023px) 240px, 288px"
-                />
-                <img
-                  src="./assets/img/opt/salon-mediterraneo-900w.webp"
-                  alt=""
-                  width="600"
-                  height="600"
-                  loading="lazy"
-                  decoding="async"
-                  class="galeria-card-img"
-                />
+                <source type="image/avif" srcset="./assets/img/opt/galeria1/g1-foto-01-480w.avif 480w, ./assets/img/opt/galeria1/g1-foto-01-900w.avif 900w" sizes="(max-width: 639px) 192px, (max-width: 1023px) 240px, 288px" />
+                <source type="image/webp" srcset="./assets/img/opt/galeria1/g1-foto-01-480w.webp 480w, ./assets/img/opt/galeria1/g1-foto-01-900w.webp 900w" sizes="(max-width: 639px) 192px, (max-width: 1023px) 240px, 288px" />
+                <img src="./assets/img/opt/galeria1/g1-foto-01-900w.webp" alt="" width="600" height="600" loading="lazy" decoding="async" class="galeria-card-img" />
               </picture>
             </div>
 
-            <div class="galeria-card">
+            <div
+              class="galeria-card"
+              data-lightbox-type="video"
+              data-lightbox-src="./assets/video/galeria1/g1-clip-01.mp4"
+              data-lightbox-poster="./assets/video/galeria1/g1-clip-01-poster.webp"
+              data-lightbox-title="Sesión en P7 Barber"
+              data-lightbox-cat="Clip en bucle"
+            >
+              <video class="galeria-card-video" autoplay loop muted playsinline preload="metadata" poster="./assets/video/galeria1/g1-clip-01-poster.webp">
+                <source src="./assets/video/galeria1/g1-clip-01.mp4" type="video/mp4" />
+              </video>
+            </div>
+
+            <div
+              class="galeria-card"
+              data-lightbox-type="video"
+              data-lightbox-src="./assets/video/galeria1/g1-clip-04.mp4"
+              data-lightbox-poster="./assets/video/galeria1/g1-clip-04-poster.webp"
+              data-lightbox-title="El local · P7 Barber"
+              data-lightbox-cat="Clip en bucle"
+            >
+              <video class="galeria-card-video" autoplay loop muted playsinline preload="metadata" poster="./assets/video/galeria1/g1-clip-04-poster.webp">
+                <source src="./assets/video/galeria1/g1-clip-04.mp4" type="video/mp4" />
+              </video>
+            </div>
+
+            <div
+              class="galeria-card"
+              data-lightbox-type="image"
+              data-lightbox-src="./assets/img/opt/galeria1/g1-foto-02-900w.webp"
+              data-lightbox-title="Detalle de trabajo · P7 Barber"
+              data-lightbox-cat="Estudio"
+            >
               <picture>
-                <source
-                  type="image/avif"
-                  srcset="
-                    ./assets/img/opt/hero-atelier-480w.avif 480w,
-                    ./assets/img/opt/hero-atelier-900w.avif 900w
-                  "
-                  sizes="(max-width: 639px) 192px, (max-width: 1023px) 240px, 288px"
-                />
-                <source
-                  type="image/webp"
-                  srcset="
-                    ./assets/img/opt/hero-atelier-480w.webp 480w,
-                    ./assets/img/opt/hero-atelier-900w.webp 900w
-                  "
-                  sizes="(max-width: 639px) 192px, (max-width: 1023px) 240px, 288px"
-                />
-                <img
-                  src="./assets/img/opt/hero-atelier-900w.webp"
-                  alt=""
-                  width="600"
-                  height="600"
-                  loading="lazy"
-                  decoding="async"
-                  class="galeria-card-img"
-                />
+                <source type="image/avif" srcset="./assets/img/opt/galeria1/g1-foto-02-480w.avif 480w, ./assets/img/opt/galeria1/g1-foto-02-900w.avif 900w" sizes="(max-width: 639px) 192px, (max-width: 1023px) 240px, 288px" />
+                <source type="image/webp" srcset="./assets/img/opt/galeria1/g1-foto-02-480w.webp 480w, ./assets/img/opt/galeria1/g1-foto-02-900w.webp 900w" sizes="(max-width: 639px) 192px, (max-width: 1023px) 240px, 288px" />
+                <img src="./assets/img/opt/galeria1/g1-foto-02-900w.webp" alt="" width="600" height="600" loading="lazy" decoding="async" class="galeria-card-img" />
               </picture>
             </div>
 
-            <div class="galeria-card">
-              <picture>
-                <source
-                  type="image/avif"
-                  srcset="
-                    ./assets/img/opt/corte-navaja-oro-480w.avif 480w,
-                    ./assets/img/opt/corte-navaja-oro-900w.avif 900w
-                  "
-                  sizes="(max-width: 639px) 192px, (max-width: 1023px) 240px, 288px"
-                />
-                <source
-                  type="image/webp"
-                  srcset="
-                    ./assets/img/opt/corte-navaja-oro-480w.webp 480w,
-                    ./assets/img/opt/corte-navaja-oro-900w.webp 900w
-                  "
-                  sizes="(max-width: 639px) 192px, (max-width: 1023px) 240px, 288px"
-                />
-                <img
-                  src="./assets/img/opt/corte-navaja-oro-900w.webp"
-                  alt=""
-                  width="600"
-                  height="600"
-                  loading="lazy"
-                  decoding="async"
-                  class="galeria-card-img"
-                />
-              </picture>
+            <div
+              class="galeria-card"
+              data-lightbox-type="video"
+              data-lightbox-src="./assets/video/galeria1/g1-clip-02.mp4"
+              data-lightbox-poster="./assets/video/galeria1/g1-clip-02-poster.webp"
+              data-lightbox-title="Precisión y acabado · P7 Barber"
+              data-lightbox-cat="Clip en bucle"
+            >
+              <video class="galeria-card-video" autoplay loop muted playsinline preload="metadata" poster="./assets/video/galeria1/g1-clip-02-poster.webp">
+                <source src="./assets/video/galeria1/g1-clip-02.mp4" type="video/mp4" />
+              </video>
             </div>
 
-            <div class="galeria-card">
-              <picture>
-                <source
-                  type="image/avif"
-                  srcset="
-                    ./assets/img/opt/salon-lounge-480w.avif 480w,
-                    ./assets/img/opt/salon-lounge-900w.avif 900w
-                  "
-                  sizes="(max-width: 639px) 192px, (max-width: 1023px) 240px, 288px"
-                />
-                <source
-                  type="image/webp"
-                  srcset="
-                    ./assets/img/opt/salon-lounge-480w.webp 480w,
-                    ./assets/img/opt/salon-lounge-900w.webp 900w
-                  "
-                  sizes="(max-width: 639px) 192px, (max-width: 1023px) 240px, 288px"
-                />
-                <img
-                  src="./assets/img/opt/salon-lounge-900w.webp"
-                  alt=""
-                  width="600"
-                  height="600"
-                  loading="lazy"
-                  decoding="async"
-                  class="galeria-card-img"
-                />
-              </picture>
+            <div
+              class="galeria-card"
+              data-lightbox-type="video"
+              data-lightbox-src="./assets/video/galeria1/g1-clip-03.mp4"
+              data-lightbox-poster="./assets/video/galeria1/g1-clip-03-poster.webp"
+              data-lightbox-title="Ritual P7 Master Studio"
+              data-lightbox-cat="Clip en bucle"
+            >
+              <video class="galeria-card-video" autoplay loop muted playsinline preload="metadata" poster="./assets/video/galeria1/g1-clip-03-poster.webp">
+                <source src="./assets/video/galeria1/g1-clip-03.mp4" type="video/mp4" />
+              </video>
             </div>
           </div>
         </div>
@@ -290,21 +307,6 @@
           <span class="liquid-glass-blur" aria-hidden="true"></span>
           <span class="liquid-glass-label">
             <span>Ver nuestro equipo</span>
-            <svg
-              class="sobre-v2-cta-arrow"
-              width="17"
-              height="17"
-              viewBox="0 0 18 18"
-              fill="none"
-              aria-hidden="true"
-            >
-              <path
-                d="M5 13L13 5M13 5H6.5M13 5V11.5"
-                stroke="currentColor"
-                stroke-width="1.6"
-                stroke-linecap="square"
-              />
-            </svg>
           </span>
         </a>
 

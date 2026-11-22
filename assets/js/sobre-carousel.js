@@ -70,10 +70,8 @@ document.addEventListener('DOMContentLoaded', () => {
     lastX = e.clientX;
     lastTime = performance.now();
     velocity = 0;
+    marquee.dataset.wasDragged = '0';
     marquee.classList.add('is-dragging');
-    if (typeof marquee.setPointerCapture === 'function') {
-      try { marquee.setPointerCapture(e.pointerId); } catch (_) {}
-    }
   });
 
   marquee.addEventListener('pointermove', (e) => {
@@ -82,6 +80,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const dx = e.clientX - lastX;
     const dt = Math.max(8, now - lastTime);
     offset -= dx;
+    if (Math.abs(e.clientX - startX) > 6) {
+      marquee.dataset.wasDragged = '1';
+      if (typeof marquee.setPointerCapture === 'function' && !marquee.hasPointerCapture?.(e.pointerId)) {
+        try { marquee.setPointerCapture(e.pointerId); } catch (_) {}
+      }
+    }
     velocity = (-dx / dt) * 16;
     lastX = e.clientX;
     lastTime = now;

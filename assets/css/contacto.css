@@ -405,8 +405,52 @@ a.local-primary:hover {
 .reserva-actions {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  align-items: flex-start;
+  gap: 12px;
   width: 100%;
+}
+
+.reserva-actions .liquid-glass-btn {
+  width: auto;
+}
+
+/* Botón Booksy: Liquid Glass Amarillo Bandera de Colombia (#FCD116), tamaño más compacto */
+.reserva-actions .liquid-glass-btn--yellow {
+  min-height: 44px;
+  padding: 0 22px;
+  font-size: 0.84rem;
+}
+.reserva-actions .liquid-glass-btn--yellow:hover {
+  color: #FFE46B;
+}
+
+.reserva-actions .liquid-glass-btn--yellow:focus-visible {
+  outline: 2px solid #FCD116;
+  outline-offset: 4px;
+}
+
+.reserva-actions .liquid-glass-btn--yellow .liquid-glass-surface {
+  background: transparent;
+  border: 1px solid rgba(252, 209, 22, 0.85);
+  box-shadow:
+    0 0 18px rgba(252, 209, 22, 0.45),
+    0 2px 8px rgba(0, 0, 0, 0.35),
+    inset 0 0 0 1px rgba(252, 209, 22, 0.50),
+    inset 3px 3px 0.5px -3px rgba(255, 255, 255, 0.78),
+    inset -3px -3px 0.5px -3px rgba(255, 255, 255, 0.62),
+    inset 1px 1px 1px -0.5px rgba(255, 255, 255, 0.45),
+    inset -1px -1px 1px -0.5px rgba(255, 255, 255, 0.45);
+}
+
+.reserva-actions .liquid-glass-btn--yellow:hover .liquid-glass-surface {
+  background: rgba(252, 209, 22, 0.10);
+  border-color: #FCD116;
+  box-shadow:
+    0 0 28px rgba(252, 209, 22, 0.78),
+    0 4px 16px rgba(0, 0, 0, 0.45),
+    inset 0 0 0 1.5px rgba(252, 209, 22, 0.92),
+    inset 3px 3px 0.5px -3px rgba(255, 255, 255, 0.92),
+    inset -3px -3px 0.5px -3px rgba(255, 255, 255, 0.75);
 }
 
 .reserva-btn-booksy,

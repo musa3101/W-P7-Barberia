@@ -15,37 +15,49 @@
 
 ---
 
-## Fase 3 — Pulido Sección por Sección (EN CURSO)
-*Flujo: laboratorio aislado `web/seccion <nombre>/` → auditoría mobile-first → integración en `web/v1/` y `scripts/build.py`.*
-
+## Fase 3 — Pulido Sección por Sección y Auditoría Móvil (COMPLETADA)
+- [x] **Hero Principal (`01-hero.html`):**
+  - [x] Video background nítido sin marcos, título centrado "Precisión en cada corte." y botón directo "Reservar cita".
+  - [x] Corrección `100lvh` en móvil para ocultar 100% la cinta y la bandera de Colombia bajo el pliegue inicial en iPhone Safari.
+- [x] **Cinta Editorial Recta:**
+  - [x] Marquee fluido GPU continuo en negro carbono `#0b0b0c` con separadores ✦ y bandera colombiana artesanal.
 - [x] **Sección 02 — "Sobre nosotros" + Galería 1 + Página "Nuestro equipo" (`equipo.html`):**
   - [x] Slider automático infinito Galería 1 adaptado de `21st.dev` (HTML/CSS puro).
-  - [x] Botón **Liquid Glass** guardado en `x/componentes/liquid-glass-button/`.
-  - [x] Página `equipo.html` con 3 barberos y revelado 3D + parallax al scroll.
+  - [x] Botón **Liquid Glass** y página `equipo.html` con 3 barberos y revelado 3D + parallax al scroll.
 - [x] **Sección 03 — "Nuestro trabajo" + Galería 2 + Página `galeria.html` (Galería 3) + Carta de Precios:**
   - [x] Galería 2 (`ExpandableGallery` con 6 trabajos reales en foto/vídeo y Lightbox sin controles de vídeo).
-  - [x] Página `galeria.html` (`StaircaseCarousel` infinito con 26 trabajos reales y soporte táctil móvil).
-  - [x] Bloque editorial *"Cómo se trabaja en P7"* con moneda/escudo P7 giratorio 3D 360°.
+  - [x] Página `galeria.html` (`StaircaseCarousel` infinito con 26 trabajos reales y controles táctiles).
+  - [x] Integración de botón visible "← Volver atrás" y memoria de navegación compatible con `bfcache` en Safari iOS.
   - [x] Desplegable **Lista de precios** estilo póster suizo full-bleed (`100vw`) con autocierre inteligente al hacer scroll.
 - [x] **Sección 04 — "Reseñas":**
   - [x] Eliminada como sección independiente para evitar citas inventadas; integrada prueba social verificada (`5,0 ★ · 296 reseñas en Booksy`).
 - [x] **Sección 05 — "Contacto" + "¿Dónde estamos?" + "Preguntas frecuentes":**
   - [x] Bloques gemelos *Información del local* (`#EFE6D5`) y *Reserva tu hora* (`#0B2E22`).
   - [x] Banda carbono (`#111112`) con mapa limpio centrado `¿Dónde estamos?` y acordeón de 6 FAQs con animación `BlurredStagger` + CTA a WhatsApp.
-- [ ] **Próxima Sesión — Bloque `Hero` + `Header` + `Footer` + `Legales`:**
-  - [ ] **Hero (`01-hero.html`):** Pulido visual, tipográfico y vídeo en bucle (escritorio y móvil).
-  - [ ] **Header (`src/header.html`):** Pulido de barra de navegación principal y menú móvil (y unificación con `equipo.html` y `galeria.html`).
-  - [ ] **Footer (`src/footer.html`):** Rediseño del pie de página y enlaces (y unificación con `equipo.html` y `galeria.html`).
-  - [ ] **Legales:** Creación de páginas/modales de Aviso Legal, Política de Privacidad y Política de Cookies.
-- [ ] **Sustitución de datos provisionales pendientes:** Teléfono definitivo, Gmail oficial y fotos reales de Galería 1 / retratos del equipo.
-- [ ] **Migración a Astro + Backend con InsForge + idiomas `EN` / `DE` (TRAS EL OK DEL CLIENTE):**
-  > [!IMPORTANT]
-  > **RECORDATORIO OBLIGATORIO PARA CUALQUIER SESIÓN FUTURA:** En cuanto Musa diga que ya enseñó el demo al cliente y que **le gustó / vamos a trabajar en el proyecto en serio**, recordar inmediatamente dar el **salto a Astro** antes de activar `EN`/`DE` e **InsForge** (para unificar Header/Footer, tener rutas SEO `/es/`, `/en/`, `/de/` y escalar limpio).
-  - [ ] Migrar la v1 aprobada (HTML/CSS/JS) a **Astro** (Cloudflare Pages).
-  - [ ] Conectar contratos `*-data.js` con **InsForge** y activar multiidioma `ES` / `EN` / `DE` con URLs separadas.
+- [x] **Pie de página — Halftone Wordmark Footer:**
+  - [x] Canvas 2D interactivo con partículas reactivas, enlace oficial a MYNEXT y botón Volver arriba ↑.
+  - [x] Unificación de color a negro carbono `#0b0b0c` en `html`, `body` y `<meta name="theme-color">` eliminando franjas verdes en iOS Safari.
+- [x] **Páginas Legales:**
+  - [x] Creadas `aviso-legal.html`, `privacidad.html` y `cookies.html` enlazadas con `assets/css/legal.css` y botón de retorno al footer.
+- [x] **Auditoría Técnica 360° (Playwright CLI + TestSprite):**
+  - [x] 36/36 pases en Playwright sin desbordamientos en iPhone 14, Pro Max, SE, iPad y Desktop.
+  - [x] 14/14 pases en TestSprite con API Key global actualizada. Cero archivos residuales en `web/v1/`.
+- [x] **Rediseño de Paleta Oficial del Logo P7 y Pulido Editorial (22/11/2026):**
+  - [x] Sustitución completa de la paleta verde esmeralda por los tonos oficiales del logo (`#0A0909`, `#0B0702`, `#242423`, `#AC986C`, `#C3B9A0`, `#9D9B95`, `#FDFDFC`, `#F6F5F5`) + acento Brick Red (`#C1091E`).
+  - [x] Unificación de botones Liquid Glass transparentes con bordado rojo `#C1091E` en toda la web (incluido Hero).
+  - [x] Bandas full-bleed editoriales en Piedra Champán Mate para *Cómo se trabaja en P7* y *Contacto*; *Lista de precios* (plantilla Pinterest) en Champán Arena `#C3B9A0` con tinta Carbón `#0A0909`.
+  - [x] Mapa blanco proporcionado (`880px` × hasta `460px`), FAQ centrada con las 6 preguntas cerradas por defecto y separadores Bandera de Colombia restaurados.
+  - [x] Galería 3 móvil limpia (solo botón *Volver* en header, sin menú ni botón inferior, swipe horizontal/diagonal sin bloquear el scroll vertical).
+  - [x] Auditoría Playwright CLI en 8 viewports (`320px`–`1440px`) con 0 overflow y tap targets móviles `≥ 44px`, desplegada en `main` (Cloudflare).
 
 ---
 
-## Fase 4 — Despliegue y Producción en Cloudflare Pages (EN CURSO)
-- [x] Primer despliegue en producción conectado a GitHub (`W-P7-Barberia`, rama `main`) en Cloudflare Pages para pruebas reales en móvil.
-- [ ] Auditoría final de Lighthouse (Rendimiento, Accesibilidad, Buenas Prácticas y SEO ≥ 95) tras terminar Hero, Header, Footer y Legales.
+## Fase 4 — Próximos Pasos (Fase 4 y Futuras)
+- [ ] **Retoque del Preloader / Loading (en carpeta aparte `web/loading/`):**
+  - [ ] Pulir diseño y animación en `web/loading/` antes de decidir su integración definitiva.
+- [ ] **Sustitución de datos provisionales:** Fotos de alta resolución de Manu / barberos reales en caso de que aporten nuevo material fotográfico.
+- [ ] **Migración a Astro + Backend con InsForge + idiomas `EN` / `DE` (TRAS EL OK DEL CLIENTE):**
+  > [!IMPORTANT]
+  > **RECORDATORIO OBLIGATORIO PARA CUALQUIER SESIÓN FUTURA:** En cuanto Musa diga que ya enseñó el demo al cliente y que **le gustó / vamos a trabajar en el proyecto en serio**, recordar inmediatamente dar el **salto a Astro** antes de activar `EN`/`DE` e **InsForge** (para unificar Header/Footer, tener rutas SEO `/es/`, `/en/`, `/de/` y modularizar el código).
+  - [ ] Migrar la v1 aprobada (HTML/CSS/JS) a **Astro** (Cloudflare Pages).
+  - [ ] Conectar contratos `*-data.js` con **InsForge** y activar multiidioma `ES` / `EN` / `DE` con URLs separadas.

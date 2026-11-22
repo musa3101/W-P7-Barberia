@@ -67,24 +67,16 @@
   </div>
 </footer>
 
-<!-- Lightbox de Galería (<dialog> nativo) -->
-<dialog id="lightbox-dialog" closedby="any" aria-labelledby="lightbox-title">
-  <div class="dialog-head">
-    <h2 id="lightbox-title" class="dialog-title">Trabajo P7</h2>
-    <button type="button" class="dialog-close" data-dialog-close aria-label="Cerrar vista ampliada">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true">
-        <line x1="5" y1="5" x2="19" y2="19"></line>
-        <line x1="19" y1="5" x2="5" y2="19"></line>
-      </svg>
-    </button>
-  </div>
-  <div class="dialog-body">
-    <img id="lightbox-image" class="lightbox-img" src="" alt="">
-    <div class="lightbox-meta">
-      <span id="lightbox-category"></span>
-      <span>P7 Barber Master Studio · Palma</span>
-    </div>
-  </div>
+<!-- Lightbox de Galería (<dialog> nativo · limpio, sin marcos ni barras) -->
+<dialog id="lightbox-dialog" class="lightbox-clean" closedby="any" aria-label="Vista ampliada">
+  <button type="button" class="lightbox-close" data-dialog-close aria-label="Cerrar vista ampliada">
+    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+      <line x1="6" y1="6" x2="18" y2="18"></line>
+      <line x1="18" y1="6" x2="6" y2="18"></line>
+    </svg>
+  </button>
+  <img id="lightbox-image" class="lightbox-img" src="" alt="" hidden>
+  <video id="lightbox-video" class="lightbox-img" autoplay loop muted playsinline hidden></video>
 </dialog>
 
 <!-- Modal Legal (<dialog> nativo) -->
@@ -105,8 +97,8 @@
 <script defer src="./assets/js/header.js?v=20261121"></script>
 <script defer src="./assets/js/cinta.js?v=20261121"></script>
 <script defer src="./assets/js/footer.js?v=20261121"></script>
-<script defer src="./assets/js/sobre-carousel.js?v=20261121"></script>
-<script defer src="./assets/js/site.js"></script>
+<script defer src="./assets/js/sobre-carousel.js?v=20261122j"></script>
+<script defer src="./assets/js/site.js?v=20261122j"></script>
 <script defer src="./assets/js/trabajo.js"></script>
 <script defer src="./assets/js/contacto.js"></script>
 </body>

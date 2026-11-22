@@ -10,16 +10,22 @@
     />
     <meta name="theme-color" content="#0b0b0c" />
     <link rel="icon" type="image/png" href="./assets/img/favicon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap"
+    />
     <link rel="preconnect" href="https://api.fontshare.com" crossorigin />
     <link
       rel="stylesheet"
       href="https://api.fontshare.com/v2/css?f[]=boska@400,401,500,501,600,700,701&f[]=general-sans@400,500,600,700&display=swap"
     />
     <link rel="stylesheet" href="./assets/css/fonts.css" />
-    <link rel="stylesheet" href="./assets/css/site.css?v=20261121" />
-    <link rel="stylesheet" href="./assets/css/header.css?v=20261121" />
-    <link rel="stylesheet" href="./assets/css/sobre.css?v=20261120c" />
-    <link rel="stylesheet" href="./assets/css/footer.css?v=20261121" />
+    <link rel="stylesheet" href="./assets/css/site.css?v=20261122f" />
+    <link rel="stylesheet" href="./assets/css/header.css?v=20261122f" />
+    <link rel="stylesheet" href="./assets/css/sobre.css?v=20261122h" />
+    <link rel="stylesheet" href="./assets/css/footer.css?v=20261122f" />
     <style>
       .equipo-main { padding-top: calc(var(--p7-hdr-height, 64px) + 32px); }
     </style>
@@ -153,88 +159,185 @@
       <div class="container">
         <div class="equipo-shell">
           <header class="equipo-header">
+            <span class="equipo-kicker">Palma de Mallorca</span>
             <h1 class="equipo-h1">Nuestro equipo</h1>
             <p class="equipo-intro">
               Tres barberos, atención individual con cita previa y cada uno con su
-              especialidad. Desliza hacia abajo para conocernos.
+              propio oficio. Desliza para conocernos.
             </p>
           </header>
 
-          <div class="equipo-cards-stack" aria-label="Barberos de P7 Barber Master Studio">
-            <article class="barbero-cartulina barbero-cartulina--first">
-              <div class="barbero-photo-wrap">
-                <div class="barbero-photo-card">
-                  <picture>
-                    <source type="image/avif" srcset="./assets/img/opt/manu-portrait-480w.avif 480w, ./assets/img/opt/manu-portrait-900w.avif 900w" sizes="(max-width: 720px) 84vw, 290px" />
-                    <source type="image/webp" srcset="./assets/img/opt/manu-portrait-480w.webp 480w, ./assets/img/opt/manu-portrait-900w.webp 900w" sizes="(max-width: 720px) 84vw, 290px" />
-                    <img src="./assets/img/opt/manu-portrait-900w.webp" alt="Retrato de Manu, fundador y maestro barbero de P7 Barber Master Studio" width="900" height="1125" decoding="async" class="barbero-photo" />
-                  </picture>
-                </div>
-              </div>
-              <div class="barbero-info">
-                <p class="barbero-role">Fundador · Dueño</p>
-                <h2 class="barbero-name">Manu</h2>
-                <p class="barbero-bio">
-                  Al frente de P7 desde 2023. Especializado en degradados milimétricos,
-                  arquitectura de corte a tijera y ritual clásico de barba con navaja y
-                  toalla caliente.
-                </p>
-              </div>
-            </article>
+          <section
+            id="tmc-carousel"
+            class="tmc-carousel"
+            aria-label="Barberos de P7 Barber Master Studio"
+            aria-roledescription="carrusel"
+          >
+            <div class="tmc-viewport">
+              <!-- Flechas laterales solo móvil (sin círculo, color rojo) -->
+              <button type="button" class="tmc-side-nav tmc-side-nav--prev" data-tmc-prev aria-label="Barbero anterior">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="m15 18-6-6 6-6" />
+                </svg>
+              </button>
+              <button type="button" class="tmc-side-nav tmc-side-nav--next" data-tmc-next aria-label="Siguiente barbero">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="m9 18 6-6-6-6" />
+                </svg>
+              </button>
 
-            <article class="barbero-cartulina barbero-cartulina--scroll" data-relleno="barbero-2">
-              <div class="barbero-photo-wrap">
-                <div class="barbero-photo-card">
-                  <picture>
-                    <source type="image/avif" srcset="./assets/img/opt/corte-navaja-oro-480w.avif 480w, ./assets/img/opt/corte-navaja-oro-900w.avif 900w" sizes="(max-width: 720px) 84vw, 290px" />
-                    <source type="image/webp" srcset="./assets/img/opt/corte-navaja-oro-480w.webp 480w, ./assets/img/opt/corte-navaja-oro-900w.webp 900w" sizes="(max-width: 720px) 84vw, 290px" />
-                    <img src="./assets/img/opt/corte-navaja-oro-900w.webp" alt="Retrato de Carlos Vega, especialista en fade, perfilado y color en P7 Barber Master Studio" width="900" height="1125" loading="lazy" decoding="async" class="barbero-photo" />
-                  </picture>
+              <!-- Barbero 1: Manu -->
+              <article class="tmc-slide is-active" data-slide="0" aria-hidden="false">
+                <p class="tmc-role">Fundador · Maestro Barbero</p>
+                <div class="tmc-body">
+                  <div class="tmc-media">
+                    <div class="tmc-media-veil" aria-hidden="true"></div>
+                    <picture>
+                      <source type="image/avif" srcset="./assets/img/opt/manu-portrait-480w.avif 480w, ./assets/img/opt/manu-portrait-900w.avif 900w" sizes="(max-width: 639px) 240px, (max-width: 1023px) 280px, 360px" />
+                      <source type="image/webp" srcset="./assets/img/opt/manu-portrait-480w.webp 480w, ./assets/img/opt/manu-portrait-900w.webp 900w" sizes="(max-width: 639px) 240px, (max-width: 1023px) 280px, 360px" />
+                      <img src="./assets/img/opt/manu-portrait-900w.webp" alt="Retrato de Manu, fundador y maestro barbero de P7 Barber Master Studio" width="900" height="1125" decoding="async" class="tmc-img" />
+                    </picture>
+                  </div>
+                  <div class="tmc-info">
+                    <h2 class="tmc-name">
+                      <span class="tmc-first">Manu</span>
+                      <span class="tmc-last">P7 Studio</span>
+                    </h2>
+                    <div class="tmc-details">
+                      <a
+                        href="https://www.instagram.com/p7barberpalma/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="tmc-circle-cta"
+                        data-relleno="instagram"
+                        aria-label="Ver Instagram de Manu P7 Studio"
+                        title="Instagram"
+                      >
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                          <path d="M5 12h14" />
+                          <path d="m12 5 7 7-7 7" />
+                        </svg>
+                      </a>
+                      <p class="tmc-bio">
+                        Al frente de P7 desde 2023. Especializado en degradados milimétricos,
+                        arquitectura de corte a tijera y ritual clásico de barba con navaja y
+                        toalla caliente.
+                      </p>
+                    </div>
+                  </div>
                 </div>
-              </div>
-              <div class="barbero-info">
-                <p class="barbero-role">Barbero especialista</p>
-                <h2 class="barbero-name">Carlos Vega</h2>
-                <p class="barbero-bio">
-                  Especializado en degradados a cero, perfilado limpio a navaja, diseño
-                  de contornos y trabajos de coloración masculina, desde mechas sutiles
-                  hasta tintes completos.
-                </p>
-              </div>
-            </article>
+              </article>
 
-            <article class="barbero-cartulina barbero-cartulina--scroll" data-relleno="barbero-3">
-              <div class="barbero-photo-wrap">
-                <div class="barbero-photo-card">
-                  <picture>
-                    <source type="image/avif" srcset="./assets/img/opt/hero-atelier-480w.avif 480w, ./assets/img/opt/hero-atelier-900w.avif 900w" sizes="(max-width: 720px) 84vw, 290px" />
-                    <source type="image/webp" srcset="./assets/img/opt/hero-atelier-480w.webp 480w, ./assets/img/opt/hero-atelier-900w.webp 900w" sizes="(max-width: 720px) 84vw, 290px" />
-                    <img src="./assets/img/opt/hero-atelier-900w.webp" alt="Retrato de Mateo Ruiz, especialista en corte clásico a tijera y ritual de barba en P7 Barber Master Studio" width="900" height="1125" loading="lazy" decoding="async" class="barbero-photo" />
-                  </picture>
+              <!-- Barbero 2: Carlos Vega -->
+              <article class="tmc-slide" data-slide="1" aria-hidden="true">
+                <p class="tmc-role">Especialista en Fade &amp; Color</p>
+                <div class="tmc-body">
+                  <div class="tmc-media">
+                    <div class="tmc-media-veil" aria-hidden="true"></div>
+                    <picture>
+                      <source type="image/avif" srcset="./assets/img/opt/corte-navaja-oro-480w.avif 480w, ./assets/img/opt/corte-navaja-oro-900w.avif 900w" sizes="(max-width: 639px) 240px, (max-width: 1023px) 280px, 360px" />
+                      <source type="image/webp" srcset="./assets/img/opt/corte-navaja-oro-480w.webp 480w, ./assets/img/opt/corte-navaja-oro-900w.webp 900w" sizes="(max-width: 639px) 240px, (max-width: 1023px) 280px, 360px" />
+                      <img src="./assets/img/opt/corte-navaja-oro-900w.webp" alt="Retrato de Carlos Vega, especialista en fade, perfilado y color en P7 Barber Master Studio" width="900" height="1125" loading="lazy" decoding="async" class="tmc-img" />
+                    </picture>
+                  </div>
+                  <div class="tmc-info">
+                    <h2 class="tmc-name">
+                      <span class="tmc-first">Carlos</span>
+                      <span class="tmc-last">Vega</span>
+                    </h2>
+                    <div class="tmc-details">
+                      <a
+                        href="https://www.instagram.com/p7barberpalma/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="tmc-circle-cta"
+                        data-relleno="instagram"
+                        aria-label="Ver Instagram de Carlos Vega"
+                        title="Instagram"
+                      >
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                          <path d="M5 12h14" />
+                          <path d="m12 5 7 7-7 7" />
+                        </svg>
+                      </a>
+                      <p class="tmc-bio">
+                        Especializado en degradados a cero, perfilado limpio a navaja, diseño
+                        de contornos y trabajos de coloración masculina, desde mechas sutiles
+                        hasta tintes completos.
+                      </p>
+                    </div>
+                  </div>
                 </div>
+              </article>
+
+              <!-- Barbero 3: Mateo Ruiz -->
+              <article class="tmc-slide" data-slide="2" aria-hidden="true">
+                <p class="tmc-role">Especialista en Tijera &amp; Barba</p>
+                <div class="tmc-body">
+                  <div class="tmc-media">
+                    <div class="tmc-media-veil" aria-hidden="true"></div>
+                    <picture>
+                      <source type="image/avif" srcset="./assets/img/opt/hero-atelier-480w.avif 480w, ./assets/img/opt/hero-atelier-900w.avif 900w" sizes="(max-width: 639px) 240px, (max-width: 1023px) 280px, 360px" />
+                      <source type="image/webp" srcset="./assets/img/opt/hero-atelier-480w.webp 480w, ./assets/img/opt/hero-atelier-900w.webp 900w" sizes="(max-width: 639px) 240px, (max-width: 1023px) 280px, 360px" />
+                      <img src="./assets/img/opt/hero-atelier-900w.webp" alt="Retrato de Mateo Ruiz, especialista en corte clásico a tijera y ritual de barba en P7 Barber Master Studio" width="900" height="1125" loading="lazy" decoding="async" class="tmc-img" />
+                    </picture>
+                  </div>
+                  <div class="tmc-info">
+                    <h2 class="tmc-name">
+                      <span class="tmc-first">Mateo</span>
+                      <span class="tmc-last">Ruiz</span>
+                    </h2>
+                    <div class="tmc-details">
+                      <a
+                        href="https://www.instagram.com/p7barberpalma/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="tmc-circle-cta"
+                        data-relleno="instagram"
+                        aria-label="Ver Instagram de Mateo Ruiz"
+                        title="Instagram"
+                      >
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                          <path d="M5 12h14" />
+                          <path d="m12 5 7 7-7 7" />
+                        </svg>
+                      </a>
+                      <p class="tmc-bio">
+                        Enfocado en cortes clásicos a tijera, cabellos medios y largos con
+                        caída natural y arreglo integral de barba con vapor, aceites esenciales
+                        y toalla caliente.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </article>
+            </div>
+
+            <!-- Controles e indicador 1 · 2 · 3 -->
+            <div class="tmc-controls">
+              <button type="button" class="tmc-nav-btn" data-tmc-prev aria-label="Barbero anterior">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="m15 18-6-6 6-6" />
+                </svg>
+              </button>
+
+              <div class="tmc-dots" role="tablist" aria-label="Seleccionar barbero">
+                <button type="button" class="tmc-dot is-active" data-tmc-goto="0" role="tab" aria-selected="true" aria-label="Barbero 1: Manu">01</button>
+                <button type="button" class="tmc-dot" data-tmc-goto="1" role="tab" aria-selected="false" aria-label="Barbero 2: Carlos Vega">02</button>
+                <button type="button" class="tmc-dot" data-tmc-goto="2" role="tab" aria-selected="false" aria-label="Barbero 3: Mateo Ruiz">03</button>
               </div>
-              <div class="barbero-info">
-                <p class="barbero-role">Barbero especialista</p>
-                <h2 class="barbero-name">Mateo Ruiz</h2>
-                <p class="barbero-bio">
-                  Enfocado en cortes clásicos a tijera, cabellos medios y largos con
-                  caída natural y arreglo integral de barba con vapor, aceites esenciales
-                  y toalla caliente.
-                </p>
-              </div>
-            </article>
-          </div>
+
+              <button type="button" class="tmc-nav-btn" data-tmc-next aria-label="Siguiente barbero">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="m9 18 6-6-6-6" />
+                </svg>
+              </button>
+            </div>
+          </section>
 
           <div class="equipo-footer-bar">
-            <a href="./index.html#sobre-nosotros" class="liquid-glass-btn" data-nav-back>
-              <span class="liquid-glass-surface" aria-hidden="true"></span>
-              <span class="liquid-glass-blur" aria-hidden="true"></span>
-              <span class="liquid-glass-label">
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                  <path d="M10.5 3.5L6 8L10.5 12.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="square" />
-                </svg>
-                <span>Volver atrás</span>
-              </span>
+            <a href="./index.html#sobre-nosotros" class="equipo-back-link" data-nav-back>
+              <span>Volver atrás</span>
             </a>
           </div>
         </div>
@@ -316,27 +419,7 @@
       </defs>
     </svg>
 
-    <script>
-      if (
-        !CSS.supports('(animation-timeline: view()) and (animation-range: entry)') &&
-        window.matchMedia('(prefers-reduced-motion: no-preference)').matches
-      ) {
-        const cards = document.querySelectorAll('.barbero-cartulina--scroll');
-        cards.forEach((card) => card.classList.add('is-io-hidden'));
-        const observer = new IntersectionObserver(
-          (entries) => {
-            entries.forEach((entry) => {
-              if (entry.isIntersecting) {
-                entry.target.classList.add('is-io-visible');
-                observer.unobserve(entry.target);
-              }
-            });
-          },
-          { threshold: 0.18 }
-        );
-        cards.forEach((card) => observer.observe(card));
-      }
-    </script>
+    <script defer src="./assets/js/equipo.js?v=20261122d"></script>
     <script defer src="./assets/js/nav-memory.js?v=20261121"></script>
     <script defer src="./assets/js/header.js?v=20261121"></script>
     <script defer src="./assets/js/footer.js?v=20261121"></script>
