@@ -61,13 +61,18 @@
   };
 
   const applyMediaMotionState = () => {
-    const shouldPlay = !prefersReducedMotion() && !userPaused;
+    const shouldPlay = !userPaused;
 
     if (heroVideo) {
+      heroVideo.muted = true;
+      heroVideo.defaultMuted = true;
+      heroVideo.loop = true;
+      heroVideo.playsInline = true;
+
       if (!shouldPlay) {
         heroVideo.removeAttribute('autoplay');
         heroVideo.pause();
-      } else if (videoAvailable) {
+      } else {
         heroVideo.setAttribute('autoplay', '');
         const p = heroVideo.play();
         if (p && typeof p.catch === 'function') p.catch(() => {});
@@ -75,18 +80,28 @@
     }
 
     if (heroPoster) {
-      heroPoster.classList.toggle('is-ken-burns', shouldPlay);
+      heroPoster.classList.toggle('is-ken-burns', shouldPlay && !prefersReducedMotion());
     }
 
     syncToggleUI(shouldPlay);
   };
 
   if (heroVideo) {
+    const ensurePlay = () => {
+      if (userPaused) return;
+      heroVideo.muted = true;
+      heroVideo.loop = true;
+      heroVideo.playsInline = true;
+      if (heroVideo.paused) {
+        const p = heroVideo.play();
+        if (p && typeof p.catch === 'function') p.catch(() => {});
+      }
+    };
+
     const markVideoUnavailable = () => {
       videoAvailable = false;
       heroVideo.classList.add('is-unavailable');
       heroVideo.pause();
-      applyMediaMotionState();
     };
 
     const markVideoAvailable = () => {
@@ -95,7 +110,26 @@
       applyMediaMotionState();
     };
 
-    heroVideo.addEventListener('loadeddata', markVideoAvailable, { once: true });
+    if (heroVideo.readyState >= 2) {
+      markVideoAvailable();
+    } else {
+      heroVideo.addEventListener('loadeddata', markVideoAvailable, { once: true });
+      heroVideo.addEventListener('canplay', markVideoAvailable, { once: true });
+    }
+
+    // Garantía de bucle continuo e inmediato
+    heroVideo.addEventListener('ended', () => {
+      if (userPaused) return;
+      heroVideo.currentTime = 0;
+      ensurePlay();
+    });
+
+    document.addEventListener('visibilitychange', () => {
+      if (document.visibilityState === 'visible' && videoAvailable) {
+        ensurePlay();
+      }
+    });
+
     heroVideo.addEventListener('error', markVideoUnavailable);
 
     const sources = heroVideo.querySelectorAll('source');

@@ -1,8 +1,8 @@
 /**
  * header.js — Comportamiento del Header P7 Barber Master Studio
  * - Transparente sobre Hero -> Cristal Carbono Oscuro a mitad del Hero (50%)
- * - Móvil (< 768px): Menú pantalla completa editorial en carbono
- * - Tablet / Escritorio (>= 768px): Curved Menu (21st.dev) con curva SVG elástica y letras escalonadas
+ * - Móvil y Tablet (< 1024px): StaggeredMenu lateral en capas (React Bits adaptado)
+ * - Escritorio (>= 1024px): Curved Menu (21st.dev) con curva SVG elástica y letras escalonadas
  * - Bloqueo total del scroll de fondo cuando cualquier menú está abierto
  */
 document.addEventListener('DOMContentLoaded', () => {
@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const curvedCloseTargets = document.querySelectorAll('[data-curved-close]');
   const curvedPath = document.getElementById('p7-curved-path');
 
-  const isTabletOrDesktop = () => window.matchMedia('(min-width: 768px)').matches;
+  const isTabletOrDesktop = () => window.matchMedia('(min-width: 1024px)').matches;
   const prefersReduced = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   /* 1. Estado cristal al pasar la mitad del Hero (Hero 100% limpio y sagrado) */

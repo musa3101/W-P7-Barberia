@@ -34,7 +34,7 @@
   <!-- Hojas de estilo -->
   <link rel="stylesheet" href="./assets/css/site.css?v=20261122j">
   <link rel="stylesheet" href="./assets/css/sections.css?v=20261122b">
-  <link rel="stylesheet" href="./assets/css/header.css?v=20261122b">
+  <link rel="stylesheet" href="./assets/css/header.css?v=20261122l">
   <link rel="stylesheet" href="./assets/css/cinta.css?v=20261122b">
   <link rel="stylesheet" href="./assets/css/sobre.css?v=20261122i">
   <link rel="stylesheet" href="./assets/css/trabajo.css?v=20261122b">
@@ -126,7 +126,7 @@
 </header>
 
 <!-- =========================================================================
-     MENÚ MÓVIL PANTALLA COMPLETA EDITORIAL (< 768px · Carbono + Boska + Oro)
+     STAGGERED MENU (MÓVIL Y TABLET < 1024px · Adaptado de React Bits)
      ========================================================================= -->
 <div
   id="p7-mobile-drawer"
@@ -136,7 +136,13 @@
   aria-modal="true"
   aria-label="Menú de navegación"
 >
-  <div class="p7-drawer-backdrop" aria-hidden="true"></div>
+  <div class="p7-drawer-backdrop" data-drawer-close aria-hidden="true"></div>
+
+  <!-- Láminas de entrada escalonadas (Amarillo bandera + Rojo Ladrillo) -->
+  <div class="p7-sm-prelayers" aria-hidden="true">
+    <div class="p7-sm-prelayer p7-sm-prelayer--gold"></div>
+    <div class="p7-sm-prelayer p7-sm-prelayer--red"></div>
+  </div>
 
   <div class="p7-drawer-sheet">
     <div class="p7-drawer-top">
@@ -156,25 +162,14 @@
       <button
         type="button"
         id="p7-menu-close"
-        class="p7-menu-trigger"
+        class="p7-sm-close"
         aria-label="Cerrar menú de navegación"
       >
-        <svg class="p7-align-icon" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true">
-          <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.85">
-            <path stroke-dasharray="10" stroke-dashoffset="10" d="M12 5h7M12 5h-7">
-              <animate fill="freeze" attributeName="stroke-dashoffset" dur="0.2s" values="10;0" />
-            </path>
-            <path stroke-dasharray="8" stroke-dashoffset="8" d="M12 10h5M12 10h-5">
-              <animate fill="freeze" attributeName="stroke-dashoffset" begin="0.16s" dur="0.2s" values="8;0" />
-            </path>
-            <path stroke-dasharray="12" stroke-dashoffset="12" d="M12 15h9M12 15h-9">
-              <animate fill="freeze" attributeName="stroke-dashoffset" begin="0.3s" dur="0.2s" values="12;0" />
-            </path>
-            <path stroke-dasharray="10" stroke-dashoffset="10" d="M12 20h7M12 20h-7">
-              <animate fill="freeze" attributeName="stroke-dashoffset" begin="0.34s" dur="0.2s" values="10;0" />
-            </path>
-          </g>
-        </svg>
+        <span class="p7-sm-close-text">Close</span>
+        <span class="p7-sm-close-icon" aria-hidden="true">
+          <span></span>
+          <span></span>
+        </span>
       </button>
     </div>
 
@@ -182,40 +177,57 @@
       <ul class="p7-drawer-list">
         <li class="p7-drawer-item" style="--stagger: 0;">
           <a href="#inicio" class="p7-drawer-link" data-drawer-close>
-            <span class="p7-drawer-num" aria-hidden="true">01</span>
             <span class="p7-drawer-label">Inicio</span>
+            <span class="p7-drawer-num" aria-hidden="true">01</span>
           </a>
         </li>
         <li class="p7-drawer-item" style="--stagger: 1;">
           <a href="#sobre-nosotros" class="p7-drawer-link" data-drawer-close>
-            <span class="p7-drawer-num" aria-hidden="true">02</span>
             <span class="p7-drawer-label">Sobre nosotros</span>
+            <span class="p7-drawer-num" aria-hidden="true">02</span>
           </a>
         </li>
         <li class="p7-drawer-item" style="--stagger: 2;">
           <a href="#nuestro-trabajo" class="p7-drawer-link" data-drawer-close>
-            <span class="p7-drawer-num" aria-hidden="true">03</span>
             <span class="p7-drawer-label">Nuestro trabajo</span>
+            <span class="p7-drawer-num" aria-hidden="true">03</span>
           </a>
         </li>
         <li class="p7-drawer-item" style="--stagger: 3;">
           <a href="#contacto" class="p7-drawer-link" data-drawer-close>
-            <span class="p7-drawer-num" aria-hidden="true">04</span>
             <span class="p7-drawer-label">Contacto</span>
+            <span class="p7-drawer-num" aria-hidden="true">04</span>
           </a>
         </li>
       </ul>
     </nav>
 
     <div class="p7-drawer-foot">
-      <a href="#reserva" class="p7-drawer-cta" data-drawer-close>
-        <span>Reservar cita</span>
-      </a>
-
-      <div class="p7-drawer-meta">
-        <span>C/ Miguel Ángel Riera, 2 · Palma</span>
-        <span class="p7-drawer-rating">★ 5,0 en Booksy</span>
+      <div class="p7-sm-socials">
+        <span class="p7-sm-socials-title">Social</span>
+        <a
+          href="https://www.instagram.com/p7barberpalma/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="p7-sm-social-link"
+          data-relleno="instagram"
+          aria-label="Instagram de P7 Barber Master Studio"
+        >
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+            <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+          </svg>
+        </a>
       </div>
+
+      <a href="#reserva" class="liquid-glass-btn p7-sm-cta" data-drawer-close>
+        <span class="liquid-glass-surface" aria-hidden="true"></span>
+        <span class="liquid-glass-blur" aria-hidden="true"></span>
+        <span class="liquid-glass-label">
+          <span>Reservar cita</span>
+        </span>
+      </a>
     </div>
   </div>
 </div>
@@ -326,9 +338,9 @@
       aria-hidden="true"
       poster="./assets/video/hero-poster.avif"
     >
-      <!-- Vídeo vertical 9:16 activo también en desktop hasta disponer de versión 16:9 -->
-      <source src="./assets/video/hero-9x16.webm" type="video/webm">
+      <!-- Vídeo vertical 9:16 activo también en desktop hasta disponer de versión 16:9 (MP4 primero para decodificación instantánea en Safari) -->
       <source src="./assets/video/hero-9x16.mp4" type="video/mp4">
+      <source src="./assets/video/hero-9x16.webm" type="video/webm">
     </video>
   </div>
 
@@ -1647,11 +1659,11 @@
 </dialog>
 
 <script defer src="./assets/js/nav-memory.js?v=20261121"></script>
-<script defer src="./assets/js/header.js?v=20261121"></script>
+<script defer src="./assets/js/header.js?v=20261122k"></script>
 <script defer src="./assets/js/cinta.js?v=20261121"></script>
 <script defer src="./assets/js/footer.js?v=20261121"></script>
 <script defer src="./assets/js/sobre-carousel.js?v=20261122j"></script>
-<script defer src="./assets/js/site.js?v=20261122j"></script>
+<script defer src="./assets/js/site.js?v=20261122m"></script>
 <script defer src="./assets/js/trabajo.js"></script>
 <script defer src="./assets/js/contacto.js"></script>
 </body>
