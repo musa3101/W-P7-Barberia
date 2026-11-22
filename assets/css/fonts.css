@@ -14,18 +14,17 @@
   --font-western: 'Rye', 'Boska', Georgia, serif;
   --font-serif-fallback: 'Cormorant Garamond', Georgia, serif;
 
-  /* Paleta Cromática P7 (Esmeralda & Oro) */
-  --color-emerald-950: #071F17;
-  --color-emerald-900: #0B2E22;
-  --color-emerald-800: #0F3D2E;
-  --color-emerald-700: #16523E;
-  --color-gold-300: #F1D592;
-  --color-gold-400: #DFBE78;
-  --color-gold-500: #C9A45C;
-  --color-gold-600: #A8843E;
-  --color-cream-100: #F8F1E4;
-  --color-cream-200: #EDE2CE;
-  --color-cream-muted: rgba(248, 241, 228, 0.72);
+  /* Paleta Cromática Oficial P7 (PDF Coolors + Brick Red) */
+  --color-carbon-900: #0A0909;
+  --color-ebony-950: #0B0702;
+  --color-anthracite-800: #242423;
+  --color-gold-antique: #AC986C;
+  --color-champagne: #C3B9A0;
+  --color-silver-titanium: #9D9B95;
+  --color-white: #FFFFFF;
+  --color-snow: #FDFDFC;
+  --color-smoke: #F6F5F5;
+  --color-brick-red: #C1091E;
 }
 
 /* Clases Utilitarias de Familias */
@@ -80,14 +79,14 @@
   letter-spacing: 0.02em;
 }
 
-/* Efecto Metálico Dorado para Titulares y Sellos */
+/* Efecto Metálico Noble para Titulares y Sellos */
 .text-gold-gradient {
-  background: linear-gradient(135deg, #F8F1E4 0%, #F1D592 30%, #C9A45C 68%, #9C7834 100%);
+  background: linear-gradient(135deg, #FDFDFC 0%, #C3B9A0 30%, #AC986C 68%, #786540 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 .border-gold-subtle {
-  border-color: rgba(201, 164, 92, 0.28);
+  border-color: rgba(172, 152, 108, 0.3);
 }

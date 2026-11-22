@@ -7,12 +7,12 @@
 :root {
   --p7-hdr-font-display: 'Boska', Georgia, serif;
   --p7-hdr-font-sans: 'General Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-  --p7-hdr-carbon: #0b0b0c;
-  --p7-hdr-carbon-glass: rgba(11, 11, 12, 0.72);
-  --p7-hdr-cream: #f8f1e4;
-  --p7-hdr-cream-muted: rgba(248, 241, 228, 0.68);
-  --p7-hdr-gold: #f1d592;
-  --p7-hdr-gold-deep: #c9a45c;
+  --p7-hdr-carbon: #0A0909;
+  --p7-hdr-carbon-glass: rgba(10, 9, 9, 0.85);
+  --p7-hdr-cream: #FDFDFC;
+  --p7-hdr-cream-muted: #9D9B95;
+  --p7-hdr-gold: #C3B9A0;
+  --p7-hdr-gold-deep: #AC986C;
   --p7-hdr-ease: cubic-bezier(0.16, 1, 0.3, 1);
   --p7-hdr-height: 56px;
 }
@@ -198,8 +198,8 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 38px;
-  height: 38px;
+  width: 44px;
+  height: 44px;
   padding: 0;
   margin-right: -6px;
   border-radius: 0;
@@ -356,8 +356,8 @@
     right: 0;
     width: min(100vw, 560px);
     height: 100dvh;
-    background-color: #f8f1e4;
-    color: #0b2e22;
+    background-color: #0B0702;
+    color: #FFFFFF;
     transform: translateX(calc(100% + 110px));
     transition: transform 800ms cubic-bezier(0.76, 0, 0.24, 1);
     will-change: transform;
@@ -373,7 +373,7 @@
     left: -99px;
     width: 100px;
     height: 100%;
-    fill: #f8f1e4;
+    fill: #0B0702;
     stroke: none;
     pointer-events: none;
   }
@@ -393,7 +393,7 @@
     align-items: center;
     justify-content: space-between;
     padding-bottom: 18px;
-    border-bottom: 1px solid rgba(11, 46, 34, 0.18);
+    border-bottom: 1px solid rgba(195, 185, 160, 0.16);
   }
 
   .p7-curved-kicker {
@@ -402,26 +402,26 @@
     font-weight: 600;
     letter-spacing: 0.22em;
     text-transform: uppercase;
-    color: rgba(11, 46, 34, 0.62);
+    color: var(--p7-hdr-gold, #AC986C);
   }
 
   .p7-menu-trigger--dark {
-    background: rgba(11, 46, 34, 0.06);
-    border-color: rgba(11, 46, 34, 0.2);
-    color: #0b2e22;
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(195, 185, 160, 0.2);
+    color: #FFFFFF;
   }
 
   .p7-menu-trigger--dark .p7-align-icon {
-    color: #0b2e22;
+    color: #FFFFFF;
   }
 
   .p7-menu-trigger--dark:hover {
-    background: #0b2e22;
-    border-color: #0b2e22;
+    background: #242423;
+    border-color: #AC986C;
   }
 
   .p7-menu-trigger--dark:hover .p7-align-icon {
-    color: var(--p7-hdr-gold);
+    color: var(--p7-hdr-gold, #AC986C);
   }
 
   .p7-curved-nav {
@@ -436,15 +436,15 @@
     align-items: baseline;
     gap: 14px;
     padding: clamp(18px, 2.8vh, 26px) 0;
-    border-bottom: 1px solid rgba(11, 46, 34, 0.16);
+    border-bottom: 1px solid rgba(195, 185, 160, 0.12);
     text-decoration: none;
-    color: #0b2e22;
+    color: #FFFFFF;
     text-transform: uppercase;
     transition: border-color 320ms ease, color 320ms ease;
   }
 
   .p7-curved-link:hover {
-    border-bottom-color: #c9a45c;
+    border-bottom-color: #AC986C;
   }
 
   .p7-curved-index {
@@ -452,7 +452,7 @@
     font-style: italic;
     font-size: clamp(1.35rem, 2.2vw, 1.75rem);
     font-weight: 400;
-    color: #9b7a35;
+    color: #AC986C;
     min-width: 28px;
   }
 
@@ -481,7 +481,7 @@
 
   .p7-curved-link:hover .p7-curved-char {
     transform: translateX(12px);
-    color: #071f17;
+    color: #C3B9A0;
   }
 
   .p7-curved-foot {
@@ -500,8 +500,8 @@
     min-height: 52px;
     padding: 0 24px;
     border-radius: 9999px;
-    background: #0b2e22;
-    color: #f8f1e4;
+    background: linear-gradient(135deg, #786540, #C3B9A0 45%, #AC986C 70%, #786540);
+    color: #0A0909;
     font-family: var(--p7-hdr-font-sans);
     font-size: 0.875rem;
     font-weight: 600;
@@ -515,8 +515,8 @@
   }
 
   .p7-curved-cta:hover {
-    background: #c9a45c;
-    color: #0b0b0c;
+    background: #AC986C;
+    color: #0A0909;
     transform: translateY(-1px);
   }
 
@@ -527,7 +527,7 @@
     font-size: 0.72rem;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    color: rgba(11, 46, 34, 0.56);
+    color: #9D9B95;
   }
 }
 
@@ -691,8 +691,8 @@
   min-height: 52px;
   padding: 0 24px;
   border-radius: 9999px;
-  background: linear-gradient(135deg, #f3dc9f 0%, #c9a45c 100%);
-  color: #0b0b0c;
+  background: linear-gradient(135deg, #786540, #C3B9A0 45%, #AC986C 70%, #786540);
+  color: #0A0909;
   font-family: var(--p7-hdr-font-sans);
   font-size: 0.9375rem;
   font-weight: 600;
@@ -737,10 +737,21 @@
 }
 
 
-/* Separador fino bandera de Colombia entre secciones */
+/* Separador fino bandera de Colombia entre secciones (proporción sastrería 2:1:1) */
 .colombia-divider {
+  display: block;
   width: 100%;
   height: 3px;
-  background: linear-gradient(90deg, #fcd116 0%, #fcd116 50%, #003893 50%, #003893 75%, #ce1126 75%, #ce1126 100%);
-  opacity: 0.88;
+  border: 0;
+  margin: 0;
+  background: linear-gradient(
+    90deg,
+    #fcd116 0%,
+    #fcd116 50%,
+    #003893 50%,
+    #003893 75%,
+    #C1091E 75%,
+    #C1091E 100%
+  );
+  opacity: 1;
 }

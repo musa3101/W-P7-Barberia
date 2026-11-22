@@ -10,21 +10,25 @@ Fuente de verdad del diseño. Cualquier decisión nueva se anota aquí.
 - **Personalidad:** artesanal, exclusivo, cálido, seguro de sí mismo. Nunca genérico ni pálido.
 - **Idiomas:** ES · EN · DE
 
-## 2. Paleta "Esmeralda & Oro"
-| Token | Hex | Uso |
-|---|---|---|
-| `emerald-900` | `#0B2E22` | Fondo más profundo (hero overlay, footer) |
-| `emerald-800` | `#0F3D2E` | Fondo principal |
-| `emerald-700` | `#164A38` | Tarjetas, secciones alternas |
-| `gold-300` | `#F1D592` | Brillo del degradado |
-| `gold-500` | `#C9A45C` | Acento principal, líneas, iconos |
-| `gold-700` | `#9A7838` | Sombra del degradado |
-| `cream-100` | `#F8F1E4` | Secciones claras |
-| `cream-200` | `#F3E9D7` | Texto sobre verde |
-| `burgundy-600` | `#7A1F2B` | Contraste puntual (badges, hover) |
+## 2. Paleta Oficial P7 (ADN del Escudo + Bordado Liquid Glass)
+Basada en el documento rector `p7-logo-paleta.pdf` (extracción oficial del escudo) y el acento de sastrería `Brick Red (#C1091E)` para los botones Liquid Glass:
 
-**Degradado oro:** `linear-gradient(135deg, #9A7838, #F1D592 45%, #C9A45C 70%, #9A7838)`
-**Reglas:** el oro es acento (≤10 % de la pantalla). Alternar secciones verde / crema para ritmo.
+| Token Semántico | Código Hex | Uso en la Web |
+|---|---|---|
+| `carbon-900` | `#0A0909` | Fondo general de la web, cuerpo y canvas de footer |
+| `ebony-950` | `#0B0702` | Fondo Hero y cintas principales del escudo |
+| `anthracite-800` | `#242423` | Superficies de tarjetas, desplegables y bordes estructurados |
+| `gold-antique-500` | `#AC986C` | Acento noble principal, botones primarios y destellos |
+| `champagne-300` | `#C3B9A0` | Oro blanco/champán para líneas finas y subtítulos |
+| `silver-titanium-400`| `#9D9B95` | Plata satinada para textos secundarios y etiquetas |
+| `white-pure` | `#FFFFFF` | Titulares y contraste máximo |
+| `snow-100` | `#FDFDFC` | Texto de lectura nítido |
+| `smoke-150` | `#F6F5F5` | Texto suave y fondos claros alternos |
+| `brick-red-500` | `#C1091E` | **Bordado táctil en botones Liquid Glass** (ribete, destello y hover) |
+
+**Degradado Insignia del Escudo:** `linear-gradient(135deg, #0B0702 0%, #AC986C 35%, #C3B9A0 55%, #AC986C 75%, #0B0702 100%)`  
+**Degradado Liquid Glass Red Rim:** `linear-gradient(135deg, rgba(193, 9, 30, 0.75), rgba(193, 9, 30, 0.25) 50%, rgba(193, 9, 30, 0.8))`  
+**Reglas:** El negro carbono y ébano forman el 70% de la superficie; el bronce y champán son el acento noble (15%); y el rojo `#C1091E` se reserva con precisión para el bordado de los botones Liquid Glass interactivos.
 
 ## 3. Tipografía (v1 consolidada)
 | Rol | Fuente | Nota |
