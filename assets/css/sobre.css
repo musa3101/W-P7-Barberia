@@ -33,9 +33,9 @@
 .sobre-v2-h2 {
   margin: 0;
   font-family: var(--font-display);
-  font-weight: 500;
+  font-weight: 700;
   font-size: clamp(2.15rem, 4vw, 3.5rem);
-  line-height: 1.02;
+  line-height: 1.06;
   letter-spacing: -0.02em;
   text-wrap: balance;
   color: var(--p7-white, #FFFFFF);
@@ -46,9 +46,9 @@
   max-width: 56ch;
   font-family: var(--font-sans);
   font-size: clamp(1rem, 1.2vw, 1.125rem);
-  line-height: 1.6;
+  line-height: 1.65;
   text-wrap: pretty;
-  color: var(--p7-silver-titanium, #9D9B95);
+  color: var(--p7-bone, #E8E5DF);
 }
 
 .sobre-v2-actions {
@@ -314,7 +314,7 @@
   min-width: 0;
   font-family: var(--font-display);
   font-size: 0.9375rem;
-  font-weight: 500;
+  font-weight: 700;
   color: var(--cream-100);
   white-space: nowrap;
   overflow: hidden;
@@ -353,20 +353,20 @@
 }
 
 .equipo-kicker {
-  font-family: var(--font-sans, 'General Sans', sans-serif);
-  font-size: 0.6875rem;
+  font-family: var(--font-accent);
+  font-size: 0.75rem;
   font-weight: 600;
-  letter-spacing: 0.28em;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--p7-red, #C1091E);
+  color: var(--p7-colombia-yellow, #FCD116);
 }
 
 .equipo-h1 {
   margin: 0;
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-weight: 500;
+  font-family: var(--font-display);
+  font-weight: 700;
   font-size: clamp(2.45rem, 4.8vw, 3.75rem);
-  line-height: 1;
+  line-height: 1.06;
   letter-spacing: -0.02em;
   text-wrap: balance;
   color: var(--p7-snow, #FDFDFC);
@@ -374,11 +374,11 @@
 
 .equipo-intro {
   margin: 0;
-  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-  font-size: clamp(0.92rem, 1.1vw, 1.025rem);
+  font-family: var(--font-sans);
+  font-size: clamp(0.95rem, 1.3vw, 1.05rem);
   line-height: 1.65;
   text-wrap: pretty;
-  color: var(--p7-silver, #9D9B95);
+  color: var(--p7-bone, #E8E5DF);
 }
 
 /* ==========================================================================
@@ -459,12 +459,12 @@
 
 .tmc-role {
   margin: 0 0 12px;
-  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-  font-size: 0.6rem;
+  font-family: var(--font-accent);
+  font-size: 0.75rem;
   font-weight: 500;
-  letter-spacing: 0.26em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: #FCD116;
+  color: var(--p7-colombia-yellow, #FCD116);
   text-align: center;
 }
 
@@ -528,10 +528,10 @@
 
 .tmc-name {
   margin: 0;
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--font-display);
   font-size: clamp(2.4rem, 8.5vw, 3.1rem);
-  font-weight: 300;
-  line-height: 0.98;
+  font-weight: 700;
+  line-height: 1.06;
   letter-spacing: -0.02em;
   text-align: center;
   color: var(--p7-snow, #FDFDFC);
@@ -544,7 +544,7 @@
 }
 
 .tmc-last {
-  font-weight: 600;
+  font-weight: 800;
 }
 
 .tmc-details {
@@ -566,7 +566,7 @@
   border-radius: 9999px;
   border: 1px solid rgba(255, 255, 255, 0.24);
   background: rgba(255, 255, 255, 0.03);
-  color: var(--p7-silver, #9D9B95);
+  color: var(--p7-bone, #E8E5DF);
   text-decoration: none;
   -webkit-tap-highlight-color: transparent;
   transition:
@@ -602,10 +602,10 @@
 
 .tmc-bio {
   margin: 0;
-  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-  font-size: 0.84375rem;
-  line-height: 1.65;
-  color: var(--p7-silver, #9D9B95);
+  font-family: var(--font-sans);
+  font-size: 0.9375rem;
+  line-height: 1.62;
+  color: var(--p7-bone, #E8E5DF);
   text-wrap: pretty;
 }
 
@@ -627,7 +627,7 @@
   border-radius: 9999px;
   border: 1px solid rgba(255, 255, 255, 0.14);
   background: transparent;
-  color: var(--p7-silver, #9D9B95);
+  color: var(--p7-bone, #E8E5DF);
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
   transition: border-color 220ms ease, color 220ms ease, transform 200ms ease;
@@ -658,11 +658,11 @@
   border: 0;
   border-radius: 9999px;
   background: transparent;
-  font-family: var(--font-sans, 'General Sans', sans-serif);
+  font-family: var(--font-accent);
   font-size: 0.75rem;
   font-weight: 500;
   letter-spacing: 0.14em;
-  color: rgba(253, 253, 252, 0.42);
+  color: rgba(253, 253, 252, 0.68);
   cursor: pointer;
   position: relative;
   -webkit-tap-highlight-color: transparent;
@@ -689,7 +689,8 @@
   .tmc-details {
     flex-direction: column;
     align-items: center;
-    max-width: 330px;
+    max-width: 100%;
+    padding-inline: 4px;
     margin-inline: auto;
     gap: 14px;
     text-align: center;
@@ -699,7 +700,7 @@
     order: 2;
     width: 48px;
     height: 48px;
-    border-color: rgba(252, 209, 22, 0.72);
+    border-color: rgba(var(--p7-colombia-yellow-rgb), 0.72);
     color: var(--p7-red, #C1091E);
   }
 
@@ -712,8 +713,8 @@
   .tmc-bio {
     order: 1;
     width: 100%;
-    font-size: 0.84375rem;
-    line-height: 1.58;
+    font-size: 0.9375rem;
+    line-height: 1.62;
     text-align: center;
   }
 
@@ -728,13 +729,13 @@
   justify-content: center;
   min-height: 44px;
   padding: 6px 4px;
-  font-family: var(--font-sans, 'General Sans', sans-serif);
+  font-family: var(--font-accent);
   font-size: 0.75rem;
   font-weight: 500;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   text-decoration: none;
-  color: var(--p7-silver, #9D9B95);
+  color: var(--p7-bone, #E8E5DF);
   border-bottom: 1px solid rgba(195, 185, 160, 0.45);
   -webkit-tap-highlight-color: transparent;
   transition: color 220ms ease, border-color 220ms ease;
@@ -779,7 +780,7 @@
   .tmc-name {
     text-align: left;
     font-size: 2.85rem;
-    line-height: 1.08;
+    line-height: 1.06;
   }
 
   .tmc-details {
@@ -794,8 +795,8 @@
 
   .tmc-bio {
     max-width: 34ch;
-    font-size: 0.875rem;
-    line-height: 1.75;
+    font-size: 0.9375rem;
+    line-height: 1.65;
   }
 }
 
@@ -814,7 +815,7 @@
 
   .tmc-name {
     font-size: 3.35rem;
-    line-height: 1.08;
+    line-height: 1.06;
   }
 
   .tmc-details {
@@ -829,7 +830,7 @@
   .tmc-bio {
     max-width: 36ch;
     font-size: 0.9375rem;
-    line-height: 1.8;
+    line-height: 1.65;
   }
 }
 
@@ -844,8 +845,9 @@
 
 .equipo-footer-text {
   margin: 0;
+  font-family: var(--font-sans);
   font-size: 0.9375rem;
-  color: var(--emerald-ink-muted);
+  color: var(--p7-bone, #E8E5DF);
 }
 
 /* --------------------------------------------------------------------------

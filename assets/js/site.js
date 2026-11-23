@@ -87,16 +87,75 @@
   };
 
   if (heroVideo) {
+    /* Guardián "nunca parar" (iOS Safari):
+       - play() puede rechazarse en la recarga (AbortError mientras carga, o NotAllowedError
+         si iOS aún no considera la página activa / Modo Ahorro). Antes se silenciaba sin reintentar,
+         y el vídeo solo arrancaba al hacer scroll. Ahora se reintenta con backoff, en cada evento
+         de carga, al volver de bfcache (pageshow), y en el primer gesto del usuario. */
+    let retryTimer = null;
+    let retryCount = 0;
+    const isHeroVisible = () => {
+      const r = heroVideo.getBoundingClientRect();
+      return r.bottom > 0 && r.top < (window.innerHeight || document.documentElement.clientHeight);
+    };
+
+    const scheduleRetry = () => {
+      if (retryTimer || userPaused) return;
+      const delay = Math.min(250 * 2 ** retryCount, 4000);
+      retryCount += 1;
+      retryTimer = window.setTimeout(() => {
+        retryTimer = null;
+        ensurePlay();
+      }, delay);
+    };
+
     const ensurePlay = () => {
-      if (userPaused) return;
+      if (userPaused || document.visibilityState === 'hidden') return;
       heroVideo.muted = true;
+      heroVideo.defaultMuted = true;
       heroVideo.loop = true;
       heroVideo.playsInline = true;
-      if (heroVideo.paused) {
-        const p = heroVideo.play();
-        if (p && typeof p.catch === 'function') p.catch(() => {});
+      if (!heroVideo.paused && !heroVideo.ended) return;
+      // Sin fuente cargada todavía (o descartada por iOS al restaurar): forzar carga
+      if (heroVideo.readyState === 0 && heroVideo.networkState !== HTMLMediaElement.NETWORK_LOADING) {
+        heroVideo.load();
+      }
+      const p = heroVideo.play();
+      if (p && typeof p.then === 'function') {
+        p.then(() => {
+          retryCount = 0;
+          if (!videoAvailable) markVideoAvailable();
+        }).catch(scheduleRetry);
       }
     };
+
+    // Re-arranque ante cualquier pausa no solicitada por el usuario (iOS pausa al recargar/restaurar)
+    heroVideo.addEventListener('pause', () => {
+      if (!userPaused && document.visibilityState === 'visible' && !heroVideo.classList.contains('is-unavailable')) scheduleRetry();
+    });
+    ['loadedmetadata', 'loadeddata', 'canplay', 'canplaythrough', 'stalled', 'suspend'].forEach((ev) =>
+      heroVideo.addEventListener(ev, () => { if (heroVideo.paused) ensurePlay(); })
+    );
+    heroVideo.addEventListener('playing', () => { retryCount = 0; });
+
+    // Volver desde bfcache (recarga/atrás en Safari): el vídeo queda congelado si no se relanza
+    window.addEventListener('pageshow', () => { retryCount = 0; ensurePlay(); });
+    window.addEventListener('focus', ensurePlay);
+
+    // Red de seguridad: primer gesto del usuario desbloquea siempre la reproducción en iOS
+    const unlockEvents = ['touchstart', 'pointerdown', 'click', 'keydown', 'scroll'];
+    const unlock = () => {
+      ensurePlay();
+      if (!heroVideo.paused) unlockEvents.forEach((ev) => window.removeEventListener(ev, unlock, true));
+    };
+    unlockEvents.forEach((ev) => window.addEventListener(ev, unlock, { capture: true, passive: true }));
+
+    // Vigilante ligero: si está visible y parado sin motivo, relanzar
+    window.setInterval(() => {
+      if (!userPaused && heroVideo.paused && document.visibilityState === 'visible' && isHeroVisible()) {
+        ensurePlay();
+      }
+    }, 1500);
 
     const markVideoUnavailable = () => {
       videoAvailable = false;

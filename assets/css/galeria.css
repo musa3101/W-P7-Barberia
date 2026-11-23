@@ -9,8 +9,8 @@
   --gal-bg-main: #111112;
   --gal-bg-elevated: #171719;
   --gal-ink-100: #f5f3ee;
-  --gal-ink-muted: rgba(245, 243, 238, 0.68);
-  --gal-ink-soft: rgba(245, 243, 238, 0.48);
+  --gal-ink-muted: var(--p7-bone, #E8E5DF);
+  --gal-ink-soft: rgba(232, 229, 223, 0.76);
   --p7-gold-300: #f1d592;
   --p7-gold-500: #AC986C;
   --gal-hairline: rgba(255, 255, 255, 0.09);
@@ -29,7 +29,7 @@ body {
   padding: 0;
   background-color: var(--gal-bg-main);
   color: var(--gal-ink-100);
-  font-family: var(--font-sans, 'General Sans', sans-serif);
+  font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
 }
 
@@ -51,7 +51,7 @@ body {
   height: 100%;
   max-width: 1360px;
   margin-inline: auto;
-  padding-inline: clamp(14px, 3.5vw, 36px);
+  padding-inline: var(--gutter, clamp(20px, 5vw, 80px));
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -75,9 +75,9 @@ body {
 }
 
 .gal-brand-name {
-  font-family: var(--font-display, 'Boska', serif);
+  font-family: var(--font-display);
   font-size: clamp(1rem, 2.5vw, 1.25rem);
-  font-weight: 500;
+  font-weight: 700;
   letter-spacing: -0.01em;
   white-space: nowrap;
 }
@@ -95,7 +95,7 @@ body {
   border-radius: 9999px;
   background-color: transparent;
   color: var(--gal-ink-100);
-  font-family: var(--font-sans, 'General Sans', sans-serif);
+  font-family: var(--font-accent);
   font-size: 0.875rem;
   font-weight: 500;
   white-space: nowrap;
@@ -279,8 +279,10 @@ body {
   margin-left: 18px;
   z-index: -1;
   pointer-events: none;
-  font-family: var(--font-display, 'Boska', serif);
+  font-family: var(--font-display);
   font-size: clamp(1.25rem, 2.2vw, 1.75rem);
+  font-weight: 700;
+  line-height: 1.15;
   letter-spacing: -0.01em;
   color: var(--gal-ink-100);
 }
@@ -293,7 +295,8 @@ body {
   display: flex;
   align-items: center;
   white-space: nowrap;
-  font-weight: 400;
+  font-weight: 700;
+  line-height: 1.15;
   transform-origin: 0 50%;
 }
 
@@ -304,10 +307,11 @@ body {
     right: 0;
     top: 100%;
     bottom: auto;
-    height: 32px;
+    height: 36px;
     margin: 12px 0 0;
     z-index: 1;
-    font-size: 1.125rem;
+    font-size: 1.25rem;
+    line-height: 1.15;
   }
 
   .stc-title {
@@ -414,7 +418,7 @@ body {
 }
 
 .stc-count {
-  font-family: var(--font-sans, 'General Sans', sans-serif);
+  font-family: var(--font-accent);
   font-size: 0.8125rem;
   font-variant-numeric: tabular-nums;
   letter-spacing: 0.08em;
@@ -557,9 +561,9 @@ body {
 
 .gal-dialog-title {
   margin: 0;
-  font-family: var(--font-display, 'Boska', serif);
-  font-size: 1.15rem;
-  font-weight: 400;
+  font-family: var(--font-display);
+  font-size: clamp(1.1rem, 2vw, 1.35rem);
+  font-weight: 700;
   color: var(--gal-ink-100);
   white-space: nowrap;
 }
@@ -612,7 +616,8 @@ body {
 }
 
 .gal-footer-logo span {
-  font-family: var(--font-display, 'Boska', serif);
+  font-family: var(--font-display);
+  font-weight: 700;
   font-size: 1.25rem;
 }
 
@@ -625,9 +630,9 @@ body {
 
 .gal-footer-col-title {
   margin: 0 0 12px;
-  font-family: var(--font-display, 'Boska', serif);
+  font-family: var(--font-display);
   font-size: 1.125rem;
-  font-weight: 400;
+  font-weight: 700;
   color: var(--gal-ink-100);
 }
 
@@ -672,6 +677,7 @@ body {
 }
 
 .gal-footer-back {
+  font-family: var(--font-accent);
   color: var(--p7-gold-300);
   text-decoration: none;
 }
@@ -699,7 +705,7 @@ body {
     0 0 12px rgba(193, 9, 30, 0.28),
     inset 0 0 0 1px rgba(193, 9, 30, 0.35);
   color: #FDFDFC;
-  font-family: var(--font-sans, 'General Sans', sans-serif);
+  font-family: var(--font-accent);
   font-size: 0.8125rem;
   font-weight: 500;
   letter-spacing: 0.04em;

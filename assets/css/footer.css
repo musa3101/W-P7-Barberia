@@ -6,13 +6,15 @@
 
 .hwf-root {
   --hwf-bg: #0A0909;
-  --hwf-ink: #FDFDFC;
-  --hwf-warm: #AC986C;
-  --hwf-mono: 'General Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --hwf-ink: #F2EFE9;
+  --hwf-warm: var(--p7-champagne, #C3B9A0);
+  --hwf-yellow: var(--p7-colombia-yellow, #FCD116);
+  --hwf-mono: var(--font-sans, 'Switzer', sans-serif);
+  --hwf-accent: var(--font-accent, 'IBM Plex Mono', monospace);
 
   position: relative;
   width: 100%;
-  height: clamp(460px, 56svh, 540px);
+  height: clamp(490px, 58svh, 580px);
   overflow: hidden;
   isolation: isolate;
   background: var(--hwf-bg);
@@ -51,12 +53,12 @@
   grid-template-columns: minmax(0, 1.4fr) repeat(2, minmax(0, 1fr));
   align-items: start;
   gap: 24px 32px;
-  padding: clamp(32px, 4.2vw, 48px) clamp(22px, 4.5vw, 48px) 0;
+  padding: clamp(32px, 4.2vw, 48px) var(--gutter, clamp(20px, 5vw, 80px)) 0;
   font-family: var(--hwf-mono);
-  font-size: 0.6875rem;
-  letter-spacing: 0.18em;
+  font-size: 0.8125rem;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  line-height: 1.85;
+  line-height: 1.65;
 }
 
 .hwf-brand {
@@ -87,11 +89,14 @@
 }
 
 .hwf-col h3 {
-  margin: 0 0 8px;
-  font: inherit;
+  margin: 0 0 10px;
+  font-family: var(--hwf-accent);
+  font-size: 0.75rem;
   font-weight: 600;
-  color: var(--hwf-warm);
-  opacity: 0.85;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--p7-champagne, #C3B9A0);
+  opacity: 1;
 }
 
 .hwf-col ul {
@@ -109,18 +114,20 @@
   display: inline-flex;
   align-items: center;
   min-height: 36px;
-  color: inherit;
+  color: #F2EFE9;
   text-decoration: none;
-  opacity: 0.78;
+  opacity: 1;
   background: none;
   border: 0;
   padding: 4px 0;
-  font: inherit;
-  letter-spacing: inherit;
-  text-transform: inherit;
+  font-family: var(--font-sans, 'Switzer', sans-serif);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
-  background-image: linear-gradient(var(--hwf-warm), var(--hwf-warm));
+  background-image: linear-gradient(var(--hwf-yellow), var(--hwf-yellow));
   background-size: 0% 1px;
   background-repeat: no-repeat;
   background-position: 0 100%;
@@ -134,14 +141,14 @@
 .hwf-col button:hover,
 .hwf-up:hover {
   opacity: 1;
-  color: var(--hwf-warm);
+  color: var(--p7-colombia-yellow, #FCD116);
   background-size: 100% 1px;
 }
 
 .hwf-col a:focus-visible,
 .hwf-col button:focus-visible,
 .hwf-up:focus-visible {
-  outline: 1px solid var(--hwf-warm);
+  outline: 1px solid var(--p7-colombia-yellow, #FCD116);
   outline-offset: 4px;
   opacity: 1;
 }
@@ -153,30 +160,33 @@
   width: 100%;
   max-width: 1320px;
   margin-inline: auto;
-  padding: clamp(18px, 2.4vw, 26px) clamp(22px, 4.5vw, 48px) 0;
+  padding: clamp(18px, 2.4vw, 26px) var(--gutter, clamp(20px, 5vw, 80px)) 0;
   display: flex;
   justify-content: flex-start;
-  font-family: var(--hwf-mono);
-  font-size: 0.625rem;
-  letter-spacing: 0.18em;
+  font-family: var(--hwf-accent);
+  font-size: 0.7rem;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
 }
 
 .hwf-credit-link {
-  color: rgba(243, 234, 216, 0.42);
+  font-family: var(--hwf-accent);
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: rgba(243, 234, 216, 0.74);
   text-decoration: none;
   transition: color 220ms ease;
 }
 
 .hwf-credit-link strong {
   font-weight: 600;
-  color: rgba(243, 234, 216, 0.72);
+  color: #FFFFFF;
   transition: color 220ms ease;
 }
 
 .hwf-credit-link:hover,
 .hwf-credit-link:hover strong {
-  color: var(--hwf-warm);
+  color: var(--p7-colombia-yellow, #FCD116);
 }
 
 /* Línea separadora + solo Volver arriba */
@@ -186,7 +196,7 @@
   width: 100%;
   max-width: 1320px;
   margin-inline: auto;
-  padding: clamp(14px, 2vw, 20px) clamp(22px, 4.5vw, 48px) 0;
+  padding: clamp(14px, 2vw, 20px) var(--gutter, clamp(20px, 5vw, 80px)) 0;
 }
 
 .hwf-rule-inner {
@@ -195,26 +205,27 @@
   align-items: center;
   gap: 14px;
   padding-top: 14px;
-  border-top: 1px solid rgba(243, 234, 216, 0.14);
+  border-top: 1px solid rgba(243, 234, 216, 0.18);
   font-family: var(--hwf-mono);
-  font-size: 0.6875rem;
-  letter-spacing: 0.16em;
+  font-size: 0.8125rem;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
 }
 
-/* Móvil (< 680px): Amplio, aireado, tipografía fina y sin solape con el wordmark */
+/* Móvil (< 680px): Amplio, aireado, tipografía nítida y sin solape con el wordmark */
 @media (max-width: 679px) {
   .hwf-root {
-    height: 548px;
+    height: 600px;
+    min-height: 600px;
   }
 
   .hwf-top {
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-    gap: 24px 20px;
-    padding: 32px 24px 0;
-    font-size: 0.625rem;
-    letter-spacing: 0.13em;
-    line-height: 1.75;
+    gap: 20px 16px;
+    padding: 28px var(--gutter, 20px) 0;
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    line-height: 1.5;
   }
 
   .hwf-brand {
@@ -223,16 +234,27 @@
   }
 
   .hwf-logo-img {
-    width: 74px;
+    width: 72px;
   }
 
   .hwf-col h3 {
-    margin-bottom: 10px;
+    font-size: 0.75rem;
+    margin-bottom: 8px;
+  }
+
+  .hwf-col a,
+  .hwf-col button,
+  .hwf-up {
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    min-height: 36px;
+    padding: 2px 0;
   }
 
   .hwf-col--legal {
+    width: 100%;
     text-align: right;
-    justify-self: end;
+    justify-self: stretch;
   }
 
   .hwf-col--legal ul {
@@ -240,30 +262,30 @@
   }
 
   .hwf-col ul {
-    gap: 9px;
+    gap: 4px;
   }
 
   .hwf-credits {
     justify-content: center;
-    padding: 16px 24px 0;
-    font-size: 0.6rem;
-    letter-spacing: 0.2em;
+    padding: 16px var(--gutter, 20px) 0;
+    font-size: 0.7rem;
+    letter-spacing: 0.14em;
   }
 
   .hwf-rule {
-    padding: 12px 24px 0;
+    padding: 12px var(--gutter, 20px) 0;
   }
 
   .hwf-rule-inner {
-    padding-top: 12px;
-    font-size: 0.625rem;
-    letter-spacing: 0.14em;
+    padding-top: 10px;
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
   }
 }
 
 @media (min-width: 680px) and (max-width: 1023px) {
   .hwf-root {
-    height: 450px;
+    height: 490px;
   }
 }
 

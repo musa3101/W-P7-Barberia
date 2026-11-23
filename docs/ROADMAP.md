@@ -44,11 +44,16 @@
   - [x] 14/14 pases en TestSprite con API Key global actualizada. Cero archivos residuales en `web/v1/`.
 - [x] **Rediseño de Paleta Oficial del Logo P7 y Pulido Editorial (22/11/2026):**
   - [x] Sustitución completa de la paleta verde esmeralda por los tonos oficiales del logo (`#0A0909`, `#0B0702`, `#242423`, `#AC986C`, `#C3B9A0`, `#9D9B95`, `#FDFDFC`, `#F6F5F5`) + acento Brick Red (`#C1091E`).
-  - [x] Unificación de botones Liquid Glass transparentes con bordado rojo `#C1091E` en toda la web (incluido Hero).
+  - [x] Unificación de botones Liquid Glass transparentes con bordado rojo `#C1091E` en toda la web (incluido Hero) y variante amarilla en Booksy.
   - [x] Bandas full-bleed editoriales en Piedra Champán Mate para *Cómo se trabaja en P7* y *Contacto*; *Lista de precios* (plantilla Pinterest) en Champán Arena `#C3B9A0` con tinta Carbón `#0A0909`.
   - [x] Mapa blanco proporcionado (`880px` × hasta `460px`), FAQ centrada con las 6 preguntas cerradas por defecto y separadores Bandera de Colombia restaurados.
   - [x] Galería 3 móvil limpia (solo botón *Volver* en header, sin menú ni botón inferior, swipe horizontal/diagonal sin bloquear el scroll vertical).
-  - [x] Auditoría Playwright CLI en 8 viewports (`320px`–`1440px`) con 0 overflow y tap targets móviles `≥ 44px`, desplegada en `main` (Cloudflare).
+  - [x] **Pulido Móvil/Tablet + Galería 1 Real + Equipo `21st.dev` (22/11/2026 noche):**
+    - [x] Hero móvil `calc(100lvh + 76px)` limpio y vídeo Hero en autoplay/bucle continuo garantizado.
+    - [x] Menú móvil y tablet (`< 1024px`) migrado a `StaggeredMenu` pantalla completa (React Bits) con icono Instagram y botón Liquid Glass; escritorio (`≥ 1024px`) con `Curved Menu`.
+    - [x] Galería 1 actualizada con 2 fotos y 4 clips reales en bucle (AVIF/WebP/MP4) + lightbox limpio sin controles ni marcos.
+    - [x] Página `equipo.html` rediseñada con carrusel `TeamMemberCard` (`Cormorant Garamond` + `Plus Jakarta Sans`), enlaces a Instagram y versión móvil compacta.
+    - [x] Footer móvil ampliado (`548px`) sin solape con `VOLVER ARRIBA ↑` y desplegado en `main` (`daa776f`).
 
 ---
 

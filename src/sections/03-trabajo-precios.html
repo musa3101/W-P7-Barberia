@@ -223,58 +223,110 @@
       </a>
     </div>
 
-    <!-- 2.5 Showcase Editorial Full-Bleed: Cómo se trabaja en P7 (Banda Piedra Champán · Asimétrica) -->
+    <!-- 2.5 Showcase Editorial Full-Bleed: Cómo se trabaja en P7 (Banda Crema #EAE4D7 · Compacta y Editorial) -->
     <div class="trabajo-showcase" aria-label="Cómo se trabaja en P7 Barber Master Studio">
       <div class="trabajo-showcase-inner">
-        <!-- Columna Izquierda: Ancla Editorial + Escudo 3D -->
+        <!-- Columna Izquierda: Ancla Editorial + Escudo 3D redondo limpio a la derecha -->
         <div class="showcase-anchor">
-          <header class="showcase-header">
-            <span class="showcase-kicker">La experiencia en cabina</span>
-            <h3 class="showcase-title">Cómo se trabaja en P7</h3>
-            <p class="showcase-subtitle">
-              Cortes precisos, ritmo pausado y oficio cuidado al milímetro en cada sesión.
-            </p>
-          </header>
+          <div class="showcase-head-row">
+            <header class="showcase-header">
+              <span class="showcase-kicker">La experiencia en cabina</span>
+              <h3 class="showcase-title">Cómo se trabaja en P7</h3>
+            </header>
 
-          <div class="showcase-seal" aria-hidden="true">
-            <div class="showcase-emblem-wrap">
+            <div class="showcase-emblem-wrap" aria-hidden="true">
               <div class="coin-3d-pedestal">
                 <div class="coin-3d-mesh">
-                  <div class="coin-edge" aria-hidden="true"></div>
                   <div class="coin-face coin-front">
                     <img
-                      src="./assets/img/opt/logo-p7-512w.webp"
-                      alt="Escudo oficial P7 Barber Master Studio"
+                      src="./assets/img/opt/logo-p7-crema-512w.webp"
+                      alt=""
                       class="coin-img"
-                      width="76"
-                      height="76"
+                      width="84"
+                      height="84"
                       decoding="async"
                     />
                   </div>
                   <div class="coin-face coin-back">
                     <img
-                      src="./assets/img/opt/logo-p7-512w.webp"
-                      alt="Escudo oficial P7 Barber Master Studio"
+                      src="./assets/img/opt/logo-p7-crema-512w.webp"
+                      alt=""
                       class="coin-img"
-                      width="76"
-                      height="76"
+                      width="84"
+                      height="84"
                       decoding="async"
                     />
                   </div>
                 </div>
               </div>
             </div>
-            <div class="showcase-seal-meta">
-              <span class="seal-brand">P7 Barber Master Studio</span>
-              <span class="seal-loc">Palma de Mallorca · Desde 2023</span>
-            </div>
           </div>
+
+          <p class="showcase-subtitle">
+            Cortes precisos, ritmo pausado y oficio cuidado al milímetro en cada sesión.
+          </p>
         </div>
 
-        <!-- Columna Derecha: Manifiesto Editorial por Filas (Cero cajas genéricas) -->
+        <!-- Columna Derecha: Selector táctil (móvil) + Tarjetas editoriales marfil (desktop y móvil sin saltos) -->
         <div class="showcase-content">
+          <div class="showcase-tabs" role="tablist" aria-label="Fases de la experiencia en P7">
+            <button
+              type="button"
+              class="showcase-tab is-active"
+              role="tab"
+              aria-selected="true"
+              aria-controls="showcase-panel-0"
+              id="showcase-tab-0"
+              data-showcase-dot="0"
+            >
+              <span class="showcase-tab-top">
+                <span class="showcase-tab-num">01</span>
+                <span class="showcase-tab-label">1 hora</span>
+              </span>
+              <span class="showcase-tab-track" aria-hidden="true"><span></span></span>
+            </button>
+
+            <button
+              type="button"
+              class="showcase-tab"
+              role="tab"
+              aria-selected="false"
+              aria-controls="showcase-panel-1"
+              id="showcase-tab-1"
+              data-showcase-dot="1"
+            >
+              <span class="showcase-tab-top">
+                <span class="showcase-tab-num">02</span>
+                <span class="showcase-tab-label">Oficio</span>
+              </span>
+              <span class="showcase-tab-track" aria-hidden="true"><span></span></span>
+            </button>
+
+            <button
+              type="button"
+              class="showcase-tab"
+              role="tab"
+              aria-selected="false"
+              aria-controls="showcase-panel-2"
+              id="showcase-tab-2"
+              data-showcase-dot="2"
+            >
+              <span class="showcase-tab-top">
+                <span class="showcase-tab-num">03</span>
+                <span class="showcase-tab-label">Detalle</span>
+              </span>
+              <span class="showcase-tab-track" aria-hidden="true"><span></span></span>
+            </button>
+          </div>
+
           <div class="showcase-list" id="showcase-slider">
-            <article class="showcase-item is-active" data-showcase-panel="0">
+            <article
+              class="showcase-item is-active"
+              id="showcase-panel-0"
+              role="tabpanel"
+              aria-labelledby="showcase-tab-0"
+              data-showcase-panel="0"
+            >
               <span class="item-num" aria-hidden="true">01</span>
               <div class="item-body">
                 <span class="item-tag">Una hora completa</span>
@@ -285,7 +337,13 @@
               </div>
             </article>
 
-            <article class="showcase-item" data-showcase-panel="1">
+            <article
+              class="showcase-item"
+              id="showcase-panel-1"
+              role="tabpanel"
+              aria-labelledby="showcase-tab-1"
+              data-showcase-panel="1"
+            >
               <span class="item-num" aria-hidden="true">02</span>
               <div class="item-body">
                 <span class="item-tag">Oficio y escenarios</span>
@@ -296,7 +354,13 @@
               </div>
             </article>
 
-            <article class="showcase-item" data-showcase-panel="2">
+            <article
+              class="showcase-item"
+              id="showcase-panel-2"
+              role="tabpanel"
+              aria-labelledby="showcase-tab-2"
+              data-showcase-panel="2"
+            >
               <span class="item-num" aria-hidden="true">03</span>
               <div class="item-body">
                 <span class="item-tag">El toque de la casa</span>
@@ -306,13 +370,6 @@
                 </p>
               </div>
             </article>
-          </div>
-
-          <!-- Indicador minimalista de progreso solo móvil -->
-          <div class="showcase-progress" aria-label="Progreso de fases">
-            <button type="button" class="showcase-bar is-active" data-showcase-dot="0" aria-label="Fase 1: Sesiones sin prisas"><span></span></button>
-            <button type="button" class="showcase-bar" data-showcase-dot="1" aria-label="Fase 2: ManuCuts"><span></span></button>
-            <button type="button" class="showcase-bar" data-showcase-dot="2" aria-label="Fase 3: Higiene, ambiente y colonia"><span></span></button>
           </div>
         </div>
       </div>

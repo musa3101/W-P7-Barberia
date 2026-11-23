@@ -3,56 +3,68 @@
      Integrado desde web/seccion de contacto/ + web/seccion sobre nosotros/faq.*
      ========================================================================== -->
 
-<!-- 1. Banda Crema (#F8F1E4): Contacto (Información del local | Reserva Premium) -->
+<!-- 1. Banda Crema (#EAE4D7): Contacto (Datos y Horario compactos | Reserva | Mini apartado Booksy 5,0 ★) -->
 <section id="contacto" class="contacto-v2" aria-labelledby="contacto-titulo">
   <div class="contacto-shell">
     <div class="contacto-block-wrap">
       <header class="contacto-head">
+        <span class="contacto-kicker">P7 Barber Master Studio · Palma</span>
         <h2 id="contacto-titulo" class="contacto-h2">Contacto</h2>
       </header>
 
       <div class="contacto-grid">
-        <!-- Bloque 1: Información del local (Directorio Editorial Sastrería · Champán Piedra) -->
+        <!-- Bloque 1: Información del local + Horario (Tarjeta Marfil compacta, cero aire muerto) -->
         <div class="contacto-info-card">
-          <div class="info-card-top">
-            <span class="info-kicker">Información del local · Palma</span>
-            <h3 class="info-title">P7 Barber Master Studio</h3>
+          <div class="contacto-info-section">
+            <span class="info-kicker">Información del local</span>
+            <dl class="local-directory">
+              <div class="dir-item">
+                <dt class="dir-label">Maestro barbero</dt>
+                <dd class="dir-value">Manuel</dd>
+              </div>
+              <div class="dir-item">
+                <dt class="dir-label">Teléfono</dt>
+                <dd class="dir-value">
+                  <a href="tel:+34600000000" data-relleno="telefono">+34 600 000 000</a>
+                </dd>
+              </div>
+              <div class="dir-item">
+                <dt class="dir-label">Dirección</dt>
+                <dd class="dir-value">Calle Miguel Ángel Riera, 2</dd>
+              </div>
+              <div class="dir-item">
+                <dt class="dir-label">Email</dt>
+                <dd class="dir-value">
+                  <a href="mailto:p7barberpalma@gmail.com" data-relleno="email">p7barberpalma@gmail.com</a>
+                </dd>
+              </div>
+            </dl>
           </div>
-
-          <dl class="local-directory">
-            <div class="dir-row">
-              <dt class="dir-label">Maestro barbero</dt>
-              <dd class="dir-value">Manuel</dd>
-            </div>
-            <div class="dir-row">
-              <dt class="dir-label">Teléfono</dt>
-              <dd class="dir-value"><a href="tel:+34600000000" data-relleno="telefono">+34 600 000 000</a></dd>
-            </div>
-            <div class="dir-row">
-              <dt class="dir-label">Email</dt>
-              <dd class="dir-value"><a href="mailto:p7barberpalma@gmail.com" data-relleno="email">p7barberpalma@gmail.com</a></dd>
-            </div>
-            <div class="dir-row">
-              <dt class="dir-label">Dirección</dt>
-              <dd class="dir-value">
-                <span>Calle Miguel Ángel Riera, 2</span>
-                <span class="dir-sub">07004 Palma de Mallorca</span>
-              </dd>
-            </div>
-          </dl>
 
           <div class="info-hours-foot">
             <span class="info-hours-label">Horario</span>
             <div class="local-hours">
-              <div class="hours-row"><span>Lun</span><strong>10:00 – 19:00</strong></div>
-              <div class="hours-row"><span>Mar – Jue</span><strong>10:00 – 20:00</strong></div>
-              <div class="hours-row"><span>Vie – Sáb</span><strong>08:00 – 19:00</strong></div>
-              <div class="hours-row hours-row--closed"><span>Domingo</span><strong>Cerrado</strong></div>
+              <div class="hours-cell">
+                <span class="hours-day">Lun</span>
+                <strong class="hours-time">10:00 – 19:00</strong>
+              </div>
+              <div class="hours-cell">
+                <span class="hours-day">Mar – Jue</span>
+                <strong class="hours-time">10:00 – 20:00</strong>
+              </div>
+              <div class="hours-cell">
+                <span class="hours-day">Vie – Sáb</span>
+                <strong class="hours-time">08:00 – 19:00</strong>
+              </div>
+              <div class="hours-cell hours-cell--closed">
+                <span class="hours-day">Domingo</span>
+                <strong class="hours-time">Cerrado</strong>
+              </div>
             </div>
           </div>
         </div>
 
-        <!-- Bloque 2: Reserva Premium (Panel Esmeralda Profundo gemelo) -->
+        <!-- Bloque 2: Reserva (Panel Carbono refinado · Botones Liquid Glass intactos) -->
         <div id="reserva" class="reserva-panel">
           <div class="reserva-top">
             <span class="reserva-kicker">Cita previa</span>
@@ -92,13 +104,52 @@
 
           <div class="reserva-proof">
             <span class="reserva-proof-score">
-              <span class="reserva-proof-star" aria-hidden="true">★</span>
+              <span class="reserva-proof-stars" aria-hidden="true">★★★★★</span>
               <span>5,0 en Booksy</span>
             </span>
-            <span>296 reseñas verificadas</span>
+            <span class="reserva-proof-count">296 reseñas verificadas</span>
           </div>
         </div>
       </div>
+
+      <!-- Mini apartado dedicado: Reputación 5,0 ★ en Booksy -->
+      <aside class="contacto-booksy-strip" aria-label="Valoración verificada en Booksy">
+        <div class="booksy-strip-main">
+          <div class="booksy-score-group">
+            <span class="booksy-score-num">5,0</span>
+            <div class="booksy-stars-wrap" aria-label="5 de 5 estrellas">
+              <div class="booksy-stars" aria-hidden="true">
+                <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.6l2.53 5.13 5.66.82-4.1 4 .97 5.64L10 14.53l-5.06 2.66.97-5.64-4.1-4 5.66-.82L10 1.6z"/></svg>
+                <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.6l2.53 5.13 5.66.82-4.1 4 .97 5.64L10 14.53l-5.06 2.66.97-5.64-4.1-4 5.66-.82L10 1.6z"/></svg>
+                <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.6l2.53 5.13 5.66.82-4.1 4 .97 5.64L10 14.53l-5.06 2.66.97-5.64-4.1-4 5.66-.82L10 1.6z"/></svg>
+                <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.6l2.53 5.13 5.66.82-4.1 4 .97 5.64L10 14.53l-5.06 2.66.97-5.64-4.1-4 5.66-.82L10 1.6z"/></svg>
+                <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.6l2.53 5.13 5.66.82-4.1 4 .97 5.64L10 14.53l-5.06 2.66.97-5.64-4.1-4 5.66-.82L10 1.6z"/></svg>
+              </div>
+              <span class="booksy-platform">Valoración en Booksy</span>
+            </div>
+          </div>
+
+          <span class="booksy-divider" aria-hidden="true"></span>
+
+          <div class="booksy-copy">
+            <strong class="booksy-headline">296 reseñas verificadas</strong>
+            <span class="booksy-sub">Clientes reales en Palma valoran cada sesión con la puntuación máxima.</span>
+          </div>
+        </div>
+
+        <a
+          href="https://booksy.com/es-es/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="booksy-strip-link"
+        >
+          <span>Ver reseñas</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="7" y1="17" x2="17" y2="7"></line>
+            <polyline points="7 7 17 7 17 17"></polyline>
+          </svg>
+        </a>
+      </aside>
     </div>
   </div>
 </section>

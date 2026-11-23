@@ -296,7 +296,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* ------------------------------------------------------------------------
-     4. Carrusel automático + deslizable de "Cómo se trabaja en P7" en móvil
+     4. Selector táctil + autoplay inteligente de "Cómo se trabaja en P7" en móvil
      ------------------------------------------------------------------------ */
   const showcaseRoot = document.querySelector('.trabajo-showcase');
   const showcaseDots = Array.from(document.querySelectorAll('[data-showcase-dot]'));
@@ -307,64 +307,95 @@ document.addEventListener('DOMContentLoaded', () => {
     let activeIdx = 0;
     let autoTimer = 0;
     let inView = false;
-    const INTERVAL_MS = 4400;
+    let userPaused = false;
+    const INTERVAL_MS = 4800;
+    const prefersReducedMotion = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const isDesktopShowcase = () => window.matchMedia('(min-width: 768px)').matches;
 
     const restartAuto = () => {
       clearInterval(autoTimer);
-      if (!inView || window.matchMedia('(min-width: 768px)').matches) return;
+      if (!inView || userPaused || prefersReducedMotion() || isDesktopShowcase()) return;
       autoTimer = window.setInterval(() => {
         showSlide(activeIdx + 1, false);
       }, INTERVAL_MS);
     };
 
-    const showSlide = (idx, resetTimer = true) => {
+    const showSlide = (idx, fromUser = false) => {
       activeIdx = (idx + showcasePanels.length) % showcasePanels.length;
+      if (fromUser) {
+        userPaused = true;
+        clearInterval(autoTimer);
+      }
+
       showcasePanels.forEach((panel, i) => {
         panel.classList.toggle('is-active', i === activeIdx);
       });
-      showcaseDots.forEach((bar, i) => {
-        bar.classList.remove('is-active', 'is-done');
-        // Fuerza reinicio limpio de la animación de relleno
-        void bar.offsetWidth;
-        if (i < activeIdx) bar.classList.add('is-done');
-        if (i === activeIdx) bar.classList.add('is-active');
+
+      showcaseDots.forEach((tab, i) => {
+        const isCurrent = i === activeIdx;
+        tab.classList.remove('is-active', 'is-done', 'is-static');
+        tab.setAttribute('aria-selected', String(isCurrent));
+        void tab.offsetWidth;
+        if (i < activeIdx) tab.classList.add('is-done');
+        if (isCurrent) {
+          tab.classList.add('is-active');
+          if (userPaused || prefersReducedMotion()) {
+            tab.classList.add('is-static');
+          }
+        }
       });
-      if (resetTimer) restartAuto();
+
+      if (!fromUser) restartAuto();
     };
 
-    showcaseDots.forEach((bar, i) => {
-      bar.addEventListener('click', () => showSlide(i, true));
+    showcaseDots.forEach((tab, i) => {
+      tab.addEventListener('click', () => showSlide(i, true));
     });
 
-    // Swipe táctil + arrastre con ratón en móvil/simulador
+    // Swipe táctil horizontal en móvil sin interferir con scroll vertical
     if (showcaseList) {
       let sx = 0;
+      let sy = 0;
       let dragging = false;
-      const onStart = (x) => { sx = x; dragging = true; };
-      const onEnd = (x) => {
-        if (!dragging) return;
-        dragging = false;
-        const dx = x - sx;
-        if (Math.abs(dx) > 36) {
-          showSlide(dx < 0 ? activeIdx + 1 : activeIdx - 1, true);
-        }
-      };
-      showcaseList.addEventListener('touchstart', (e) => { if (e.touches.length) onStart(e.touches[0].clientX); }, { passive: true });
-      showcaseList.addEventListener('touchend', (e) => { if (e.changedTouches.length) onEnd(e.changedTouches[0].clientX); }, { passive: true });
-      showcaseList.addEventListener('pointerdown', (e) => { if (e.pointerType !== 'touch') onStart(e.clientX); });
-      showcaseList.addEventListener('pointerup', (e) => { if (e.pointerType !== 'touch') onEnd(e.clientX); });
+
+      showcaseList.addEventListener(
+        'touchstart',
+        (e) => {
+          if (!e.touches.length || isDesktopShowcase()) return;
+          sx = e.touches[0].clientX;
+          sy = e.touches[0].clientY;
+          dragging = true;
+        },
+        { passive: true }
+      );
+
+      showcaseList.addEventListener(
+        'touchend',
+        (e) => {
+          if (!dragging || !e.changedTouches.length) return;
+          dragging = false;
+          const dx = e.changedTouches[0].clientX - sx;
+          const dy = e.changedTouches[0].clientY - sy;
+          if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy) * 1.2) {
+            showSlide(dx < 0 ? activeIdx + 1 : activeIdx - 1, true);
+          }
+        },
+        { passive: true }
+      );
     }
 
-    // Arranca el mini-autoplay solo al llegar a la sección
     if (showcaseRoot && 'IntersectionObserver' in window) {
-      const obs = new IntersectionObserver((entries) => {
-        inView = Boolean(entries[0]?.isIntersecting);
-        if (inView) {
-          showSlide(activeIdx, true);
-        } else {
-          clearInterval(autoTimer);
-        }
-      }, { threshold: 0.35 });
+      const obs = new IntersectionObserver(
+        (entries) => {
+          inView = Boolean(entries[0]?.isIntersecting);
+          if (inView && !userPaused) {
+            showSlide(activeIdx, false);
+          } else {
+            clearInterval(autoTimer);
+          }
+        },
+        { threshold: 0.3 }
+      );
       obs.observe(showcaseRoot);
     }
   }

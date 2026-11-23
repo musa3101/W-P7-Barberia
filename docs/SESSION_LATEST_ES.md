@@ -1,56 +1,53 @@
-# Resumen de Sesión — 22 de Noviembre de 2026 (Nueva Paleta Oficial, Rediseño Editorial y Deploy a Producción)
+# Resumen de Sesión — 22 de Noviembre de 2026 (Noche: Pulido Móvil, Equipo 21st.dev, Galería 1 Real y StaggeredMenu)
 
 ## 1. Qué se ha hecho hoy
-- **Nueva paleta oficial extraída del logo P7 (`p7-logo-paleta.pdf`):**
-  - Reemplazada la antigua paleta verde esmeralda por los tonos reales del logo: Carbón `#0A0909`, Ébano `#0B0702`, Antracita Grafito `#242423`, Bronce Dorado `#AC986C`, Champán Arena `#C3B9A0`, Plata Titanio `#9D9B95`, Blancos `#FFFFFF` / `#FDFDFC` / `#F6F5F5` y acento **Brick Red (`#C1091E`)**.
-  - Documentado el análisis en `docs/ANALISIS_COLOR_LOGO_P7.md` y actualizado `docs/DESIGN.md`.
-- **Botones Liquid Glass unificados (21st.dev):**
-  - Migrados *Reservar cita* (Hero), *Ver nuestro equipo*, *Ver más fotos*, *Lista de precios*, *Reserva online* y *Escribir por WhatsApp* a `.liquid-glass-btn` con centro transparente, refracción SVG y bordado/resplandor en Rojo Ladrillo (`#C1091E`).
-- **Rediseño editorial de secciones (nivel agencia):**
-  - **Cómo se trabaja en P7:** Banda full-bleed asimétrica en Piedra Champán Mate (`#EAE4D7`) con sello del escudo 3D a la izquierda y 3 filas editoriales con filetes `1px` a la derecha.
-  - **Lista de precios:** Misma plantilla de Pinterest en colores exactos del logo: fondo Champán Arena (`#C3B9A0`), rail vertical `SERVICIOS` y precios en Carbón (`#0A0909`), detalles en Grafito (`#242423`) y numeración `01` / `02` en `#C1091E`.
-  - **Contacto:** Banda full-bleed Piedra Champán Mate (`#EAE4D7`) con directorio editorial abierto + monolito de *Reserva tu hora* en Ébano (`#0B0702`).
-  - **Mapa y FAQ:** Mapa restaurado en blanco limpio con proporción más cuadrada en escritorio (`max-width: 880px`, altura hasta `460px`); título de FAQ centrado sobre el acordeón y las 6 preguntas cerradas por defecto.
-  - **Separadores Bandera de Colombia:** Restaurados a `3px` (2:1:1) entre secciones.
-- **Galería 3 en móvil (chat paralelo):**
-  - Limpiado `galeria.html` quitando el botón hamburguesa del header y el botón inferior duplicado, dejando solo el botón *Volver* con bordado rojo en la cabecera.
-  - Ajustado `galeria.js` (`mobileStep: 0.68`, recalibración en `resize` y swipe horizontal/diagonal para dejar libre el scroll vertical hacia el footer).
-- **Auditoría Mobile-First + Desktop con Playwright CLI:**
-  - Verificadas `/`, `/equipo.html` y `/galeria.html` en 8 viewports (`320px` a `1440px`): **0 px de overflow horizontal** y **0 errores JS/HTTP**.
-  - Ampliados tap targets móviles a `≥ 44px` en menú, barras del showcase, enlaces de contacto, mapa y botón *Volver*.
-- **Mini-merge y despliegue a producción (`main` → Cloudflare):**
-  - Ejecutado `scripts/mini-merge.sh --confirmed --push` (commit `7e0f8b1` en `origin/main`).
+- **Hero y Cabecera móvil:**
+  - Ampliado sutilmente el escudo del header en móvil (`30px` → `34px`) manteniendo la cabecera compacta (`56px`).
+  - Ajustada la altura del Hero en móvil (`calc(100lvh + 76px)`) y el `padding-bottom` de `.hero-bottom-overlay` para ocultar la bandera de Colombia y la cinta negra bajo la barra flotante de Safari iOS.
+  - Garantizado el autoplay y bucle continuo de `#hero-video` (`readyState >= 2`, `ended`, `visibilitychange`, origen `.mp4` primero para Safari) y actualizado el vídeo/póster `9:16` desde el chat paralelo.
+- **Menú móvil y tablet (`< 1024px`) — StaggeredMenu (React Bits):**
+  - Integrado `StaggeredMenu` a pantalla completa (`100vw`) con barrido en 2 láminas (`#FCD116` y `#C1091E`), botón `Close ×`, numeración superíndice rojo `01–04`, icono SVG de **Instagram** y botón Liquid Glass **Reservar cita** (`#reserva`).
+  - Mantenido el icono hamburguesa rojo en cabecera cerrada y el **Curved Menu** (`21st.dev`) en escritorio (`≥ 1024px`).
+- **Sección "Sobre nosotros" + Galería 1 real y Lightbox limpio:**
+  - Convertidas las 2 fotos y 4 clips reales de `x/referencias/Galeria 1/` a formato web (**AVIF/WebP** en `assets/img/opt/galeria1/` y **MP4 H.264** sin audio + póster WebP en `assets/video/galeria1/`).
+  - Eliminada la flecha `↗` del botón **Ver nuestro equipo** y habilitado el lightbox limpio sin marcos ni barra de tiempo YouTube en vídeos, con **✕ roja** arriba a la derecha.
+- **Página "Nuestro equipo" (`equipo.html`):**
+  - Implementado el carrusel `TeamMemberCard` (`21st.dev` / `@emerald-ui`) con `Cormorant Garamond` + `Plus Jakarta Sans`, roles en amarillo `#FCD116`, botón circular a Instagram (`↗`), flechas laterales rojas en móvil (sin contador inferior) y enlace editorial limpio `VOLVER ATRÁS`.
+- **Contacto y Footer:**
+  - Unificado **Reservar en Booksy** al estilo Liquid Glass amarillo junto al botón de WhatsApp rojo (chat paralelo).
+  - Ampliado el footer móvil (`492px` → `548px`) para evitar el solape entre `VOLVER ARRIBA ↑` y `P7 barber`.
 
 ### Mini-merges realizados hoy
 - `2026-11-22 | feat(v1): nueva paleta oficial del logo P7, botones liquid glass bordado rojo, rediseno editorial secciones, carta champan, galeria 3 mobile y auditoria responsive | push=1`
+- `2026-11-22 | merge: dev -> main (2fdd0c9: pulido movil, equipo 21st.dev, galeria 1 real con clips en bucle y lightbox limpio) | push=1`
+- `2026-11-22 | feat(v1): StaggeredMenu pantalla completa movil/tablet con icono Instagram y autoplay continuo en Hero | push=1`
 
 ---
 
-## 2. Archivos modificados
-- **CSS:** `assets/css/cinta.css`, `assets/css/contacto.css`, `assets/css/fonts.css`, `assets/css/footer.css`, `assets/css/galeria.css`, `assets/css/header.css`, `assets/css/sections.css`, `assets/css/site.css`, `assets/css/sobre.css`, `assets/css/trabajo.css`
-- **JS:** `assets/js/footer.js`, `assets/js/galeria.js`
-- **HTML / Plantillas:** `src/sections/01-hero.html`, `src/sections/03-trabajo-precios.html`, `src/sections/05-contacto-mapa.html`, `index.html`, `galeria.html`
-- **Docs y Assets nuevos:** `docs/DESIGN.md`, `docs/ANALISIS_COLOR_LOGO_P7.md`, `docs/p7-logo-paleta.pdf`, `assets/img/logo-p7-original-hd.jpg`
+## 2. Archivos modificados y creados
+- **CSS:** `assets/css/contacto.css`, `assets/css/footer.css`, `assets/css/header.css`, `assets/css/site.css`, `assets/css/sobre.css`
+- **JS:** `assets/js/equipo.js` (nuevo), `assets/js/header.js`, `assets/js/site.js`, `assets/js/sobre-carousel.js`
+- **HTML / Plantillas:** `index.html`, `equipo.html`, `aviso-legal.html`, `privacidad.html`, `cookies.html`, `src/head.html`, `src/header.html`, `src/footer.html`, `src/sections/01-hero.html`, `src/sections/02-sobre.html`, `src/sections/05-contacto-mapa.html`
+- **Media:** `assets/img/opt/galeria1/*`, `assets/video/galeria1/*`, `assets/video/hero-9x16.*`, `assets/video/hero-poster.*`
 
 ---
 
 ## 3. Problemas solucionados
-- Eliminados `:root` locales conflictivos y restos de verde esmeralda (`#0b2e22`, `rgba(5, 18, 13, ...)`) en Hero, Galería 2, menú curvo (`.p7-curved-meta` invisible) y secciones.
-- Corregida la legibilidad de `Reserva tu hora.` y `5,0 en Booksy` sobre fondo oscuro.
-- Eliminada la flecha `←` duplicada en el botón *Volver* de `galeria.html` y el archivo temporal `paletas.html`.
-- Corregido el bloqueo del scroll vertical en Galería 3 móvil.
+- Corregido el solape de `VOLVER ARRIBA ↑` sobre `P7 barber` en el footer móvil.
+- Corregido el salto de la bandera de Colombia y cinta negra dentro del Hero inicial en Safari iOS.
+- Corregido `setPointerCapture` en `sobre-carousel.js` para permitir abrir el lightbox al tocar sin arrastrar.
+- Corregida la pausa inesperada de `#hero-video` cuando `loadeddata` ya había disparado o al cambiar de pestaña.
 
 ---
 
 ## 4. Qué queda pendiente
-- Revisar `assets/css/legal.css` (aún usa `#f8f1e4`) si se quiere alinear las páginas legales con la nueva paleta oficial.
-- Retoque opcional del preloader guardado en `web/loading/` antes de decidir si se integra.
-- Sustitución de datos provisionales (teléfono/fotos finales si Manu aporta material nuevo).
+- Sustituir las fotos provisionales de los 3 barberos en `equipo.html` (y sus `@instagram` individuales si los hay) cuando Manu entregue el material real.
+- Revisar `assets/css/legal.css` si se quiere alinear las páginas legales con la nueva paleta.
 - **Fase futura tras OK del cliente:** Migración a Astro + multiidioma (`ES`/`EN`/`DE`) + backend con InsForge.
 
 ---
 
 ## 5. Qué se recomienda hacer en la próxima sesión
-1. Verificar la web desplegada en producción (Cloudflare) desde un móvil real y escritorio (revisando Hero, *Cómo se trabaja en P7*, *Lista de precios*, *Contacto*, Mapa, FAQ y *Galería 3*).
-2. Alinear `legal.css` con la paleta oficial si lo ves necesario.
-3. Preparar la demo para Manu y, en cuanto dé luz verde para el proyecto definitivo, planificar el salto a Astro.
+1. Verificar la web en producción (Cloudflare) desde iPhone real (Hero en bucle continuo, `StaggeredMenu` a pantalla completa, Galería 1 con clips reales + lightbox limpio, y carrusel de `equipo.html`).
+2. Sustituir las fotos reales del equipo cuando estén disponibles.
+3. Preparar la demo final para Manu y, tras su OK, planificar la migración a Astro.

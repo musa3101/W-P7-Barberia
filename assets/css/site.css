@@ -1,7 +1,7 @@
 /* ==========================================================================
    P7 BARBER MASTER STUDIO — SISTEMA VISUAL (v1)
-   Paleta: Esmeralda & Oro + Tonos Joya Colombia (2:1:1)
-   Tipografía: Boska (Display) + General Sans (Cuerpo)
+   Paleta: Escudo P7 + Acentos Bandera de Colombia (2:1:1)
+   Tipografía: Fraunces (Display) + IBM Plex Mono (Acento/Cifras) + Switzer (Cuerpo)
    ========================================================================== */
 
 :root {
@@ -17,17 +17,28 @@
   /* Metales Nobles del Escudo (PDF Coolors) */
   --p7-gold-antique: #AC986C;       /* Acento noble principal / Monograma P7 */
   --p7-champagne: #C3B9A0;          /* Champán arena / Oro blanco fino */
-  --p7-silver-titanium: #9D9B95;    /* Plata / Titanio satinado */
+  --p7-silver-titanium: #9D9B95;    /* Plata / Titanio satinado (solo metadatos secundarios) */
 
-  /* Blancos y Luminosidad de Lectura (PDF Coolors) */
+  /* Blancos y Luminosidad de Lectura */
   --p7-white: #FFFFFF;              /* Titulares y contraste máximo */
   --p7-snow: #FDFDFC;               /* Texto principal de lectura */
+  --p7-bone: #E8E5DF;               /* Blanco hueso nítido para subtítulos y párrafos sobre negro */
+  --p7-bone-soft: #D6D2C9;          /* Texto secundario legible sobre negro */
   --p7-smoke: #F6F5F5;              /* Texto suave y blanco humo */
 
   /* Acento de Bordado de Sastrería (Brick Red #C1091E) */
   --p7-brick-red: #C1091E;
   --p7-brick-red-border: rgba(193, 9, 30, 0.55);
   --p7-brick-red-glow: rgba(193, 9, 30, 0.35);
+
+  /* Acentos Bandera de Colombia (separadores 2:1:1) — sobre fondo negro:
+     amarillo y rojo para bordeados, cifras y detalles; azul solo en hilos/detalles finos */
+  --p7-colombia-yellow: #FCD116;
+  --p7-colombia-yellow-rgb: 252, 209, 22;
+  --p7-colombia-blue: #003893;
+  --p7-colombia-blue-rgb: 0, 56, 147;
+  --p7-colombia-red: var(--p7-brick-red);
+  --p7-colombia-red-rgb: 193, 9, 30;
 
   /* Mapeo de compatibilidad con selectores existentes */
   --emerald-950: #050403;
@@ -48,9 +59,10 @@
   --sapphire-900: #13294B;
   --burgundy-900: var(--p7-brick-red);
 
-  /* Tipografía (solo 2 familias principales) */
-  --font-display: 'Boska', Georgia, serif;
-  --font-sans: 'General Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  /* Sistema Tipográfico Oficial P7 (3 familias obligatorias en toda la web) */
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-accent: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  --font-sans: 'Switzer', -apple-system, BlinkMacSystemFont, sans-serif;
 
   /* Espaciado y ritmos */
   --gutter: clamp(20px, 5vw, 80px);
@@ -195,26 +207,25 @@ a {
 }
 
 /* ==========================================================================
-   TIPOGRAFÍA EDITORIAL (BOSKA + GENERAL SANS)
+   TIPOGRAFÍA EDITORIAL (FRAUNCES + IBM PLEX MONO + SWITZER)
    ========================================================================== */
 
 .h1-editorial,
 .h2-editorial {
   font-family: var(--font-display);
-  font-weight: 600;
-  font-size-adjust: from-font;
+  font-weight: 700;
   margin: 0;
   letter-spacing: -0.02em;
 }
 
 .h1-editorial {
   font-size: clamp(2.75rem, 6.2vw, 5.75rem);
-  line-height: 0.98;
+  line-height: 1.04;
 }
 
 .h2-editorial {
   font-size: clamp(2rem, 3.6vw, 3.35rem);
-  line-height: 1.04;
+  line-height: 1.06;
 }
 
 .lead-copy {
@@ -326,7 +337,7 @@ a {
   border-radius: 9999px;
   background-color: transparent;
   color: var(--p7-white, #FFFFFF);
-  font-family: var(--font-sans, 'General Sans', sans-serif);
+  font-family: var(--font-sans, 'Switzer', sans-serif);
   font-size: 0.9375rem;
   font-weight: 500;
   letter-spacing: 0.02em;
@@ -400,16 +411,16 @@ a {
 }
 
 .liquid-glass-btn--yellow:focus-visible {
-  outline: 2px solid #FCD116;
+  outline: 2px solid var(--p7-colombia-yellow);
   outline-offset: 4px;
 }
 
 .liquid-glass-btn--yellow .liquid-glass-surface {
-  border: 1px solid rgba(252, 209, 22, 0.78);
+  border: 1px solid rgba(var(--p7-colombia-yellow-rgb), 0.78);
   box-shadow:
-    0 0 16px rgba(252, 209, 22, 0.42),
+    0 0 16px rgba(var(--p7-colombia-yellow-rgb), 0.42),
     0 2px 8px rgba(0, 0, 0, 0.35),
-    inset 0 0 0 1px rgba(252, 209, 22, 0.45),
+    inset 0 0 0 1px rgba(var(--p7-colombia-yellow-rgb), 0.45),
     inset 3px 3px 0.5px -3px rgba(255, 255, 255, 0.78),
     inset -3px -3px 0.5px -3px rgba(255, 255, 255, 0.62),
     inset 1px 1px 1px -0.5px rgba(255, 255, 255, 0.45),
@@ -417,12 +428,12 @@ a {
 }
 
 .liquid-glass-btn--yellow:hover .liquid-glass-surface {
-  background: rgba(252, 209, 22, 0.08);
-  border-color: #FCD116;
+  background: rgba(var(--p7-colombia-yellow-rgb), 0.08);
+  border-color: var(--p7-colombia-yellow);
   box-shadow:
-    0 0 26px rgba(252, 209, 22, 0.72),
+    0 0 26px rgba(var(--p7-colombia-yellow-rgb), 0.72),
     0 4px 16px rgba(0, 0, 0, 0.45),
-    inset 0 0 0 1.5px rgba(252, 209, 22, 0.90),
+    inset 0 0 0 1.5px rgba(var(--p7-colombia-yellow-rgb), 0.90),
     inset 3px 3px 0.5px -3px rgba(255, 255, 255, 0.92),
     inset -3px -3px 0.5px -3px rgba(255, 255, 255, 0.75);
 }
@@ -762,9 +773,9 @@ a {
 
 .hero-simple-title {
   margin: 0;
-  font-family: var(--font-display, 'Boska', serif);
-  font-size: clamp(1.95rem, 5.2vw, 3.35rem);
-  font-weight: 500;
+  font-family: var(--font-display, 'Fraunces', Georgia, serif);
+  font-size: clamp(2.45rem, 5.8vw, 3.85rem);
+  font-weight: 700;
   line-height: 1.06;
   letter-spacing: -0.02em;
   color: #FFFFFF;
@@ -786,7 +797,7 @@ a {
   -webkit-backdrop-filter: blur(14px);
   border: 1px solid rgba(195, 185, 160, 0.45);
   color: #FFFFFF;
-  font-family: var(--font-sans, 'General Sans', sans-serif);
+  font-family: var(--font-sans, 'Switzer', sans-serif);
   font-size: 0.78rem;
   font-weight: 500;
   letter-spacing: 0.14em;

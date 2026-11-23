@@ -1,85 +1,52 @@
 /* ==========================================================================
-   P7 — SISTEMA TIPOGRÁFICO OPCIÓN 1 (BESPOKE LUXURY BARBERSHOP)
-   Fuentes Oficiales: Fontshare (Boska, General Sans, Satoshi) + OpenFont/Google Fonts (Rye, Cormorant Garamond)
+   P7 BARBER MASTER STUDIO — SISTEMA TIPOGRÁFICO OFICIAL (v2)
+   Fuentes Oficiales (cargadas vía <link> en <head> — cero @import bloqueantes):
+   - Display / Títulos: Fraunces (Google Fonts: 600, 700, 800)
+   - Acento / Cifras / Etiquetas: IBM Plex Mono (Google Fonts: 500, 600)
+   - Cuerpo / UI / Navegación / Legales: Switzer (Fontshare: 400, 500, 600, 700)
    ========================================================================== */
 
-@import url('https://api.fontshare.com/v2/css?f[]=boska@400,401,500,501,600,700,701&f[]=general-sans@400,500,600,700&f[]=satoshi@400,500,700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Rye&display=swap');
-
 :root {
-  /* Familias Tipográficas Principales */
-  --font-display: 'Boska', 'Cormorant Garamond', Georgia, serif;
-  --font-sans: 'General Sans', 'Satoshi', -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-sans-alt: 'Satoshi', 'General Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-western: 'Rye', 'Boska', Georgia, serif;
-  --font-serif-fallback: 'Cormorant Garamond', Georgia, serif;
-
-  /* Paleta Cromática Oficial P7 (PDF Coolors + Brick Red) */
-  --color-carbon-900: #0A0909;
-  --color-ebony-950: #0B0702;
-  --color-anthracite-800: #242423;
-  --color-gold-antique: #AC986C;
-  --color-champagne: #C3B9A0;
-  --color-silver-titanium: #9D9B95;
-  --color-white: #FFFFFF;
-  --color-snow: #FDFDFC;
-  --color-smoke: #F6F5F5;
-  --color-brick-red: #C1091E;
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-accent: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  --font-sans: 'Switzer', -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
-/* Clases Utilitarias de Familias */
 .font-display {
   font-family: var(--font-display);
-  font-feature-settings: "liga" 1, "dlig" 1, "swsh" 1;
+  font-variation-settings: "opsz" 72;
+}
+
+.font-accent {
+  font-family: var(--font-accent);
+  font-variant-numeric: tabular-nums;
 }
 
 .font-sans {
   font-family: var(--font-sans);
-  font-feature-settings: "ss01" 1, "cv01" 1;
 }
 
-.font-satoshi {
-  font-family: var(--font-sans-alt);
-  font-variant-numeric: tabular-nums;
-}
-
-.font-western {
-  font-family: var(--font-western);
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-}
-
-/* Jerarquía Editorial Preconfigurada */
 .heading-hero {
   font-family: var(--font-display);
   font-weight: 700;
-  line-height: 0.96;
+  line-height: 1.04;
   letter-spacing: -0.02em;
 }
 
 .heading-editorial {
   font-family: var(--font-display);
-  font-weight: 600;
-  line-height: 1.05;
+  font-weight: 700;
+  line-height: 1.08;
   letter-spacing: -0.015em;
 }
 
-.badge-vintage {
-  font-family: var(--font-western);
-  font-weight: 400;
-  font-size: 0.75rem;
-  letter-spacing: 0.24em;
-  text-transform: uppercase;
-}
-
 .price-tabular {
-  font-family: var(--font-display);
-  font-weight: 700;
+  font-family: var(--font-accent);
+  font-weight: 600;
   font-variant-numeric: tabular-nums;
   letter-spacing: 0.02em;
 }
 
-/* Efecto Metálico Noble para Titulares y Sellos */
 .text-gold-gradient {
   background: linear-gradient(135deg, #FDFDFC 0%, #C3B9A0 30%, #AC986C 68%, #786540 100%);
   -webkit-background-clip: text;
