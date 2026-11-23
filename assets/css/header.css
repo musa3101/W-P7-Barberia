@@ -56,6 +56,9 @@
   box-shadow: none;
   backdrop-filter: none;
   -webkit-backdrop-filter: none;
+  isolation: isolate;
+  transform: translate3d(0, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
   transition:
     background-color 420ms var(--p7-hdr-ease),
     box-shadow 420ms var(--p7-hdr-ease),
@@ -184,9 +187,13 @@
 
 /* Acciones derecha */
 .p7-header-actions {
+  position: relative;
+  z-index: 2;
   display: inline-flex;
   align-items: center;
   gap: 12px;
+  transform: translate3d(0, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
 }
 
 /* Botón Reservar (oculto en móvil para dejar barra ultra limpia; visible en escritorio) */
@@ -242,6 +249,46 @@
   color: var(--p7-hdr-red);
   filter: drop-shadow(0 1px 6px rgba(0, 0, 0, 0.55));
   transition: color 220ms ease, transform 220ms var(--p7-hdr-ease);
+}
+
+.p7-align-icon path {
+  stroke-dasharray: 12;
+  stroke-dashoffset: 0;
+}
+
+@keyframes p7AlignDraw {
+  0% {
+    stroke-dashoffset: 12;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .p7-align-icon path {
+    animation: p7AlignDraw 260ms var(--p7-hdr-ease) backwards;
+  }
+
+  .p7-align-icon path:nth-child(1) {
+    animation-delay: 80ms;
+  }
+
+  .p7-align-icon path:nth-child(2) {
+    animation-delay: 160ms;
+  }
+
+  .p7-align-icon path:nth-child(3) {
+    animation-delay: 240ms;
+  }
+
+  .p7-align-icon path:nth-child(4) {
+    animation-delay: 300ms;
+  }
+
+  .p7-align-icon.is-resetting path {
+    animation: none;
+  }
 }
 
 .p7-menu-trigger:hover .p7-align-icon {

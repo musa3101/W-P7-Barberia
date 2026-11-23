@@ -48,28 +48,23 @@ document.addEventListener('DOMContentLoaded', () => {
     syncHeaderScroll();
   }, { passive: true });
 
-  /* 2. Reinicio de animación SVG AlignCenterIcon */
+  /* 2. Reinicio de animación CSS del icono AlignCenterIcon (100% fiable en Safari iOS) */
   const replayAlignIcon = (btn) => {
     if (!btn) return;
     const svg = btn.querySelector('.p7-align-icon');
-    if (!svg) return;
-    if (typeof svg.setCurrentTime === 'function') {
-      svg.setCurrentTime(0);
-    }
-    svg.querySelectorAll('animate').forEach((anim) => {
-      if (typeof anim.beginElement === 'function') {
-        const begin = anim.getAttribute('begin');
-        if (!begin) {
-          anim.beginElement();
-        } else {
-          const delayMs = parseFloat(begin) * 1000;
-          window.setTimeout(() => {
-            if (typeof anim.beginElement === 'function') anim.beginElement();
-          }, delayMs);
-        }
-      }
-    });
+    if (!svg || prefersReduced()) return;
+    svg.classList.add('is-resetting');
+    void svg.getBoundingClientRect();
+    svg.classList.remove('is-resetting');
   };
+
+  /* Restauración limpia al volver por bfcache en Safari iOS */
+  window.addEventListener('pageshow', (event) => {
+    if (event.persisted && toggleBtn) {
+      const svg = toggleBtn.querySelector('.p7-align-icon');
+      if (svg) svg.classList.remove('is-resetting');
+    }
+  });
 
   /* 3. Split de letras para animación elástica del Curved Menu (agrupado por palabras) */
   const splitCurvedTexts = () => {
