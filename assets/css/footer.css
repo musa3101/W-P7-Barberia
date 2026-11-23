@@ -63,7 +63,21 @@
 
 .hwf-brand {
   display: flex;
+  flex-direction: column;
   align-items: flex-start;
+  gap: 14px;
+}
+
+.hwf-slogan {
+  margin: 0;
+  max-width: 28ch;
+  font-family: var(--hwf-accent);
+  font-size: 0.75rem;
+  font-weight: 500;
+  line-height: 1.7;
+  letter-spacing: 0.06em;
+  text-transform: none;
+  color: var(--p7-bone, #E8E5DF);
 }
 
 .hwf-logo-link {
@@ -215,13 +229,13 @@
 /* Móvil (< 680px): Amplio, aireado, tipografía nítida y sin solape con el wordmark */
 @media (max-width: 679px) {
   .hwf-root {
-    height: 600px;
-    min-height: 600px;
+    height: 648px;
+    min-height: 648px;
   }
 
   .hwf-top {
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-    gap: 20px 16px;
+    gap: 22px 16px;
     padding: 28px var(--gutter, 20px) 0;
     font-size: 0.75rem;
     letter-spacing: 0.08em;
@@ -230,7 +244,17 @@
 
   .hwf-brand {
     grid-column: 1 / -1;
-    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 14px;
+    margin-bottom: 4px;
+  }
+
+  .hwf-slogan {
+    max-width: 30ch;
+    font-size: 0.75rem;
+    line-height: 1.75;
+    letter-spacing: 0.05em;
   }
 
   .hwf-logo-img {
