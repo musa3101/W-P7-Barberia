@@ -12,6 +12,85 @@
   const prefersReducedMotion = () => motionQuery.matches;
 
   /* ------------------------------------------------------------------------
+     0. Utilidades globales: P7ScrollLock (iOS) y P7ThemeColor (Safari bar)
+     ------------------------------------------------------------------------ */
+  let lockCount = 0;
+  let lockedScrollY = 0;
+
+  const blockLockedTouchMove = (e) => {
+    if (lockCount <= 0) return;
+    if (e.target && typeof e.target.closest === 'function' && e.target.closest('[data-scroll-allow]')) {
+      return;
+    }
+    e.preventDefault();
+  };
+
+  window.P7ScrollLock = {
+    lock() {
+      if (lockCount === 0) {
+        lockedScrollY = window.scrollY || window.pageYOffset || 0;
+        root.classList.add('p7-scroll-locked');
+        document.body.style.position = 'fixed';
+        document.body.style.top = `-${lockedScrollY}px`;
+        document.body.style.left = '0';
+        document.body.style.right = '0';
+        document.body.style.width = '100%';
+        document.body.style.overflow = 'hidden';
+        window.addEventListener('touchmove', blockLockedTouchMove, { passive: false });
+      }
+      lockCount += 1;
+    },
+    unlock() {
+      if (lockCount <= 0) return;
+      lockCount -= 1;
+      if (lockCount === 0) {
+        window.removeEventListener('touchmove', blockLockedTouchMove);
+        root.classList.remove('p7-scroll-locked');
+        document.body.style.position = '';
+        document.body.style.top = '';
+        document.body.style.left = '';
+        document.body.style.right = '';
+        document.body.style.width = '';
+        document.body.style.overflow = '';
+        window.scrollTo({ top: lockedScrollY, behavior: 'instant' });
+      }
+    },
+    isLocked() {
+      return lockCount > 0;
+    }
+  };
+
+  const themeColorMeta = document.querySelector('meta[name="theme-color"]');
+  const hasHeroSection = Boolean(document.querySelector('.hero'));
+  const defaultThemeColor = themeColorMeta ? (themeColorMeta.getAttribute('content') || '#0A0909') : '#0A0909';
+  let themeColorOverride = null;
+
+  const computeThemeColor = () => {
+    if (themeColorOverride) return themeColorOverride;
+    return defaultThemeColor;
+  };
+
+  const syncThemeColor = () => {
+    const nextColor = computeThemeColor();
+    if (themeColorMeta && themeColorMeta.getAttribute('content') !== nextColor) {
+      themeColorMeta.setAttribute('content', nextColor);
+    }
+  };
+  syncThemeColor();
+
+  window.P7ThemeColor = {
+    setOverride(color) {
+      themeColorOverride = color || null;
+      syncThemeColor();
+    },
+    clearOverride() {
+      themeColorOverride = null;
+      syncThemeColor();
+    },
+    sync: syncThemeColor
+  };
+
+  /* ------------------------------------------------------------------------
      1. Header sólido al hacer scroll > 40px + Barra de progreso 2:1:1
      ------------------------------------------------------------------------ */
   const header = document.getElementById('site-header');
@@ -31,6 +110,8 @@
       const ratio = maxScroll > 0 ? Math.min(1, Math.max(0, y / maxScroll)) : 0;
       progressBar.style.transform = `scaleX(${ratio})`;
     }
+
+    syncThemeColor();
   };
 
   window.addEventListener(
@@ -57,7 +138,9 @@
   const syncToggleUI = (isPlaying) => {
     if (!videoToggle) return;
     videoToggle.setAttribute('aria-pressed', String(!isPlaying));
-    videoToggle.textContent = isPlaying ? 'Pausar ambiente' : 'Reproducir ambiente';
+    videoToggle.textContent = window.P7I18n
+      ? window.P7I18n.t(isPlaying ? 'hero.pauseBg' : 'hero.playBg')
+      : (isPlaying ? 'Pausar ambiente' : 'Reproducir ambiente');
   };
 
   const applyMediaMotionState = () => {
@@ -482,7 +565,10 @@
         lbCat.textContent = cat;
         lbCat.hidden = !cat;
       }
-      lightboxDialog.showModal();
+      if (!lightboxDialog.open) {
+        window.P7ScrollLock?.lock();
+        lightboxDialog.showModal();
+      }
     };
 
     lightboxDialog.addEventListener('close', () => {
@@ -491,6 +577,7 @@
         lbVideo.hidden = true;
         lbVideo.removeAttribute('src');
       }
+      window.P7ScrollLock?.unlock();
     });
 
     document.querySelectorAll('[data-lightbox-src]').forEach((trigger) => {
@@ -516,31 +603,67 @@
 
   const LEGAL_CONTENT = {
     aviso: {
+      titleKey: 'legalDialog.avisoTitle',
+      bodyKey: 'legalDialog.avisoBody',
       title: 'Aviso Legal',
       body: '<p><strong>P7 Barber Master Studio</strong><br>Dirección: C/ Miguel Ángel Riera, 2 — 07004 Palma de Mallorca, Illes Balears.<br>Actividad: Servicios de barbería artesanal y cuidado masculino bajo cita previa.</p>'
     },
     privacidad: {
+      titleKey: 'legalDialog.privacidadTitle',
+      bodyKey: 'legalDialog.privacidadBody',
       title: 'Política de Privacidad',
       body: '<p>Esta web informativa no recopila datos personales mediante formularios propios. Las reservas se gestionan directamente en las plataformas externas autorizadas (Booksy y Setmore) bajo sus respectivas políticas de privacidad.</p>'
     },
     cookies: {
+      titleKey: 'legalDialog.cookiesTitle',
+      bodyKey: 'legalDialog.cookiesBody',
       title: 'Política de Cookies',
       body: '<p>Este sitio web no utiliza cookies publicitarias ni de seguimiento de terceros. Únicamente se emplean recursos técnicos esenciales para la correcta visualización de la página.</p>'
     }
   };
 
+  const getLegalDoc = (key) => {
+    const entry = LEGAL_CONTENT[key] || LEGAL_CONTENT.aviso;
+    if (window.P7I18n) {
+      const title = window.P7I18n.t(entry.titleKey);
+      const body = window.P7I18n.t(entry.bodyKey);
+      return {
+        title: title !== entry.titleKey ? title : entry.title,
+        body: body !== entry.bodyKey ? body : entry.body
+      };
+    }
+    return { title: entry.title, body: entry.body };
+  };
+
+  let activeLegalKey = null;
+
   if (legalDialog) {
     const legalTitle = document.getElementById('legal-title');
     const legalBody = document.getElementById('legal-body');
 
+    const renderLegalDoc = (key) => {
+      const doc = getLegalDoc(key);
+      if (legalTitle) legalTitle.textContent = doc.title;
+      if (legalBody) legalBody.innerHTML = doc.body;
+    };
+
     document.querySelectorAll('[data-legal]').forEach((btn) => {
       btn.addEventListener('click', () => {
-        const key = btn.getAttribute('data-legal');
-        const doc = LEGAL_CONTENT[key] || LEGAL_CONTENT.aviso;
-        if (legalTitle) legalTitle.textContent = doc.title;
-        if (legalBody) legalBody.innerHTML = doc.body;
+        activeLegalKey = btn.getAttribute('data-legal') || 'aviso';
+        renderLegalDoc(activeLegalKey);
         legalDialog.showModal();
       });
+    });
+
+    document.addEventListener('p7:langchange', () => {
+      syncToggleUI(!userPaused);
+      if (legalDialog.open && activeLegalKey) {
+        renderLegalDoc(activeLegalKey);
+      }
+    });
+  } else {
+    document.addEventListener('p7:langchange', () => {
+      syncToggleUI(!userPaused);
     });
   }
 })();

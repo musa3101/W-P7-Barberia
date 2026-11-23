@@ -30,6 +30,56 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const n = items.length;
 
+  function getItemTitle(item) {
+    if (!item) return '';
+    if (item.fixedTitle) return item.fixedTitle;
+    if (item.sessionName) {
+      return window.P7I18n
+        ? window.P7I18n.t('gallery.sessionWith', { name: item.sessionName })
+        : `Sesión con ${item.sessionName}`;
+    }
+    if (typeof item.cutNum === 'number') {
+      return window.P7I18n
+        ? window.P7I18n.t('gallery.cutN', { n: item.cutNum })
+        : `Corte ${item.cutNum}`;
+    }
+    return item.title || '';
+  }
+
+  function getItemAlt(item) {
+    if (!item) return '';
+    const title = getItemTitle(item);
+    if (item.type === 'video') {
+      return window.P7I18n
+        ? window.P7I18n.t('gallery.clipAlt', { title })
+        : (item.alt || `${title} — clip en bucle P7 Barber Master Studio`);
+    }
+    return window.P7I18n
+      ? window.P7I18n.t('gallery.photoAlt', { title })
+      : (item.alt || `${title} — P7 Barber Master Studio`);
+  }
+
+  function getSlideAria(realIndex, item) {
+    const title = getItemTitle(item);
+    return window.P7I18n
+      ? window.P7I18n.t('gallery.slideAria', { current: realIndex + 1, total: n, title })
+      : `${realIndex + 1} de ${n}: ${title}`;
+  }
+
+  function getGotoAria(realIdx, item) {
+    const title = getItemTitle(item);
+    return window.P7I18n
+      ? window.P7I18n.t('gallery.gotoAria', { current: realIdx + 1, title })
+      : `Ir a ${realIdx + 1}: ${title}`;
+  }
+
+  function getItemStatusLabel(realIndex, item) {
+    const title = getItemTitle(item);
+    return window.P7I18n
+      ? window.P7I18n.t('gallery.itemLabel', { current: realIndex + 1, total: n, title })
+      : `Elemento ${realIndex + 1} de ${n}: ${title}`;
+  }
+
   function mod(i) {
     return ((i % n) + n) % n;
   }
@@ -80,6 +130,59 @@ document.addEventListener('DOMContentLoaded', () => {
   let lastRealIndex = CONFIG.defaultIndex;
   let recenterTimer = null;
 
+  const AUTOPLAY_INTERVAL_MS = 3600;
+  const AUTOPLAY_RESUME_DELAY_MS = 4500;
+  let autoplayTimer = null;
+  let autoplayResumeTimer = null;
+  let isLightboxOpen = false;
+  let isPointerActive = false;
+
+  function stopAutoplay() {
+    if (autoplayTimer) {
+      clearInterval(autoplayTimer);
+      autoplayTimer = null;
+    }
+  }
+
+  function clearAutoplayResume() {
+    if (autoplayResumeTimer) {
+      clearTimeout(autoplayResumeTimer);
+      autoplayResumeTimer = null;
+    }
+  }
+
+  function startAutoplay() {
+    if (prefersReduced || document.hidden || isLightboxOpen || isPointerActive || n <= 1) return;
+    if (autoplayTimer) return;
+    autoplayTimer = setInterval(() => {
+      if (document.hidden || isLightboxOpen || isPointerActive) {
+        stopAutoplay();
+        return;
+      }
+      goDelta(1);
+    }, AUTOPLAY_INTERVAL_MS);
+  }
+
+  function pauseAutoplayForInteraction(scheduleResume = true) {
+    stopAutoplay();
+    clearAutoplayResume();
+    if (scheduleResume && !prefersReduced && !document.hidden && !isLightboxOpen && !isPointerActive) {
+      autoplayResumeTimer = setTimeout(() => {
+        autoplayResumeTimer = null;
+        startAutoplay();
+      }, AUTOPLAY_RESUME_DELAY_MS);
+    }
+  }
+
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) {
+      stopAutoplay();
+      clearAutoplayResume();
+    } else if (!isLightboxOpen && !isPointerActive) {
+      startAutoplay();
+    }
+  });
+
   const slideButtons = [];
   const dotButtons = [];
   const videoElements = new Map();
@@ -92,7 +195,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const btn = document.createElement('button');
     btn.type = 'button';
     btn.className = 'stc-slide';
-    btn.setAttribute('aria-label', `${realIndex + 1} de ${n}: ${item.title}`);
+    btn.setAttribute('aria-label', getSlideAria(realIndex, item));
     btn.style.transition = `transform ${CONFIG.stepDuration * 1000}ms ease-in-out`;
 
     if (item.type === 'video') {
@@ -103,7 +206,7 @@ document.addEventListener('DOMContentLoaded', () => {
       video.autoplay = !prefersReduced;
       video.preload = 'metadata';
       if (item.poster) video.poster = item.poster;
-      video.setAttribute('aria-label', item.alt || item.title);
+      video.setAttribute('aria-label', getItemAlt(item));
 
       const sourceMain = document.createElement('source');
       sourceMain.src = item.src;
@@ -122,7 +225,7 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
       const img = document.createElement('img');
       img.src = item.src;
-      img.alt = item.alt || item.title;
+      img.alt = getItemAlt(item);
       img.draggable = false;
       img.decoding = 'async';
       img.loading = Math.abs(i - pos) <= 2 ? 'eager' : 'lazy';
@@ -134,6 +237,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (i === pos) {
         openLightbox(item);
       } else {
+        pauseAutoplayForInteraction(true);
         goToPos(i);
       }
     });
@@ -156,8 +260,9 @@ document.addEventListener('DOMContentLoaded', () => {
         const dot = document.createElement('button');
         dot.type = 'button';
         dot.className = 'stc-dot';
-        dot.setAttribute('aria-label', `Ir a ${realIdx + 1}: ${item.title}`);
+        dot.setAttribute('aria-label', getGotoAria(realIdx, item));
         dot.addEventListener('click', () => {
+          pauseAutoplayForInteraction(true);
           goToPos(n + realIdx);
         });
         dotsBox.appendChild(dot);
@@ -176,11 +281,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const item = items[realIndex];
     if (!item) return;
 
+    const titleText = getItemTitle(item);
+
     if (isInitial) {
       titlesBox.innerHTML = '';
       const el = document.createElement('div');
       el.className = 'stc-title';
-      el.textContent = item.title;
+      el.textContent = titleText;
       titlesBox.appendChild(el);
       return;
     }
@@ -192,7 +299,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const nextEl = document.createElement('div');
     nextEl.className = 'stc-title';
-    nextEl.textContent = item.title;
+    nextEl.textContent = titleText;
     nextEl.style.animation = `stc-in ${popSpring.ms}ms ${popSpring.easing} both`;
     titlesBox.appendChild(nextEl);
 
@@ -254,7 +361,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     if (srStatus && items[realIndex]) {
-      srStatus.textContent = `Elemento ${realIndex + 1} de ${n}: ${items[realIndex].title}`;
+      srStatus.textContent = getItemStatusLabel(realIndex, items[realIndex]);
     }
 
     syncVideos();
@@ -300,23 +407,40 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Botones < y > (siempre activos, bucle infinito)
-  if (prevBtn) prevBtn.addEventListener('click', () => goDelta(-1));
-  if (nextBtn) nextBtn.addEventListener('click', () => goDelta(1));
+  if (prevBtn) {
+    prevBtn.addEventListener('click', () => {
+      pauseAutoplayForInteraction(true);
+      goDelta(-1);
+    });
+  }
+  if (nextBtn) {
+    nextBtn.addEventListener('click', () => {
+      pauseAutoplayForInteraction(true);
+      goDelta(1);
+    });
+  }
 
   // Teclado
   root.addEventListener('keydown', (e) => {
     if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
       e.preventDefault();
+      pauseAutoplayForInteraction(true);
       goDelta(1);
     } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
       e.preventDefault();
+      pauseAutoplayForInteraction(true);
       goDelta(-1);
     }
   });
 
-  // Swipe táctil / arrastre: funciona tanto hacia ARRIBA/ABAJO (móvil) como IZQUIERDA/DERECHA
+  // Swipe táctil / arrastre: funciona en móvil y escritorio sin competir con el scroll vertical ni el autoplay
   root.addEventListener('pointerdown', (e) => {
-    if (e.target.closest('.stc-controls')) return;
+    if (e.target.closest('.stc-controls')) {
+      pauseAutoplayForInteraction(true);
+      return;
+    }
+    isPointerActive = true;
+    pauseAutoplayForInteraction(false);
     swipe.id = e.pointerId;
     swipe.x = e.clientX;
     swipe.y = e.clientY;
@@ -333,6 +457,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Gesto horizontal o diagonal (deja libre el scroll vertical de la página hacia el separador y footer)
     if (absX > 24 && absX >= absY * 0.75) {
       swipe.done = true;
+      pauseAutoplayForInteraction(false);
       goDelta(dx < 0 ? 1 : -1);
     }
   });
@@ -342,13 +467,18 @@ document.addEventListener('DOMContentLoaded', () => {
   }, { passive: true });
 
   const endSwipe = () => {
+    const wasActive = isPointerActive;
+    isPointerActive = false;
     swipe.id = -1;
+    if (wasActive && !isLightboxOpen) {
+      pauseAutoplayForInteraction(true);
+    }
     setTimeout(() => {
       swipe.done = false;
     }, 0);
   };
-  root.addEventListener('pointerup', endSwipe);
-  root.addEventListener('pointercancel', endSwipe);
+  window.addEventListener('pointerup', endSwipe);
+  window.addEventListener('pointercancel', endSwipe);
 
   /* ------------------------------------------------------------------------
      5. Lightbox Modal al pulsar el elemento activo (Soporta foto y vídeo)
@@ -357,9 +487,18 @@ document.addEventListener('DOMContentLoaded', () => {
   const dialogMedia = document.getElementById('gal-dialog-media');
   const dialogTitle = document.getElementById('gal-dialog-title');
   const dialogClose = document.getElementById('gal-dialog-close');
+  let closeDialogTimer = null;
+  let isScrollLocked = false;
+  let currentLightboxItem = null;
 
   function openLightbox(item) {
     if (!dialog || !dialogMedia) return;
+    currentLightboxItem = item;
+    if (closeDialogTimer) {
+      clearTimeout(closeDialogTimer);
+      closeDialogTimer = null;
+    }
+    dialog.classList.remove('is-closing');
     dialogMedia.innerHTML = '';
 
     if (item.type === 'video') {
@@ -372,6 +511,7 @@ document.addEventListener('DOMContentLoaded', () => {
       v.disablePictureInPicture = true;
       v.setAttribute('playsinline', '');
       v.setAttribute('muted', '');
+      v.setAttribute('aria-label', getItemAlt(item));
       if (item.poster) v.poster = item.poster;
 
       const s1 = document.createElement('source');
@@ -390,23 +530,58 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
       const img = document.createElement('img');
       img.src = item.fullSrc || item.src;
-      img.alt = item.alt || item.title;
+      img.alt = getItemAlt(item);
       dialogMedia.appendChild(img);
     }
 
-    if (dialogTitle) dialogTitle.textContent = item.title;
-    if (typeof dialog.showModal === 'function') {
+    if (dialogTitle) dialogTitle.textContent = getItemTitle(item);
+    if (typeof dialog.showModal === 'function' && !dialog.open) {
+      isLightboxOpen = true;
+      stopAutoplay();
+      clearAutoplayResume();
+      window.P7ScrollLock?.lock();
+      isScrollLocked = true;
       dialog.showModal();
     }
   }
 
+  function closeLightbox() {
+    if (!dialog || !dialog.open || dialog.classList.contains('is-closing')) return;
+    if (prefersReduced) {
+      dialog.close();
+      return;
+    }
+    dialog.classList.add('is-closing');
+    closeDialogTimer = setTimeout(() => {
+      closeDialogTimer = null;
+      dialog.classList.remove('is-closing');
+      if (dialog.open) dialog.close();
+    }, 180);
+  }
+
   if (dialogClose && dialog) {
-    dialogClose.addEventListener('click', () => dialog.close());
+    dialogClose.addEventListener('click', closeLightbox);
   }
 
   if (dialog) {
+    dialog.addEventListener('cancel', (event) => {
+      event.preventDefault();
+      closeLightbox();
+    });
     dialog.addEventListener('close', () => {
+      if (closeDialogTimer) {
+        clearTimeout(closeDialogTimer);
+        closeDialogTimer = null;
+      }
+      dialog.classList.remove('is-closing');
       if (dialogMedia) dialogMedia.innerHTML = '';
+      if (isScrollLocked) {
+        window.P7ScrollLock?.unlock();
+        isScrollLocked = false;
+      }
+      isLightboxOpen = false;
+      currentLightboxItem = null;
+      startAutoplay();
     });
     dialog.addEventListener('click', (event) => {
       if (
@@ -414,7 +589,7 @@ document.addEventListener('DOMContentLoaded', () => {
         event.target.classList.contains('gal-dialog-inner') ||
         event.target === dialogMedia
       ) {
-        dialog.close();
+        closeLightbox();
       }
     });
   }
@@ -431,7 +606,52 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  function refreshI18n() {
+    slideButtons.forEach((btn, i) => {
+      const realIndex = mod(i);
+      const item = items[realIndex];
+      if (!item) return;
+      btn.setAttribute('aria-label', getSlideAria(realIndex, item));
+      const media = btn.querySelector('img, video');
+      if (media) {
+        if (media.tagName === 'IMG') {
+          media.alt = getItemAlt(item);
+        } else {
+          media.setAttribute('aria-label', getItemAlt(item));
+        }
+      }
+    });
+
+    dotButtons.forEach((dot, realIdx) => {
+      const item = items[realIdx];
+      if (item) {
+        dot.setAttribute('aria-label', getGotoAria(realIdx, item));
+      }
+    });
+
+    const activeRealIndex = mod(pos);
+    renderTitle(activeRealIndex, true);
+    if (srStatus && items[activeRealIndex]) {
+      srStatus.textContent = getItemStatusLabel(activeRealIndex, items[activeRealIndex]);
+    }
+
+    if (isLightboxOpen && currentLightboxItem) {
+      if (dialogTitle) dialogTitle.textContent = getItemTitle(currentLightboxItem);
+      const lbMedia = dialogMedia?.querySelector('img, video');
+      if (lbMedia) {
+        if (lbMedia.tagName === 'IMG') {
+          lbMedia.alt = getItemAlt(currentLightboxItem);
+        } else {
+          lbMedia.setAttribute('aria-label', getItemAlt(currentLightboxItem));
+        }
+      }
+    }
+  }
+
+  document.addEventListener('p7:langchange', refreshI18n);
+
   // Inicializar en copia central sin salto visual
   renderTitle(mod(pos), true);
   applyTransforms(true);
+  startAutoplay();
 });

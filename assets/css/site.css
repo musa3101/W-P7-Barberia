@@ -93,6 +93,12 @@ html {
   background-color: #0A0909;
 }
 
+/* Overscroll nativo en negro carbono uniforme */
+
+html.p7-scroll-locked {
+  overscroll-behavior: none;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -847,7 +853,7 @@ a {
   display: none;
 }
 
-/* Halo azul oscuro difuminado superior e inferior en Hero (solo móvil y tablet) */
+/* Viñetas elípticas curvas en azul profundo superior e inferior del Hero (solo móvil y tablet) */
 @media (max-width: 1024px) {
   .hero-media::before,
   .hero-media::after {
@@ -861,26 +867,30 @@ a {
 
   .hero-media::before {
     top: 0;
-    height: clamp(82px, 12vh, 115px);
-    background: linear-gradient(
-      180deg,
-      rgba(6, 17, 38, 0.94) 0%,
-      rgba(11, 28, 58, 0.72) 38%,
-      rgba(19, 41, 75, 0.26) 72%,
-      rgba(19, 41, 75, 0) 100%
-    );
+    height: clamp(94px, 14vh, 134px);
+    background:
+      radial-gradient(
+        ellipse 82% 118% at 50% 100%,
+        rgba(6, 17, 38, 0) 0%,
+        rgba(6, 17, 38, 0) 48%,
+        rgba(11, 28, 58, 0.34) 70%,
+        rgba(6, 17, 38, 0.72) 88%,
+        rgba(6, 17, 38, 0.90) 100%
+      );
   }
 
   .hero-media::after {
     bottom: 0;
-    height: clamp(92px, 13.5vh, 130px);
-    background: linear-gradient(
-      0deg,
-      rgba(6, 17, 38, 0.94) 0%,
-      rgba(11, 28, 58, 0.72) 40%,
-      rgba(19, 41, 75, 0.26) 74%,
-      rgba(19, 41, 75, 0) 100%
-    );
+    height: clamp(104px, 15.5vh, 146px);
+    background:
+      radial-gradient(
+        ellipse 82% 118% at 50% 0%,
+        rgba(6, 17, 38, 0) 0%,
+        rgba(6, 17, 38, 0) 46%,
+        rgba(11, 28, 58, 0.36) 70%,
+        rgba(6, 17, 38, 0.74) 88%,
+        rgba(6, 17, 38, 0.92) 100%
+      );
   }
 
   .hero-bottom-overlay {

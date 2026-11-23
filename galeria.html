@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" data-i18n-page="galeria">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
@@ -13,24 +13,25 @@
   <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;0,9..144,800;1,9..144,600&family=IBM+Plex+Mono:wght@500;600&display=swap">
   <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=switzer@400,500,600,700&display=swap">
-  <link rel="stylesheet" href="./assets/css/fonts.css?v=20261123b" />
-  <link rel="stylesheet" href="./assets/css/site.css?v=20261123b" />
-  <link rel="stylesheet" href="./assets/css/header.css?v=20261123b" />
-  <link rel="stylesheet" href="./assets/css/galeria.css?v=20261123b" />
-  <link rel="stylesheet" href="./assets/css/footer.css?v=20261123c" />
+  <link rel="stylesheet" href="./assets/css/fonts.css?v=20261123e" />
+  <link rel="stylesheet" href="./assets/css/site.css?v=20261123e" />
+  <link rel="stylesheet" href="./assets/css/header.css?v=20261123i" />
+  <link rel="stylesheet" href="./assets/css/galeria.css?v=20261123e" />
+  <link rel="stylesheet" href="./assets/css/footer.css?v=20261123e" />
 </head>
 <body>
 
-  <a href="#main-content" class="skip-link">Saltar al contenido</a>
+  <a href="#main-content" class="skip-link" data-i18n="a11y.skip">Saltar al contenido</a>
 
   <!-- 1. HEADER UNIFICADO P7 BARBER MASTER STUDIO -->
   <header id="p7-header" class="p7-header" data-scrolled="true" data-always-scrolled="true">
     <div class="p7-header-inner">
-      <a href="./index.html#inicio" class="p7-brand" aria-label="P7 Barber Master Studio — Inicio">
+      <a href="./index.html#inicio" class="p7-brand" aria-label="P7 Barber Master Studio — Inicio" data-i18n-attr="aria-label:a11y.brandHome">
         <span class="p7-brand-crest">
           <img
             src="./assets/img/opt/logo-p7-256w.webp"
             alt="Escudo P7 Barber Master Studio"
+            data-i18n-attr="alt:a11y.logoAlt"
             width="36"
             height="36"
             decoding="async"
@@ -42,28 +43,28 @@
       </a>
 
       <div class="p7-header-actions">
-        <a href="./index.html#nuestro-trabajo" class="p7-back-pill" data-nav-back aria-label="Volver a Nuestro trabajo">
+        <a href="./index.html#nuestro-trabajo" class="p7-back-pill" data-nav-back aria-label="Volver a Nuestro trabajo" data-i18n-attr="aria-label:nav.backToWorkAria">
           <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
             <path d="M10 3L5 8L10 13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
-          <span>Volver</span>
+          <span data-i18n="nav.back">Volver</span>
         </a>
       </div>
     </div>
   </header>
 
   <!-- MENÚ MÓVIL PANTALLA COMPLETA -->
-  <div id="p7-mobile-drawer" class="p7-drawer" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Menú de navegación">
+  <div id="p7-mobile-drawer" class="p7-drawer" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Menú de navegación" data-i18n-attr="aria-label:a11y.menuDialog">
     <div class="p7-drawer-backdrop" aria-hidden="true"></div>
     <div class="p7-drawer-sheet">
       <div class="p7-drawer-top">
         <a href="./index.html#inicio" class="p7-brand p7-drawer-brand" data-drawer-close>
           <span class="p7-brand-crest">
-            <img src="./assets/img/opt/logo-p7-256w.webp" alt="Escudo P7 Barber Master Studio" width="32" height="32" decoding="async" />
+            <img src="./assets/img/opt/logo-p7-256w.webp" alt="Escudo P7 Barber Master Studio" data-i18n-attr="alt:a11y.logoAlt" width="32" height="32" decoding="async" />
           </span>
           <span class="p7-brand-name">P7 Barber</span>
         </a>
-        <button type="button" id="p7-menu-close" class="p7-menu-trigger" aria-label="Cerrar menú de navegación">
+        <button type="button" id="p7-menu-close" class="p7-menu-trigger" aria-label="Cerrar menú de navegación" data-i18n-attr="aria-label:a11y.closeMenu">
           <svg class="p7-align-icon" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true">
             <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.85">
               <path stroke-dasharray="10" stroke-dashoffset="10" d="M12 5h7M12 5h-7"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.2s" values="10;0" /></path>
@@ -74,33 +75,40 @@
           </svg>
         </button>
       </div>
-      <nav class="p7-drawer-nav" aria-label="Navegación móvil">
+      <nav class="p7-drawer-nav" aria-label="Navegación móvil" data-i18n-attr="aria-label:a11y.navMobile">
         <ul class="p7-drawer-list">
-          <li class="p7-drawer-item" style="--stagger: 0;"><a href="./index.html#inicio" class="p7-drawer-link" data-drawer-close><span class="p7-drawer-num" aria-hidden="true">01</span><span class="p7-drawer-label">Inicio</span></a></li>
-          <li class="p7-drawer-item" style="--stagger: 1;"><a href="./index.html#sobre-nosotros" class="p7-drawer-link" data-drawer-close><span class="p7-drawer-num" aria-hidden="true">02</span><span class="p7-drawer-label">Sobre nosotros</span></a></li>
-          <li class="p7-drawer-item" style="--stagger: 2;"><a href="./index.html#nuestro-trabajo" class="p7-drawer-link" data-drawer-close><span class="p7-drawer-num" aria-hidden="true">03</span><span class="p7-drawer-label">Nuestro trabajo</span></a></li>
-          <li class="p7-drawer-item" style="--stagger: 3;"><a href="./index.html#contacto" class="p7-drawer-link" data-drawer-close><span class="p7-drawer-num" aria-hidden="true">04</span><span class="p7-drawer-label">Contacto</span></a></li>
+          <li class="p7-drawer-item" style="--stagger: 0;"><a href="./index.html#inicio" class="p7-drawer-link" data-drawer-close><span class="p7-drawer-num" aria-hidden="true">01</span><span class="p7-drawer-label" data-i18n="nav.home">Inicio</span></a></li>
+          <li class="p7-drawer-item" style="--stagger: 1;"><a href="./index.html#sobre-nosotros" class="p7-drawer-link" data-drawer-close><span class="p7-drawer-num" aria-hidden="true">02</span><span class="p7-drawer-label" data-i18n="nav.about">Sobre nosotros</span></a></li>
+          <li class="p7-drawer-item" style="--stagger: 2;"><a href="./index.html#nuestro-trabajo" class="p7-drawer-link" data-drawer-close><span class="p7-drawer-num" aria-hidden="true">03</span><span class="p7-drawer-label" data-i18n="nav.work">Nuestro trabajo</span></a></li>
+          <li class="p7-drawer-item" style="--stagger: 3;"><a href="./index.html#contacto" class="p7-drawer-link" data-drawer-close><span class="p7-drawer-num" aria-hidden="true">04</span><span class="p7-drawer-label" data-i18n="nav.contact">Contacto</span></a></li>
         </ul>
       </nav>
       <div class="p7-drawer-foot">
-        <a href="./index.html#reserva" class="p7-drawer-cta" data-drawer-close><span>Reservar cita</span></a>
+        <nav class="p7-sm-langs" aria-label="Selector de idioma" data-i18n-attr="aria-label:a11y.langSelector">
+          <button type="button" class="p7-sm-lang is-active" data-lang="es" aria-label="Español" aria-current="true">ES</button>
+          <span class="p7-sm-lang-sep" aria-hidden="true">·</span>
+          <button type="button" class="p7-sm-lang" data-lang="en" aria-label="English">EN</button>
+          <span class="p7-sm-lang-sep" aria-hidden="true">·</span>
+          <button type="button" class="p7-sm-lang" data-lang="de" aria-label="Deutsch">DE</button>
+        </nav>
+        <a href="./index.html#reserva" class="p7-drawer-cta" data-drawer-close><span data-i18n="nav.book">Reservar cita</span></a>
         <div class="p7-drawer-meta">
           <span>C/ Miguel Ángel Riera, 2 · Palma</span>
-          <span class="p7-drawer-rating">★ 5,0 en Booksy</span>
+          <span class="p7-drawer-rating">★ <span data-i18n="booking.proofScore">5,0 en Booksy</span></span>
         </div>
       </div>
     </div>
   </div>
 
   <!-- CURVED MENU (TABLET Y ORDENADOR >= 768px) -->
-  <div id="p7-curved-menu" class="p7-curved" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Menú de navegación">
+  <div id="p7-curved-menu" class="p7-curved" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Menú de navegación" data-i18n-attr="aria-label:a11y.menuDialog">
     <div class="p7-curved-backdrop" data-curved-close aria-hidden="true"></div>
     <aside class="p7-curved-panel">
       <svg class="p7-curved-svg" aria-hidden="true" preserveAspectRatio="none"><path id="p7-curved-path" d=""></path></svg>
       <div class="p7-curved-inner">
         <div class="p7-curved-head">
-          <span class="p7-curved-kicker">Navegación</span>
-          <button type="button" id="p7-curved-close" class="p7-menu-trigger p7-menu-trigger--dark" aria-label="Cerrar menú">
+          <span class="p7-curved-kicker" data-i18n="nav.kicker">Navegación</span>
+          <button type="button" id="p7-curved-close" class="p7-menu-trigger p7-menu-trigger--dark" aria-label="Cerrar menú" data-i18n-attr="aria-label:a11y.closeMenuShort">
             <svg class="p7-align-icon" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true">
               <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.85">
                 <path stroke-dasharray="10" stroke-dashoffset="10" d="M12 5h7M12 5h-7"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.2s" values="10;0" /></path>
@@ -111,15 +119,22 @@
             </svg>
           </button>
         </div>
-        <nav class="p7-curved-nav" aria-label="Secciones principales">
-          <a href="./index.html#inicio" class="p7-curved-link" data-curved-close><span class="p7-curved-index">1.</span><span class="p7-curved-text" data-split-text>Inicio</span></a>
-          <a href="./index.html#sobre-nosotros" class="p7-curved-link" data-curved-close><span class="p7-curved-index">2.</span><span class="p7-curved-text" data-split-text>Sobre nosotros</span></a>
-          <a href="./index.html#nuestro-trabajo" class="p7-curved-link" data-curved-close><span class="p7-curved-index">3.</span><span class="p7-curved-text" data-split-text>Nuestro trabajo</span></a>
-          <a href="./index.html#contacto" class="p7-curved-link" data-curved-close><span class="p7-curved-index">4.</span><span class="p7-curved-text" data-split-text>Contacto</span></a>
+        <nav class="p7-curved-nav" aria-label="Secciones principales" data-i18n-attr="aria-label:a11y.navSections">
+          <a href="./index.html#inicio" class="p7-curved-link" data-curved-close><span class="p7-curved-index">1.</span><span class="p7-curved-text" data-split-text data-i18n="nav.home">Inicio</span></a>
+          <a href="./index.html#sobre-nosotros" class="p7-curved-link" data-curved-close><span class="p7-curved-index">2.</span><span class="p7-curved-text" data-split-text data-i18n="nav.about">Sobre nosotros</span></a>
+          <a href="./index.html#nuestro-trabajo" class="p7-curved-link" data-curved-close><span class="p7-curved-index">3.</span><span class="p7-curved-text" data-split-text data-i18n="nav.work">Nuestro trabajo</span></a>
+          <a href="./index.html#contacto" class="p7-curved-link" data-curved-close><span class="p7-curved-index">4.</span><span class="p7-curved-text" data-split-text data-i18n="nav.contact">Contacto</span></a>
         </nav>
         <div class="p7-curved-foot">
-          <a href="./index.html#reserva" class="p7-curved-cta" data-curved-close><span>Reservar cita</span></a>
-          <p class="p7-curved-meta">C/ Miguel Ángel Riera, 2 · Palma · ★ 5,0 en Booksy</p>
+          <nav class="p7-sm-langs p7-curved-langs" aria-label="Selector de idioma" data-i18n-attr="aria-label:a11y.langSelector">
+            <button type="button" class="p7-sm-lang is-active" data-lang="es" aria-label="Español" aria-current="true">ES</button>
+            <span class="p7-sm-lang-sep" aria-hidden="true">·</span>
+            <button type="button" class="p7-sm-lang" data-lang="en" aria-label="English">EN</button>
+            <span class="p7-sm-lang-sep" aria-hidden="true">·</span>
+            <button type="button" class="p7-sm-lang" data-lang="de" aria-label="Deutsch">DE</button>
+          </nav>
+          <a href="./index.html#reserva" class="p7-curved-cta" data-curved-close><span data-i18n="nav.book">Reservar cita</span></a>
+          <p class="p7-curved-meta" data-i18n="nav.curvedMeta">C/ Miguel Ángel Riera, 2 · Palma · ★ 5,0 en Booksy</p>
         </div>
       </div>
     </aside>
@@ -133,6 +148,7 @@
       role="region"
       aria-roledescription="carousel"
       aria-label="Galería completa de cortes y clips de P7 Barber Master Studio"
+      data-i18n-attr="aria-label:gallery.carouselAria"
       tabindex="0"
     >
       <div class="stc-stage">
@@ -141,7 +157,7 @@
       </div>
 
       <div class="stc-controls">
-        <button type="button" id="stc-prev" class="stc-btn" aria-label="Anterior">
+        <button type="button" id="stc-prev" class="stc-btn" aria-label="Anterior" data-i18n-attr="aria-label:gallery.prevAria">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <path d="m15 18-6-6 6-6"></path>
           </svg>
@@ -149,7 +165,7 @@
 
         <div id="stc-dots" class="stc-dots"></div>
 
-        <button type="button" id="stc-next" class="stc-btn" aria-label="Siguiente">
+        <button type="button" id="stc-next" class="stc-btn" aria-label="Siguiente" data-i18n-attr="aria-label:gallery.nextAria">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <path d="m9 18 6-6-6-6"></path>
           </svg>
@@ -164,34 +180,34 @@
   <div class="colombia-divider" aria-hidden="true"></div>
 
   <!-- 3. FOOTER UNIFICADO (Halftone Wordmark · 21st.dev) -->
-  <footer id="p7-halftone-footer" class="hwf-root" data-wordmark="P7 barber" aria-label="Pie de página">
+  <footer id="p7-halftone-footer" class="hwf-root" data-wordmark="P7 barber" aria-label="Pie de página" data-i18n-attr="aria-label:a11y.footer">
     <canvas id="p7-halftone-canvas" aria-hidden="true"></canvas>
     <span class="hwf-sr">P7 Barber Master Studio</span>
 
     <div class="hwf-top">
       <div class="hwf-brand">
-        <a href="./index.html#inicio" class="hwf-logo-link" aria-label="P7 Barber Master Studio — Inicio">
-          <img src="./assets/img/opt/logo-p7-512w.webp" alt="Escudo P7 Barber Master Studio" class="hwf-logo-img" width="124" height="124" loading="lazy" decoding="async" />
+        <a href="./index.html#inicio" class="hwf-logo-link" aria-label="P7 Barber Master Studio — Inicio" data-i18n-attr="aria-label:a11y.brandHome">
+          <img src="./assets/img/opt/logo-p7-512w.webp" alt="Escudo P7 Barber Master Studio" data-i18n-attr="alt:a11y.logoAlt" class="hwf-logo-img" width="124" height="124" loading="lazy" decoding="async" />
         </a>
-      <p class="hwf-slogan">Pasión por el oficio. Respeto por el detalle en cada corte.</p>
+      <p class="hwf-slogan" data-i18n="footer.slogan">Pasión por el oficio. Respeto por el detalle en cada corte.</p>
       </div>
 
-      <nav class="hwf-col" aria-label="Navegación">
-        <h3>Navegación</h3>
+      <nav class="hwf-col" aria-label="Navegación" data-i18n-attr="aria-label:footer.navTitle">
+        <h3 data-i18n="footer.navTitle">Navegación</h3>
         <ul>
-          <li><a href="./index.html#inicio">Inicio</a></li>
-          <li><a href="./index.html#sobre-nosotros">Sobre nosotros</a></li>
-          <li><a href="./index.html#nuestro-trabajo">Nuestro trabajo</a></li>
-          <li><a href="./index.html#contacto">Contacto</a></li>
+          <li><a href="./index.html#inicio" data-i18n="nav.home">Inicio</a></li>
+          <li><a href="./index.html#sobre-nosotros" data-i18n="nav.about">Sobre nosotros</a></li>
+          <li><a href="./index.html#nuestro-trabajo" data-i18n="nav.work">Nuestro trabajo</a></li>
+          <li><a href="./index.html#contacto" data-i18n="nav.contact">Contacto</a></li>
         </ul>
       </nav>
 
-      <nav class="hwf-col hwf-col--legal" aria-label="Legal">
-        <h3>Legal</h3>
+      <nav class="hwf-col hwf-col--legal" aria-label="Legal" data-i18n-attr="aria-label:footer.legalTitle">
+        <h3 data-i18n="footer.legalTitle">Legal</h3>
         <ul>
-          <li><a href="./aviso-legal.html">Aviso legal</a></li>
-          <li><a href="./privacidad.html">Privacidad</a></li>
-          <li><a href="./cookies.html">Cookies</a></li>
+          <li><a href="./aviso-legal.html" data-i18n="footer.legalNotice">Aviso legal</a></li>
+          <li><a href="./privacidad.html" data-i18n="footer.privacy">Privacidad</a></li>
+          <li><a href="./cookies.html" data-i18n="footer.cookies">Cookies</a></li>
         </ul>
       </nav>
     </div>
@@ -204,7 +220,7 @@
 
     <div class="hwf-rule">
       <div class="hwf-rule-inner">
-        <button type="button" id="p7-back-to-top" class="hwf-up">Volver arriba ↑</button>
+        <button type="button" id="p7-back-to-top" class="hwf-up" data-i18n="footer.backToTop">Volver arriba ↑</button>
       </div>
     </div>
   </footer>
@@ -212,8 +228,8 @@
   <!-- Lightbox Modal Flotante Sin Caja -->
   <dialog id="gal-dialog" class="gal-dialog" aria-labelledby="gal-dialog-title">
     <div class="gal-dialog-inner">
-      <button type="button" id="gal-dialog-close" class="gal-dialog-close" aria-label="Cerrar vista ampliada">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <button type="button" id="gal-dialog-close" class="gal-dialog-close" aria-label="Cerrar vista ampliada" data-i18n-attr="aria-label:a11y.closeLightbox">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <line x1="18" y1="6" x2="6" y2="18"></line>
           <line x1="6" y1="6" x2="18" y2="18"></line>
         </svg>
@@ -228,8 +244,8 @@
   <!-- Modal Legal (<dialog> nativo) -->
   <dialog id="legal-dialog" closedby="any" aria-labelledby="legal-title">
     <div class="dialog-head">
-      <h2 id="legal-title" class="dialog-title">Información Legal</h2>
-      <button type="button" class="dialog-close" data-dialog-close aria-label="Cerrar aviso legal">
+      <h2 id="legal-title" class="dialog-title" data-i18n="legalDialog.title">Información Legal</h2>
+      <button type="button" class="dialog-close" data-dialog-close aria-label="Cerrar aviso legal" data-i18n-attr="aria-label:a11y.closeLegal">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true">
           <line x1="5" y1="5" x2="19" y2="19"></line>
           <line x1="19" y1="5" x2="5" y2="19"></line>
@@ -252,11 +268,15 @@
     </defs>
   </svg>
 
-  <script defer src="./assets/js/nav-memory.js?v=20261121"></script>
-  <script defer src="./assets/js/header.js?v=20261121"></script>
-  <script defer src="./assets/js/footer.js?v=20261121"></script>
-  <script defer src="./assets/js/site.js"></script>
-  <script src="./assets/js/galeria3-data.js"></script>
-  <script src="./assets/js/galeria.js"></script>
+  <script defer src="./assets/js/i18n/es.js?v=20261123g"></script>
+  <script defer src="./assets/js/i18n/en.js?v=20261123g"></script>
+  <script defer src="./assets/js/i18n/de.js?v=20261123g"></script>
+  <script defer src="./assets/js/i18n/engine.js?v=20261123g"></script>
+  <script defer src="./assets/js/nav-memory.js?v=20261123e"></script>
+  <script defer src="./assets/js/header.js?v=20261123h"></script>
+  <script defer src="./assets/js/footer.js?v=20261123e"></script>
+  <script defer src="./assets/js/site.js?v=20261123g"></script>
+  <script defer src="./assets/js/galeria3-data.js?v=20261123g"></script>
+  <script defer src="./assets/js/galeria.js?v=20261123g"></script>
 </body>
 </html>

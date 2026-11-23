@@ -54,10 +54,18 @@
     - [x] Galería 1 actualizada con 2 fotos y 4 clips reales en bucle (AVIF/WebP/MP4) + lightbox limpio sin controles ni marcos.
     - [x] Página `equipo.html` rediseñada con carrusel `TeamMemberCard` (`Cormorant Garamond` + `Plus Jakarta Sans`), enlaces a Instagram y versión móvil compacta.
     - [x] Footer móvil ampliado (`548px`) sin solape con `VOLVER ARRIBA ↑` y desplegado en `main` (`daa776f`).
+  - [x] **Sistema Tipográfico v2 + Paleta Bandera Colombia + Autoplay Hero iOS + Retrato Real de Manu + Pulido Crema (23/11/2026):**
+    - [x] Migración completa de las 7 páginas a **`Fraunces`** + **`IBM Plex Mono`** + **`Switzer`** (regla blindada en `docs/DESIGN.md`), eliminando `@import` duplicados y fuentes heredadas.
+    - [x] Ampliación oficial de paleta con tokens `--p7-colombia-yellow` (`#FCD116`), `--p7-colombia-blue` (`#003893`) y `--p7-colombia-red` (`#C1091E`).
+    - [x] Guardián de autoplay continuo del vídeo Hero en iOS Safari (`assets/js/site.js`).
+    - [x] Contraste "blanco hueso" (`#E8E5DF`), footer legible (`≥ 12px`, `opacity: 1`), corrección de compresión móvil y retrato real de Manu en `equipo.html`.
+    - [x] Pulido de secciones sobre crema (*Cómo se trabaja en P7* y *Contacto*) con bordes negros y logo limpio (`logo-p7-crema-512w.webp`). Desplegado en `main` (`2c45d72`).
 
 ---
 
 ## Fase 4 — Próximos Pasos (Fase 4 y Futuras)
+- [ ] **Integración de Setmore (PRÓXIMA SESIÓN):**
+  - [ ] Conectar la configuración/enlaces de Setmore que está preparando Musa en el flujo de reserva online y verificarlo en móvil y desktop.
 - [ ] **Retoque del Preloader / Loading (en carpeta aparte `web/loading/`):**
   - [ ] Pulir diseño y animación en `web/loading/` antes de decidir su integración definitiva.
 - [ ] **Sustitución de datos provisionales:** Fotos de alta resolución de Manu / barberos reales en caso de que aporten nuevo material fotográfico.

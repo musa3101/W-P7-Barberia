@@ -12,9 +12,9 @@
     <div class="sobre-v2-shell">
       <!-- 1. Bloque superior minimalista: Título + Texto -->
       <div class="sobre-v2-intro" data-reveal>
-        <h2 id="sobre-titulo" class="sobre-v2-h2">Sobre nosotros</h2>
+        <h2 id="sobre-titulo" class="sobre-v2-h2" data-i18n="about.title">Sobre nosotros</h2>
 
-        <p class="sobre-v2-lead">
+        <p class="sobre-v2-lead" data-i18n="about.lead">
           P7 Barber Master Studio nace de la pasión por la barbería y de una
           forma propia de entender este oficio. Detrás del estudio está Manuel,
           conocido profesionalmente como ManuCuts, cuya identidad y trayectoria
@@ -28,6 +28,7 @@
         data-gallery-slug="galeria-1"
         role="region"
         aria-label="Galería 1: fotografías y clips del estudio P7"
+        data-i18n-attr="aria-label:about.galleryAria"
       >
         <div class="galeria-marquee-track">
           <!-- Grupo principal (6 piezas reales: 2 fotos + 4 clips en bucle) -->
@@ -41,6 +42,7 @@
               data-lightbox-title="P7 Barber Master Studio · Palma"
               data-lightbox-cat="Estudio"
               aria-label="Ampliar fotografía del estudio P7"
+              data-i18n-attr="data-lightbox-title:about.g1.t1;data-lightbox-cat:about.g1.catStudio;aria-label:about.g1.a1"
             >
               <picture>
                 <source
@@ -62,6 +64,7 @@
                 <img
                   src="./assets/img/opt/galeria1/g1-foto-01-900w.webp"
                   alt="Interior de P7 Barber Master Studio en Palma de Mallorca"
+                  data-i18n-attr="alt:about.g1.alt1"
                   width="600"
                   height="600"
                   loading="lazy"
@@ -81,6 +84,7 @@
               data-lightbox-title="Sesión en P7 Barber"
               data-lightbox-cat="Clip en bucle"
               aria-label="Ampliar clip de vídeo del estudio P7"
+              data-i18n-attr="data-lightbox-title:about.g1.t2;data-lightbox-cat:about.g1.catClip;aria-label:about.g1.a2"
             >
               <video
                 class="galeria-card-video"
@@ -106,6 +110,7 @@
               data-lightbox-title="El local · P7 Barber"
               data-lightbox-cat="Clip en bucle"
               aria-label="Ampliar clip de vídeo del local P7"
+              data-i18n-attr="data-lightbox-title:about.g1.t3;data-lightbox-cat:about.g1.catClip;aria-label:about.g1.a3"
             >
               <video
                 class="galeria-card-video"
@@ -130,6 +135,7 @@
               data-lightbox-title="Detalle de trabajo · P7 Barber"
               data-lightbox-cat="Estudio"
               aria-label="Ampliar fotografía de detalle en P7"
+              data-i18n-attr="data-lightbox-title:about.g1.t4;data-lightbox-cat:about.g1.catStudio;aria-label:about.g1.a4"
             >
               <picture>
                 <source
@@ -151,6 +157,7 @@
                 <img
                   src="./assets/img/opt/galeria1/g1-foto-02-900w.webp"
                   alt="Trabajo artesanal en P7 Barber Master Studio"
+                  data-i18n-attr="alt:about.g1.alt4"
                   width="600"
                   height="600"
                   loading="lazy"
@@ -170,6 +177,7 @@
               data-lightbox-title="Precisión y acabado · P7 Barber"
               data-lightbox-cat="Clip en bucle"
               aria-label="Ampliar clip de vídeo de corte en P7"
+              data-i18n-attr="data-lightbox-title:about.g1.t5;data-lightbox-cat:about.g1.catClip;aria-label:about.g1.a5"
             >
               <video
                 class="galeria-card-video"
@@ -195,6 +203,7 @@
               data-lightbox-title="Ritual P7 Master Studio"
               data-lightbox-cat="Clip en bucle"
               aria-label="Ampliar clip de vídeo del ritual P7"
+              data-i18n-attr="data-lightbox-title:about.g1.t6;data-lightbox-cat:about.g1.catClip;aria-label:about.g1.a6"
             >
               <video
                 class="galeria-card-video"
@@ -219,6 +228,7 @@
               data-lightbox-src="./assets/img/opt/galeria1/g1-foto-01-900w.webp"
               data-lightbox-title="P7 Barber Master Studio · Palma"
               data-lightbox-cat="Estudio"
+              data-i18n-attr="data-lightbox-title:about.g1.t1;data-lightbox-cat:about.g1.catStudio"
             >
               <picture>
                 <source type="image/avif" srcset="./assets/img/opt/galeria1/g1-foto-01-480w.avif 480w, ./assets/img/opt/galeria1/g1-foto-01-900w.avif 900w" sizes="(max-width: 639px) 192px, (max-width: 1023px) 240px, 288px" />
@@ -234,6 +244,7 @@
               data-lightbox-poster="./assets/video/galeria1/g1-clip-01-poster.webp"
               data-lightbox-title="Sesión en P7 Barber"
               data-lightbox-cat="Clip en bucle"
+              data-i18n-attr="data-lightbox-title:about.g1.t2;data-lightbox-cat:about.g1.catClip"
             >
               <video class="galeria-card-video" autoplay loop muted playsinline preload="metadata" poster="./assets/video/galeria1/g1-clip-01-poster.webp">
                 <source src="./assets/video/galeria1/g1-clip-01.mp4" type="video/mp4" />
@@ -247,6 +258,7 @@
               data-lightbox-poster="./assets/video/galeria1/g1-clip-04-poster.webp"
               data-lightbox-title="El local · P7 Barber"
               data-lightbox-cat="Clip en bucle"
+              data-i18n-attr="data-lightbox-title:about.g1.t3;data-lightbox-cat:about.g1.catClip"
             >
               <video class="galeria-card-video" autoplay loop muted playsinline preload="metadata" poster="./assets/video/galeria1/g1-clip-04-poster.webp">
                 <source src="./assets/video/galeria1/g1-clip-04.mp4" type="video/mp4" />
@@ -259,6 +271,7 @@
               data-lightbox-src="./assets/img/opt/galeria1/g1-foto-02-900w.webp"
               data-lightbox-title="Detalle de trabajo · P7 Barber"
               data-lightbox-cat="Estudio"
+              data-i18n-attr="data-lightbox-title:about.g1.t4;data-lightbox-cat:about.g1.catStudio"
             >
               <picture>
                 <source type="image/avif" srcset="./assets/img/opt/galeria1/g1-foto-02-480w.avif 480w, ./assets/img/opt/galeria1/g1-foto-02-900w.avif 900w" sizes="(max-width: 639px) 192px, (max-width: 1023px) 240px, 288px" />
@@ -274,6 +287,7 @@
               data-lightbox-poster="./assets/video/galeria1/g1-clip-02-poster.webp"
               data-lightbox-title="Precisión y acabado · P7 Barber"
               data-lightbox-cat="Clip en bucle"
+              data-i18n-attr="data-lightbox-title:about.g1.t5;data-lightbox-cat:about.g1.catClip"
             >
               <video class="galeria-card-video" autoplay loop muted playsinline preload="metadata" poster="./assets/video/galeria1/g1-clip-02-poster.webp">
                 <source src="./assets/video/galeria1/g1-clip-02.mp4" type="video/mp4" />
@@ -287,6 +301,7 @@
               data-lightbox-poster="./assets/video/galeria1/g1-clip-03-poster.webp"
               data-lightbox-title="Ritual P7 Master Studio"
               data-lightbox-cat="Clip en bucle"
+              data-i18n-attr="data-lightbox-title:about.g1.t6;data-lightbox-cat:about.g1.catClip"
             >
               <video class="galeria-card-video" autoplay loop muted playsinline preload="metadata" poster="./assets/video/galeria1/g1-clip-03-poster.webp">
                 <source src="./assets/video/galeria1/g1-clip-03.mp4" type="video/mp4" />
@@ -301,12 +316,13 @@
         <a
           href="./equipo.html"
           class="liquid-glass-btn"
-          aria-label="Ver nuestro equipo (se abre en una pestaña nueva)"
+          aria-label="Ver nuestro equipo"
+          data-i18n-attr="aria-label:about.teamBtnAria"
         >
           <span class="liquid-glass-surface" aria-hidden="true"></span>
           <span class="liquid-glass-blur" aria-hidden="true"></span>
           <span class="liquid-glass-label">
-            <span>Ver nuestro equipo</span>
+            <span data-i18n="about.teamBtn">Ver nuestro equipo</span>
           </span>
         </a>
 

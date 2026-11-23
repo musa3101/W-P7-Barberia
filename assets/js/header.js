@@ -71,18 +71,30 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   };
 
-  /* 3. Split de letras para animación elástica del Curved Menu */
-  document.querySelectorAll('[data-split-text]').forEach((el) => {
-    const raw = el.textContent || '';
-    el.textContent = '';
-    Array.from(raw).forEach((ch, idx) => {
-      const span = document.createElement('span');
-      span.className = 'p7-curved-char';
-      span.style.setProperty('--char-i', String(idx));
-      span.textContent = ch === ' ' ? '\u00A0' : ch;
-      el.appendChild(span);
+  /* 3. Split de letras para animación elástica del Curved Menu (agrupado por palabras) */
+  const splitCurvedTexts = () => {
+    document.querySelectorAll('[data-split-text]').forEach((el) => {
+      const raw = (el.textContent || '').trim();
+      el.textContent = '';
+      let charIdx = 0;
+      raw.split(/\s+/).forEach((word) => {
+        if (!word) return;
+        const wordSpan = document.createElement('span');
+        wordSpan.className = 'p7-curved-word';
+        Array.from(word).forEach((ch) => {
+          const span = document.createElement('span');
+          span.className = 'p7-curved-char';
+          span.style.setProperty('--char-i', String(charIdx++));
+          span.textContent = ch;
+          wordSpan.appendChild(span);
+        });
+        charIdx += 1;
+        el.appendChild(wordSpan);
+      });
     });
-  });
+  };
+  splitCurvedTexts();
+  document.addEventListener('p7:langchange', splitCurvedTexts);
 
   /* 4. Animación SVG elástica de la curva (cubic-bezier(0.76, 0, 0.24, 1)) */
   let curveRaf = 0;
@@ -120,12 +132,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
   setCurveControlX(-100);
 
-  /* 5. Congelación estricta del fondo (móvil, tablet y ordenador) */
+  /* 5. Congelación estricta del fondo (delegado a P7ScrollLock con fallback iOS) */
   let isAnyMenuOpen = false;
   let savedScrollY = 0;
+  let fallbackThemeColor = null;
 
   const preventBackgroundScroll = (e) => {
     if (!isAnyMenuOpen) return;
+    if (window.P7ScrollLock) return;
     const insideMenu =
       e.target.closest('#p7-mobile-drawer .p7-drawer-sheet') ||
       e.target.closest('#p7-curved-menu .p7-curved-panel');
@@ -138,29 +152,70 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('touchmove', preventBackgroundScroll, { passive: false });
 
   const lockBodyScroll = (lock) => {
+    if (lock === isAnyMenuOpen) return;
     isAnyMenuOpen = lock;
+
+    if (window.P7ScrollLock) {
+      if (lock) {
+        window.P7ScrollLock.lock();
+      } else {
+        window.P7ScrollLock.unlock();
+      }
+      return;
+    }
+
     if (lock) {
-      savedScrollY = window.scrollY;
-      document.documentElement.style.overflow = 'hidden';
+      savedScrollY = window.scrollY || window.pageYOffset || 0;
+      document.documentElement.classList.add('p7-scroll-locked');
+      document.body.style.position = 'fixed';
+      document.body.style.top = `-${savedScrollY}px`;
+      document.body.style.left = '0';
+      document.body.style.right = '0';
+      document.body.style.width = '100%';
       document.body.style.overflow = 'hidden';
-      document.body.style.overscrollBehavior = 'none';
     } else {
-      document.documentElement.style.overflow = '';
+      document.documentElement.classList.remove('p7-scroll-locked');
+      document.body.style.position = '';
+      document.body.style.top = '';
+      document.body.style.left = '';
+      document.body.style.right = '';
+      document.body.style.width = '';
       document.body.style.overflow = '';
-      document.body.style.overscrollBehavior = '';
+      window.scrollTo({ top: savedScrollY, behavior: 'instant' });
     }
   };
 
-  /* 6. Estado del menú móvil (< 768px) */
+  const setDrawerThemeColor = (open) => {
+    if (window.P7ThemeColor) {
+      if (open) {
+        window.P7ThemeColor.setOverride('#C1091E');
+      } else {
+        window.P7ThemeColor.clearOverride();
+      }
+      return;
+    }
+    const meta = document.querySelector('meta[name="theme-color"]');
+    if (!meta) return;
+    if (open) {
+      fallbackThemeColor = meta.getAttribute('content') || '#0A0909';
+      meta.setAttribute('content', '#C1091E');
+    } else if (fallbackThemeColor !== null) {
+      meta.setAttribute('content', fallbackThemeColor);
+      fallbackThemeColor = null;
+    }
+  };
+
+  /* 6. Estado del menú móvil (< 1024px) */
   let isMobileOpen = false;
 
   const setMobileState = (open) => {
-    if (!drawer || !toggleBtn) return;
+    if (!drawer || !toggleBtn || isMobileOpen === open) return;
     isMobileOpen = open;
     drawer.classList.toggle('is-open', open);
     drawer.setAttribute('aria-hidden', String(!open));
     toggleBtn.setAttribute('aria-expanded', String(open));
     lockBodyScroll(open);
+    setDrawerThemeColor(open);
 
     if (open && closeBtn) {
       replayAlignIcon(closeBtn);
@@ -171,11 +226,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 
-  /* 7. Estado del Curved Menu (>= 768px) */
+  /* 7. Estado del Curved Menu (>= 1024px) */
   let isCurvedOpen = false;
 
   const setCurvedState = (open) => {
-    if (!curvedRoot || !toggleBtn) return;
+    if (!curvedRoot || !toggleBtn || isCurvedOpen === open) return;
     isCurvedOpen = open;
     curvedRoot.classList.toggle('is-open', open);
     curvedRoot.setAttribute('aria-hidden', String(!open));
@@ -195,14 +250,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 
-  /* 8. Eventos de apertura / cierre */
+  /* 8. Eventos de apertura / cierre (StaggeredMenu unificado en móvil, tablet y ordenador) */
   if (toggleBtn) {
     toggleBtn.addEventListener('click', () => {
-      if (isTabletOrDesktop()) {
-        setCurvedState(!isCurvedOpen);
-      } else {
-        setMobileState(!isMobileOpen);
-      }
+      setMobileState(!isMobileOpen);
     });
   }
 
@@ -226,16 +277,85 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  /* 9. Selector de idioma desplegable horizontal hacia la izquierda (Tablet & Ordenador >= 768px) */
+  const headerActions = header ? header.querySelector('.p7-header-actions') : null;
+  let langWrap = null;
+  let langTrigger = null;
+  let langCurrent = null;
+
+  const setLangMenuOpen = (open) => {
+    if (!langWrap || !langTrigger) return;
+    langWrap.classList.toggle('is-open', open);
+    langTrigger.setAttribute('aria-expanded', String(open));
+  };
+
+  const syncHeaderLangLabel = (langCode) => {
+    const code = (
+      langCode ||
+      (window.P7I18n && typeof window.P7I18n.getLang === 'function' ? window.P7I18n.getLang() : null) ||
+      document.documentElement.getAttribute('lang') ||
+      'es'
+    ).toUpperCase().slice(0, 2);
+    if (langCurrent) langCurrent.textContent = code;
+    if (langWrap) {
+      langWrap.querySelectorAll('.p7-hdr-lang-opt').forEach((opt) => {
+        const match = (opt.getAttribute('data-lang') || '').toUpperCase() === code;
+        opt.classList.toggle('is-active', match);
+        if (match) opt.setAttribute('aria-current', 'true');
+        else opt.removeAttribute('aria-current');
+      });
+    }
+  };
+
+  if (headerActions && toggleBtn && !headerActions.querySelector('[data-lang-menu]')) {
+    langWrap = document.createElement('div');
+    langWrap.className = 'p7-hdr-lang';
+    langWrap.setAttribute('data-lang-menu', '');
+    langWrap.innerHTML =
+      '<div class="p7-hdr-lang-panel" role="group" aria-label="Idioma">' +
+        '<button type="button" class="p7-hdr-lang-opt" data-lang="es">ES</button>' +
+        '<button type="button" class="p7-hdr-lang-opt" data-lang="en">EN</button>' +
+        '<button type="button" class="p7-hdr-lang-opt" data-lang="de">DE</button>' +
+      '</div>' +
+      '<button type="button" class="p7-hdr-lang-trigger" aria-expanded="false" aria-label="Cambiar idioma">' +
+        '<span class="p7-hdr-lang-current">ES</span>' +
+      '</button>';
+
+    headerActions.insertBefore(langWrap, toggleBtn);
+    langTrigger = langWrap.querySelector('.p7-hdr-lang-trigger');
+    langCurrent = langWrap.querySelector('.p7-hdr-lang-current');
+    syncHeaderLangLabel();
+
+    langTrigger.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const willOpen = !langWrap.classList.contains('is-open');
+      setLangMenuOpen(willOpen);
+    });
+
+    langWrap.querySelectorAll('.p7-hdr-lang-opt').forEach((opt) => {
+      opt.addEventListener('click', () => {
+        const chosen = opt.getAttribute('data-lang');
+        syncHeaderLangLabel(chosen);
+        setLangMenuOpen(false);
+      });
+    });
+
+    document.addEventListener('click', (e) => {
+      if (langWrap && langWrap.classList.contains('is-open') && !langWrap.contains(e.target)) {
+        setLangMenuOpen(false);
+      }
+    });
+
+    document.addEventListener('p7:langchange', (e) => {
+      syncHeaderLangLabel(e && e.detail ? e.detail.lang : null);
+    });
+  }
+
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
       if (isMobileOpen) setMobileState(false);
       if (isCurvedOpen) setCurvedState(false);
+      setLangMenuOpen(false);
     }
-  });
-
-  window.addEventListener('resize', () => {
-    if (isMobileOpen && isTabletOrDesktop()) setMobileState(false);
-    if (isCurvedOpen && !isTabletOrDesktop()) setCurvedState(false);
-    if (isCurvedOpen) setCurveControlX(100);
   });
 });

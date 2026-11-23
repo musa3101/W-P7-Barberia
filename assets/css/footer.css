@@ -70,14 +70,14 @@
 
 .hwf-slogan {
   margin: 0;
-  max-width: 28ch;
-  font-family: var(--hwf-accent);
-  font-size: 0.75rem;
-  font-weight: 500;
-  line-height: 1.7;
-  letter-spacing: 0.06em;
+  max-width: 34ch;
+  font-family: var(--font-sans, 'Switzer', sans-serif);
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.55;
+  letter-spacing: 0.01em;
   text-transform: none;
-  color: var(--p7-bone, #E8E5DF);
+  color: rgba(232, 229, 223, 0.86);
 }
 
 .hwf-logo-link {
@@ -109,7 +109,7 @@
   font-weight: 600;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--p7-champagne, #C3B9A0);
+  color: var(--p7-colombia-yellow, #FCD116);
   opacity: 1;
 }
 
@@ -251,10 +251,10 @@
   }
 
   .hwf-slogan {
-    max-width: 30ch;
-    font-size: 0.75rem;
-    line-height: 1.75;
-    letter-spacing: 0.05em;
+    max-width: 34ch;
+    font-size: 0.8125rem;
+    line-height: 1.55;
+    letter-spacing: 0.01em;
   }
 
   .hwf-logo-img {

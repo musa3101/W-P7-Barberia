@@ -110,7 +110,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const type = panel.dataset.type || 'image';
     const src = panel.dataset.fullSrc || panel.querySelector('img')?.src || '';
     const poster = panel.dataset.poster || '';
-    const title = panel.dataset.title || '';
+    const title = panel.querySelector('.exp-title')?.textContent?.trim() || panel.dataset.title || '';
     const caption = panel.dataset.caption || '';
 
     dialogMedia.innerHTML = '';
@@ -143,13 +143,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (dialogTitle) dialogTitle.textContent = title;
     if (dialogCaption) dialogCaption.textContent = caption;
-    if (dialogCounter) dialogCounter.textContent = `${index + 1} / ${panels.length}`;
+    if (dialogCounter) {
+      dialogCounter.textContent = window.P7I18n
+        ? window.P7I18n.t('work.counterOf', { current: index + 1, total: panels.length })
+        : `${index + 1} de ${panels.length}`;
+    }
   };
 
   const openModal = (index) => {
     if (!dialog) return;
     renderModalSlide(index);
     if (typeof dialog.showModal === 'function') {
+      window.P7ScrollLock?.lock();
       dialog.showModal();
     }
   };
@@ -173,6 +178,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (dialog) {
     dialog.addEventListener('close', () => {
       if (dialogMedia) dialogMedia.innerHTML = '';
+      window.P7ScrollLock?.unlock();
     });
     // Cerrar al hacer click fuera de la foto/vídeo o de los botones
     dialog.addEventListener('click', (event) => {
@@ -229,6 +235,13 @@ document.addEventListener('DOMContentLoaded', () => {
   const toggleLabel = document.getElementById('precios-toggle-label');
   const drawer = document.getElementById('precios-drawer');
 
+  const syncToggleLabel = (open) => {
+    if (!toggleLabel) return;
+    toggleLabel.textContent = window.P7I18n
+      ? window.P7I18n.t(open ? 'prices.toggleHide' : 'prices.toggleShow')
+      : (open ? 'Ocultar lista de precios' : 'Lista de precios');
+  };
+
   const setDrawerState = (open, instant = false) => {
     if (!toggleBtn || !drawer) return;
 
@@ -244,25 +257,35 @@ document.addEventListener('DOMContentLoaded', () => {
 
     toggleBtn.setAttribute('aria-expanded', String(open));
     drawer.setAttribute('aria-hidden', String(!open));
-
-    if (toggleLabel) {
-      toggleLabel.textContent = open ? 'Ocultar lista de precios' : 'Lista de precios';
-    }
+    syncToggleLabel(open);
   };
 
   if (toggleBtn && drawer) {
+    let suppressAutoClose = false;
+    let suppressTimer = 0;
+
     toggleBtn.addEventListener('click', () => {
       const willOpen = !drawer.classList.contains('is-open');
       setDrawerState(willOpen, false);
 
       if (willOpen) {
+        suppressAutoClose = true;
+        clearTimeout(suppressTimer);
+        suppressTimer = window.setTimeout(() => {
+          suppressAutoClose = false;
+        }, 800);
+
         const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-        setTimeout(() => {
-          drawer.scrollIntoView({
-            behavior: prefersReduced ? 'auto' : 'smooth',
-            block: 'nearest'
+        window.setTimeout(() => {
+          const header = document.querySelector('header.site-header, .site-header, header');
+          const headerHeight = header ? header.getBoundingClientRect().height : 0;
+          const drawerTop = drawer.getBoundingClientRect().top + window.scrollY;
+          const targetY = Math.max(0, drawerTop - headerHeight - 10);
+          window.scrollTo({
+            top: targetY,
+            behavior: prefersReduced ? 'auto' : 'smooth'
           });
-        }, 180);
+        }, 160);
       }
     });
 
@@ -272,11 +295,11 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener(
       'scroll',
       () => {
-        if (scrollTicking || !drawer.classList.contains('is-open')) return;
+        if (scrollTicking || suppressAutoClose || !drawer.classList.contains('is-open')) return;
         scrollTicking = true;
         requestAnimationFrame(() => {
           scrollTicking = false;
-          if (!drawer.classList.contains('is-open')) return;
+          if (suppressAutoClose || !drawer.classList.contains('is-open')) return;
           const rect = drawer.getBoundingClientRect();
           // Solo cerrar cuando toda la carta ya salió por arriba del viewport
           if (rect.bottom < -40) {
@@ -399,4 +422,89 @@ document.addEventListener('DOMContentLoaded', () => {
       obs.observe(showcaseRoot);
     }
   }
+
+  /* ------------------------------------------------------------------------
+     5. Animación al scroll de la tarjeta Booksy (estrellas 1->5 + conteo 1->296 + 0,0->5,0)
+     ------------------------------------------------------------------------ */
+  const formatBooksyScore = (num) => {
+    const lang = window.P7I18n?.getLang ? window.P7I18n.getLang() : 'es';
+    const formatted = num.toFixed(1);
+    return lang === 'en' ? formatted : formatted.replace('.', ',');
+  };
+
+  const booksyCard = document.querySelector('[data-booksy-animate]');
+  if (booksyCard) {
+    const scoreEl = booksyCard.querySelector('[data-booksy-score]');
+    const initialCountEl = booksyCard.querySelector('[data-booksy-count]');
+    const targetCount = parseInt(initialCountEl?.getAttribute('data-booksy-count') || '296', 10) || 296;
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (scoreEl) {
+      scoreEl.textContent = formatBooksyScore(5);
+    }
+
+    if (!prefersReduced && 'IntersectionObserver' in window) {
+      booksyCard.classList.add('is-anim-ready');
+
+      const animateBooksyStats = () => {
+        const duration = 1100;
+        const startTime = performance.now();
+        const easeOutCubic = (t) => 1 - Math.pow(1 - t, 3);
+
+        const step = (now) => {
+          const progress = Math.min(1, (now - startTime) / duration);
+          const eased = easeOutCubic(progress);
+          const liveCountEl = booksyCard.querySelector('[data-booksy-count]');
+
+          if (liveCountEl) {
+            const currentCount = progress < 1
+              ? Math.max(1, Math.round(1 + (targetCount - 1) * eased))
+              : targetCount;
+            liveCountEl.textContent = String(currentCount);
+          }
+
+          if (scoreEl) {
+            const currentScore = progress < 1 ? (5 * eased) : 5;
+            scoreEl.textContent = formatBooksyScore(currentScore);
+          }
+
+          if (progress < 1) {
+            requestAnimationFrame(step);
+          }
+        };
+
+        requestAnimationFrame(step);
+      };
+
+      const booksyObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              booksyCard.classList.add('is-revealed');
+              animateBooksyStats();
+              booksyObserver.unobserve(booksyCard);
+            }
+          });
+        },
+        { threshold: 0.35 }
+      );
+
+      booksyObserver.observe(booksyCard);
+    }
+  }
+
+  document.addEventListener('p7:langchange', () => {
+    if (drawer) {
+      syncToggleLabel(drawer.classList.contains('is-open'));
+    }
+    if (dialog && dialog.open) {
+      renderModalSlide(currentModalIndex);
+    }
+    if (booksyCard) {
+      const scoreEl = booksyCard.querySelector('[data-booksy-score]');
+      if (scoreEl) {
+        scoreEl.textContent = formatBooksyScore(5);
+      }
+    }
+  });
 });

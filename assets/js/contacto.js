@@ -119,4 +119,6 @@
     initBlurredStagger();
     initAccordion();
   }
+
+  document.addEventListener('p7:langchange', initBlurredStagger);
 })();

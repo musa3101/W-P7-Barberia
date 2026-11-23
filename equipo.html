@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" data-i18n-page="equipo">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
@@ -16,32 +16,27 @@
   <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;0,9..144,800;1,9..144,600&family=IBM+Plex+Mono:wght@500;600&display=swap">
   <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=switzer@400,500,600,700&display=swap">
-    <link
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="./assets/css/fonts.css?v=20261123b" />
-    <link rel="stylesheet" href="./assets/css/site.css?v=20261123b" />
-    <link rel="stylesheet" href="./assets/css/header.css?v=20261123b" />
-    <link rel="stylesheet" href="./assets/css/sobre.css?v=20261123b" />
-    <link rel="stylesheet" href="./assets/css/footer.css?v=20261123c" />
+    <link rel="stylesheet" href="./assets/css/fonts.css?v=20261123e" />
+    <link rel="stylesheet" href="./assets/css/site.css?v=20261123e" />
+    <link rel="stylesheet" href="./assets/css/header.css?v=20261123i" />
+    <link rel="stylesheet" href="./assets/css/sobre.css?v=20261123e" />
+    <link rel="stylesheet" href="./assets/css/footer.css?v=20261123e" />
     <style>
       .equipo-main { padding-top: calc(var(--p7-hdr-height, 64px) + 32px); }
     </style>
   </head>
   <body class="equipo-page">
-    <a href="#main-content" class="skip-link">Saltar al contenido</a>
+    <a href="#main-content" class="skip-link" data-i18n="a11y.skip">Saltar al contenido</a>
 
     <!-- HEADER UNIFICADO P7 BARBER MASTER STUDIO -->
     <header id="p7-header" class="p7-header" data-scrolled="true" data-always-scrolled="true">
       <div class="p7-header-inner">
-        <a href="./index.html#inicio" class="p7-brand" aria-label="P7 Barber Master Studio — Inicio">
+        <a href="./index.html#inicio" class="p7-brand" aria-label="P7 Barber Master Studio — Inicio" data-i18n-attr="aria-label:a11y.brandHome">
           <span class="p7-brand-crest">
             <img
               src="./assets/img/opt/logo-p7-256w.webp"
               alt="Escudo P7 Barber Master Studio"
+              data-i18n-attr="alt:a11y.logoAlt"
               width="36"
               height="36"
               decoding="async"
@@ -59,6 +54,7 @@
             id="p7-menu-toggle"
             class="p7-menu-trigger"
             aria-label="Abrir menú de navegación"
+            data-i18n-attr="aria-label:a11y.openMenu"
             aria-controls="p7-mobile-drawer"
             aria-expanded="false"
           >
@@ -91,12 +87,14 @@
   role="dialog"
   aria-modal="true"
   aria-label="Menú de navegación"
+  data-i18n-attr="aria-label:a11y.menuDialog"
 >
   <div class="p7-drawer-backdrop" data-drawer-close aria-hidden="true"></div>
 
-  <!-- Láminas de entrada escalonadas (Amarillo bandera + Rojo Ladrillo) -->
+  <!-- Láminas de entrada escalonadas (Bandera de Colombia: Amarillo, Azul, Rojo) -->
   <div class="p7-sm-prelayers" aria-hidden="true">
     <div class="p7-sm-prelayer p7-sm-prelayer--gold"></div>
+    <div class="p7-sm-prelayer p7-sm-prelayer--blue"></div>
     <div class="p7-sm-prelayer p7-sm-prelayer--red"></div>
   </div>
 
@@ -107,6 +105,7 @@
           <img
             src="./assets/img/opt/logo-p7-256w.webp"
             alt="Escudo P7 Barber Master Studio"
+            data-i18n-attr="alt:a11y.logoAlt"
             width="32"
             height="32"
             decoding="async"
@@ -120,8 +119,9 @@
         id="p7-menu-close"
         class="p7-sm-close"
         aria-label="Cerrar menú de navegación"
+        data-i18n-attr="aria-label:a11y.closeMenu"
       >
-        <span class="p7-sm-close-text">Close</span>
+        <span class="p7-sm-close-text" data-i18n="nav.close">Cerrar</span>
         <span class="p7-sm-close-icon" aria-hidden="true">
           <span></span>
           <span></span>
@@ -129,45 +129,59 @@
       </button>
     </div>
 
-    <nav class="p7-drawer-nav" aria-label="Navegación móvil">
+    <nav class="p7-drawer-nav" aria-label="Navegación móvil" data-i18n-attr="aria-label:a11y.navMobile">
       <ul class="p7-drawer-list">
         <li class="p7-drawer-item" style="--stagger: 0;">
           <a href="./index.html#inicio" class="p7-drawer-link" data-drawer-close>
-            <span class="p7-drawer-label">Inicio</span>
+            <span class="p7-drawer-label" data-i18n="nav.home">Inicio</span>
             <span class="p7-drawer-num" aria-hidden="true">01</span>
           </a>
         </li>
         <li class="p7-drawer-item" style="--stagger: 1;">
           <a href="./index.html#sobre-nosotros" class="p7-drawer-link" data-drawer-close>
-            <span class="p7-drawer-label">Sobre nosotros</span>
+            <span class="p7-drawer-label" data-i18n="nav.about">Sobre nosotros</span>
             <span class="p7-drawer-num" aria-hidden="true">02</span>
           </a>
         </li>
         <li class="p7-drawer-item" style="--stagger: 2;">
           <a href="./index.html#nuestro-trabajo" class="p7-drawer-link" data-drawer-close>
-            <span class="p7-drawer-label">Nuestro trabajo</span>
+            <span class="p7-drawer-label" data-i18n="nav.work">Nuestro trabajo</span>
             <span class="p7-drawer-num" aria-hidden="true">03</span>
           </a>
         </li>
         <li class="p7-drawer-item" style="--stagger: 3;">
-          <a href="./index.html#contacto" class="p7-drawer-link" data-drawer-close>
-            <span class="p7-drawer-label">Contacto</span>
+          <a href="./index.html#reserva" class="p7-drawer-link" data-drawer-close>
+            <span class="p7-drawer-label" data-i18n="nav.book">Reservar cita</span>
             <span class="p7-drawer-num" aria-hidden="true">04</span>
+          </a>
+        </li>
+        <li class="p7-drawer-item" style="--stagger: 4;">
+          <a href="./index.html#contacto" class="p7-drawer-link" data-drawer-close>
+            <span class="p7-drawer-label" data-i18n="nav.contact">Contacto</span>
+            <span class="p7-drawer-num" aria-hidden="true">05</span>
           </a>
         </li>
       </ul>
     </nav>
 
     <div class="p7-drawer-foot">
+      <nav class="p7-sm-langs" aria-label="Selector de idioma" data-i18n-attr="aria-label:a11y.langSelector">
+        <button type="button" class="p7-sm-lang is-active" data-lang="es" aria-label="Español" aria-current="true">ES</button>
+        <span class="p7-sm-lang-sep" aria-hidden="true">·</span>
+        <button type="button" class="p7-sm-lang" data-lang="en" aria-label="English">EN</button>
+        <span class="p7-sm-lang-sep" aria-hidden="true">·</span>
+        <button type="button" class="p7-sm-lang" data-lang="de" aria-label="Deutsch">DE</button>
+      </nav>
+
       <div class="p7-sm-socials">
-        <span class="p7-sm-socials-title">Social</span>
         <a
-          href="https://www.instagram.com/p7barberpalma/"
+          href="https://www.instagram.com/p7barbers/"
           target="_blank"
           rel="noopener noreferrer"
           class="p7-sm-social-link"
           data-relleno="instagram"
           aria-label="Instagram de P7 Barber Master Studio"
+          data-i18n-attr="aria-label:a11y.instagram"
         >
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
@@ -176,27 +190,19 @@
           </svg>
         </a>
       </div>
-
-      <a href="./index.html#reserva" class="liquid-glass-btn p7-sm-cta" data-drawer-close>
-        <span class="liquid-glass-surface" aria-hidden="true"></span>
-        <span class="liquid-glass-blur" aria-hidden="true"></span>
-        <span class="liquid-glass-label">
-          <span>Reservar cita</span>
-        </span>
-      </a>
     </div>
   </div>
 </div>
 
     <!-- CURVED MENU (TABLET Y ORDENADOR >= 768px) -->
-    <div id="p7-curved-menu" class="p7-curved" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Menú de navegación">
+    <div id="p7-curved-menu" class="p7-curved" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Menú de navegación" data-i18n-attr="aria-label:a11y.menuDialog">
       <div class="p7-curved-backdrop" data-curved-close aria-hidden="true"></div>
       <aside class="p7-curved-panel">
         <svg class="p7-curved-svg" aria-hidden="true" preserveAspectRatio="none"><path id="p7-curved-path" d=""></path></svg>
         <div class="p7-curved-inner">
           <div class="p7-curved-head">
-            <span class="p7-curved-kicker">Navegación</span>
-            <button type="button" id="p7-curved-close" class="p7-menu-trigger p7-menu-trigger--dark" aria-label="Cerrar menú">
+            <span class="p7-curved-kicker" data-i18n="nav.kicker">Navegación</span>
+            <button type="button" id="p7-curved-close" class="p7-menu-trigger p7-menu-trigger--dark" aria-label="Cerrar menú" data-i18n-attr="aria-label:a11y.closeMenuShort">
               <svg class="p7-align-icon" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true">
                 <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.85">
                   <path stroke-dasharray="10" stroke-dashoffset="10" d="M12 5h7M12 5h-7"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.2s" values="10;0" /></path>
@@ -207,15 +213,22 @@
               </svg>
             </button>
           </div>
-          <nav class="p7-curved-nav" aria-label="Secciones principales">
-            <a href="./index.html#inicio" class="p7-curved-link" data-curved-close><span class="p7-curved-index">1.</span><span class="p7-curved-text" data-split-text>Inicio</span></a>
-            <a href="./index.html#sobre-nosotros" class="p7-curved-link" data-curved-close><span class="p7-curved-index">2.</span><span class="p7-curved-text" data-split-text>Sobre nosotros</span></a>
-            <a href="./index.html#nuestro-trabajo" class="p7-curved-link" data-curved-close><span class="p7-curved-index">3.</span><span class="p7-curved-text" data-split-text>Nuestro trabajo</span></a>
-            <a href="./index.html#contacto" class="p7-curved-link" data-curved-close><span class="p7-curved-index">4.</span><span class="p7-curved-text" data-split-text>Contacto</span></a>
+          <nav class="p7-curved-nav" aria-label="Secciones principales" data-i18n-attr="aria-label:a11y.navSections">
+            <a href="./index.html#inicio" class="p7-curved-link" data-curved-close><span class="p7-curved-index">1.</span><span class="p7-curved-text" data-split-text data-i18n="nav.home">Inicio</span></a>
+            <a href="./index.html#sobre-nosotros" class="p7-curved-link" data-curved-close><span class="p7-curved-index">2.</span><span class="p7-curved-text" data-split-text data-i18n="nav.about">Sobre nosotros</span></a>
+            <a href="./index.html#nuestro-trabajo" class="p7-curved-link" data-curved-close><span class="p7-curved-index">3.</span><span class="p7-curved-text" data-split-text data-i18n="nav.work">Nuestro trabajo</span></a>
+            <a href="./index.html#contacto" class="p7-curved-link" data-curved-close><span class="p7-curved-index">4.</span><span class="p7-curved-text" data-split-text data-i18n="nav.contact">Contacto</span></a>
           </nav>
           <div class="p7-curved-foot">
-            <a href="./index.html#reserva" class="p7-curved-cta" data-curved-close><span>Reservar cita</span></a>
-            <p class="p7-curved-meta">C/ Miguel Ángel Riera, 2 · Palma · ★ 5,0 en Booksy</p>
+            <nav class="p7-sm-langs p7-curved-langs" aria-label="Selector de idioma" data-i18n-attr="aria-label:a11y.langSelector">
+              <button type="button" class="p7-sm-lang is-active" data-lang="es" aria-label="Español" aria-current="true">ES</button>
+              <span class="p7-sm-lang-sep" aria-hidden="true">·</span>
+              <button type="button" class="p7-sm-lang" data-lang="en" aria-label="English">EN</button>
+              <span class="p7-sm-lang-sep" aria-hidden="true">·</span>
+              <button type="button" class="p7-sm-lang" data-lang="de" aria-label="Deutsch">DE</button>
+            </nav>
+            <a href="./index.html#reserva" class="p7-curved-cta" data-curved-close><span data-i18n="nav.book">Reservar cita</span></a>
+            <p class="p7-curved-meta" data-i18n="nav.curvedMeta">C/ Miguel Ángel Riera, 2 · Palma · ★ 5,0 en Booksy</p>
           </div>
         </div>
       </aside>
@@ -226,8 +239,8 @@
         <div class="equipo-shell">
           <header class="equipo-header">
             <span class="equipo-kicker">Palma de Mallorca</span>
-            <h1 class="equipo-h1">Nuestro equipo</h1>
-            <p class="equipo-intro">
+            <h1 class="equipo-h1" data-i18n="team.title">Nuestro equipo</h1>
+            <p class="equipo-intro" data-i18n="team.intro">
               Tres barberos, atención individual con cita previa y cada uno con su
               propio oficio. Desliza para conocernos.
             </p>
@@ -237,53 +250,61 @@
             id="tmc-carousel"
             class="tmc-carousel"
             aria-label="Barberos de P7 Barber Master Studio"
+            data-i18n-attr="aria-label:team.carouselAria"
             aria-roledescription="carrusel"
           >
             <div class="tmc-viewport">
               <!-- Flechas laterales solo móvil (sin círculo, color rojo) -->
-              <button type="button" class="tmc-side-nav tmc-side-nav--prev" data-tmc-prev aria-label="Barbero anterior">
+              <button type="button" class="tmc-side-nav tmc-side-nav--prev" data-tmc-prev aria-label="Barbero anterior" data-i18n-attr="aria-label:team.prevAria">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                   <path d="m15 18-6-6 6-6" />
                 </svg>
               </button>
-              <button type="button" class="tmc-side-nav tmc-side-nav--next" data-tmc-next aria-label="Siguiente barbero">
+              <button type="button" class="tmc-side-nav tmc-side-nav--next" data-tmc-next aria-label="Siguiente barbero" data-i18n-attr="aria-label:team.nextAria">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                   <path d="m9 18 6-6-6-6" />
                 </svg>
               </button>
 
-              <!-- Barbero 1: Manu -->
+              <!-- Barbero 1: ManuelCuts -->
               <article class="tmc-slide is-active" data-slide="0" aria-hidden="false">
-                <p class="tmc-role">Fundador · Maestro Barbero</p>
+                <p class="tmc-role" data-i18n="team.b1.role">Fundador · Maestro Barbero</p>
                 <div class="tmc-body">
                   <div class="tmc-media">
                     <div class="tmc-media-veil" aria-hidden="true"></div>
                     <picture>
                       <source type="image/webp" srcset="./assets/img/opt/manu-real-480w.webp 480w, ./assets/img/opt/manu-real-900w.webp 900w" sizes="(max-width: 639px) 240px, (max-width: 1023px) 280px, 360px" />
-                      <img src="./assets/img/opt/manu-real-900w.webp" alt="Retrato de Manu, fundador y maestro barbero de P7 Barber Master Studio" width="900" height="1125" decoding="async" class="tmc-img" />
+                      <img src="./assets/img/opt/manu-real-900w.webp" alt="Retrato de ManuelCuts, fundador y maestro barbero de P7 Barber Master Studio" data-i18n-attr="alt:team.b1.alt" width="900" height="1125" decoding="async" class="tmc-img" />
                     </picture>
                   </div>
                   <div class="tmc-info">
                     <h2 class="tmc-name">
-                      <span class="tmc-first">Manu</span>
-                      <span class="tmc-last">P7 Studio</span>
+                      <span class="tmc-first">ManuelCuts</span>
                     </h2>
                     <div class="tmc-details">
                       <a
-                        href="https://www.instagram.com/p7barberpalma/"
+                        href="https://www.instagram.com/manuelcutsp7/"
                         target="_blank"
                         rel="noopener noreferrer"
                         class="tmc-circle-cta"
-                        data-relleno="instagram"
-                        aria-label="Ver Instagram de Manu P7 Studio"
-                        title="Instagram"
+                        aria-label="Ver Instagram de ManuelCuts"
+                        title="Instagram de ManuelCuts"
+                        data-i18n-attr="aria-label:team.b1.igAria;title:team.b1.igTitle"
                       >
-                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                          <path d="M5 12h14" />
-                          <path d="m12 5 7 7-7 7" />
+                        <svg class="tmc-circle-ring" viewBox="0 0 100 100" aria-hidden="true">
+                          <defs>
+                            <path id="tmc-ring-0" d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0" />
+                          </defs>
+                          <text>
+                            <textPath href="#tmc-ring-0" startOffset="0%" textLength="226">INSTAGRAM · INSTAGRAM · INSTAGRAM ·</textPath>
+                          </text>
+                        </svg>
+                        <svg class="tmc-circle-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                          <path d="M7 17 17 7" />
+                          <path d="M8 7h9v9" />
                         </svg>
                       </a>
-                      <p class="tmc-bio">
+                      <p class="tmc-bio" data-i18n="team.b1.bio">
                         Al frente de P7 desde 2023. Especializado en degradados milimétricos,
                         arquitectura de corte a tijera y ritual clásico de barba con navaja y
                         toalla caliente.
@@ -293,84 +314,96 @@
                 </div>
               </article>
 
-              <!-- Barbero 2: Carlos Vega -->
+              <!-- Barbero 2: Robert Duran -->
               <article class="tmc-slide" data-slide="1" aria-hidden="true">
-                <p class="tmc-role">Especialista en Fade &amp; Color</p>
+                <p class="tmc-role" data-i18n="team.b2.role">Especialista en Fade &amp; Textura</p>
                 <div class="tmc-body">
                   <div class="tmc-media">
                     <div class="tmc-media-veil" aria-hidden="true"></div>
                     <picture>
-                      <source type="image/avif" srcset="./assets/img/opt/corte-navaja-oro-480w.avif 480w, ./assets/img/opt/corte-navaja-oro-900w.avif 900w" sizes="(max-width: 639px) 240px, (max-width: 1023px) 280px, 360px" />
-                      <source type="image/webp" srcset="./assets/img/opt/corte-navaja-oro-480w.webp 480w, ./assets/img/opt/corte-navaja-oro-900w.webp 900w" sizes="(max-width: 639px) 240px, (max-width: 1023px) 280px, 360px" />
-                      <img src="./assets/img/opt/corte-navaja-oro-900w.webp" alt="Retrato de Carlos Vega, especialista en fade, perfilado y color en P7 Barber Master Studio" width="900" height="1125" loading="lazy" decoding="async" class="tmc-img" />
+                      <source type="image/webp" srcset="./assets/img/opt/robert-duran-480w.webp 480w, ./assets/img/opt/robert-duran-900w.webp 900w" sizes="(max-width: 639px) 240px, (max-width: 1023px) 280px, 360px" />
+                      <img src="./assets/img/opt/robert-duran-900w.webp" alt="Retrato de Robert Duran, especialista en fade y textura en P7 Barber Master Studio" data-i18n-attr="alt:team.b2.alt" width="900" height="1125" loading="lazy" decoding="async" class="tmc-img" />
                     </picture>
                   </div>
                   <div class="tmc-info">
                     <h2 class="tmc-name">
-                      <span class="tmc-first">Carlos</span>
-                      <span class="tmc-last">Vega</span>
+                      <span class="tmc-first">Robert</span>
+                      <span class="tmc-last">Duran</span>
                     </h2>
                     <div class="tmc-details">
                       <a
-                        href="https://www.instagram.com/p7barberpalma/"
+                        href="https://www.instagram.com/roob_p7/"
                         target="_blank"
                         rel="noopener noreferrer"
                         class="tmc-circle-cta"
-                        data-relleno="instagram"
-                        aria-label="Ver Instagram de Carlos Vega"
-                        title="Instagram"
+                        aria-label="Ver Instagram de Robert Duran"
+                        title="Instagram de Robert Duran"
+                        data-i18n-attr="aria-label:team.b2.igAria;title:team.b2.igTitle"
                       >
-                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                          <path d="M5 12h14" />
-                          <path d="m12 5 7 7-7 7" />
+                        <svg class="tmc-circle-ring" viewBox="0 0 100 100" aria-hidden="true">
+                          <defs>
+                            <path id="tmc-ring-1" d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0" />
+                          </defs>
+                          <text>
+                            <textPath href="#tmc-ring-1" startOffset="0%" textLength="226">INSTAGRAM · INSTAGRAM · INSTAGRAM ·</textPath>
+                          </text>
+                        </svg>
+                        <svg class="tmc-circle-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                          <path d="M7 17 17 7" />
+                          <path d="M8 7h9v9" />
                         </svg>
                       </a>
-                      <p class="tmc-bio">
-                        Especializado en degradados a cero, perfilado limpio a navaja, diseño
-                        de contornos y trabajos de coloración masculina, desde mechas sutiles
-                        hasta tintes completos.
+                      <p class="tmc-bio" data-i18n="team.b2.bio">
+                        Dominio técnico en degradados limpios, texturas estructuradas y acabados
+                        a navaja con precisión milimétrica. Cada sesión se adapta a la fisonomía
+                        y caída natural del cabello.
                       </p>
                     </div>
                   </div>
                 </div>
               </article>
 
-              <!-- Barbero 3: Mateo Ruiz -->
+              <!-- Barbero 3: Próxima incorporación -->
               <article class="tmc-slide" data-slide="2" aria-hidden="true">
-                <p class="tmc-role">Especialista en Tijera &amp; Barba</p>
+                <p class="tmc-role" data-i18n="team.b3.role">Próxima incorporación</p>
                 <div class="tmc-body">
                   <div class="tmc-media">
+                    <div class="tmc-placeholder-card" role="img" aria-label="Próxima incorporación al equipo de P7 Barber Master Studio" data-i18n-attr="aria-label:team.b3.placeholderAria">
+                      <span class="tmc-placeholder-monogram" aria-hidden="true">P7</span>
+                      <span class="tmc-placeholder-rule" aria-hidden="true"></span>
+                      <span class="tmc-placeholder-label" data-i18n="team.b3.comingLabel">Próximamente</span>
+                    </div>
                     <div class="tmc-media-veil" aria-hidden="true"></div>
-                    <picture>
-                      <source type="image/avif" srcset="./assets/img/opt/hero-atelier-480w.avif 480w, ./assets/img/opt/hero-atelier-900w.avif 900w" sizes="(max-width: 639px) 240px, (max-width: 1023px) 280px, 360px" />
-                      <source type="image/webp" srcset="./assets/img/opt/hero-atelier-480w.webp 480w, ./assets/img/opt/hero-atelier-900w.webp 900w" sizes="(max-width: 639px) 240px, (max-width: 1023px) 280px, 360px" />
-                      <img src="./assets/img/opt/hero-atelier-900w.webp" alt="Retrato de Mateo Ruiz, especialista en corte clásico a tijera y ritual de barba en P7 Barber Master Studio" width="900" height="1125" loading="lazy" decoding="async" class="tmc-img" />
-                    </picture>
                   </div>
                   <div class="tmc-info">
                     <h2 class="tmc-name">
-                      <span class="tmc-first">Mateo</span>
-                      <span class="tmc-last">Ruiz</span>
+                      <span class="tmc-first" data-i18n="team.b3.first">Muy</span>
+                      <span class="tmc-last" data-i18n="team.b3.last">Pronto</span>
                     </h2>
                     <div class="tmc-details">
-                      <a
-                        href="https://www.instagram.com/p7barberpalma/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="tmc-circle-cta"
-                        data-relleno="instagram"
-                        aria-label="Ver Instagram de Mateo Ruiz"
-                        title="Instagram"
+                      <span
+                        class="tmc-circle-cta tmc-circle-cta--disabled"
+                        aria-disabled="true"
+                        title="Próximamente"
+                        data-i18n-attr="title:team.b3.soonTitle"
                       >
-                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                          <path d="M5 12h14" />
-                          <path d="m12 5 7 7-7 7" />
+                        <svg class="tmc-circle-ring" viewBox="0 0 100 100" aria-hidden="true">
+                          <defs>
+                            <path id="tmc-ring-2" d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0" />
+                          </defs>
+                          <text>
+                            <textPath href="#tmc-ring-2" startOffset="0%" textLength="226">INSTAGRAM · INSTAGRAM · INSTAGRAM ·</textPath>
+                          </text>
                         </svg>
-                      </a>
-                      <p class="tmc-bio">
-                        Enfocado en cortes clásicos a tijera, cabellos medios y largos con
-                        caída natural y arreglo integral de barba con vapor, aceites esenciales
-                        y toalla caliente.
+                        <svg class="tmc-circle-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                          <path d="M7 17 17 7" />
+                          <path d="M8 7h9v9" />
+                        </svg>
+                      </span>
+                      <p class="tmc-bio" data-i18n="team.b3.bio">
+                        La tercera silla del estudio se incorporará muy pronto al equipo de P7
+                        Barber Master Studio, manteniendo el mismo rigor artesanal y atención
+                        uno a uno.
                       </p>
                     </div>
                   </div>
@@ -380,19 +413,19 @@
 
             <!-- Controles e indicador 1 · 2 · 3 -->
             <div class="tmc-controls">
-              <button type="button" class="tmc-nav-btn" data-tmc-prev aria-label="Barbero anterior">
+              <button type="button" class="tmc-nav-btn" data-tmc-prev aria-label="Barbero anterior" data-i18n-attr="aria-label:team.prevAria">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                   <path d="m15 18-6-6 6-6" />
                 </svg>
               </button>
 
-              <div class="tmc-dots" role="tablist" aria-label="Seleccionar barbero">
-                <button type="button" class="tmc-dot is-active" data-tmc-goto="0" role="tab" aria-selected="true" aria-label="Barbero 1: Manu">01</button>
-                <button type="button" class="tmc-dot" data-tmc-goto="1" role="tab" aria-selected="false" aria-label="Barbero 2: Carlos Vega">02</button>
-                <button type="button" class="tmc-dot" data-tmc-goto="2" role="tab" aria-selected="false" aria-label="Barbero 3: Mateo Ruiz">03</button>
+              <div class="tmc-dots" role="tablist" aria-label="Seleccionar barbero" data-i18n-attr="aria-label:team.selectAria">
+                <button type="button" class="tmc-dot is-active" data-tmc-goto="0" role="tab" aria-selected="true" aria-label="Barbero 1: ManuelCuts" data-i18n-attr="aria-label:team.b1.dotAria">01</button>
+                <button type="button" class="tmc-dot" data-tmc-goto="1" role="tab" aria-selected="false" aria-label="Barbero 2: Robert Duran" data-i18n-attr="aria-label:team.b2.dotAria">02</button>
+                <button type="button" class="tmc-dot" data-tmc-goto="2" role="tab" aria-selected="false" aria-label="Barbero 3: Próxima incorporación" data-i18n-attr="aria-label:team.b3.dotAria">03</button>
               </div>
 
-              <button type="button" class="tmc-nav-btn" data-tmc-next aria-label="Siguiente barbero">
+              <button type="button" class="tmc-nav-btn" data-tmc-next aria-label="Siguiente barbero" data-i18n-attr="aria-label:team.nextAria">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                   <path d="m9 18 6-6-6-6" />
                 </svg>
@@ -402,7 +435,7 @@
 
           <div class="equipo-footer-bar">
             <a href="./index.html#sobre-nosotros" class="equipo-back-link" data-nav-back>
-              <span>Volver atrás</span>
+              <span data-i18n="team.back">Volver atrás</span>
             </a>
           </div>
         </div>
@@ -413,34 +446,34 @@
     <div class="colombia-divider" aria-hidden="true"></div>
 
     <!-- FOOTER UNIFICADO (Halftone Wordmark · 21st.dev) -->
-    <footer id="p7-halftone-footer" class="hwf-root" data-wordmark="P7 barber" aria-label="Pie de página">
+    <footer id="p7-halftone-footer" class="hwf-root" data-wordmark="P7 barber" aria-label="Pie de página" data-i18n-attr="aria-label:a11y.footer">
       <canvas id="p7-halftone-canvas" aria-hidden="true"></canvas>
       <span class="hwf-sr">P7 Barber Master Studio</span>
 
       <div class="hwf-top">
         <div class="hwf-brand">
-          <a href="./index.html#inicio" class="hwf-logo-link" aria-label="P7 Barber Master Studio — Inicio">
-            <img src="./assets/img/opt/logo-p7-512w.webp" alt="Escudo P7 Barber Master Studio" class="hwf-logo-img" width="124" height="124" loading="lazy" decoding="async" />
+          <a href="./index.html#inicio" class="hwf-logo-link" aria-label="P7 Barber Master Studio — Inicio" data-i18n-attr="aria-label:a11y.brandHome">
+            <img src="./assets/img/opt/logo-p7-512w.webp" alt="Escudo P7 Barber Master Studio" data-i18n-attr="alt:a11y.logoAlt" class="hwf-logo-img" width="124" height="124" loading="lazy" decoding="async" />
           </a>
-      <p class="hwf-slogan">Pasión por el oficio. Respeto por el detalle en cada corte.</p>
+      <p class="hwf-slogan" data-i18n="footer.slogan">Pasión por el oficio. Respeto por el detalle en cada corte.</p>
         </div>
 
-        <nav class="hwf-col" aria-label="Navegación">
-          <h3>Navegación</h3>
+        <nav class="hwf-col" aria-label="Navegación" data-i18n-attr="aria-label:footer.navTitle">
+          <h3 data-i18n="footer.navTitle">Navegación</h3>
           <ul>
-            <li><a href="./index.html#inicio">Inicio</a></li>
-            <li><a href="./index.html#sobre-nosotros">Sobre nosotros</a></li>
-            <li><a href="./index.html#nuestro-trabajo">Nuestro trabajo</a></li>
-            <li><a href="./index.html#contacto">Contacto</a></li>
+            <li><a href="./index.html#inicio" data-i18n="nav.home">Inicio</a></li>
+            <li><a href="./index.html#sobre-nosotros" data-i18n="nav.about">Sobre nosotros</a></li>
+            <li><a href="./index.html#nuestro-trabajo" data-i18n="nav.work">Nuestro trabajo</a></li>
+            <li><a href="./index.html#contacto" data-i18n="nav.contact">Contacto</a></li>
           </ul>
         </nav>
 
-        <nav class="hwf-col hwf-col--legal" aria-label="Legal">
-          <h3>Legal</h3>
+        <nav class="hwf-col hwf-col--legal" aria-label="Legal" data-i18n-attr="aria-label:footer.legalTitle">
+          <h3 data-i18n="footer.legalTitle">Legal</h3>
           <ul>
-            <li><a href="./aviso-legal.html">Aviso legal</a></li>
-            <li><a href="./privacidad.html">Privacidad</a></li>
-            <li><a href="./cookies.html">Cookies</a></li>
+            <li><a href="./aviso-legal.html" data-i18n="footer.legalNotice">Aviso legal</a></li>
+            <li><a href="./privacidad.html" data-i18n="footer.privacy">Privacidad</a></li>
+            <li><a href="./cookies.html" data-i18n="footer.cookies">Cookies</a></li>
           </ul>
         </nav>
       </div>
@@ -453,7 +486,7 @@
 
       <div class="hwf-rule">
         <div class="hwf-rule-inner">
-          <button type="button" id="p7-back-to-top" class="hwf-up">Volver arriba ↑</button>
+          <button type="button" id="p7-back-to-top" class="hwf-up" data-i18n="footer.backToTop">Volver arriba ↑</button>
         </div>
       </div>
     </footer>
@@ -461,8 +494,8 @@
     <!-- Modal Legal (<dialog> nativo) -->
     <dialog id="legal-dialog" closedby="any" aria-labelledby="legal-title">
       <div class="dialog-head">
-        <h2 id="legal-title" class="dialog-title">Información Legal</h2>
-        <button type="button" class="dialog-close" data-dialog-close aria-label="Cerrar aviso legal">
+        <h2 id="legal-title" class="dialog-title" data-i18n="legalDialog.title">Información Legal</h2>
+        <button type="button" class="dialog-close" data-dialog-close aria-label="Cerrar aviso legal" data-i18n-attr="aria-label:a11y.closeLegal">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true">
             <line x1="5" y1="5" x2="19" y2="19"></line>
             <line x1="19" y1="5" x2="5" y2="19"></line>
@@ -485,10 +518,14 @@
       </defs>
     </svg>
 
-    <script defer src="./assets/js/equipo.js?v=20261122d"></script>
-    <script defer src="./assets/js/nav-memory.js?v=20261121"></script>
-    <script defer src="./assets/js/header.js?v=20261122k"></script>
-    <script defer src="./assets/js/footer.js?v=20261121"></script>
-    <script defer src="./assets/js/site.js"></script>
+    <script defer src="./assets/js/i18n/es.js?v=20261123g"></script>
+    <script defer src="./assets/js/i18n/en.js?v=20261123g"></script>
+    <script defer src="./assets/js/i18n/de.js?v=20261123g"></script>
+    <script defer src="./assets/js/i18n/engine.js?v=20261123g"></script>
+    <script defer src="./assets/js/equipo.js?v=20261123e"></script>
+    <script defer src="./assets/js/nav-memory.js?v=20261123e"></script>
+    <script defer src="./assets/js/header.js?v=20261123h"></script>
+    <script defer src="./assets/js/footer.js?v=20261123e"></script>
+    <script defer src="./assets/js/site.js?v=20261123g"></script>
   </body>
 </html>
