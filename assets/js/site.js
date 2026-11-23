@@ -127,13 +127,15 @@
   updateScrollUI();
 
   /* ------------------------------------------------------------------------
-     2. Vídeo Hero + Fallback Ken Burns + Botón WCAG 2.2.2 + Reduced Motion
+     2. Vídeo Hero (Autoplay infinito blindado para iOS Safari) + Vídeos Lazy
      ------------------------------------------------------------------------ */
   const heroVideo = document.getElementById('hero-video');
   const heroPoster = document.querySelector('.hero-poster-media');
   const videoToggle = document.getElementById('hero-video-toggle');
   let userPaused = false;
   let videoAvailable = false;
+  let playInFlight = false;
+  let heroEnsurePlay = () => {};
 
   const syncToggleUI = (isPlaying) => {
     if (!videoToggle) return;
@@ -143,22 +145,29 @@
       : (isPlaying ? 'Pausar ambiente' : 'Reproducir ambiente');
   };
 
+  const enforceHeroAttrs = () => {
+    if (!heroVideo) return;
+    heroVideo.muted = true;
+    heroVideo.defaultMuted = true;
+    heroVideo.loop = true;
+    heroVideo.playsInline = true;
+    heroVideo.setAttribute('muted', '');
+    heroVideo.setAttribute('playsinline', '');
+    heroVideo.setAttribute('webkit-playsinline', '');
+  };
+
   const applyMediaMotionState = () => {
     const shouldPlay = !userPaused;
 
     if (heroVideo) {
-      heroVideo.muted = true;
-      heroVideo.defaultMuted = true;
-      heroVideo.loop = true;
-      heroVideo.playsInline = true;
+      enforceHeroAttrs();
 
       if (!shouldPlay) {
         heroVideo.removeAttribute('autoplay');
         heroVideo.pause();
       } else {
         heroVideo.setAttribute('autoplay', '');
-        const p = heroVideo.play();
-        if (p && typeof p.catch === 'function') p.catch(() => {});
+        heroEnsurePlay();
       }
     }
 
@@ -171,20 +180,20 @@
 
   if (heroVideo) {
     /* Guardián "nunca parar" (iOS Safari):
-       - play() puede rechazarse en la recarga (AbortError mientras carga, o NotAllowedError
-         si iOS aún no considera la página activa / Modo Ahorro). Antes se silenciaba sin reintentar,
-         y el vídeo solo arrancaba al hacer scroll. Ahora se reintenta con backoff, en cada evento
-         de carga, al volver de bfcache (pageshow), y en el primer gesto del usuario. */
+       - Prioridad absoluta al vídeo Hero (los 10 vídeos secundarios ya no compiten con autoplay).
+       - Nunca llama a load() durante play() para no provocar AbortError.
+       - Nunca oculta el vídeo por un NETWORK_NO_SOURCE transitorio al arrancar el DOM. */
     let retryTimer = null;
     let retryCount = 0;
+
     const isHeroVisible = () => {
       const r = heroVideo.getBoundingClientRect();
       return r.bottom > 0 && r.top < (window.innerHeight || document.documentElement.clientHeight);
     };
 
     const scheduleRetry = () => {
-      if (retryTimer || userPaused) return;
-      const delay = Math.min(250 * 2 ** retryCount, 4000);
+      if (retryTimer || userPaused || heroVideo.classList.contains('is-unavailable')) return;
+      const delay = Math.min(250 * 2 ** retryCount, 3000);
       retryCount += 1;
       retryTimer = window.setTimeout(() => {
         retryTimer = null;
@@ -192,44 +201,93 @@
       }, delay);
     };
 
+    const markVideoUnavailable = () => {
+      videoAvailable = false;
+      heroVideo.classList.add('is-unavailable');
+      heroVideo.pause();
+    };
+
+    const markVideoAvailable = () => {
+      if (videoAvailable) return;
+      videoAvailable = true;
+      heroVideo.classList.remove('is-unavailable');
+    };
+
     const ensurePlay = () => {
-      if (userPaused || document.visibilityState === 'hidden') return;
-      heroVideo.muted = true;
-      heroVideo.defaultMuted = true;
-      heroVideo.loop = true;
-      heroVideo.playsInline = true;
-      if (!heroVideo.paused && !heroVideo.ended) return;
-      // Sin fuente cargada todavía (o descartada por iOS al restaurar): forzar carga
-      if (heroVideo.readyState === 0 && heroVideo.networkState !== HTMLMediaElement.NETWORK_LOADING) {
-        heroVideo.load();
+      if (userPaused || document.visibilityState === 'hidden' || heroVideo.classList.contains('is-unavailable')) {
+        return;
       }
+      enforceHeroAttrs();
+      if (!heroVideo.paused && !heroVideo.ended) return;
+      if (playInFlight) return;
+
+      playInFlight = true;
       const p = heroVideo.play();
       if (p && typeof p.then === 'function') {
         p.then(() => {
+          playInFlight = false;
           retryCount = 0;
-          if (!videoAvailable) markVideoAvailable();
-        }).catch(scheduleRetry);
+          markVideoAvailable();
+        }).catch(() => {
+          playInFlight = false;
+          scheduleRetry();
+        });
+      } else {
+        playInFlight = false;
       }
     };
+    heroEnsurePlay = ensurePlay;
 
     // Re-arranque ante cualquier pausa no solicitada por el usuario (iOS pausa al recargar/restaurar)
     heroVideo.addEventListener('pause', () => {
-      if (!userPaused && document.visibilityState === 'visible' && !heroVideo.classList.contains('is-unavailable')) scheduleRetry();
+      if (!userPaused && document.visibilityState === 'visible' && !heroVideo.classList.contains('is-unavailable')) {
+        scheduleRetry();
+      }
     });
-    ['loadedmetadata', 'loadeddata', 'canplay', 'canplaythrough', 'stalled', 'suspend'].forEach((ev) =>
-      heroVideo.addEventListener(ev, () => { if (heroVideo.paused) ensurePlay(); })
-    );
-    heroVideo.addEventListener('playing', () => { retryCount = 0; });
 
-    // Volver desde bfcache (recarga/atrás en Safari): el vídeo queda congelado si no se relanza
-    window.addEventListener('pageshow', () => { retryCount = 0; ensurePlay(); });
+    ['loadedmetadata', 'loadeddata', 'canplay', 'canplaythrough', 'stalled'].forEach((ev) =>
+      heroVideo.addEventListener(ev, () => {
+        if (heroVideo.readyState >= 2) markVideoAvailable();
+        if (heroVideo.paused) ensurePlay();
+      })
+    );
+
+    heroVideo.addEventListener('playing', () => {
+      retryCount = 0;
+      markVideoAvailable();
+    });
+
+    // Garantía de bucle continuo e inmediato
+    heroVideo.addEventListener('ended', () => {
+      if (userPaused) return;
+      heroVideo.currentTime = 0;
+      ensurePlay();
+    });
+
+    // Volver desde bfcache (recarga/atrás en Safari): relanza sin congelar
+    window.addEventListener('pageshow', (event) => {
+      retryCount = 0;
+      if (event.persisted && heroVideo.readyState === 0 && heroVideo.networkState === HTMLMediaElement.NETWORK_EMPTY) {
+        heroVideo.load();
+      }
+      ensurePlay();
+    });
+
     window.addEventListener('focus', ensurePlay);
 
-    // Red de seguridad: primer gesto del usuario desbloquea siempre la reproducción en iOS
+    document.addEventListener('visibilitychange', () => {
+      if (document.visibilityState === 'visible') {
+        ensurePlay();
+      }
+    });
+
+    // Red de seguridad: primer gesto del usuario desbloquea reproducción (ej. Modo Bajo Consumo en iOS)
     const unlockEvents = ['touchstart', 'pointerdown', 'click', 'keydown', 'scroll'];
     const unlock = () => {
       ensurePlay();
-      if (!heroVideo.paused) unlockEvents.forEach((ev) => window.removeEventListener(ev, unlock, true));
+      if (!heroVideo.paused) {
+        unlockEvents.forEach((ev) => window.removeEventListener(ev, unlock, true));
+      }
     };
     unlockEvents.forEach((ev) => window.addEventListener(ev, unlock, { capture: true, passive: true }));
 
@@ -240,40 +298,7 @@
       }
     }, 1500);
 
-    const markVideoUnavailable = () => {
-      videoAvailable = false;
-      heroVideo.classList.add('is-unavailable');
-      heroVideo.pause();
-    };
-
-    const markVideoAvailable = () => {
-      videoAvailable = true;
-      heroVideo.classList.remove('is-unavailable');
-      applyMediaMotionState();
-    };
-
-    if (heroVideo.readyState >= 2) {
-      markVideoAvailable();
-    } else {
-      heroVideo.addEventListener('loadeddata', markVideoAvailable, { once: true });
-      heroVideo.addEventListener('canplay', markVideoAvailable, { once: true });
-    }
-
-    // Garantía de bucle continuo e inmediato
-    heroVideo.addEventListener('ended', () => {
-      if (userPaused) return;
-      heroVideo.currentTime = 0;
-      ensurePlay();
-    });
-
-    document.addEventListener('visibilitychange', () => {
-      if (document.visibilityState === 'visible' && videoAvailable) {
-        ensurePlay();
-      }
-    });
-
-    heroVideo.addEventListener('error', markVideoUnavailable);
-
+    // Solo marcar como no disponible si TODAS las fuentes fallan de verdad
     const sources = heroVideo.querySelectorAll('source');
     let failedSources = 0;
     sources.forEach((src) => {
@@ -285,9 +310,67 @@
       });
     });
 
-    // Si tras cargar el DOM no hay fuente válida, mantiene el póster Ken Burns
-    if (heroVideo.networkState === HTMLMediaElement.NETWORK_NO_SOURCE) {
-      markVideoUnavailable();
+    if (heroVideo.readyState >= 2) {
+      markVideoAvailable();
+    }
+  }
+
+  /* ------------------------------------------------------------------------
+     2b. Vídeos secundarios lazy ([data-lazy-video]: Galería 1 y Nuestro Trabajo)
+         Solo se reproducen cuando entran en pantalla para no saturar decodificadores
+         hardware en iOS Safari y dejar el 100% de prioridad al vídeo Hero.
+     ------------------------------------------------------------------------ */
+  const lazyVideos = Array.from(document.querySelectorAll('video[data-lazy-video]'));
+  if (lazyVideos.length > 0) {
+    const visibleLazyVideos = new Set();
+
+    const playLazyVideo = (video) => {
+      video.muted = true;
+      video.defaultMuted = true;
+      video.loop = true;
+      video.playsInline = true;
+      video.setAttribute('muted', '');
+      video.setAttribute('playsinline', '');
+      video.setAttribute('webkit-playsinline', '');
+      if (video.preload === 'none') {
+        video.preload = 'metadata';
+      }
+      if (video.paused) {
+        const p = video.play();
+        if (p && typeof p.catch === 'function') p.catch(() => {});
+      }
+    };
+
+    if ('IntersectionObserver' in window) {
+      const lazyVideoObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            const video = entry.target;
+            if (entry.isIntersecting && document.visibilityState === 'visible') {
+              visibleLazyVideos.add(video);
+              playLazyVideo(video);
+            } else {
+              visibleLazyVideos.delete(video);
+              if (!video.paused) video.pause();
+            }
+          });
+        },
+        { rootMargin: '120px 260px', threshold: 0.05 }
+      );
+
+      lazyVideos.forEach((v) => lazyVideoObserver.observe(v));
+
+      document.addEventListener('visibilitychange', () => {
+        if (document.visibilityState === 'visible') {
+          visibleLazyVideos.forEach(playLazyVideo);
+        } else {
+          visibleLazyVideos.forEach((v) => {
+            if (!v.paused) v.pause();
+          });
+        }
+      });
+    } else {
+      lazyVideos.forEach(playLazyVideo);
     }
   }
 

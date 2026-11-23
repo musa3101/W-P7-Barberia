@@ -47,11 +47,14 @@
         >
           <video
             class="exp-video"
-            autoplay
             muted
             loop
             playsinline
-            preload="metadata"
+            webkit-playsinline
+            disablepictureinpicture
+            disableremoteplayback
+            preload="none"
+            data-lazy-video
             poster="./assets/media/galeria-2/sesion-lyano-poster.webp"
           >
             <source src="./assets/media/galeria-2/sesion-lyano.mp4" type="video/mp4" />
