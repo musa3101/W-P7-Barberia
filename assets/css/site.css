@@ -757,6 +757,36 @@ a {
   );
 }
 
+.hero-bottom-overlay .liquid-glass-btn {
+  color: #FFFFFF;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.55);
+}
+
+.hero-bottom-overlay .liquid-glass-surface {
+  background: rgba(10, 9, 9, 0.56);
+  border: 1.5px solid var(--p7-colombia-red, #C1091E);
+  box-shadow:
+    0 0 18px rgba(var(--p7-colombia-red-rgb, 193, 9, 30), 0.48),
+    0 8px 24px rgba(0, 0, 0, 0.42),
+    inset 0 1px 0 rgba(255, 255, 255, 0.22),
+    inset 0 -1px 0 rgba(var(--p7-colombia-red-rgb, 193, 9, 30), 0.35);
+}
+
+.hero-bottom-overlay .liquid-glass-blur {
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+  backdrop-filter: url("#container-glass") blur(12px) saturate(140%);
+}
+
+.hero-bottom-overlay .liquid-glass-btn:hover .liquid-glass-surface {
+  background: rgba(10, 9, 9, 0.68);
+  border-color: var(--p7-colombia-red, #C1091E);
+  box-shadow:
+    0 0 26px rgba(var(--p7-colombia-red-rgb, 193, 9, 30), 0.72),
+    0 10px 28px rgba(0, 0, 0, 0.52),
+    inset 0 1px 0 rgba(255, 255, 255, 0.30),
+    inset 0 0 0 0.5px rgba(var(--p7-colombia-red-rgb, 193, 9, 30), 0.65);
+}
+
 @media (max-width: 767px) {
   .hero {
     min-height: calc(100vh + 76px);
