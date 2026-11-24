@@ -484,14 +484,6 @@
   align-items: start;
 }
 
-@media (min-width: 900px) {
-  .trabajo-showcase-inner {
-    grid-template-columns: 0.85fr 1.15fr;
-    gap: clamp(36px, 4.5vw, 64px);
-    align-items: center;
-  }
-}
-
 .showcase-anchor {
   display: flex;
   flex-direction: column;
@@ -556,12 +548,7 @@
   box-shadow: none;
 }
 
-@media (min-width: 900px) {
-  .showcase-emblem-wrap {
-    width: 86px;
-    height: 86px;
-  }
-}
+
 
 .coin-3d-pedestal {
   perspective: 900px;
@@ -586,16 +573,7 @@
   user-select: none;
 }
 
-@media (min-width: 900px) {
-  .coin-3d-pedestal {
-    width: 84px;
-    height: 84px;
-  }
-  .coin-3d-mesh {
-    width: 82px;
-    height: 82px;
-  }
-}
+
 
 @keyframes coinSpin360Smooth {
   0% {
@@ -668,6 +646,55 @@
   font-family: var(--font-sans);
   font-size: 0.75rem;
   color: #6B675E;
+}
+
+/* Adaptación editorial para Ordenador y Tablet apaisada (≥ 900px) */
+@media (min-width: 900px) {
+  .trabajo-showcase-inner {
+    grid-template-columns: 0.85fr 1.15fr;
+    gap: clamp(36px, 4.5vw, 64px);
+    align-items: center;
+  }
+
+  .showcase-anchor {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .showcase-head-row {
+    display: contents;
+  }
+
+  .showcase-header {
+    order: 1;
+    width: 100%;
+  }
+
+  .showcase-subtitle {
+    order: 2;
+    margin: 0;
+    max-width: 44ch;
+  }
+
+  .showcase-emblem-wrap {
+    order: 3;
+    width: 124px;
+    height: 124px;
+    margin-top: 10px;
+    align-self: flex-start;
+  }
+
+  .coin-3d-pedestal {
+    width: 120px;
+    height: 120px;
+  }
+
+  .coin-3d-mesh {
+    width: 118px;
+    height: 118px;
+  }
 }
 
 /* Columna Derecha: Tarjetas editoriales en marfil cálido #F3EFE6 */
@@ -1188,7 +1215,7 @@
 .precios-drawer.is-open {
   grid-template-rows: 1fr;
   opacity: 1;
-  margin-top: clamp(32px, 4.5vw, 48px);
+  margin-top: clamp(18px, 2.5vh, 28px);
 }
 
 .precios-drawer-inner {
@@ -1199,7 +1226,7 @@
   display: grid;
   grid-template-columns: auto minmax(0, 1fr);
   width: 100%;
-  min-height: clamp(460px, 68svh, 700px);
+  min-height: auto;
   background-color: #C3B9A0;
   background-image: none;
   color: #0A0909;
@@ -1221,8 +1248,8 @@
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  width: clamp(44px, 11vw, 96px);
-  padding: 28px 0;
+  width: clamp(40px, 8vw, 84px);
+  padding: 20px 0;
   background-color: transparent;
   overflow: hidden;
   user-select: none;
@@ -1230,7 +1257,7 @@
 
 .precios-poster-word {
   font-family: var(--font-display);
-  font-size: clamp(2.85rem, 11.5vw, 7.5rem);
+  font-size: clamp(2.4rem, 7.5vw, 3.4rem);
   font-weight: 700;
   line-height: 0.84;
   letter-spacing: 0.04em;
@@ -1238,30 +1265,31 @@
   writing-mode: vertical-rl;
   text-orientation: mixed;
   white-space: nowrap;
-  transform: rotate(180deg) translateX(28%);
+  transform: rotate(180deg) translateX(26%);
 }
 
 @media (min-width: 640px) {
   .precios-poster-rail {
-    width: clamp(72px, 9vw, 112px);
-    padding: 36px 0;
+    width: clamp(58px, 6.5vw, 88px);
+    padding: 24px 0;
   }
 
   .precios-poster-word {
-    font-size: clamp(4.5rem, 9.5vw, 8.25rem);
-    transform: rotate(180deg) translateX(30%);
+    font-size: clamp(3.1rem, 5.2vw, 4.6rem);
+    transform: rotate(180deg) translateX(28%);
   }
 }
 
-/* Columna derecha: cuerpo completo editorial amplio */
+/* Columna derecha: cuerpo editorial proporcionado para verse completo en un pantallazo */
 .precios-poster-body {
   width: 100%;
   max-width: 1040px;
-  padding: clamp(36px, 6vw, 72px) clamp(20px, 5vw, 72px);
+  margin-inline: auto;
+  padding: clamp(26px, 3.6vh, 42px) clamp(20px, 4.5vw, 64px);
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  gap: clamp(36px, 5vw, 56px);
+  justify-content: center;
+  gap: clamp(20px, 3vh, 30px);
   text-align: left;
 }
 
@@ -1271,7 +1299,7 @@
   align-items: baseline;
   justify-content: space-between;
   gap: 8px 18px;
-  padding-bottom: 18px;
+  padding-bottom: 12px;
   border-bottom: 1px solid rgba(10, 9, 9, 0.22);
 }
 
@@ -1303,12 +1331,12 @@
 .precios-group {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 12px;
 }
 
 .precios-group-title {
   margin: 0;
-  padding-bottom: 12px;
+  padding-bottom: 8px;
   border-bottom: 1px solid rgba(10, 9, 9, 0.22);
   font-family: var(--font-accent);
   font-size: 0.75rem;
@@ -1324,18 +1352,18 @@
   padding: 0;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 12px;
 }
 
 .precios-list--compact {
-  gap: 16px;
+  gap: 10px;
 }
 
 .precios-item {
   display: flex;
   flex-direction: column;
-  gap: 6px;
-  padding-bottom: 20px;
+  gap: 4px;
+  padding-bottom: 12px;
   border-bottom: 1px solid rgba(10, 9, 9, 0.14);
 }
 

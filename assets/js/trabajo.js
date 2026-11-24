@@ -279,8 +279,8 @@ document.addEventListener('DOMContentLoaded', () => {
         window.setTimeout(() => {
           const header = document.querySelector('header.site-header, .site-header, header');
           const headerHeight = header ? header.getBoundingClientRect().height : 0;
-          const drawerTop = drawer.getBoundingClientRect().top + window.scrollY;
-          const targetY = Math.max(0, drawerTop - headerHeight - 10);
+          const btnTop = toggleBtn.getBoundingClientRect().top + window.scrollY;
+          const targetY = Math.max(0, btnTop - headerHeight - 16);
           window.scrollTo({
             top: targetY,
             behavior: prefersReduced ? 'auto' : 'smooth'

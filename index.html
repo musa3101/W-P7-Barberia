@@ -18,12 +18,13 @@
   <meta property="og:locale" content="es_ES">
   <meta property="og:title" content="P7 Barber Master Studio | Barbería artesanal en Palma de Mallorca">
   <meta property="og:description" content="Precisión, trato uno a uno y sesiones de una hora en C/ Miguel Ángel Riera, 2, Palma. 5,0 en Booksy (296 reseñas verificadas).">
-  <meta property="og:image" content="./assets/video/hero-poster.jpg">
+  <meta property="og:image" content="./assets/video/hero-poster.jpg?v=20261124">
 
   <link rel="icon" type="image/png" href="./assets/img/favicon.png">
 
-  <!-- Precarga LCP del póster del Hero -->
-  <link rel="preload" as="image" href="./assets/video/hero-poster.avif" type="image/avif" fetchpriority="high">
+  <!-- Precarga LCP del póster del Hero según dispositivo (Móvil/Tablet vs Ordenador) -->
+  <link rel="preload" as="image" href="./assets/video/hero-poster-desktop.avif?v=20261124" type="image/avif" media="(min-width: 1025px)" fetchpriority="high">
+  <link rel="preload" as="image" href="./assets/video/hero-poster-mobile.avif?v=20261124" type="image/avif" media="(max-width: 1024.98px)" fetchpriority="high">
 
   <!-- Preconexión y fuentes oficiales P7 (Fraunces + IBM Plex Mono + Switzer) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -33,14 +34,14 @@
   <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=switzer@400,500,600,700&display=swap">
 
   <!-- Hojas de estilo -->
-  <link rel="stylesheet" href="./assets/css/site.css?v=20261123h">
+  <link rel="stylesheet" href="./assets/css/site.css?v=20261124b">
   <link rel="stylesheet" href="./assets/css/sections.css?v=20261123e">
   <link rel="stylesheet" href="./assets/css/header.css?v=20261123j">
   <link rel="stylesheet" href="./assets/css/cinta.css?v=20261123e">
-  <link rel="stylesheet" href="./assets/css/sobre.css?v=20261123e">
-  <link rel="stylesheet" href="./assets/css/trabajo.css?v=20261123e">
-  <link rel="stylesheet" href="./assets/css/contacto.css?v=20261123e">
-  <link rel="stylesheet" href="./assets/css/footer.css?v=20261123e">
+  <link rel="stylesheet" href="./assets/css/sobre.css?v=20261124c">
+  <link rel="stylesheet" href="./assets/css/trabajo.css?v=20261124d">
+  <link rel="stylesheet" href="./assets/css/contacto.css?v=20261124a">
+  <link rel="stylesheet" href="./assets/css/footer.css?v=20261124b">
 
   <script type="application/ld+json">
   {
@@ -318,15 +319,18 @@
 <section id="inicio" class="hero" aria-label="P7 Barber Master Studio">
   <div class="hero-media">
     <picture class="hero-poster-picture">
-      <source srcset="./assets/video/hero-poster.avif" type="image/avif">
-      <source srcset="./assets/video/hero-poster.webp" type="image/webp">
+      <source media="(min-width: 1025px)" srcset="./assets/video/hero-poster-desktop.avif?v=20261124" type="image/avif">
+      <source media="(min-width: 1025px)" srcset="./assets/video/hero-poster-desktop.webp?v=20261124" type="image/webp">
+      <source media="(min-width: 1025px)" srcset="./assets/video/hero-poster-desktop.jpg?v=20261124" type="image/jpeg">
+      <source srcset="./assets/video/hero-poster-mobile.avif?v=20261124" type="image/avif">
+      <source srcset="./assets/video/hero-poster-mobile.webp?v=20261124" type="image/webp">
       <img
-        src="./assets/video/hero-poster.jpg"
+        src="./assets/video/hero-poster-mobile.jpg?v=20261124"
         alt="Interior de P7 Barber Master Studio en Palma de Mallorca"
         data-i18n-attr="alt:hero.posterAlt"
         class="hero-poster-media is-ken-burns"
-        width="1920"
-        height="1080"
+        width="1080"
+        height="1920"
         fetchpriority="high"
         decoding="async"
       >
@@ -343,15 +347,50 @@
       disablepictureinpicture
       disableremoteplayback
       preload="auto"
-      width="720"
-      height="1280"
+      width="1080"
+      height="1920"
       aria-hidden="true"
-      poster="./assets/video/hero-poster.jpg"
-    >
-      <!-- Vídeo vertical 9:16 activo también en desktop hasta disponer de versión 16:9 (MP4 primero para decodificación instantánea en Safari) -->
-      <source src="./assets/video/hero-9x16.mp4" type="video/mp4">
-      <source src="./assets/video/hero-9x16.webm" type="video/webm">
-    </video>
+      data-desktop-mp4="./assets/video/hero-ordenador.mp4?v=20261124"
+      data-desktop-webm="./assets/video/hero-ordenador.webm?v=20261124"
+      data-mobile-mp4="./assets/video/hero-movil-tablet.mp4?v=20261124"
+      data-mobile-webm="./assets/video/hero-movil-tablet.webm?v=20261124"
+    ></video>
+    <script>
+      (function () {
+        var v = document.getElementById('hero-video');
+        if (!v) return;
+        var isDesktop = window.matchMedia('(min-width: 1025px)').matches;
+        v.dataset.heroMode = isDesktop ? 'desktop' : 'mobile';
+        v.muted = true;
+        v.defaultMuted = true;
+        v.loop = true;
+        v.playsInline = true;
+        v.width = isDesktop ? 1920 : 1080;
+        v.height = isDesktop ? 1080 : 1920;
+        var list = isDesktop
+          ? [
+              { src: v.dataset.desktopMp4, type: 'video/mp4' },
+              { src: v.dataset.desktopWebm, type: 'video/webm' }
+            ]
+          : [
+              { src: v.dataset.mobileMp4, type: 'video/mp4' },
+              { src: v.dataset.mobileWebm, type: 'video/webm' }
+            ];
+        list.forEach(function (item) {
+          if (!item.src) return;
+          var s = document.createElement('source');
+          s.src = item.src;
+          s.type = item.type;
+          v.appendChild(s);
+        });
+        v.load();
+        var p = v.play();
+        if (p && typeof p.catch === 'function') {
+          v._initialPlayPromise = p;
+          p.catch(function () {});
+        }
+      })();
+    </script>
   </div>
 
   <!-- Bloque inferior centrado y limpio: título sencillo + botón Reservar cita con Liquid Glass -->
@@ -1639,9 +1678,9 @@
               <p
                 class="faq-answer blurred-stagger"
                 data-i18n-raw="faq.a4"
-                data-raw-text="Aceptamos pago con tarjeta, Bizum y efectivo directamente en el estudio al finalizar tu servicio."
+                data-raw-text="Aceptamos pago con tarjeta y efectivo directamente en el estudio al finalizar tu servicio."
               >
-                Aceptamos pago con tarjeta, Bizum y efectivo directamente en el estudio al finalizar tu servicio.
+                Aceptamos pago con tarjeta y efectivo directamente en el estudio al finalizar tu servicio.
               </p>
             </div>
           </div>
@@ -1787,7 +1826,7 @@
       rel="noopener noreferrer"
       class="hwf-credit-link"
     >
-      Made by <strong>MYNEXT</strong>
+      Hecho con mucho amor por <strong>MYNEXT</strong> · Espero que te guste, Manu.
     </a>
   </div>
 
@@ -1826,17 +1865,17 @@
   <div id="legal-body" class="dialog-body"></div>
 </dialog>
 
-<script defer src="./assets/js/i18n/es.js?v=20261123g"></script>
-<script defer src="./assets/js/i18n/en.js?v=20261123g"></script>
-<script defer src="./assets/js/i18n/de.js?v=20261123g"></script>
+<script defer src="./assets/js/i18n/es.js?v=20261124a"></script>
+<script defer src="./assets/js/i18n/en.js?v=20261124a"></script>
+<script defer src="./assets/js/i18n/de.js?v=20261124a"></script>
 <script defer src="./assets/js/i18n/engine.js?v=20261123g"></script>
-<script defer src="./assets/js/nav-memory.js?v=20261121"></script>
+<script defer src="./assets/js/nav-memory.js?v=20261123e"></script>
 <script defer src="./assets/js/header.js?v=20261123i"></script>
 <script defer src="./assets/js/cinta.js?v=20261121"></script>
-<script defer src="./assets/js/footer.js?v=20261121"></script>
+<script defer src="./assets/js/footer.js?v=20261123e"></script>
 <script defer src="./assets/js/sobre-carousel.js?v=20261122j"></script>
-<script defer src="./assets/js/site.js?v=20261123h"></script>
-<script defer src="./assets/js/trabajo.js?v=20261123d"></script>
+<script defer src="./assets/js/site.js?v=20261124b"></script>
+<script defer src="./assets/js/trabajo.js?v=20261124a"></script>
 <script defer src="./assets/js/contacto.js?v=20261123d"></script>
 </body>
 </html>

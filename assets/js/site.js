@@ -179,12 +179,22 @@
   };
 
   if (heroVideo) {
-    /* Guardián "nunca parar" (iOS Safari):
-       - Prioridad absoluta al vídeo Hero (los 10 vídeos secundarios ya no compiten con autoplay).
-       - Nunca llama a load() durante play() para no provocar AbortError.
+    /* Guardián "nunca parar" (iOS Safari / iPadOS):
+       - Prioridad absoluta al vídeo Hero (los vídeos secundarios usan lazy-play).
+       - Usa playAttemptId + timeout de seguridad para evitar deadlocks o AbortError al rotar iPad.
        - Nunca oculta el vídeo por un NETWORK_NO_SOURCE transitorio al arrancar el DOM. */
     let retryTimer = null;
     let retryCount = 0;
+    let playAttemptId = 0;
+    let playInFlightTimer = null;
+
+    const clearInFlight = () => {
+      playInFlight = false;
+      if (playInFlightTimer) {
+        clearTimeout(playInFlightTimer);
+        playInFlightTimer = null;
+      }
+    };
 
     const isHeroVisible = () => {
       const r = heroVideo.getBoundingClientRect();
@@ -213,34 +223,63 @@
       heroVideo.classList.remove('is-unavailable');
     };
 
-    const ensurePlay = () => {
+    const ensurePlay = (force = false) => {
       if (userPaused || document.visibilityState === 'hidden' || heroVideo.classList.contains('is-unavailable')) {
         return;
       }
       enforceHeroAttrs();
-      if (!heroVideo.paused && !heroVideo.ended) return;
-      if (playInFlight) return;
+      if (!force && !heroVideo.paused && !heroVideo.ended) return;
+      if (playInFlight && !force) return;
 
+      const attemptId = ++playAttemptId;
       playInFlight = true;
+      if (playInFlightTimer) clearTimeout(playInFlightTimer);
+      playInFlightTimer = window.setTimeout(() => {
+        if (attemptId === playAttemptId) clearInFlight();
+      }, 2500);
+
       const p = heroVideo.play();
       if (p && typeof p.then === 'function') {
         p.then(() => {
-          playInFlight = false;
+          if (attemptId !== playAttemptId) return;
+          clearInFlight();
           retryCount = 0;
           markVideoAvailable();
-        }).catch(() => {
-          playInFlight = false;
+        }).catch((err) => {
+          if (attemptId !== playAttemptId) return;
+          clearInFlight();
+          if (err && err.name === 'NotAllowedError') {
+            return; // En Modo Bajo Consumo de iOS esperamos al gesto táctil de unlock
+          }
           scheduleRetry();
         });
       } else {
-        playInFlight = false;
+        clearInFlight();
       }
     };
     heroEnsurePlay = ensurePlay;
 
-    // Re-arranque ante cualquier pausa no solicitada por el usuario (iOS pausa al recargar/restaurar)
+    // Red de seguridad: primer gesto táctil o tecla desbloquea reproducción (ej. Modo Bajo Consumo iOS)
+    const unlockEvents = ['touchstart', 'touchend', 'pointerdown', 'click', 'keydown'];
+    let unlockBound = true;
+    const detachUnlock = () => {
+      if (!unlockBound) return;
+      unlockBound = false;
+      unlockEvents.forEach((ev) => window.removeEventListener(ev, unlock, true));
+    };
+    const unlock = () => {
+      ensurePlay(true);
+    };
+    unlockEvents.forEach((ev) => window.addEventListener(ev, unlock, { capture: true, passive: true }));
+
+    // Re-arranque ante cualquier pausa no solicitada por el usuario (solo si está visible)
     heroVideo.addEventListener('pause', () => {
-      if (!userPaused && document.visibilityState === 'visible' && !heroVideo.classList.contains('is-unavailable')) {
+      if (
+        !userPaused &&
+        document.visibilityState === 'visible' &&
+        !heroVideo.classList.contains('is-unavailable') &&
+        isHeroVisible()
+      ) {
         scheduleRetry();
       }
     });
@@ -248,48 +287,62 @@
     ['loadedmetadata', 'loadeddata', 'canplay', 'canplaythrough', 'stalled'].forEach((ev) =>
       heroVideo.addEventListener(ev, () => {
         if (heroVideo.readyState >= 2) markVideoAvailable();
-        if (heroVideo.paused) ensurePlay();
+        if (heroVideo.paused && isHeroVisible()) ensurePlay();
       })
     );
 
     heroVideo.addEventListener('playing', () => {
+      playAttemptId += 1;
+      clearInFlight();
       retryCount = 0;
       markVideoAvailable();
+      detachUnlock();
     });
 
-    // Garantía de bucle continuo e inmediato
+    // Garantía de bucle continuo e inmediato (force=true para saltar el early-return tras currentTime=0)
     heroVideo.addEventListener('ended', () => {
       if (userPaused) return;
       heroVideo.currentTime = 0;
-      ensurePlay();
+      ensurePlay(true);
     });
 
-    // Volver desde bfcache (recarga/atrás en Safari): relanza sin congelar
-    window.addEventListener('pageshow', (event) => {
-      retryCount = 0;
-      if (event.persisted && heroVideo.readyState === 0 && heroVideo.networkState === HTMLMediaElement.NETWORK_EMPTY) {
-        heroVideo.load();
+    // Limpieza al salir hacia bfcache
+    window.addEventListener('pagehide', () => {
+      playAttemptId += 1;
+      clearInFlight();
+      if (retryTimer) {
+        clearTimeout(retryTimer);
+        retryTimer = null;
       }
-      ensurePlay();
     });
 
-    window.addEventListener('focus', ensurePlay);
+    // Volver desde bfcache (recarga/atrás en Safari): comprueba variante y relanza sin congelar
+    window.addEventListener('pageshow', (event) => {
+      playAttemptId += 1;
+      clearInFlight();
+      retryCount = 0;
+      if (event.persisted) {
+        syncHeroVariant(false);
+        if (heroVideo.readyState < 2) {
+          heroVideo.load();
+        }
+      }
+      ensurePlay(true);
+    });
+
+    window.addEventListener('focus', () => {
+      if (isHeroVisible()) ensurePlay();
+    });
 
     document.addEventListener('visibilitychange', () => {
       if (document.visibilityState === 'visible') {
-        ensurePlay();
+        retryCount = 0;
+        if (isHeroVisible()) ensurePlay();
+      } else {
+        playAttemptId += 1;
+        clearInFlight();
       }
     });
-
-    // Red de seguridad: primer gesto del usuario desbloquea reproducción (ej. Modo Bajo Consumo en iOS)
-    const unlockEvents = ['touchstart', 'pointerdown', 'click', 'keydown', 'scroll'];
-    const unlock = () => {
-      ensurePlay();
-      if (!heroVideo.paused) {
-        unlockEvents.forEach((ev) => window.removeEventListener(ev, unlock, true));
-      }
-    };
-    unlockEvents.forEach((ev) => window.addEventListener(ev, unlock, { capture: true, passive: true }));
 
     // Vigilante ligero: si está visible y parado sin motivo, relanzar
     window.setInterval(() => {
@@ -298,17 +351,88 @@
       }
     }, 1500);
 
-    // Solo marcar como no disponible si TODAS las fuentes fallan de verdad
-    const sources = heroVideo.querySelectorAll('source');
-    let failedSources = 0;
-    sources.forEach((src) => {
-      src.addEventListener('error', () => {
-        failedSources += 1;
-        if (failedSources >= sources.length) {
-          markVideoUnavailable();
-        }
+    // Solo marcar como no disponible si TODAS las fuentes activas fallan de verdad
+    const bindSourceErrorGuards = () => {
+      const sources = Array.from(heroVideo.querySelectorAll('source'));
+      if (!sources.length) return;
+      let failedSources = 0;
+      sources.forEach((src) => {
+        if (src.dataset.errBound === '1') return;
+        src.dataset.errBound = '1';
+        src.addEventListener('error', () => {
+          failedSources += 1;
+          if (failedSources >= sources.length) {
+            markVideoUnavailable();
+          }
+        });
       });
-    });
+    };
+
+    // Cambio dinámico limpio entre vídeo Móvil/Tablet (<=1024px) y Ordenador (>=1025px)
+    const heroDesktopMQ = window.matchMedia('(min-width: 1025px)');
+    const syncHeroVariant = (forceReload = false) => {
+      const targetMode = heroDesktopMQ.matches ? 'desktop' : 'mobile';
+      const hasSources = heroVideo.querySelectorAll('source').length > 0;
+      if (!forceReload && heroVideo.dataset.heroMode === targetMode && hasSources) {
+        return false;
+      }
+
+      const isDesktop = targetMode === 'desktop';
+      const mp4 = isDesktop ? heroVideo.dataset.desktopMp4 : heroVideo.dataset.mobileMp4;
+      const webm = isDesktop ? heroVideo.dataset.desktopWebm : heroVideo.dataset.mobileWebm;
+      if (!mp4 && !webm) return false;
+
+      heroVideo.dataset.heroMode = targetMode;
+      heroVideo.classList.remove('is-unavailable');
+      videoAvailable = false;
+      playAttemptId += 1;
+      clearInFlight();
+      retryCount = 0;
+      if (retryTimer) {
+        clearTimeout(retryTimer);
+        retryTimer = null;
+      }
+
+      heroVideo.pause();
+      heroVideo.width = isDesktop ? 1920 : 1080;
+      heroVideo.height = isDesktop ? 1080 : 1920;
+
+      heroVideo.innerHTML = '';
+      [
+        { src: mp4, type: 'video/mp4' },
+        { src: webm, type: 'video/webm' }
+      ].forEach((item) => {
+        if (!item.src) return;
+        const s = document.createElement('source');
+        s.src = item.src;
+        s.type = item.type;
+        heroVideo.appendChild(s);
+      });
+
+      bindSourceErrorGuards();
+      enforceHeroAttrs();
+      heroVideo.load();
+      ensurePlay(true);
+      return true;
+    };
+
+    const swapped = syncHeroVariant(false);
+    if (!swapped) {
+      bindSourceErrorGuards();
+      if (heroVideo.error) {
+        markVideoUnavailable();
+      } else if (heroVideo._initialPlayPromise && typeof heroVideo._initialPlayPromise.catch === 'function') {
+        heroVideo._initialPlayPromise.catch((err) => {
+          if (!err || err.name !== 'NotAllowedError') scheduleRetry();
+        });
+      }
+    }
+
+    if (typeof heroDesktopMQ.addEventListener === 'function') {
+      heroDesktopMQ.addEventListener('change', () => syncHeroVariant(true));
+    } else if (typeof heroDesktopMQ.addListener === 'function') {
+      heroDesktopMQ.addListener(() => syncHeroVariant(true));
+    }
 
     if (heroVideo.readyState >= 2) {
       markVideoAvailable();

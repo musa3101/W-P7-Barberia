@@ -197,7 +197,7 @@
     'faq.q3': 'Wie kann ich meinen Termin verschieben oder absagen?',
     'faq.a3': 'Du kannst deinen Termin direkt über deine Booksy-Bestätigung verwalten oder uns rechtzeitig Bescheid geben, damit wir das Zeitfenster für einen anderen Kunden freigeben können.',
     'faq.q4': 'Welche Zahlungsmethoden werden im Studio akzeptiert?',
-    'faq.a4': 'Wir akzeptieren Kartenzahlung, Bizum und Barzahlung direkt im Studio im Anschluss an deinen Termin.',
+    'faq.a4': 'Wir akzeptieren Kartenzahlung und Barzahlung direkt im Studio im Anschluss an deinen Termin.',
     'faq.q5': 'Wo genau befindet sich das Studio?',
     'faq.a5': 'Du findest uns in der Calle Miguel Ángel Riera, 2 (07004 Palma de Mallorca), nur wenige Minuten vom Zentrum entfernt. Oben stehen dir eine interaktive Karte und der direkte Link zu Google Maps zur Verfügung.',
     'faq.q6': 'Noch Fragen offen?',

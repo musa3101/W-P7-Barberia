@@ -197,7 +197,7 @@
     'faq.q3': 'How can I reschedule or cancel my appointment?',
     'faq.a3': 'You can manage it directly from your Booksy confirmation or let us know in advance so we can open that slot for another client.',
     'faq.q4': 'What payment methods do you accept at the studio?',
-    'faq.a4': 'We accept card, Bizum, and cash directly at the studio once your session is complete.',
+    'faq.a4': 'We accept card and cash directly at the studio once your session is complete.',
     'faq.q5': 'Where exactly is the studio located?',
     'faq.a5': 'We are at Calle Miguel Ángel Riera, 2 (07004 Palma de Mallorca), just minutes from the city center. You will find an interactive map and a direct Google Maps directions button above.',
     'faq.q6': 'Still have a question?',

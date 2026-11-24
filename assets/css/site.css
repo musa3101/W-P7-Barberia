@@ -873,10 +873,22 @@ a {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center center;
 }
 
 .hero-video {
   z-index: 1;
+  pointer-events: none;
+}
+
+/* Ocultar icono Play nativo de Safari iOS en Modo Bajo Consumo */
+.hero-video::-webkit-media-controls,
+.hero-video::-webkit-media-controls-panel,
+.hero-video::-webkit-media-controls-play-button,
+.hero-video::-webkit-media-controls-start-playback-button {
+  display: none !important;
+  -webkit-appearance: none;
+  opacity: 0;
 }
 
 .hero-video.is-unavailable {
@@ -884,7 +896,7 @@ a {
 }
 
 /* Viñetas elípticas curvas en azul profundo superior e inferior del Hero (solo móvil y tablet) */
-@media (max-width: 1024px) {
+@media (max-width: 1024.98px) {
   .hero-media::before,
   .hero-media::after {
     content: '';

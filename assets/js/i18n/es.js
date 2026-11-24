@@ -197,7 +197,7 @@
     'faq.q3': '¿Cómo puedo cambiar o cancelar mi cita?',
     'faq.a3': 'Puedes gestionarlo directamente desde tu confirmación de Booksy o avisándonos con antelación para que podamos liberar ese hueco para otro cliente.',
     'faq.q4': '¿Qué métodos de pago aceptáis en el estudio?',
-    'faq.a4': 'Aceptamos pago con tarjeta, Bizum y efectivo directamente en el estudio al finalizar tu servicio.',
+    'faq.a4': 'Aceptamos pago con tarjeta y efectivo directamente en el estudio al finalizar tu servicio.',
     'faq.q5': '¿Dónde está exactamente el estudio?',
     'faq.a5': 'Estamos en Calle Miguel Ángel Riera, 2 (07004 Palma de Mallorca), a pocos minutos del centro. Dispones de mapa interactivo y botón directo para abrir la ruta en Google Maps.',
     'faq.q6': '¿No encuentras lo que buscas?',

@@ -863,24 +863,31 @@
   }
 
   .tmc-details {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
     max-width: none;
-    gap: 24px;
+    padding-left: 56px;
+    gap: 22px;
+  }
+
+  .tmc-bio {
+    order: 1;
+    max-width: 36ch;
+    font-size: 0.9375rem;
+    line-height: 1.65;
   }
 
   .tmc-circle-cta {
-    width: 86px;
-    height: 86px;
+    order: 2;
+    width: 82px;
+    height: 82px;
+    align-self: flex-start;
   }
 
   .tmc-circle-arrow {
     width: 22px;
     height: 22px;
-  }
-
-  .tmc-bio {
-    max-width: 34ch;
-    font-size: 0.9375rem;
-    line-height: 1.65;
   }
 }
 
@@ -894,7 +901,7 @@
   .tmc-info {
     width: calc(100% - 328px);
     margin-left: -32px;
-    gap: 48px;
+    gap: 36px;
   }
 
   .tmc-name {
@@ -903,18 +910,19 @@
   }
 
   .tmc-details {
-    gap: 32px;
+    padding-left: 64px;
+    gap: 24px;
+  }
+
+  .tmc-bio {
+    max-width: 42ch;
+    font-size: 0.975rem;
+    line-height: 1.68;
   }
 
   .tmc-circle-cta {
     width: 86px;
     height: 86px;
-  }
-
-  .tmc-bio {
-    max-width: 36ch;
-    font-size: 0.9375rem;
-    line-height: 1.65;
   }
 }
 

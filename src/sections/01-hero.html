@@ -1,15 +1,18 @@
 <section id="inicio" class="hero" aria-label="P7 Barber Master Studio">
   <div class="hero-media">
     <picture class="hero-poster-picture">
-      <source srcset="./assets/video/hero-poster.avif" type="image/avif">
-      <source srcset="./assets/video/hero-poster.webp" type="image/webp">
+      <source media="(min-width: 1025px)" srcset="./assets/video/hero-poster-desktop.avif?v=20261124" type="image/avif">
+      <source media="(min-width: 1025px)" srcset="./assets/video/hero-poster-desktop.webp?v=20261124" type="image/webp">
+      <source media="(min-width: 1025px)" srcset="./assets/video/hero-poster-desktop.jpg?v=20261124" type="image/jpeg">
+      <source srcset="./assets/video/hero-poster-mobile.avif?v=20261124" type="image/avif">
+      <source srcset="./assets/video/hero-poster-mobile.webp?v=20261124" type="image/webp">
       <img
-        src="./assets/video/hero-poster.jpg"
+        src="./assets/video/hero-poster-mobile.jpg?v=20261124"
         alt="Interior de P7 Barber Master Studio en Palma de Mallorca"
         data-i18n-attr="alt:hero.posterAlt"
         class="hero-poster-media is-ken-burns"
-        width="1920"
-        height="1080"
+        width="1080"
+        height="1920"
         fetchpriority="high"
         decoding="async"
       >
@@ -26,15 +29,50 @@
       disablepictureinpicture
       disableremoteplayback
       preload="auto"
-      width="720"
-      height="1280"
+      width="1080"
+      height="1920"
       aria-hidden="true"
-      poster="./assets/video/hero-poster.jpg"
-    >
-      <!-- Vídeo vertical 9:16 activo también en desktop hasta disponer de versión 16:9 (MP4 primero para decodificación instantánea en Safari) -->
-      <source src="./assets/video/hero-9x16.mp4" type="video/mp4">
-      <source src="./assets/video/hero-9x16.webm" type="video/webm">
-    </video>
+      data-desktop-mp4="./assets/video/hero-ordenador.mp4?v=20261124"
+      data-desktop-webm="./assets/video/hero-ordenador.webm?v=20261124"
+      data-mobile-mp4="./assets/video/hero-movil-tablet.mp4?v=20261124"
+      data-mobile-webm="./assets/video/hero-movil-tablet.webm?v=20261124"
+    ></video>
+    <script>
+      (function () {
+        var v = document.getElementById('hero-video');
+        if (!v) return;
+        var isDesktop = window.matchMedia('(min-width: 1025px)').matches;
+        v.dataset.heroMode = isDesktop ? 'desktop' : 'mobile';
+        v.muted = true;
+        v.defaultMuted = true;
+        v.loop = true;
+        v.playsInline = true;
+        v.width = isDesktop ? 1920 : 1080;
+        v.height = isDesktop ? 1080 : 1920;
+        var list = isDesktop
+          ? [
+              { src: v.dataset.desktopMp4, type: 'video/mp4' },
+              { src: v.dataset.desktopWebm, type: 'video/webm' }
+            ]
+          : [
+              { src: v.dataset.mobileMp4, type: 'video/mp4' },
+              { src: v.dataset.mobileWebm, type: 'video/webm' }
+            ];
+        list.forEach(function (item) {
+          if (!item.src) return;
+          var s = document.createElement('source');
+          s.src = item.src;
+          s.type = item.type;
+          v.appendChild(s);
+        });
+        v.load();
+        var p = v.play();
+        if (p && typeof p.catch === 'function') {
+          v._initialPlayPromise = p;
+          p.catch(function () {});
+        }
+      })();
+    </script>
   </div>
 
   <!-- Bloque inferior centrado y limpio: título sencillo + botón Reservar cita con Liquid Glass -->
