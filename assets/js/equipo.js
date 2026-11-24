@@ -129,8 +129,12 @@ document.addEventListener('DOMContentLoaded', () => {
       btn.addEventListener('click', () => {
         stopAuto();
         if (typeof brandDialog.showModal === 'function') {
-          if (!brandDialog.open) brandDialog.showModal();
+          if (!brandDialog.open) {
+            window.P7ScrollLock?.lock();
+            brandDialog.showModal();
+          }
         } else {
+          window.P7ScrollLock?.lock();
           brandDialog.setAttribute('open', '');
         }
       });
@@ -142,6 +146,8 @@ document.addEventListener('DOMContentLoaded', () => {
           brandDialog.close();
         } else {
           brandDialog.removeAttribute('open');
+          window.P7ScrollLock?.unlock();
+          startAuto();
         }
       });
     }
@@ -153,6 +159,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     brandDialog.addEventListener('close', () => {
+      window.P7ScrollLock?.unlock();
       startAuto();
     });
   }

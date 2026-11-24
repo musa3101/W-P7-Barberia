@@ -858,8 +858,15 @@
       btn.addEventListener('click', () => {
         activeLegalKey = btn.getAttribute('data-legal') || 'aviso';
         renderLegalDoc(activeLegalKey);
-        legalDialog.showModal();
+        if (!legalDialog.open) {
+          window.P7ScrollLock?.lock();
+          legalDialog.showModal();
+        }
       });
+    });
+
+    legalDialog.addEventListener('close', () => {
+      window.P7ScrollLock?.unlock();
     });
 
     document.addEventListener('p7:langchange', () => {
