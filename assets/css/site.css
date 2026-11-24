@@ -1647,20 +1647,32 @@ dialog::backdrop {
   width: 44px;
   height: 44px;
   padding: 0;
-  border: 0;
-  background: transparent;
-  color: #C1091E;
+  border: 1.5px solid rgba(252, 209, 22, 0.82);
+  border-radius: 9999px;
+  background: rgba(10, 9, 9, 0.56);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.45);
+  color: #FCD116;
   cursor: pointer;
+  outline: none;
   -webkit-tap-highlight-color: transparent;
-  transition: transform 180ms ease, opacity 180ms ease;
+  transition: transform 180ms ease, background-color 180ms ease, border-color 180ms ease;
 }
 
 .lightbox-close:hover {
-  transform: scale(1.1);
+  transform: scale(1.08);
+  background: rgba(252, 209, 22, 0.14);
+  border-color: #FCD116;
 }
 
 .lightbox-close:active {
   transform: scale(0.92);
+}
+
+.lightbox-close:focus-visible {
+  outline: 2px solid #FCD116;
+  outline-offset: 3px;
 }
 
 .dialog-head {
