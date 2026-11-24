@@ -8,14 +8,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const slides = Array.from(carousel.querySelectorAll('.tmc-slide'));
   const dots = Array.from(carousel.querySelectorAll('[data-tmc-goto]'));
+  const countEl = document.getElementById('tmc-count');
   const prevBtns = Array.from(carousel.querySelectorAll('[data-tmc-prev]'));
   const nextBtns = Array.from(carousel.querySelectorAll('[data-tmc-next]'));
   if (slides.length < 2) return;
 
+  const pad = (num) => (num < 10 ? '0' + num : String(num));
   let current = 0;
   let timer = null;
   const INTERVAL_MS = 6500;
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  const updateCount = (index) => {
+    if (countEl) {
+      countEl.textContent = `${pad(index + 1)} / ${pad(slides.length)}`;
+    }
+  };
+  updateCount(0);
 
   const showSlide = (index) => {
     const next = (index + slides.length) % slides.length;
@@ -33,6 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
       dot.setAttribute('aria-selected', active ? 'true' : 'false');
     });
 
+    updateCount(next);
     current = next;
   };
 
@@ -108,4 +118,42 @@ document.addEventListener('DOMContentLoaded', () => {
   );
 
   startAuto();
+
+  // Mini modal "Marca personal" (ManuelCuts)
+  const brandDialog = document.getElementById('marca-personal-dialog');
+  const brandTriggers = Array.from(document.querySelectorAll('[data-brand-open]'));
+  if (brandDialog && brandTriggers.length) {
+    const closeBtn = brandDialog.querySelector('[data-brand-close]');
+
+    brandTriggers.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        stopAuto();
+        if (typeof brandDialog.showModal === 'function') {
+          if (!brandDialog.open) brandDialog.showModal();
+        } else {
+          brandDialog.setAttribute('open', '');
+        }
+      });
+    });
+
+    if (closeBtn) {
+      closeBtn.addEventListener('click', () => {
+        if (typeof brandDialog.close === 'function') {
+          brandDialog.close();
+        } else {
+          brandDialog.removeAttribute('open');
+        }
+      });
+    }
+
+    brandDialog.addEventListener('click', (e) => {
+      if (e.target === brandDialog && typeof brandDialog.close === 'function') {
+        brandDialog.close();
+      }
+    });
+
+    brandDialog.addEventListener('close', () => {
+      startAuto();
+    });
+  }
 });

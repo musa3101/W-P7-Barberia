@@ -34,7 +34,7 @@
   margin: 0;
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: clamp(2.15rem, 4vw, 3.5rem);
+  font-size: clamp(2.15rem, 4.2vw, 3.5rem);
   line-height: 1.06;
   letter-spacing: -0.02em;
   text-wrap: balance;
@@ -687,6 +687,137 @@
   animation: none;
 }
 
+/* Fila paralela de botones circulares (Instagram + Marca personal en ManuelCuts) */
+.tmc-cta-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  order: 2;
+}
+
+.tmc-circle-cta--brand {
+  padding: 0;
+  cursor: pointer;
+  color: #1A62D6;
+}
+
+.tmc-circle-arrow--blue {
+  color: #1A62D6;
+  pointer-events: none;
+}
+
+.tmc-circle-cta--brand:hover .tmc-circle-arrow--blue {
+  color: #3B82F6;
+}
+
+.tmc-circle-cta--brand:focus-visible {
+  outline: 2px solid #1A62D6;
+  outline-offset: 4px;
+}
+
+/* Mini ventanita modal editorial: Marca personal en desarrollo */
+.brand-dialog {
+  width: min(90vw, 410px);
+  max-width: 410px;
+  padding: 0;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 14px;
+  background-color: #0F0E0E;
+  color: var(--p7-snow, #FDFDFC);
+  box-shadow: 0 28px 72px rgba(0, 0, 0, 0.78);
+  overflow: hidden;
+}
+
+.brand-dialog[open] {
+  display: block;
+}
+
+.brand-dialog-accent {
+  height: 3px;
+  width: 100%;
+  background: linear-gradient(
+    90deg,
+    var(--p7-colombia-yellow, #FCD116) 0% 50%,
+    var(--p7-colombia-blue, #003893) 50% 75%,
+    var(--p7-colombia-red, #C1091E) 75% 100%
+  );
+}
+
+.brand-dialog-inner {
+  padding: 20px 24px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.brand-dialog-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.brand-dialog-kicker {
+  font-family: var(--font-accent);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #4D8BF5;
+}
+
+.brand-dialog-close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  margin-right: -8px;
+  padding: 0;
+  border: 0;
+  border-radius: 9999px;
+  background: transparent;
+  color: rgba(253, 253, 252, 0.78);
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: color 180ms ease, background-color 180ms ease, transform 160ms ease;
+}
+
+.brand-dialog-close:hover {
+  color: #FFFFFF;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.brand-dialog-close:active {
+  transform: scale(0.92);
+}
+
+.brand-dialog-close:focus-visible {
+  outline: 2px solid #1A62D6;
+  outline-offset: 2px;
+}
+
+.brand-dialog-title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(1.45rem, 4.5vw, 1.75rem);
+  font-weight: 700;
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  color: #FFFFFF;
+  text-wrap: balance;
+}
+
+.brand-dialog-body {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  line-height: 1.62;
+  color: var(--p7-bone, #E8E5DF);
+  text-wrap: pretty;
+}
+
 .tmc-bio {
   margin: 0;
   font-family: var(--font-sans);
@@ -696,7 +827,7 @@
   text-wrap: pretty;
 }
 
-/* Controles del carrusel: ‹  01  02  03  › */
+/* Controles minimalistas del carrusel: ‹  01 / 03  › (sin píldoras · flechas rojas) */
 .tmc-controls {
   margin-top: clamp(24px, 4vw, 38px);
   display: flex;
@@ -709,61 +840,42 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 44px;
-  height: 44px;
+  width: 40px;
+  height: 40px;
+  padding: 0;
   border-radius: 9999px;
-  border: 1px solid rgba(255, 255, 255, 0.14);
+  border: 0;
   background: transparent;
-  color: var(--p7-bone, #E8E5DF);
+  color: #C1091E;
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
-  transition: border-color 220ms ease, color 220ms ease, transform 200ms ease;
+  transition: color 200ms ease, transform 200ms ease;
 }
 
 .tmc-nav-btn:hover {
-  border-color: var(--p7-red, #C1091E);
-  color: var(--p7-snow, #FDFDFC);
+  color: #e0152d;
+  transform: scale(1.1);
 }
 
 .tmc-nav-btn:active {
-  transform: scale(0.94);
+  transform: scale(0.88);
 }
 
-.tmc-dots {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
+.tmc-nav-btn:focus-visible {
+  outline: 2px solid #C1091E;
+  outline-offset: 2px;
 }
 
-.tmc-dot {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 44px;
-  height: 44px;
-  padding: 0 10px;
-  border: 0;
-  border-radius: 9999px;
-  background: transparent;
+.tmc-count {
+  min-width: 72px;
+  text-align: center;
   font-family: var(--font-accent);
-  font-size: 0.75rem;
+  font-size: 0.8125rem;
   font-weight: 500;
-  letter-spacing: 0.14em;
-  color: rgba(253, 253, 252, 0.68);
-  cursor: pointer;
-  position: relative;
-  -webkit-tap-highlight-color: transparent;
-  transition: color 220ms ease, background-color 220ms ease;
-}
-
-.tmc-dot:hover {
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.08em;
   color: var(--p7-snow, #FDFDFC);
-}
-
-.tmc-dot.is-active {
-  color: var(--p7-snow, #FDFDFC);
-  background: rgba(193, 9, 30, 0.16);
-  box-shadow: inset 0 0 0 1px rgba(193, 9, 30, 0.6);
+  user-select: none;
 }
 
 /* Móvil (< 640px): título y bio centrados + círculo amarillo-rojo centrado debajo */
@@ -806,6 +918,7 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  gap: 8px;
   min-height: 44px;
   padding: 6px 4px;
   font-family: var(--font-accent);
@@ -818,6 +931,18 @@
   border-bottom: 1px solid #C1091E;
   -webkit-tap-highlight-color: transparent;
   transition: color 220ms ease, border-color 220ms ease;
+}
+
+.equipo-back-arrow {
+  color: var(--p7-red, #C1091E);
+  font-size: 0.95rem;
+  line-height: 1;
+  transition: transform 220ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.equipo-back-link:hover .equipo-back-arrow,
+.equipo-back-link:focus-visible .equipo-back-arrow {
+  transform: translateX(-3px);
 }
 
 .equipo-back-link:hover,
@@ -876,6 +1001,11 @@
     max-width: 36ch;
     font-size: 0.9375rem;
     line-height: 1.65;
+  }
+
+  .tmc-cta-row {
+    justify-content: flex-start;
+    gap: 28px;
   }
 
   .tmc-circle-cta {

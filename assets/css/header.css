@@ -363,11 +363,11 @@
 
 @media (min-width: 1024px) {
   .p7-menu-trigger .p7-align-icon {
-    color: var(--p7-hdr-cream);
+    color: var(--p7-hdr-red);
   }
 
   .p7-menu-trigger:hover .p7-align-icon {
-    color: var(--p7-hdr-gold);
+    color: #e0152d;
   }
 }
 

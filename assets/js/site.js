@@ -873,4 +873,246 @@
       syncToggleUI(!userPaused);
     });
   }
+
+  /* ==========================================================================
+     8. Animación editorial de títulos (21st.dev TextEffect Per Char — 1 vez)
+     ========================================================================== */
+  const initTitleTextEffect = () => {
+    const TITLE_SELECTOR = [
+      '.sobre-v2-h2',
+      '.trabajo-v2-h2',
+      '.showcase-title',
+      '.contacto-h2',
+      '.reserva-title',
+      '.mapa-title',
+      '.faq-heading',
+      '.equipo-h1'
+    ].join(', ');
+
+    const titles = Array.from(document.querySelectorAll(TITLE_SELECTOR));
+    if (!titles.length) return;
+
+    const prefersReduced =
+      window.matchMedia &&
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (prefersReduced) return;
+
+    const splitTitleIntoChars = (el) => {
+      const rawText = (el.textContent || '').replace(/\s+/g, ' ').trim();
+      if (!rawText) return 0;
+
+      el.setAttribute('aria-label', rawText);
+      const frag = document.createDocumentFragment();
+      const tokens = rawText.split(/(\s+)/);
+      let charIndex = 0;
+
+      tokens.forEach((token) => {
+        if (!token) return;
+        if (/^\s+$/.test(token)) {
+          frag.appendChild(document.createTextNode(' '));
+          return;
+        }
+        const wordSpan = document.createElement('span');
+        wordSpan.className = 'p7-te-word';
+        wordSpan.setAttribute('aria-hidden', 'true');
+
+        Array.from(token).forEach((ch) => {
+          const charSpan = document.createElement('span');
+          charSpan.className = 'p7-te-char';
+          charSpan.style.setProperty('--te-i', String(charIndex));
+          charSpan.textContent = ch;
+          wordSpan.appendChild(charSpan);
+          charIndex += 1;
+        });
+
+        frag.appendChild(wordSpan);
+      });
+
+      el.textContent = '';
+      el.appendChild(frag);
+      el.classList.add('p7-te-ready');
+      return charIndex;
+    };
+
+    const revealTitle = (el) => {
+      if (el.dataset.teAnimated === '1') return;
+      el.dataset.teAnimated = '1';
+      const totalChars = Number(el.dataset.teChars || '16');
+
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          el.classList.add('is-te-visible');
+          window.setTimeout(() => {
+            el.classList.add('is-te-done');
+          }, totalChars * 48 + 720);
+        });
+      });
+    };
+
+    const observer =
+      'IntersectionObserver' in window
+        ? new IntersectionObserver(
+            (entries, obs) => {
+              entries.forEach((entry) => {
+                if (!entry.isIntersecting) return;
+                revealTitle(entry.target);
+                obs.unobserve(entry.target);
+              });
+            },
+            { threshold: 0.18, rootMargin: '0px 0px -6% 0px' }
+          )
+        : null;
+
+    titles.forEach((el) => {
+      const count = splitTitleIntoChars(el);
+      el.dataset.teChars = String(count);
+
+      if (!observer) {
+        revealTitle(el);
+        return;
+      }
+
+      // Hero / título ya visible al cargar: se anima 1 sola vez al entrar
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight * 0.92 && rect.bottom > 0) {
+        revealTitle(el);
+      } else {
+        observer.observe(el);
+      }
+    });
+
+    // Compatibilidad total con cambio de idioma ES / EN / DE
+    document.addEventListener('p7:langchange', () => {
+      titles.forEach((el) => {
+        const cleanText = (el.textContent || '').replace(/\s+/g, ' ').trim();
+        if (!cleanText) return;
+        if (el.dataset.teAnimated === '1') {
+          el.setAttribute('aria-label', cleanText);
+          el.classList.remove('p7-te-ready', 'is-te-visible', 'is-te-done');
+        } else {
+          const count = splitTitleIntoChars(el);
+          el.dataset.teChars = String(count);
+        }
+      });
+    });
+  };
+
+  initTitleTextEffect();
+
+  /* ==========================================================================
+     9. Animación FlipText solo para el título Hero (21st.dev — 1 sola vez)
+     ========================================================================== */
+  const initHeroFlipText = () => {
+    const heroTitle = document.querySelector('.hero-simple-title');
+    if (!heroTitle) return;
+
+    const prefersReduced =
+      window.matchMedia &&
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (prefersReduced) return;
+
+    const splitHeroIntoFlipChars = (el) => {
+      const rawText = (el.textContent || '').replace(/\s+/g, ' ').trim();
+      if (!rawText) return 0;
+
+      el.setAttribute('aria-label', rawText);
+      const frag = document.createDocumentFragment();
+      const tokens = rawText.split(/(\s+)/);
+      let charIndex = 0;
+
+      tokens.forEach((token) => {
+        if (!token) return;
+        if (/^\s+$/.test(token)) {
+          frag.appendChild(document.createTextNode(' '));
+          return;
+        }
+        const wordSpan = document.createElement('span');
+        wordSpan.className = 'p7-flip-word';
+        wordSpan.setAttribute('aria-hidden', 'true');
+
+        Array.from(token).forEach((ch) => {
+          const charSpan = document.createElement('span');
+          charSpan.className = 'p7-flip-char';
+          charSpan.style.setProperty('--flip-i', String(charIndex));
+          charSpan.textContent = ch;
+          wordSpan.appendChild(charSpan);
+          charIndex += 1;
+        });
+
+        frag.appendChild(wordSpan);
+      });
+
+      el.textContent = '';
+      el.appendChild(frag);
+      el.classList.add('p7-flip-ready');
+      return charIndex;
+    };
+
+    const count = splitHeroIntoFlipChars(heroTitle);
+    heroTitle.dataset.flipAnimated = '1';
+
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        heroTitle.classList.add('is-flip-visible');
+        window.setTimeout(() => {
+          heroTitle.classList.add('is-flip-done');
+        }, count * 55 + 620);
+      });
+    });
+
+    // Mantener limpio y visible si el usuario cambia de idioma ES / EN / DE
+    document.addEventListener('p7:langchange', () => {
+      const cleanText = (heroTitle.textContent || '').replace(/\s+/g, ' ').trim();
+      if (!cleanText) return;
+      heroTitle.setAttribute('aria-label', cleanText);
+      heroTitle.classList.remove('p7-flip-ready', 'is-flip-visible', 'is-flip-done');
+    });
+  };
+
+  initHeroFlipText();
+
+  /* ==========================================================================
+     10. Animación secuencial de 5 estrellas en el panel «Reserva tu hora.»
+     ========================================================================== */
+  const initReservaStars = () => {
+    const starsWrap = document.querySelector('.reserva-proof-stars');
+    if (!starsWrap) return;
+
+    const prefersReduced =
+      window.matchMedia &&
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReduced) return;
+
+    starsWrap.classList.add('is-stars-ready');
+
+    const triggerStars = () => {
+      if (starsWrap.dataset.starsDone === '1') return;
+      starsWrap.dataset.starsDone = '1';
+      requestAnimationFrame(() => {
+        starsWrap.classList.add('is-stars-visible');
+      });
+    };
+
+    if (!('IntersectionObserver' in window)) {
+      triggerStars();
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries, obs) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          triggerStars();
+          obs.unobserve(entry.target);
+        });
+      },
+      { threshold: 0.45, rootMargin: '0px 0px -4% 0px' }
+    );
+
+    observer.observe(starsWrap);
+  };
+
+  initReservaStars();
 })();

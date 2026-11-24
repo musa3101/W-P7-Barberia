@@ -63,10 +63,10 @@
 .contacto-h2 {
   margin: 0;
   font-family: var(--font-display);
-  font-size: clamp(2.25rem, 4.6vw, 3.5rem);
+  font-size: clamp(2.15rem, 4.2vw, 3.5rem);
   font-weight: 700;
   line-height: 1.06;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.02em;
   color: #0A0909;
   text-wrap: balance;
 }
@@ -254,6 +254,7 @@
 /* Bloque 2: Reserva (Panel Carbono #0A0909 con doble bisel · Botones Liquid Glass intactos) */
 .reserva-panel {
   position: relative;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -269,9 +270,87 @@
     0 20px 44px -16px rgba(10, 9, 9, 0.36);
 }
 
+/* Detalles SVG artesanales del panel de reserva (Calendario + Tijeras) */
+.reserva-calendar-art {
+  position: absolute;
+  top: clamp(20px, 3vw, 32px);
+  right: clamp(18px, 3vw, 32px);
+  z-index: 1;
+  width: clamp(38px, 4.4vw, 48px);
+  height: clamp(38px, 4.4vw, 48px);
+  pointer-events: none;
+  opacity: 0.92;
+}
+
+.reserva-calendar-art svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.reserva-scissors-art {
+  position: absolute;
+  right: clamp(6px, 1.4vw, 18px);
+  bottom: 58px;
+  z-index: 0;
+  width: clamp(128px, 14vw, 162px);
+  pointer-events: none;
+  opacity: 0.46;
+}
+
+.reserva-scissors-art svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.reserva-top,
+.reserva-actions,
+.reserva-proof {
+  position: relative;
+  z-index: 1;
+}
+
 @media (max-width: 640px) {
   .reserva-panel {
     padding: 22px 18px;
+  }
+
+  .reserva-calendar-art {
+    top: 18px;
+    right: 16px;
+    width: 38px;
+    height: 38px;
+  }
+
+  .reserva-scissors-art {
+    right: 4px;
+    bottom: 62px;
+    width: 104px;
+    opacity: 0.34;
+  }
+
+  .reserva-top {
+    padding-right: 48px;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 899px) {
+  .reserva-scissors-art {
+    right: 10px;
+    bottom: 54px;
+    width: 132px;
+    opacity: 0.40;
+  }
+
+  .reserva-top {
+    padding-right: 56px;
+  }
+}
+
+@media (min-width: 900px) {
+  .reserva-top {
+    padding-right: 60px;
   }
 }
 
@@ -293,10 +372,10 @@
 .reserva-title {
   margin: 0;
   font-family: var(--font-display);
-  font-size: clamp(1.9rem, 3.6vw, 2.75rem);
+  font-size: clamp(1.9rem, 3.4vw, 2.75rem);
   font-weight: 700;
   line-height: 1.06;
-  letter-spacing: -0.025em;
+  letter-spacing: -0.02em;
   color: #FFFFFF;
   text-wrap: balance;
 }
@@ -393,9 +472,45 @@
 }
 
 .reserva-proof-stars {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
   color: var(--p7-colombia-yellow, #FCD116);
-  font-size: 0.78rem;
-  letter-spacing: 0.08em;
+  font-size: 0.82rem;
+  line-height: 1;
+}
+
+.reserva-star {
+  display: inline-block;
+}
+
+@keyframes p7ReservaStarPop {
+  0% {
+    opacity: 0.14;
+    transform: scale(0.5);
+    filter: drop-shadow(0 0 0 rgba(252, 209, 22, 0));
+  }
+  58% {
+    opacity: 1;
+    transform: scale(1.26);
+    filter: drop-shadow(0 0 7px rgba(252, 209, 22, 0.72));
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+    filter: drop-shadow(0 0 0 rgba(252, 209, 22, 0));
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .reserva-proof-stars.is-stars-ready .reserva-star {
+    opacity: 0.14;
+    transform: scale(0.5);
+  }
+
+  .reserva-proof-stars.is-stars-visible .reserva-star {
+    animation: p7ReservaStarPop 460ms cubic-bezier(0.22, 1, 0.36, 1) calc(var(--star-i, 0) * 135ms) forwards;
+  }
 }
 
 .reserva-proof-count {
@@ -434,11 +549,12 @@
 .mapa-title {
   margin: 0;
   font-family: var(--font-display);
-  font-size: clamp(2rem, 4.2vw, 3rem);
+  font-size: clamp(2.15rem, 4.2vw, 3.5rem);
   font-weight: 700;
-  line-height: 1.08;
+  line-height: 1.06;
   letter-spacing: -0.02em;
-  color: #f5f3ee;
+  color: #FFFFFF;
+  text-wrap: balance;
 }
 
 .mapa-frame-wrap {
@@ -513,11 +629,12 @@
 .faq-heading {
   margin: 0;
   font-family: var(--font-display);
-  font-size: clamp(2.1rem, 4.2vw, 3rem);
+  font-size: clamp(2.15rem, 4.2vw, 3.5rem);
   font-weight: 700;
-  line-height: 1.08;
+  line-height: 1.06;
   letter-spacing: -0.02em;
-  color: #f5f3ee;
+  color: #FFFFFF;
+  text-wrap: balance;
 }
 
 .faq-description {

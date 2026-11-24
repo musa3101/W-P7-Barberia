@@ -272,8 +272,67 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* ------------------------------------------------------------------------
-     3. Animación suave del título a la derecha (stc-in / stc-out)
+     3. Animación 3D FlipText (21st.dev, from="center") sincronizada con autoplay
      ------------------------------------------------------------------------ */
+  const graphemeSplitter =
+    typeof Intl === 'object' && typeof Intl.Segmenter === 'function'
+      ? new Intl.Segmenter(undefined, { granularity: 'grapheme' })
+      : null;
+
+  function splitGraphemes(word) {
+    if (!graphemeSplitter) return Array.from(word);
+    const out = [];
+    for (const seg of graphemeSplitter.segment(word)) out.push(seg.segment);
+    return out;
+  }
+
+  function buildFlipTitleElement(titleText) {
+    const el = document.createElement('div');
+    el.className = 'stc-title';
+    el.setAttribute('aria-label', titleText);
+
+    if (prefersReduced) {
+      el.textContent = titleText;
+      return el;
+    }
+
+    const words = titleText.trim().split(/\s+/).filter(Boolean);
+    const parsedWords = [];
+    let totalChars = 0;
+
+    words.forEach((word) => {
+      const chars = splitGraphemes(word);
+      parsedWords.push(chars);
+      totalChars += chars.length;
+    });
+
+    const centerIndex = Math.floor((totalChars - 1) / 2);
+    const line = document.createElement('span');
+    line.className = 'stc-flip-line';
+    line.setAttribute('aria-hidden', 'true');
+
+    let charIdx = 0;
+    parsedWords.forEach((chars, wordIdx) => {
+      if (wordIdx > 0) line.appendChild(document.createTextNode(' '));
+      const wordSpan = document.createElement('span');
+      wordSpan.className = 'stc-flip-word';
+
+      chars.forEach((ch) => {
+        const piece = document.createElement('span');
+        piece.className = 'stc-flip-piece';
+        piece.style.setProperty('--flip-order', String(Math.abs(centerIndex - charIdx)));
+        piece.textContent = ch;
+        wordSpan.appendChild(piece);
+        charIdx += 1;
+      });
+
+      line.appendChild(wordSpan);
+    });
+
+    el.appendChild(line);
+    return el;
+  }
+
   let titleCleanupTimer = null;
 
   function renderTitle(realIndex, isInitial = false) {
@@ -283,30 +342,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const titleText = getItemTitle(item);
 
-    if (isInitial) {
+    if (isInitial || prefersReduced) {
       titlesBox.innerHTML = '';
-      const el = document.createElement('div');
-      el.className = 'stc-title';
-      el.textContent = titleText;
-      titlesBox.appendChild(el);
+      titlesBox.appendChild(buildFlipTitleElement(titleText));
       return;
     }
 
     Array.from(titlesBox.children).forEach((child) => {
       child.setAttribute('data-out', '');
-      child.style.animation = `stc-out ${popSpring.ms}ms ${popSpring.easing} both`;
     });
 
-    const nextEl = document.createElement('div');
-    nextEl.className = 'stc-title';
-    nextEl.textContent = titleText;
-    nextEl.style.animation = `stc-in ${popSpring.ms}ms ${popSpring.easing} both`;
+    const nextEl = buildFlipTitleElement(titleText);
     titlesBox.appendChild(nextEl);
 
     if (titleCleanupTimer) clearTimeout(titleCleanupTimer);
     titleCleanupTimer = setTimeout(() => {
       Array.from(titlesBox.querySelectorAll('[data-out]')).forEach((old) => old.remove());
-    }, popSpring.ms + 40);
+    }, 300);
   }
 
   /* ------------------------------------------------------------------------

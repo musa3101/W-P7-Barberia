@@ -334,6 +334,49 @@ body {
   }
 }
 
+@keyframes stc-flip-in {
+  from {
+    opacity: 0;
+    transform: perspective(600px) rotateX(-90deg);
+  }
+  to {
+    opacity: 1;
+    transform: perspective(600px) rotateX(0deg);
+  }
+}
+
+@keyframes stc-flip-out {
+  from {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    opacity: 0;
+    transform: translate3d(0, -8px, 0);
+  }
+}
+
+.stc-flip-line {
+  display: inline-block;
+}
+
+.stc-flip-word {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.stc-flip-piece {
+  display: inline-block;
+  transform-origin: 50% 50% -0.5em;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  animation: stc-flip-in 680ms cubic-bezier(0.22, 1, 0.36, 1) calc(var(--flip-order, 0) * 38ms) both;
+}
+
+.stc-title[data-out] {
+  animation: stc-flip-out 260ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
 @keyframes stc-in {
   from {
     opacity: 0;
@@ -360,7 +403,7 @@ body {
   }
 }
 
-/* Controles inferiores flotantes */
+/* Controles inferiores flotantes limpios (sin píldora · flechas en rojo P7) */
 .stc-controls {
   position: absolute;
   bottom: 20px;
@@ -369,14 +412,11 @@ body {
   z-index: 5;
   display: flex;
   align-items: center;
-  gap: 12px;
-  padding: 4px 10px;
-  border-radius: 9999px;
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  -webkit-backdrop-filter: blur(10px);
-  backdrop-filter: blur(10px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+  gap: 14px;
+  padding: 4px 8px;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
 }
 
 @media (max-width: 640px) {
@@ -393,13 +433,14 @@ body {
   border: 0;
   border-radius: 9999px;
   background: none;
-  color: var(--gal-ink-100);
+  color: #C1091E;
   cursor: pointer;
   transition: opacity 200ms ease, transform 200ms ease, color 200ms ease;
 }
 
 .stc-btn:hover:not(:disabled) {
-  color: var(--p7-gold-300);
+  color: #e0152d;
+  transform: scale(1.1);
 }
 
 .stc-btn:disabled {
@@ -413,7 +454,7 @@ body {
 
 .stc-btn:focus-visible,
 .stc-dot:focus-visible {
-  outline: 2px solid var(--p7-gold-300);
+  outline: 2px solid #C1091E;
   outline-offset: 2px;
 }
 
@@ -790,6 +831,10 @@ body {
   white-space: nowrap;
 }
 
+.p7-back-pill svg {
+  color: #C1091E;
+}
+
 .p7-back-pill:hover {
   background: rgba(255, 255, 255, 0.06);
   border-color: #C1091E;
@@ -828,7 +873,8 @@ body {
     transition: none !important;
   }
 
-  .stc-title {
+  .stc-title,
+  .stc-flip-piece {
     animation: none !important;
   }
 
